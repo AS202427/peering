@@ -1,5 +1,7 @@
 # AS202427 Peering Config
 
+Pathvector peering config
+
 ## BGP Community Support
 
 ### Informational
