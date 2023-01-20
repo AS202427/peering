@@ -1,7 +1,5 @@
 # AS202427 Peering Config
 
-Pathvector peering config
-
 ## BGP Community Support
 
 ### Informational
@@ -63,9 +61,9 @@ Octets in the function field are the numeric country identifier defined by ISO 3
 | `202427:104:44570` | Learned from AS44570 - Route48.org Tunnel Broker |
 | `202427:104:50058` | Learned from AS50058 - August Internet Limited |
 | `202427:104:58057` | Learned from AS58057 - Securebit AG |
-| `202427:104:212271` | Learned from AS212271 - C1V |
+| `202427:104:62513` | Learned from AS62513 - GoCodeIT Inc |
+| `202427:104:212271` | Learned from AS212271 - Cinzia Tocci trading as C1V |
 | `202427:104:212895` | Learned from AS212895 - Johannes Ernst |
-
 ##### IX Routeserver
 
 | Community | Description |
