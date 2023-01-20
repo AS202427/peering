@@ -1,0 +1,188 @@
+peeringdb-api-key: [peeringdb-api-key]
+log-file: /var/log/bird.log
+local-communities:
+  - "202427:101:1"
+  - "202427:102:840"
+  - "202427:103:11"
+asn: 202427
+prefixes:
+  - 2a06:a005:28e0::/48 # EU-AS202427-ROUTE48-IXP
+  - 2a06:a005:28eb::/48 # EU-AS202427-ROUTE48-IXP
+  - 2a0a:6040:2700::/40 # EU-AS202427-CLOUDIE
+  - 2a0e:97c0:5b0::/44  # EU-AS202427-Securebit
+ #- 2a07:54c2:b00b::/48 # ::/b00b collective
+router-id: 185.44.83.22
+source6: 2a06:a005:28eb::1
+default-route: false
+
+peers:
+  iFog:
+    template: upstream
+    description: iFog Upstream
+    asn: 34927
+    neighbors:
+      - 2a0c:9a40:1005::1
+    local-pref: 120
+    listen6: 2a0c:9a40:1005::326
+    add-on-import:
+      - "202427:104:34927"
+
+  Route48:
+    template: upstream
+    description: Route48 Upstream
+    disabled: true
+    asn: 44570
+    neighbors:
+      - 2a06:a004:d0d7::1
+    local-pref: 110
+    multihop: true
+    listen6: 2a06:a004:d0d7::2
+    add-on-import:
+      - "202427:104:44570"
+    dont-announce:
+      - 2a0a:6040:2700::/40 # EU-AS202427-CLOUDIE
+      - 2a0e:97c0:5b0::/44  # EU-AS202427-Securebit
+      - 2a07:54c2:b00b::/48 # ::/b00b collective
+
+  pmacctd:
+    template: lg
+    description: pmacctd
+    asn: 202427
+    listen6: 127.0.0.1
+    neighbors:
+      - 127.0.0.2
+    neighbor-port: 180
+
+  qrator:
+    template: lg
+    description: Radar by Qrator
+    asn: 197068
+    neighbors:
+      - 178.248.237.29
+    multihop: true
+    listen4: 185.44.83.22
+    password: qrator
+
+  bgpTools:
+    template: lg
+    description: BGP.Tools Route Collector
+    asn: 212232
+    neighbors:
+      - 185.230.223.56
+    multihop: true
+    listen4: 185.44.83.22
+
+  HE Realtime:
+    template: lg
+    description: Hurricane Electric Route Collector
+    disabled: true
+    asn: 393338
+    neighbors:
+      - 2001:470:0:441::40
+    multihop: true
+    listen6: 2a0c:9a40:1072::419
+
+  core:
+    template: core
+    description: Core Router
+    asn: 202427
+    neighbors:
+      - 2a06:a005:28e1:101::1
+    listen6: 2a06:a005:28eb:101::1
+
+templates:
+  upstream:
+    allow-local-as: true
+    local-pref: 100
+    add-path-tx: true
+    add-path-rx: true
+    pre-import-filter: reject_route_leak_paths();
+    pre-import-accept: >
+     bgp_large_community.add((202427,101,2));
+     bgp_large_community.add((202427,102,840));
+     bgp_large_community.add((202427,103,11));
+    announce:
+      - "202427:101:5"
+    remove-all-communities: 202427
+    auto-as-set: true
+
+  routeserver:
+    local-pref: 200
+    add-path-tx: true
+    add-path-rx: true
+    pre-import-filter: reject_route_leak_paths();
+    pre-import-accept: >
+     bgp_large_community.add((202427,101,3));
+     bgp_large_community.add((202427,102,840));
+     bgp_large_community.add((202427,103,11));
+    announce:
+      - "202427:101:5"
+    remove-all-communities: 202427
+    import-limit6: 200000
+    enforce-first-as: false
+    enforce-peer-nexthop: false
+    filter-transit-asns: true
+    #filter-never-via-route-servers: true
+    auto-import-limits: false
+    auto-as-set: true
+
+  peer:
+    local-pref: 300
+    add-path-tx: true
+    add-path-rx: true
+    pre-import-filter: reject_route_leak_paths();
+    pre-import-accept: >
+     bgp_large_community.add((202427,101,4));
+     bgp_large_community.add((202427,102,840));
+     bgp_large_community.add((202427,103,11));
+    announce:
+      - "202427:101:5"
+    remove-all-communities: 202427
+    filter-irr: true
+    filter-transit-asns: true
+    auto-import-limits: true
+    auto-as-set: true
+
+  downstream:
+    local-pref: 400
+    add-path-tx: true
+    add-path-rx: true
+    pre-import-filter: reject_route_leak_paths();
+    pre-import-accept: >
+     bgp_large_community.add((202427,101,5));
+     bgp_large_community.add((202427,102,840));
+     bgp_large_community.add((202427,103,11));
+    announce:
+      - "202427:101:2"
+      - "202427:101:3"
+      - "202427:101:4"
+      - "202427:101:5"
+    remove-all-communities: 202427
+    allow-blackhole-community: true
+    filter-irr: true
+    filter-transit-asns: true
+    auto-import-limits: true
+    auto-as-set: true
+
+  lg:
+    mp-unicast-46: true
+    add-path-tx: true
+    announce:
+      - "202427:101:2"
+      - "202427:101:3"
+      - "202427:101:4"
+      - "202427:101:5"
+    receive-limit4: 0
+    receive-limit6: 0
+
+  core:
+    add-path-tx: true
+    add-path-rx: true
+    announce:
+      - "202427:101:2"
+      - "202427:101:3"
+      - "202427:101:4"
+      - "202427:101:5"
+    allow-blackhole-community: true
+    announce-default: true
+    allow-local-as: true
