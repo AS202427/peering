@@ -36,17 +36,17 @@ Octets in the function field are the numeric country identifier defined by ISO 3
 
 | Community | Description |
 | --------- | ----------- |
-| `202427:103:1` | Learned at core01.nue |
-| `202427:103:2` | Learned at ixp01.fra |
-| `202427:103:3` | Learned at ixp01.zhr |
-| `202427:103:4` | Learned at ixp02.zhr |
-| `202427:103:5` | Learned at ixp01.mil |
-| `202427:103:6` | Learned at ixp01.dus |
-| `202427:103:7` | Learned at ixp01.ams |
-| `202427:103:8` | Learned at ixp01.osl |
-| `202427:103:9` | Learned at ixp01.yvr |
-| `202427:103:10` | Learned at ixp01.yto |
-| `202427:103:11` | Learned at ixp01.fmt |
+| `202427:103:1` | Learned at Core01 Nuremberg, DE |
+| `202427:103:2` | Learned at Edge01 Frankfurt, DE |
+| `202427:103:3` | Learned at Edge01 Zurich, CH |
+| `202427:103:4` | Learned at Edge02 Zurich, CH |
+| `202427:103:5` | Learned at Edge01 Milan, IT |
+| `202427:103:6` | Learned at Edge01 Dusseldorf, DE |
+| `202427:103:7` | Learned at Edge01 Amsterdam, NL |
+| `202427:103:8` | Learned at Edge01 Oslo, NO |
+| `202427:103:9` | Learned at Edge01 Vancouver, CA |
+| `202427:103:10` | Learned at Edge01 Toronto, CA |
+| `202427:103:11` | Learned at Edge01 Fremont, US |
 
 #### Peer
 
@@ -93,6 +93,7 @@ Octets in the function field are the numeric country identifier defined by ISO 3
 | `202427:104:32934` | Learned from AS32934 - Meta Platforms, Inc. |
 | `202427:104:41732` | Learned from AS41732 - HostingFuze Network |
 | `202427:104:51019` | Learned from AS51019 - Kjartan Hrafnkelsson |
+| `202427:104:203069` | Learned from AS203069 - Thomas Riley Brown |
 
 #### IX
 Octets in the function field are the peeringdb id.
