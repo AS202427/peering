@@ -82,9 +82,9 @@ peers:
     multihop: true
     listen6: 2a0c:b640:13:48::1
 
-  core:
+  Core01 NUE:
     template: core
-    description: Core Router
+    description: Core01 Router - Nuremberg, Germany
     asn: 202427
     neighbors:
       - 2a06:a005:28e1:101::1
@@ -216,6 +216,8 @@ templates:
     receive-limit6: 0
 
   core:
+    prepends: 1
+    next-hop-self: true
     add-path-tx: true
     add-path-rx: true
     announce:
