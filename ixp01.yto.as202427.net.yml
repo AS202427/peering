@@ -96,9 +96,9 @@ peers:
     multihop: true
     listen6: 2a0c:9a40:1072::419
 
-  core:
+  Core01 NUE:
     template: core
-    description: Core Router
+    description: Core01 Router - Nuremberg, Germany
     asn: 202427
     neighbors:
       - 2a06:a005:28e1:101::1
@@ -118,6 +118,18 @@ peers:
       - "202427:105:4059"
     as-set: AS-ONIX-CONNECTED
 
+  AS112 ONIX:
+    template: peer
+    description: AS112 via ONIX
+    asn: 112
+    neighbors:
+      - 2001:504:125:e1::112
+    local-pref: 320
+    listen6: 2001:504:125:e1::c
+    add-on-import:
+      - "202427:104:112"
+      - "202427:105:4059"
+
   Kjartan Hrafnkelsson ONIX:
     template: peer
     description: Kjartan Hrafnkelsson via ONIX
@@ -128,6 +140,18 @@ peers:
     listen6: 2001:504:125:e1::c
     add-on-import:
       - "202427:104:51019"
+      - "202427:105:4059"
+
+  Thomas Riley Brown ONIX:
+    template: peer
+    description: Thomas Riley Brown via ONIX
+    asn: 203069
+    neighbors:
+      - 2001:504:125:e1::ad
+    local-pref: 320
+    listen6: 2001:504:125:e1::c
+    add-on-import:
+      - "202427:104:203069"
       - "202427:105:4059"
 
 templates:
@@ -216,6 +240,8 @@ templates:
     receive-limit6: 0
 
   core:
+    prepends: 1
+    next-hop-self: true
     add-path-tx: true
     add-path-rx: true
     announce:
