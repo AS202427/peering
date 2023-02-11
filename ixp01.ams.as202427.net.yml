@@ -95,9 +95,9 @@ peers:
     multihop: true
     listen6: 2a0c:9a40:1072::419
 
-  core:
+  Core01 NUE:
     template: core
-    description: Core Router
+    description: Core01 Router - Nuremberg, Germany
     asn: 202427
     neighbors:
       - 2a06:a005:28e1:101::1
@@ -115,7 +115,6 @@ peers:
     add-on-import:
       - "202427:104:56393"
       - "202427:105:3512"
-    as-set: AS56738
 
   SBG-IX Route Server:
     template: routeserver
@@ -155,7 +154,7 @@ peers:
     add-on-import:
       - "202427:104:32934"
       - "202427:105:3512"
-    #as-set: RADB::AS-FACEBOOK
+    as-set: AS-FACEBOOK
 
   AS112 SBG-IX:
     template: peer
@@ -269,6 +268,8 @@ templates:
     receive-limit6: 0
 
   core:
+    prepends: 1
+    next-hop-self: true
     add-path-tx: true
     add-path-rx: true
     announce:
