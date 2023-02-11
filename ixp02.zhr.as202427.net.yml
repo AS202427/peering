@@ -40,7 +40,7 @@ peers:
       - "202427:104:212895"
     as-set: RIPE::AS-ROUTE64
 
-  Hurricane Electric:
+  Hurricane Electric CH-IX:
     template: upstream
     description: Hurricane Electric LLC Upstream via CH-IX
     asn: 6939
@@ -108,9 +108,9 @@ peers:
     multihop: true
     listen6: 2a0c:9a40:1050::418
 
-  core:
+  Core01 NUE:
     template: core
-    description: Core Router
+    description: Core01 Router - Nuremberg, Germany
     asn: 202427
     neighbors:
       - 2a06:a005:28e1:101::1
@@ -168,6 +168,71 @@ peers:
     add-on-import:
       - "202427:104:24381"
       - "202427:105:3830"
+
+  Init7 CH-IX:
+    template: peer
+    description: Init7 via CH-IX
+    asn: 13030
+    neighbors:
+      - 2001:7f8:cc:333::177
+    local-pref: 320
+    listen6: 2001:7f8:cc:333::182
+    passive: true
+    add-on-import:
+      - "202427:104:13030"
+      - "202427:105:2365"
+
+  acdalis informatik CH-IX:
+    template: peer
+    description: acdalis informatik via CH-IX
+    asn: 28859
+    neighbors:
+      - 2001:7f8:cc:333::144
+    local-pref: 320
+    listen6: 2001:7f8:cc:333::182
+    passive: true
+    add-on-import:
+      - "202427:104:28859"
+      - "202427:105:2365"
+
+  Andreas Fries CH-IX:
+    template: peer
+    description: Andreas Fries via CH-IX
+    asn: 213126
+    neighbors:
+      - 2001:7f8:cc:333::148
+    local-pref: 320
+    listen6: 2001:7f8:cc:333::182
+    passive: true
+    add-on-import:
+      - "202427:104:213126"
+      - "202427:105:2365"
+
+  DATAWIRE AG CH-IX:
+    template: peer
+    description: DATAWIRE AG via CH-IX
+    asn: 48971
+    neighbors:
+      - 2001:7f8:cc:333::131
+    local-pref: 320
+    listen6: 2001:7f8:cc:333::182
+    passive: true
+    add-on-import:
+      - "202427:104:48971"
+      - "202427:105:2365"
+
+  Sam Aschwanden CH-IX:
+    template: peer
+    description: Sam Aschwanden via CH-IX
+    asn: 35202
+    neighbors:
+      - 2001:7f8:cc:333::143
+    local-pref: 320
+    listen6: 2001:7f8:cc:333::182
+    passive: true
+    add-on-import:
+      - "202427:104:35202"
+      - "202427:105:2365"
 
 templates:
   upstream:
@@ -255,6 +320,8 @@ templates:
     receive-limit6: 0
 
   core:
+    prepends: 1
+    next-hop-self: true
     add-path-tx: true
     add-path-rx: true
     announce:
