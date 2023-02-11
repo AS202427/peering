@@ -71,63 +71,63 @@ peers:
     multihop: true
     listen6: 2a03:4000:4d:fe1::1
 
-  IXP01 FRA:
+  Edge01 FRA:
     template: edge
-    description: IXP01 FRA - DE
+    description: Edge01 Router - Frankfurt, Germany
     asn: 202427
     neighbors:
       - 2a06:a005:28e2:101::1
     multihop: false
     listen6: 2a06:a005:28e1:101::1
 
-  IXP01 ZHR:
+  Edge01 ZHR:
     template: edge
-    description: IXP01 ZHR - CH
+    description: Edge01 Router - Zurich, Switzerland
     asn: 202427
     neighbors:
       - 2a06:a005:28e3:101::1
     multihop: false
     listen6: 2a06:a005:28e1:101::1
 
-  IXP02 ZHR:
+  Edge02 ZHR:
     template: edge
-    description: IXP02 ZHR - CH
+    description: Edge02 Router - Zurich, Switzerland
     asn: 202427
     neighbors:
       - 2a06:a005:28e4:101::1
     multihop: false
     listen6: 2a06:a005:28e1:101::1
 
-  IXP01 MIL:
+  Edge01 MIL:
     template: edge
-    description: IXP01 MIL - IT
+    description: Edge01 Router - Milan, Italy
     asn: 202427
     neighbors:
       - 2a06:a005:28e5:101::1
     multihop: false
     listen6: 2a06:a005:28e1:101::1
 
-  IXP01 DUS:
+  Edge01 DUS:
     template: edge
-    description: IXP01 DUS - DE
+    description: Edge01 Router - Dusseldorf, Germany
     asn: 202427
     neighbors:
       - 2a06:a005:28e6:101::1
     multihop: false
     listen6: 2a06:a005:28e1:101::1
 
-  IXP01 AMS:
+  Edge01 AMS:
     template: edge
-    description: IXP01 AMS - NL
+    description: Edge01 Router - Amsterdam, Netherlands
     asn: 202427
     neighbors:
       - 2a06:a005:28e7:101::1
     multihop: false
     listen6: 2a06:a005:28e1:101::1
 
-  IXP01 OSL:
+  Edge01 OSL:
     template: edge
-    description: IXP01 OSL - NO
+    description: Edge01 Router - Oslo, Norway
     disabled: true
     asn: 202427
     neighbors:
@@ -135,21 +135,30 @@ peers:
     multihop: false
     listen6: 2a06:a005:28e1:101::1
 
-  IXP01 YVR:
+  Edge01 YVR:
     template: edge
-    description: IXP01 YVR - CA
+    description: Edge01 Router - Vancouver, Canada
     asn: 202427
     neighbors:
       - 2a06:a005:28e9:101::1
     multihop: false
     listen6: 2a06:a005:28e1:101::1
 
-  IXP01 YTO:
+  Edge01 YTO:
     template: edge
-    description: IXP01 YTO - CA
+    description: Edge01 Router - Toronto, Canada
     asn: 202427
     neighbors:
       - 2a06:a005:28ea:101::1
+    multihop: false
+    listen6: 2a06:a005:28e1:101::1
+
+  Edge01 FMT:
+    template: edge
+    description: Edge01 Router - Fremont, US
+    asn: 202427
+    neighbors:
+      - 2a06:a005:28eb:101::1
     multihop: false
     listen6: 2a06:a005:28e1:101::1
 
@@ -239,6 +248,8 @@ templates:
     receive-limit6: 0
 
   core:
+    prepends: 1
+    next-hop-self: true
     add-path-tx: true
     add-path-rx: true
     announce:
@@ -251,15 +262,17 @@ templates:
     allow-local-as: true
 
   edge:
+    prepends: 1
     local-pref: 190
+    next-hop-self: true
     add-path-tx: true
     add-path-rx: true
     announce:
+      - "202427:101:2"
+      - "202427:101:3"
+      - "202427:101:4"
       - "202427:101:5"
-    enforce-first-as: false
-    enforce-peer-nexthop: false
     allow-blackhole-community: true
-    filter-rpki: false
     announce-default: true
     rr-client: true
     allow-local-as: true
