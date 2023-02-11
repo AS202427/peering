@@ -27,7 +27,7 @@ peers:
     add-on-import:
       - "202427:104:34927"
 
-  Johannes Ernst:
+  Johannes Ernst LocIX:
     template: upstream
     description: Johannes Ernst Upstream via LocIX
     disabled: false
@@ -41,7 +41,7 @@ peers:
       - "202427:105:2084"
     as-set: RIPE::AS-ROUTE64
 
-  Freetransit Project:
+  Freetransit Project FogIXP:
     template: upstream
     description: Freetransit Project Upstream via FogIXP
     asn: 41051
@@ -134,9 +134,9 @@ peers:
     multihop: true
     listen6: 2a0c:9a40:1::237
 
-  core:
+  Core01 NUE:
     template: core
-    description: Core Router
+    description: Core01 Router - Nuremberg, Germany
     asn: 202427
     neighbors:
       - 2a06:a005:28e1:101::1
@@ -206,6 +206,18 @@ peers:
       - "202427:104:112"
       - "202427:105:2084"
 
+  Thomas Riley Brown FogIXP:
+    template: peer
+    description: Thomas Riley Brown via FogIXP
+    asn: 203069
+    neighbors:
+      - 2001:7f8:ca:1:0:20:3069:1
+    local-pref: 320
+    listen6: 2001:7f8:13::a520:2427:1
+    add-on-import:
+      - "202427:104:203069"
+      - "202427:105:3756"
+
   Cloudflare NL-IX:
     template: peer
     description: Cloudflare via NL-IX
@@ -218,6 +230,19 @@ peers:
     listen6: 2001:7f8:13::a520:2427:1
     add-on-import:
       - "202427:104:13335"
+      - "202427:105:64"
+
+  Meta NL-IX:
+    template: peer
+    description: Meta via NL-IX
+    asn: 32934
+    neighbors:
+      - 2001:7f8:13::a503:2934:1
+      - 2001:7f8:13::a503:2934:2 
+    local-pref: 320
+    listen6: 2001:7f8:13::a520:2427:1
+    add-on-import:
+      - "202427:104:32934"
       - "202427:105:64"
 
 templates:
@@ -306,6 +331,8 @@ templates:
     receive-limit6: 0
 
   core:
+    prepends: 1
+    next-hop-self: true
     add-path-tx: true
     add-path-rx: true
     announce:
