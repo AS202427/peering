@@ -90,6 +90,7 @@ Octets in the function field are the numeric country identifier defined by ISO 3
 | --------- | ----------- |
 | `202427:104:112` | Learned from AS112 - AS112 Project |
 | `202427:104:13335` | Learned from AS13335 - Cloudflare, Inc. |
+| `202427:104:15169` | Learned from AS15169 - Google LLC |
 | `202427:104:32934` | Learned from AS32934 - Meta Platforms, Inc. |
 | `202427:104:41732` | Learned from AS41732 - HostingFuze Network |
 | `202427:104:51019` | Learned from AS51019 - Kjartan Hrafnkelsson |
