@@ -1,4 +1,4 @@
-peeringdb-api-key: [peeringdb-api-key]
+peeringdb-api-key: ${edge01-osl-peeringdb-api-key}
 log-file: /var/log/bird.log
 local-communities:
   - "202427:101:1"
@@ -9,7 +9,6 @@ prefixes:
   - 2a06:a005:28e0::/48 # EU-AS202427-ROUTE48-IXP
   - 2a06:a005:28e8::/48 # EU-AS202427-ROUTE48-IXP
   - 2a0a:6040:2700::/40 # EU-AS202427-CLOUDIE
-  - 2a0e:97c0:5b0::/44  # EU-AS202427-Securebit
  #- 2a07:54c2:b00b::/48 # ::/b00b collective
 router-id: 193.148.248.163
 source6: 2a06:a005:28e8::1

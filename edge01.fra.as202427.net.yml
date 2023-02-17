@@ -1,4 +1,4 @@
-peeringdb-api-key: [peeringdb-api-key]
+peeringdb-api-key: ${edge01-fra-peeringdb-api-key}
 log-file: /var/log/bird.log
 local-communities:
   - "202427:101:1"
@@ -9,7 +9,6 @@ prefixes:
   - 2a06:a005:28e0::/48 # EU-AS202427-ROUTE48-IXP
   - 2a06:a005:28e2::/48 # EU-AS202427-ROUTE48-IXP
   - 2a0a:6040:2700::/40 # EU-AS202427-CLOUDIE
-  - 2a0e:97c0:5b0::/44  # EU-AS202427-Securebit
  #- 2a07:54c2:b00b::/48 # ::/b00b collective
 router-id: 193.148.249.102
 source6: 2a06:a005:28e2::1
@@ -78,23 +77,6 @@ peers:
       - "202427:104:6939"
       - "202427:105:64"
     as-set: RADB::AS-HURRICANEV6
-
-  Route48:
-    template: upstream
-    description: Route48 Upstream
-    disabled: false
-    asn: 44570
-    neighbors:
-      - 2a06:a003:511d::1
-    local-pref: 110
-    multihop: true
-    listen6: 2a06:a003:511d::2
-    add-on-import:
-      - "202427:104:44570"
-    dont-announce:
-      - 2a0a:6040:2700::/40 # EU-AS202427-CLOUDIE
-      - 2a0e:97c0:5b0::/44  # EU-AS202427-Securebit
-      - 2a07:54c2:b00b::/48 # ::/b00b collective
 
   pmacctd:
     template: lg
@@ -244,6 +226,7 @@ peers:
     add-on-import:
       - "202427:104:32934"
       - "202427:105:64"
+    as-set: AS-FACEBOOK
 
 templates:
   upstream:
