@@ -1,4 +1,4 @@
-peeringdb-api-key: [peeringdb-api-key]
+peeringdb-api-key: ${edge02-zhr-peeringdb-api-key}
 log-file: /var/log/bird.log
 local-communities:
   - "202427:101:1"
@@ -27,19 +27,6 @@ peers:
     add-on-import:
       - "202427:104:34927"
 
-  Johannes Ernst:
-    template: upstream
-    description: Johannes Ernst Upstream via tunnel
-    disabled: false
-    asn: 212895
-    neighbors:
-      - 2a0f:5707:abf8:152::1
-    local-pref: 110
-    listen6: 2a0f:5707:abf8:152::2
-    add-on-import:
-      - "202427:104:212895"
-    as-set: RIPE::AS-ROUTE64
-
   Hurricane Electric CH-IX:
     template: upstream
     description: Hurricane Electric LLC Upstream via CH-IX
@@ -52,23 +39,6 @@ peers:
       - "202427:104:6939"
       - "202427:105:2365"
     as-set: RADB::AS-HURRICANEV6
-
-  Route48:
-    template: upstream
-    description: Route48 Upstream
-    disabled: false
-    asn: 44570
-    neighbors:
-      - 2a06:a000:9023::1
-    local-pref: 110
-    multihop: true
-    listen6: 2a06:a000:9023::2
-    add-on-import:
-      - "202427:104:44570"
-    dont-announce:
-      - 2a0a:6040:2700::/40 # EU-AS202427-CLOUDIE
-      - 2a0e:97c0:5b0::/44  # EU-AS202427-Securebit
-      - 2a07:54c2:b00b::/48 # ::/b00b collective
 
   pmacctd:
     template: lg
@@ -233,6 +203,19 @@ peers:
     add-on-import:
       - "202427:104:35202"
       - "202427:105:2365"
+
+  Google CH-IX:
+    template: peer
+    description: Google via CH-IX
+    asn: 15169
+    neighbors:
+      - 2001:7f8:cc:333::169
+    local-pref: 320
+    listen6: 2001:7f8:cc:333::182
+    add-on-import:
+      - "202427:104:15169"
+      - "202427:105:2365"
+    password: ${edge02-zhr-google-chix-password}
 
 templates:
   upstream:
