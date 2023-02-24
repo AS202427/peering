@@ -15,23 +15,6 @@ source6: 2a06:a005:28e1::1
 default-route: false
 
 peers:
-  Route48:
-    template: upstream
-    description: Route48 Upstream
-    disabled: false
-    asn: 44570
-    neighbors:
-      - 2a06:a003:5115::1
-    local-pref: 110
-    multihop: true
-    listen6: 2a06:a003:5115::2
-    add-on-import:
-      - "202427:104:44570"
-    dont-announce:
-      - 2a0a:6040:2700::/40 # EU-AS202427-CLOUDIE
-      - 2a0e:97c0:5b0::/44  # EU-AS202427-Securebit
-      - 2a07:54c2:b00b::/48 # ::/b00b collective
-
   pmacctd:
     template: lg
     description: pmacctd
@@ -63,7 +46,7 @@ peers:
   HE Realtime:
     template: lg
     description: Hurricane Electric Route Collector
-    disabled: true
+    disabled: false
     asn: 393338
     neighbors:
       - 2001:470:0:441::10
@@ -163,7 +146,7 @@ peers:
 
 templates:
   upstream:
-    allow-local-as: true
+#    allow-local-as: true
     local-pref: 100
     add-path-tx: true
     add-path-rx: true
@@ -173,6 +156,7 @@ templates:
      bgp_large_community.add((202427,102,276));
      bgp_large_community.add((202427,103,1));
     announce:
+      - "202427:101:1"
       - "202427:101:5"
     remove-all-communities: 202427
     auto-as-set: true
@@ -187,13 +171,14 @@ templates:
      bgp_large_community.add((202427,102,276));
      bgp_large_community.add((202427,103,1));
     announce:
+      - "202427:101:1"
       - "202427:101:5"
     remove-all-communities: 202427
     import-limit6: 200000
     enforce-first-as: false
     enforce-peer-nexthop: false
     filter-transit-asns: true
-    #filter-never-via-route-servers: true
+#    filter-never-via-route-servers: true
     auto-import-limits: false
     auto-as-set: true
 
@@ -207,9 +192,11 @@ templates:
      bgp_large_community.add((202427,102,276));
      bgp_large_community.add((202427,103,1));
     announce:
+      - "202427:101:1"
       - "202427:101:5"
     remove-all-communities: 202427
-    filter-irr: true
+#    filter-irr: true
+    strict-rpki: true
     filter-transit-asns: true
     auto-import-limits: true
     auto-as-set: true
@@ -224,6 +211,7 @@ templates:
      bgp_large_community.add((202427,102,276));
      bgp_large_community.add((202427,103,1));
     announce:
+      - "202427:101:1"
       - "202427:101:2"
       - "202427:101:3"
       - "202427:101:4"
@@ -231,6 +219,7 @@ templates:
     remove-all-communities: 202427
     allow-blackhole-community: true
     filter-irr: true
+    strict-rpki: true
     filter-transit-asns: true
     auto-import-limits: true
     auto-as-set: true
@@ -239,6 +228,7 @@ templates:
     mp-unicast-46: true
     add-path-tx: true
     announce:
+      - "202427:101:1"
       - "202427:101:2"
       - "202427:101:3"
       - "202427:101:4"
@@ -252,12 +242,10 @@ templates:
     add-path-tx: true
     add-path-rx: true
     announce:
-      - "202427:101:2"
       - "202427:101:3"
       - "202427:101:4"
       - "202427:101:5"
     allow-blackhole-community: true
-    announce-default: true
     allow-local-as: true
 
   edge:
@@ -267,11 +255,10 @@ templates:
     add-path-tx: true
     add-path-rx: true
     announce:
-      - "202427:101:2"
+      - "202427:101:1"
       - "202427:101:3"
       - "202427:101:4"
       - "202427:101:5"
     allow-blackhole-community: true
-    announce-default: true
     rr-client: true
     allow-local-as: true
