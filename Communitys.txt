@@ -32,7 +32,6 @@
 202427:104:34872,Learned from (Transit) AS34872 - Servperso Systems
 202427:104:41051,Learned from (Transit) AS41051 - Freetransit Project (Openfactory GmbH)
 202427:104:44570,Learned from (Transit) AS44570 - Route48.org Tunnel Broker
-202427:104:50058,Learned from (Transit) AS50058 - August Internet Limited
 202427:104:58057,Learned from (Transit) AS58057 - Securebit AG
 202427:104:62513,Learned from (Transit) AS62513 - GoCodeIT Inc
 202427:104:212271,Learned from (Transit) AS212271 - Cinzia Tocci trading as C1V

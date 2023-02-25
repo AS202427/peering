@@ -6,9 +6,10 @@ local-communities:
   - "202427:103:10"
 asn: 202427
 prefixes:
-  - 2a06:a005:28e0::/48 # EU-AS202427-ROUTE48-IXP
-  - 2a06:a005:28ea::/48 # EU-AS202427-ROUTE48-IXP
-  - 2a0a:6040:2700::/40 # EU-AS202427-CLOUDIE
+  - 2a06:a005:28e0::/48 # AS202427-BACKBONE-NETWORK
+  - 2a06:a005:28ea::/48 # AS202427-BACKBONE-NETWORK
+  - 2a0a:6040:27a0::/43 # CA-AS202427
+  - 2a0a:6040:27e0::/43 # EU-AS202427
  #- 2a07:54c2:b00b::/48 # ::/b00b collective
 router-id: 104.167.228.27
 source6: 2a06:a005:28ea::1
