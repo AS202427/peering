@@ -26,6 +26,7 @@ peers:
     listen6: 2a0c:9a40:1072::419
     add-on-import:
       - "202427:104:34927"
+    #pre-import-accept: ifog_local_pref()
 
   Hurricane Electric Frys-IX:
     template: upstream
@@ -68,23 +69,23 @@ peers:
     multihop: true
     listen4: 193.148.248.163
 
-  HE Realtime:
-    template: lg
-    description: Hurricane Electric Route Collector
-    disabled: false
-    asn: 393338
-    neighbors:
-      - 2001:470:0:441::40
-    multihop: true
-    listen6: 2a0c:9a40:1072::419
+#  HE Realtime:
+#    template: lg
+#    description: Hurricane Electric Route Collector
+#    disabled: false
+#    asn: 393338
+#    neighbors:
+#      - 2001:470:0:441::40
+#    multihop: true
+#    listen6: 2a0c:9a40:1072::419
 
   Core01 NUE:
     template: core
     description: Core01 Router - Nuremberg, Germany
     asn: 202427
     neighbors:
-      - 2a06:a005:28e1:101::1
-    listen6: 2a06:a005:28e7:101::1
+      - 2a06:a005:2901:100::1
+    listen6: 2a06:a005:2907:100::1
 
   Edge01 FRA:
     template: core
@@ -187,7 +188,7 @@ templates:
     local-pref: 100
     add-path-tx: true
     add-path-rx: true
-    pre-import-filter: reject_route_leak_paths();
+    pre-import-filter: reject_paths();
     pre-import-accept: >
      bgp_large_community.add((202427,101,2));
      bgp_large_community.add((202427,102,528));
@@ -196,13 +197,14 @@ templates:
       - "202427:101:1"
       - "202427:101:5"
     remove-all-communities: 202427
+    filter-max-prefix: false
     auto-as-set: true
 
   routeserver:
     local-pref: 200
     add-path-tx: true
     add-path-rx: true
-    pre-import-filter: reject_route_leak_paths();
+    pre-import-filter: reject_paths();
     pre-import-accept: >
      bgp_large_community.add((202427,101,3));
      bgp_large_community.add((202427,102,528));
@@ -211,9 +213,9 @@ templates:
       - "202427:101:1"
       - "202427:101:5"
     remove-all-communities: 202427
-    import-limit6: 200000
     enforce-first-as: false
     enforce-peer-nexthop: false
+    filter-max-prefix: false
     filter-transit-asns: true
 #    filter-never-via-route-servers: true
     auto-import-limits: false
@@ -223,7 +225,7 @@ templates:
     local-pref: 300
     add-path-tx: true
     add-path-rx: true
-    pre-import-filter: reject_route_leak_paths();
+    pre-import-filter: reject_paths();
     pre-import-accept: >
      bgp_large_community.add((202427,101,4));
      bgp_large_community.add((202427,102,528));
@@ -242,7 +244,7 @@ templates:
     local-pref: 400
     add-path-tx: true
     add-path-rx: true
-    pre-import-filter: reject_route_leak_paths();
+    pre-import-filter: reject_paths();
     pre-import-accept: >
      bgp_large_community.add((202427,101,5));
      bgp_large_community.add((202427,102,528));

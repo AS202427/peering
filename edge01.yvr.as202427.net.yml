@@ -56,23 +56,23 @@ peers:
     multihop: true
     listen4: 23.154.81.124
 
-  HE Realtime:
-    template: lg
-    description: Hurricane Electric Route Collector
-    disabled: true
-    asn: 393338
-    neighbors:
-      - 2001:470:0:441::40
-    multihop: false
-    listen6: 2602:fed2:fb0:89::1
+#  HE Realtime:
+#    template: lg
+#    description: Hurricane Electric Route Collector
+#    disabled: true
+#    asn: 393338
+#    neighbors:
+#      - 2001:470:0:441::40
+#    multihop: false
+#    listen6: 2602:fed2:fb0:89::1
 
   Core01 NUE:
     template: core
     description: Core01 Router - Nuremberg, Germany
     asn: 202427
     neighbors:
-      - 2a06:a005:28e1:101::1
-    listen6: 2a06:a005:28e9:101::1
+      - 2a06:a005:2901:100::1
+    listen6: 2a06:a005:2909:100::1
 
   UNMETERED Exchange Route Server:
     template: routeserver
@@ -95,9 +95,9 @@ peers:
     disabled: true
     asn: 24381
     neighbors:
-      - 2407:c280:ee:33::1
+      - 2a0e:8f01:1000:33::1
     local-pref: 220
-    listen6: 2407:c280:ee:33::102
+    listen6: 2a0e:8f01:1000:33::102
     add-on-import:
       - "202427:104:24381"
       - "202427:105:3836"
@@ -121,7 +121,7 @@ templates:
     local-pref: 100
     add-path-tx: true
     add-path-rx: true
-    pre-import-filter: reject_route_leak_paths();
+    pre-import-filter: reject_paths();
     pre-import-accept: >
      bgp_large_community.add((202427,101,2));
      bgp_large_community.add((202427,102,124));
@@ -130,13 +130,14 @@ templates:
       - "202427:101:1"
       - "202427:101:5"
     remove-all-communities: 202427
+    filter-max-prefix: false
     auto-as-set: true
 
   routeserver:
     local-pref: 200
     add-path-tx: true
     add-path-rx: true
-    pre-import-filter: reject_route_leak_paths();
+    pre-import-filter: reject_paths();
     pre-import-accept: >
      bgp_large_community.add((202427,101,3));
      bgp_large_community.add((202427,102,124));
@@ -145,9 +146,9 @@ templates:
       - "202427:101:1"
       - "202427:101:5"
     remove-all-communities: 202427
-    import-limit6: 200000
     enforce-first-as: false
     enforce-peer-nexthop: false
+    filter-max-prefix: false
     filter-transit-asns: true
 #    filter-never-via-route-servers: true
     auto-import-limits: false
@@ -157,7 +158,7 @@ templates:
     local-pref: 300
     add-path-tx: true
     add-path-rx: true
-    pre-import-filter: reject_route_leak_paths();
+    pre-import-filter: reject_paths();
     pre-import-accept: >
      bgp_large_community.add((202427,101,4));
      bgp_large_community.add((202427,102,124));
@@ -176,7 +177,7 @@ templates:
     local-pref: 400
     add-path-tx: true
     add-path-rx: true
-    pre-import-filter: reject_route_leak_paths();
+    pre-import-filter: reject_paths();
     pre-import-accept: >
      bgp_large_community.add((202427,101,5));
      bgp_large_community.add((202427,102,124));

@@ -95,6 +95,7 @@ Octets in the function field are the numeric country identifier defined by ISO 3
 | `202427:104:41732` | Learned from AS41732 - HostingFuze Network |
 | `202427:104:51019` | Learned from AS51019 - Kjartan Hrafnkelsson |
 | `202427:104:203069` | Learned from AS203069 - Thomas Riley Brown |
+| `202427:104:211380` | Learned from AS211380 - Simulhost Limited |
 
 #### IX
 Octets in the function field are the peeringdb id.

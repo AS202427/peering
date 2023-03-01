@@ -58,6 +58,7 @@
 202427:104:41732,Learned from (Peer) AS41732 - HostingFuze Network
 202427:104:51019,Learned from (Peer) AS51019 - Kjartan Hrafnkelsson
 202427:104:203069,Learned from (Peer) AS203069 - Thomas Riley Brown
+202427:104:211380,Learned from (Peer) AS211380 - Simulhost Limited
 # Peer
 202427:104:nnn,Learned from (Peer) AS$0
 # IX

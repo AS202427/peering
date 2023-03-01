@@ -70,23 +70,23 @@ peers:
     multihop: true
     listen4: 193.148.250.168
 
-  HE Realtime:
-    template: lg
-    description: Hurricane Electric Route Collector
-    disabled: false
-    asn: 393338
-    neighbors:
-      - 2001:470:0:441::20
-    multihop: true
-    listen6: 2a06:a005:28e4::1
+#  HE Realtime:
+#    template: lg
+#    description: Hurricane Electric Route Collector
+#    disabled: false
+#    asn: 393338
+#    neighbors:
+#      - 2001:470:0:441::20
+#    multihop: true
+#    listen6: 2a06:a005:28e4::1
 
   Core01 NUE:
     template: core
     description: Core01 Router - Nuremberg, Germany
     asn: 202427
     neighbors:
-      - 2a06:a005:28e1:101::1
-    listen6: 2a06:a005:28e4:101::1
+      - 2a06:a005:2901:100::1
+    listen6: 2a06:a005:2904:100::1
 
   Edge01 FRA:
     template: core
@@ -117,42 +117,42 @@ peers:
       - "202427:104:212100"
       - "202427:105:2365"
 
-  IXPcat VAD01 Route Server:
-    template: routeserver
-    description: IXPcat LI VAD Route Server
-    disabled: true
-    asn: 49459
-    neighbors:
-      - 2001:7f8:d0:4c49::c133:1
-    local-pref: 210
-    listen6: 2001:7f8:d0:4c49::3:16bb:1
-    add-on-import:
-      - "202427:104:49459"
-      - "202427:105:2728"
-    as-set: RIPE::AS-IXPS
+#  IXPcat VAD01 Route Server:
+#    template: routeserver
+#    description: IXPcat LI VAD Route Server
+#    disabled: true
+#    asn: 49459
+#    neighbors:
+#      - 2001:7f8:d0:4c49::c133:1
+#    local-pref: 210
+#    listen6: 2001:7f8:d0:4c49::3:16bb:1
+#    add-on-import:
+#      - "202427:104:49459"
+#      - "202427:105:2728"
+#    as-set: RIPE::AS-IXPS
 
-  IXPcat LON01 Route Server:
-    template: routeserver
-    description: IXPcat UK LON Route Server
-    disabled: true
-    asn: 49459
-    neighbors:
-      - 2001:7f8:d0:4742::c133:1
-    local-pref: 210
-    listen6: 2001:7f8:d0:4742::3:16bb:1
-    add-on-import:
-      - "202427:104:49459"
-      - "202427:105:2704"
-    as-set: RIPE::AS-IXPS
+#  IXPcat LON01 Route Server:
+#    template: routeserver
+#    description: IXPcat UK LON Route Server
+#    disabled: true
+#    asn: 49459
+#    neighbors:
+#      - 2001:7f8:d0:4742::c133:1
+#    local-pref: 210
+#    listen6: 2001:7f8:d0:4742::3:16bb:1
+#    add-on-import:
+#      - "202427:104:49459"
+#      - "202427:105:2704"
+#    as-set: RIPE::AS-IXPS
 
   BGP.Exchange Route Server:
     template: routeserver
     description: BGP.Exchange Zurich Route Server
     asn: 24381
     neighbors:
-      - 2407:c280:ee:25::1
+      -  2a0e:8f01:1000:25::1
     local-pref: 220
-    listen6: 2407:c280:ee:25::10a
+    listen6: 2a0e:8f01:1000:25::109
     add-on-import:
       - "202427:104:24381"
       - "202427:105:3830"
@@ -242,7 +242,7 @@ templates:
     local-pref: 100
     add-path-tx: true
     add-path-rx: true
-    pre-import-filter: reject_route_leak_paths();
+    pre-import-filter: reject_paths();
     pre-import-accept: >
      bgp_large_community.add((202427,101,2));
      bgp_large_community.add((202427,102,756));
@@ -251,13 +251,14 @@ templates:
       - "202427:101:1"
       - "202427:101:5"
     remove-all-communities: 202427
+    filter-max-prefix: false
     auto-as-set: true
 
   routeserver:
     local-pref: 200
     add-path-tx: true
     add-path-rx: true
-    pre-import-filter: reject_route_leak_paths();
+    pre-import-filter: reject_paths();
     pre-import-accept: >
      bgp_large_community.add((202427,101,3));
      bgp_large_community.add((202427,102,756));
@@ -266,9 +267,9 @@ templates:
       - "202427:101:1"
       - "202427:101:5"
     remove-all-communities: 202427
-    import-limit6: 200000
     enforce-first-as: false
     enforce-peer-nexthop: false
+    filter-max-prefix: false
     filter-transit-asns: true
 #    filter-never-via-route-servers: true
     auto-import-limits: false
@@ -278,7 +279,7 @@ templates:
     local-pref: 300
     add-path-tx: true
     add-path-rx: true
-    pre-import-filter: reject_route_leak_paths();
+    pre-import-filter: reject_paths();
     pre-import-accept: >
      bgp_large_community.add((202427,101,4));
      bgp_large_community.add((202427,102,756));
@@ -297,7 +298,7 @@ templates:
     local-pref: 400
     add-path-tx: true
     add-path-rx: true
-    pre-import-filter: reject_route_leak_paths();
+    pre-import-filter: reject_paths();
     pre-import-accept: >
      bgp_large_community.add((202427,101,5));
      bgp_large_community.add((202427,102,756));
