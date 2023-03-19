@@ -59,6 +59,7 @@
 202427:104:51019,Learned from (Peer) AS51019 - Kjartan Hrafnkelsson
 202427:104:203069,Learned from (Peer) AS203069 - Thomas Riley Brown
 202427:104:211380,Learned from (Peer) AS211380 - Simulhost Limited
+202427:104:714,Learned from (Peer) AS714 - Apple Inc.
 # Peer
 202427:104:nnn,Learned from (Peer) AS$0
 # IX

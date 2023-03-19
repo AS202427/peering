@@ -38,6 +38,15 @@ peers:
       - 127.0.0.2
     neighbor-port: 180
 
+#  sfacctd:
+#    template: lg
+#    description: sfacctd
+#    asn: 202427
+#    listen6: 127.0.0.1
+#    neighbors:
+#      - 127.0.0.3
+#    neighbor-port: 180
+
   qrator:
     template: lg
     description: Radar by Qrator
@@ -72,8 +81,80 @@ peers:
     description: Core01 Router - Nuremberg, Germany
     asn: 202427
     neighbors:
-      - 2a06:a005:2901:100::1
-    listen6: 2a06:a005:2908:100::1
+      - 2a06:a005:2ef1::1
+    listen6: 2a06:a005:2ef8::1
+
+  Edge01 FRA:
+    template: core
+    description: Edge01 Router - Frankfurt, Germany
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2ef2::1
+    listen6: 2a06:a005:2ef8::1
+
+  Edge01 ZHR:
+    template: core
+    description: Edge01 Router - Zurich, Switzerland
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2ef3::1
+    listen6: 2a06:a005:2ef8::1
+
+  Edge02 ZHR:
+    template: core
+    description: Edge02 Router - Zurich, Switzerland
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2ef4::1
+    listen6: 2a06:a005:2ef8::1
+
+  Edge01 MIL:
+    template: core
+    description: Edge01 Router - Milan, Italy
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2ef5::1
+    listen6: 2a06:a005:2ef8::1
+
+  Edge01 DUS:
+    template: core
+    description: Edge01 Router - Dusseldorf, Germany
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2ef6::1
+    listen6: 2a06:a005:2ef8::1
+
+  Edge01 AMS:
+    template: core
+    description: Edge01 Router - Amsterdam, Netherlands
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2ef7::1
+    listen6: 2a06:a005:2ef8::1
+
+  Edge01 YVR:
+    template: core
+    description: Edge01 Router - Vancouver, Canada
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2ef9::1
+    listen6: 2a06:a005:2ef8::1
+
+  Edge01 YTO:
+    template: core
+    description: Edge01 Router - Toronto, Canada
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2efa::1
+    listen6: 2a06:a005:2ef8::1
+
+  Edge01 FMT:
+    template: core
+    description: Edge01 Router - Fremont, US
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2efb::1
+    listen6: 2a06:a005:2ef8::1
 
 templates:
   upstream:
@@ -91,6 +172,7 @@ templates:
       - "202427:101:5"
     remove-all-communities: 202427
     filter-max-prefix: false
+    import-limit6: 2000000000
     auto-as-set: true
 
   routeserver:
@@ -109,6 +191,7 @@ templates:
     enforce-first-as: false
     enforce-peer-nexthop: false
     filter-max-prefix: false
+    import-limit6: 2000000000
     filter-transit-asns: true
 #    filter-never-via-route-servers: true
     auto-import-limits: false
@@ -127,8 +210,8 @@ templates:
       - "202427:101:1"
       - "202427:101:5"
     remove-all-communities: 202427
-#    filter-irr: true
-    strict-rpki: true
+    filter-irr: true
+#    strict-rpki: true
     filter-transit-asns: true
     auto-import-limits: true
     auto-as-set: true
