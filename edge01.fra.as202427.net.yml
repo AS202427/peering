@@ -438,8 +438,7 @@ templates:
       - "202427:101:1"
       - "202427:101:5"
     remove-all-communities: 202427
-    filter-max-prefix: false
-    import-limit6: 99999999
+    import-limit-violation: warn
     auto-as-set: true
 
   routeserver:
@@ -457,11 +456,9 @@ templates:
     remove-all-communities: 202427
     enforce-first-as: false
     enforce-peer-nexthop: false
-    filter-max-prefix: false
-    import-limit6: 99999999
+    import-limit-violation: warn
     filter-transit-asns: true
 #    filter-never-via-route-servers: true
-    auto-import-limits: false
     auto-as-set: true
 
   peer:

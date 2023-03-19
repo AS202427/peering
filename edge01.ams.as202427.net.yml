@@ -298,7 +298,7 @@ templates:
     enforce-peer-nexthop: false
     import-limit-violation: warn
     filter-transit-asns: true
-    filter-never-via-route-servers: true
+#    filter-never-via-route-servers: true
     auto-as-set: true
 
   peer:
