@@ -260,4 +260,4 @@ templates:
       - "202427:101:5"
     allow-blackhole-community: true
     rr-client: true
-    allow-local-as: tru
+    allow-local-as: true
