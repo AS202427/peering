@@ -105,29 +105,29 @@ peers:
       - 2a06:a005:2902::1
     listen6: 2a06:a005:2904::1
 
-  Edge01 ZHR:
-    template: core
-    description: Edge01 Router - Zurich, Switzerland
-    asn: 202427
-    neighbors:
-      - 2a06:a005:2ef3::1
-    listen6: 2a06:a005:2ef4::1
-
-  Edge01 MIL:
-    template: core
-    description: Edge01 Router - Milan, Italy
-    asn: 202427
-    neighbors:
-      - 2a06:a005:2ef5::1
-    listen6: 2a06:a005:2ef4::1
-
-  Edge01 DUS:
-    template: core
-    description: Edge01 Router - Dusseldorf, Germany
-    asn: 202427
-    neighbors:
-      - 2a06:a005:2ef6::1
-    listen6: 2a06:a005:2ef4::1
+#  Edge01 ZHR:
+#    template: core
+#    description: Edge01 Router - Zurich, Switzerland
+#    asn: 202427
+#    neighbors:
+#      - 2a06:a005:2ef3::1
+#    listen6: 2a06:a005:2ef4::1
+#
+#  Edge01 MIL:
+#    template: core
+#    description: Edge01 Router - Milan, Italy
+#    asn: 202427
+#    neighbors:
+#      - 2a06:a005:2ef5::1
+#    listen6: 2a06:a005:2ef4::1
+#
+#  Edge01 DUS:
+#    template: core
+#    description: Edge01 Router - Dusseldorf, Germany
+#    asn: 202427
+#    neighbors:
+#      - 2a06:a005:2ef6::1
+#    listen6: 2a06:a005:2ef4::1
 
   Edge01 AMS:
     template: core
@@ -146,29 +146,29 @@ peers:
 #      - 2a06:a005:2ef8::1
 #    listen6: 2a06:a005:2ef4::1
 
-  Edge01 YVR:
-    template: core
-    description: Edge01 Router - Vancouver, Canada
-    asn: 202427
-    neighbors:
-      - 2a06:a005:2ef9::1
-    listen6: 2a06:a005:2ef4::1
-
-  Edge01 YTO:
-    template: core
-    description: Edge01 Router - Toronto, Canada
-    asn: 202427
-    neighbors:
-      - 2a06:a005:2efa::1
-    listen6: 2a06:a005:2ef4::1
-
-  Edge01 FMT:
-    template: core
-    description: Edge01 Router - Fremont, US
-    asn: 202427
-    neighbors:
-      - 2a06:a005:2efb::1
-    listen6: 2a06:a005:2ef4::1
+#  Edge01 YVR:
+#    template: core
+#    description: Edge01 Router - Vancouver, Canada
+#    asn: 202427
+#    neighbors:
+#      - 2a06:a005:2ef9::1
+#    listen6: 2a06:a005:2ef4::1
+#
+#  Edge01 YTO:
+#    template: core
+#    description: Edge01 Router - Toronto, Canada
+#    asn: 202427
+#    neighbors:
+#      - 2a06:a005:2efa::1
+#    listen6: 2a06:a005:2ef4::1
+#
+#  Edge01 FMT:
+#    template: core
+#    description: Edge01 Router - Fremont, US
+#    asn: 202427
+#    neighbors:
+#      - 2a06:a005:2efb::1
+#    listen6: 2a06:a005:2ef4::1
 
   CH-IX Route Server:
     template: routeserver
@@ -307,7 +307,7 @@ templates:
     local-pref: 100
     add-path-tx: true
     add-path-rx: true
-    pre-import-filter: reject_paths();
+    #    pre-import-filter: reject_paths();
     pre-import-accept: >
      bgp_large_community.add((202427,101,2));
      bgp_large_community.add((202427,102,756));
@@ -316,14 +316,14 @@ templates:
       - "202427:101:1"
       - "202427:101:5"
     remove-all-communities: 202427
-    import-limit-violation: warn
+    filter-max-prefix: false
     auto-as-set: true
 
   routeserver:
     local-pref: 200
     add-path-tx: true
     add-path-rx: true
-    pre-import-filter: reject_paths();
+    #    pre-import-filter: reject_paths();
     pre-import-accept: >
      bgp_large_community.add((202427,101,3));
      bgp_large_community.add((202427,102,756));
@@ -334,7 +334,7 @@ templates:
     remove-all-communities: 202427
     enforce-first-as: false
     enforce-peer-nexthop: false
-    import-limit-violation: warn
+    filter-max-prefix: false
     filter-transit-asns: true
 #    filter-never-via-route-servers: true
     auto-as-set: true
@@ -343,7 +343,7 @@ templates:
     local-pref: 300
     add-path-tx: true
     add-path-rx: true
-    pre-import-filter: reject_paths();
+    #    pre-import-filter: reject_paths();
     pre-import-accept: >
      bgp_large_community.add((202427,101,4));
      bgp_large_community.add((202427,102,756));
@@ -362,7 +362,7 @@ templates:
     local-pref: 400
     add-path-tx: true
     add-path-rx: true
-    pre-import-filter: reject_paths();
+    #    pre-import-filter: reject_paths();
     pre-import-accept: >
      bgp_large_community.add((202427,101,5));
      bgp_large_community.add((202427,102,756));
@@ -404,4 +404,4 @@ templates:
       - "202427:101:4"
       - "202427:101:5"
     allow-blackhole-community: true
-    allow-local-as: true
+    allow-local-as:

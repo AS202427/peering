@@ -42,17 +42,17 @@ peers:
       - "202427:105:2084"
     as-set: RIPE::AS-ROUTE64
 
-  Freetransit Project FogIXP:
-    template: upstream
-    description: Freetransit Project Upstream via FogIXP
-    asn: 41051
-    neighbors:
-      - 2001:7f8:ca:1::22
-    local-pref: 130
-    listen6: 2001:7f8:ca:1::168
-    add-on-import:
-      - "202427:104:41051"
-      - "202427:105:3756"
+#  Freetransit Project FogIXP:
+#    template: upstream
+#    description: Freetransit Project Upstream via FogIXP
+#    asn: 41051
+#    neighbors:
+#      - 2001:7f8:ca:1::22
+#    local-pref: 130
+#    listen6: 2001:7f8:ca:1::168
+#    add-on-import:
+#      - "202427:104:41051"
+#      - "202427:105:3756"
 
   Hurricane Electric LocIX:
     template: upstream
@@ -135,13 +135,13 @@ peers:
       - 2a06:a005:2ef1::1
     listen6: 2a06:a005:2ef2::1
 
-  Edge01 ZHR:
-    template: core
-    description: Edge01 Router - Zurich, Switzerland
-    asn: 202427
-    neighbors:
-      - 2a06:a005:2ef3::1
-    listen6: 2a06:a005:2ef2::1
+#  Edge01 ZHR:
+#    template: core
+#    description: Edge01 Router - Zurich, Switzerland
+#    asn: 202427
+#    neighbors:
+#      - 2a06:a005:2ef3::1
+#    listen6: 2a06:a005:2ef2::1
 
   Edge02 ZHR:
     template: core
@@ -151,21 +151,21 @@ peers:
       - 2a06:a005:2904::1
     listen6: 2a06:a005:2902::1
 
-  Edge01 MIL:
-    template: core
-    description: Edge01 Router - Milan, Italy
-    asn: 202427
-    neighbors:
-      - 2a06:a005:2ef5::1
-    listen6: 2a06:a005:2ef2::1
-
-  Edge01 DUS:
-    template: core
-    description: Edge01 Router - Dusseldorf, Germany
-    asn: 202427
-    neighbors:
-      - 2a06:a005:2ef6::1
-    listen6: 2a06:a005:2ef2::1
+#  Edge01 MIL:
+#    template: core
+#    description: Edge01 Router - Milan, Italy
+#    asn: 202427
+#    neighbors:
+#      - 2a06:a005:2ef5::1
+#    listen6: 2a06:a005:2ef2::1
+#
+#  Edge01 DUS:
+#    template: core
+#    description: Edge01 Router - Dusseldorf, Germany
+#    asn: 202427
+#    neighbors:
+#      - 2a06:a005:2ef6::1
+#    listen6: 2a06:a005:2ef2::1
 
   Edge01 AMS:
     template: core
@@ -184,29 +184,29 @@ peers:
 #      - 2a06:a005:2ef8::1
 #    listen6: 2a06:a005:2ef2::1
 
-  Edge01 YVR:
-    template: core
-    description: Edge01 Router - Vancouver, Canada
-    asn: 202427
-    neighbors:
-      - 2a06:a005:2ef9::1
-    listen6: 2a06:a005:2ef2::1
-
-  Edge01 YTO:
-    template: core
-    description: Edge01 Router - Toronto, Canada
-    asn: 202427
-    neighbors:
-      - 2a06:a005:2efa::1
-    listen6: 2a06:a005:2ef2::1
-
-  Edge01 FMT:
-    template: core
-    description: Edge01 Router - Fremont, US
-    asn: 202427
-    neighbors:
-      - 2a06:a005:2efb::1
-    listen6: 2a06:a005:2ef2::1
+#  Edge01 YVR:
+#    template: core
+#    description: Edge01 Router - Vancouver, Canada
+#    asn: 202427
+#    neighbors:
+#      - 2a06:a005:2ef9::1
+#    listen6: 2a06:a005:2ef2::1
+#
+#  Edge01 YTO:
+#    template: core
+#    description: Edge01 Router - Toronto, Canada
+#    asn: 202427
+#    neighbors:
+#      - 2a06:a005:2efa::1
+#    listen6: 2a06:a005:2ef2::1
+#
+#  Edge01 FMT:
+#    template: core
+#    description: Edge01 Router - Fremont, US
+#    asn: 202427
+#    neighbors:
+#      - 2a06:a005:2efb::1
+#    listen6: 2a06:a005:2ef2::1
 
   FogIXP Route Server:
     template: routeserver
@@ -429,7 +429,7 @@ templates:
     local-pref: 100
     add-path-tx: true
     add-path-rx: true
-    pre-import-filter: reject_paths();
+    #    pre-import-filter: reject_paths();
     pre-import-accept: >
      bgp_large_community.add((202427,101,2));
      bgp_large_community.add((202427,102,276));
@@ -438,14 +438,14 @@ templates:
       - "202427:101:1"
       - "202427:101:5"
     remove-all-communities: 202427
-    import-limit-violation: warn
+    filter-max-prefix: false
     auto-as-set: true
 
   routeserver:
     local-pref: 200
     add-path-tx: true
     add-path-rx: true
-    pre-import-filter: reject_paths();
+    #    pre-import-filter: reject_paths();
     pre-import-accept: >
      bgp_large_community.add((202427,101,3));
      bgp_large_community.add((202427,102,276));
@@ -456,7 +456,7 @@ templates:
     remove-all-communities: 202427
     enforce-first-as: false
     enforce-peer-nexthop: false
-    import-limit-violation: warn
+    filter-max-prefix: false
     filter-transit-asns: true
 #    filter-never-via-route-servers: true
     auto-as-set: true
@@ -465,7 +465,7 @@ templates:
     local-pref: 300
     add-path-tx: true
     add-path-rx: true
-    pre-import-filter: reject_paths();
+    #    pre-import-filter: reject_paths();
     pre-import-accept: >
      bgp_large_community.add((202427,101,4));
      bgp_large_community.add((202427,102,276));
@@ -484,7 +484,7 @@ templates:
     local-pref: 400
     add-path-tx: true
     add-path-rx: true
-    pre-import-filter: reject_paths();
+    #    pre-import-filter: reject_paths();
     pre-import-accept: >
      bgp_large_community.add((202427,101,5));
      bgp_large_community.add((202427,102,276));
