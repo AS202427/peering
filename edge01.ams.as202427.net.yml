@@ -183,6 +183,7 @@ peers:
       - "202427:105:3512"
 
   SBG-IX Route Server:
+    disabled: true
     template: routeserver
     description: SBG-IX Route Server
     asn: 56738
@@ -264,6 +265,7 @@ peers:
     as-set: AS-FROOT
 
   AS112 SBG-IX:
+    disabled: true
     template: peer
     description: AS112 via SBG-IX
     asn: 112
@@ -277,6 +279,7 @@ peers:
       - "202427:105:4058"
 
   HostingFuze Network SBG-IX:
+    disabled: true
     template: peer
     description: HostingFuze Network via SBG-IX
     asn: 41732
