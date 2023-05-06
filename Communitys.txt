@@ -63,6 +63,11 @@
 202427:104:208328,Learned from (Peer) AS208328 - Luigi Labate
 202427:104:32590,Learned from (Peer) AS32590 - Valve Corporation
 202427:104:30132,Learned from (Peer) AS30132 - ISC F-ROOT AMS1
+202427:104:13030,Learned from (Peer) AS13030 - Init7
+202427:104:28859,Learned from (Peer) AS28859 - acdalis informatik
+202427:104:213126,Learned from (Peer) AS213126 - Andreas Fries
+202427:104:48971,Learned from (Peer) AS48971 - DATAWIRE AG
+202427:104:35202,Learned from (Peer) AS35202 - Sam Aschwanden
 # Peer
 202427:104:nnn,Learned from (Peer) AS$0
 # IX
@@ -86,4 +91,4 @@
 202427:105:3836,Learned at (IX) BGP.Exchange - Toronto
 202427:105:3844,Learned at (IX) BGP.Exchange - Dusseldorf
 202427:105:4058,Learned at (IX) SBG-IX
-202427:105:4059,Learned at (I
+202427:105:4059,Le
