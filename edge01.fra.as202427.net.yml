@@ -35,7 +35,7 @@ peers:
     asn: 212895
     neighbors:
       - 2001:7f8:f2:e1:0:a521:2895:1
-    local-pref: 120
+    local-pref: 130
     listen6: 2001:7f8:f2:e1:0:20:2427:1
     add-on-import:
       - "202427:104:212895"

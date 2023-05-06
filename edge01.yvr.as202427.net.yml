@@ -21,7 +21,7 @@ peers:
     asn: 6939
     neighbors:
       - 2602:ffb1:200:0:192:34:27:6
-    local-pref: 120
+    local-pref: 130
     listen6: 2602:ffb1:200:0:192:34:27:97
     add-on-import:
       - "202427:104:6939"
