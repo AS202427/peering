@@ -309,6 +309,18 @@ peers:
       - "202427:104:48646"
       - "202427:105:2365"
 
+  Raphael Peters CH-IX:
+    template: peer
+    description: Raphael Peters via CH-IX
+    asn: 207968
+    neighbors:
+      - 2001:7f8:cc:333::157
+    local-pref: 320
+    listen6: 2001:7f8:cc:333::182
+    add-on-import:
+      - "202427:104:207968"
+      - "202427:105:2365"
+
 templates:
   upstream:
 #    allow-local-as: true
