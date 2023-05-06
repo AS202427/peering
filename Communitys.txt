@@ -70,6 +70,7 @@
 202427:104:35202,Learned from (Peer) AS35202 - Sam Aschwanden
 202427:104:48646,Learned from (Peer) AS48646 - Stefan Dunkel
 202427:104:207968,Learned from (Peer) AS207968 - Raphael Peters
+202427:104:9044,Learned from (Peer) AS9044 - BSE Software GmbH / SolNet
 # Peer
 202427:104:nnn,Learned from (Peer) AS$0
 # IX
