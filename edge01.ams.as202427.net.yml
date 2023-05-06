@@ -250,6 +250,19 @@ peers:
       - "202427:105:3512"
     as-set: RADB::AS-VALVE
 
+  ISC F-ROOT AMS1 Frys-IX:
+    template: peer
+    description: ISC F-ROOT AMS1 via Frys-IX
+    asn: 30132
+    neighbors:
+      - 2001:7f8:10f::75b4:147
+    local-pref: 320
+    listen6: 2001:7f8:10f::3:16bb:205
+    add-on-import:
+      - "202427:104:30132"
+      - "202427:105:3512"
+    as-set: AS-FROOT
+
   AS112 SBG-IX:
     template: peer
     description: AS112 via SBG-IX
