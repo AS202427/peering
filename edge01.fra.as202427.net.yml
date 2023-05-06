@@ -272,6 +272,18 @@ peers:
       - "202427:104:112"
       - "202427:105:2084"
 
+  Luigi Labate LocIX:
+    template: peer
+    description: Luigi Labate via LocIX
+    asn: 208328
+    neighbors:
+      - 2001:7f8:f2:e1:a5:20:8328:1
+    local-pref: 320
+    listen6: 2001:7f8:f2:e1:0:20:2427:1
+    add-on-import:
+      - "202427:104:208328"
+      - "202427:105:2084"
+
 #  Dominik Pohl LocIX:
 #    template: peer
 #    description: Dominik Pohl via LocIX
