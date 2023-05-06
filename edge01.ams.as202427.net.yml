@@ -237,6 +237,19 @@ peers:
       - "202427:105:3512"
     as-set: AS-GOOGLE
 
+  Valve Frys-IX:
+    template: peer
+    description: Valve via Frys-IX
+    asn: 32590
+    neighbors:
+      - 2001:7f8:10f::7f4e:199
+    local-pref: 320
+    listen6: 2001:7f8:10f::3:16bb:205
+    add-on-import:
+      - "202427:104:32590"
+      - "202427:105:3512"
+    as-set: RADB::AS-VALVE
+
   AS112 SBG-IX:
     template: peer
     description: AS112 via SBG-IX
