@@ -63,7 +63,6 @@
 202427:104:208328,Learned from (Peer) AS208328 - Luigi Labate
 202427:104:32590,Learned from (Peer) AS32590 - Valve Corporation
 202427:104:30132,Learned from (Peer) AS30132 - ISC F-ROOT AMS1
-
 # Peer
 202427:104:nnn,Learned from (Peer) AS$0
 # IX
@@ -87,4 +86,4 @@
 202427:105:3836,Learned at (IX) BGP.Exchange - Toronto
 202427:105:3844,Learned at (IX) BGP.Exchange - Dusseldorf
 202427:105:4058,Learned at (IX) SBG-IX
-202427:105:4059,Learned at (IX) ONIX
+202427:105:4059,Learned at (I
