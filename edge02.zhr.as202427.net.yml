@@ -301,6 +301,18 @@ peers:
       - "202427:105:2365"
     as-set: AS-GOOGLE
 
+  Stefan Dunkel CH-IX:
+    template: peer
+    description: Stefan Dunkel via CH-IX
+    asn: 48646
+    neighbors:
+      - 2001:7f8:cc:333::140
+    local-pref: 320
+    listen6: 2001:7f8:cc:333::182
+    add-on-import:
+      - "202427:104:48646"
+      - "202427:105:2365"
+
 templates:
   upstream:
 #    allow-local-as: true

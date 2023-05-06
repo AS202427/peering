@@ -68,6 +68,7 @@
 202427:104:213126,Learned from (Peer) AS213126 - Andreas Fries
 202427:104:48971,Learned from (Peer) AS48971 - DATAWIRE AG
 202427:104:35202,Learned from (Peer) AS35202 - Sam Aschwanden
+202427:104:48646,Learned from (Peer) AS48646 - Stefan Dunkel
 # Peer
 202427:104:nnn,Learned from (Peer) AS$0
 # IX
