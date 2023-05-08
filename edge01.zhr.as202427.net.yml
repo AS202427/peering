@@ -107,7 +107,7 @@ peers:
 #    neighbors:
 #      - 2a06:a005:2ef1::1
 #    listen6: 2a06:a005:2ef3::1
-#
+
 #  Edge01 FRA:
 #    template: core
 #    description: Edge01 Router - Frankfurt, Germany
@@ -131,7 +131,7 @@ peers:
 #    neighbors:
 #      - 2a06:a005:2ef5::1
 #    listen6: 2a06:a005:2ef3::1
-#
+
 #  Edge01 DUS:
 #    template: core
 #    description: Edge01 Router - Dusseldorf, Germany
@@ -139,7 +139,7 @@ peers:
 #    neighbors:
 #      - 2a06:a005:2ef6::1
 #    listen6: 2a06:a005:2ef3::1
-#
+
 #  Edge01 AMS:
 #    template: core
 #    description: Edge01 Router - Amsterdam, Netherlands
@@ -164,7 +164,7 @@ peers:
 #    neighbors:
 #      - 2a06:a005:2ef9::1
 #    listen6: 2a06:a005:2ef3::1
-#
+
 #  Edge01 YTO:
 #    template: core
 #    description: Edge01 Router - Toronto, Canada
@@ -172,7 +172,7 @@ peers:
 #    neighbors:
 #      - 2a06:a005:2efa::1
 #    listen6: 2a06:a005:2ef3::1
-#
+
 #  Edge01 FMT:
 #    template: core
 #    description: Edge01 Router - Fremont, US

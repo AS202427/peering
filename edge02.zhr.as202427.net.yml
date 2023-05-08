@@ -153,7 +153,7 @@ peers:
 #    neighbors:
 #      - 2a06:a005:2ef9::1
 #    listen6: 2a06:a005:2ef4::1
-#
+
 #  Edge01 YTO:
 #    template: core
 #    description: Edge01 Router - Toronto, Canada
@@ -161,7 +161,7 @@ peers:
 #    neighbors:
 #      - 2a06:a005:2efa::1
 #    listen6: 2a06:a005:2ef4::1
-#
+
 #  Edge01 FMT:
 #    template: core
 #    description: Edge01 Router - Fremont, US
