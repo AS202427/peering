@@ -452,6 +452,7 @@ templates:
     remove-all-communities: 202427
     filter-max-prefix: false
     auto-as-set: true
+    role: Customer
 
   routeserver:
     local-pref: 200
@@ -491,6 +492,7 @@ templates:
     filter-transit-asns: true
     auto-import-limits: true
     auto-as-set: true
+    role: Peer
 
   downstream:
     local-pref: 400
@@ -514,6 +516,7 @@ templates:
     filter-transit-asns: true
     auto-import-limits: true
     auto-as-set: true
+    role: Provider
 
   lg:
     mp-unicast-46: true
