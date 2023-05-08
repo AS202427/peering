@@ -278,20 +278,6 @@ peers:
       - "202427:104:112"
       - "202427:105:4058"
 
-  HostingFuze Network SBG-IX:
-    disabled: true
-    template: peer
-    description: HostingFuze Network via SBG-IX
-    asn: 41732
-    neighbors:
-      - 2001:7f8:140::41:732:1
-    local-pref: 310
-    multihop: true
-    listen6: 2001:7f8:140::202:427:1
-    add-on-import:
-      - "202427:104:41732"
-      - "202427:105:4058"
-
 templates:
   upstream:
 #    allow-local-as: true
