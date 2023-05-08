@@ -113,13 +113,13 @@ peers:
       - 2a06:a005:2ef3::1
     listen6: 2a06:a005:2ef4::1
 
-#  Edge01 MIL:
-#    template: core
-#    description: Edge01 Router - Milan, Italy
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2ef5::1
-#    listen6: 2a06:a005:2ef4::1
+  Edge01 MIL:
+    template: core
+    description: Edge01 Router - Milan, Italy
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2ef5::1
+    listen6: 2a06:a005:2ef4::1
 
   Edge01 DUS:
     template: core

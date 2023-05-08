@@ -70,13 +70,13 @@ peers:
       - 2a06:a005:2ef2::1
     listen6: 2a06:a005:2ef1::1
 
-#  Edge01 ZHR:
-#    template: edge
-#    description: Edge01 Router - Zurich, Switzerland
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2ef3::1
-#    listen6: 2a06:a005:2ef1::1
+  Edge01 ZHR:
+    template: edge
+    description: Edge01 Router - Zurich, Switzerland
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2ef3::1
+    listen6: 2a06:a005:2ef1::1
 
   Edge02 ZHR:
     template: edge
@@ -86,13 +86,13 @@ peers:
       - 2a06:a005:2ef4::1
     listen6: 2a06:a005:2ef1::1
 
-#  Edge01 MIL:
-#    template: edge
-#    description: Edge01 Router - Milan, Italy
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2ef5::1
-#    listen6: 2a06:a005:2ef1::1
+  Edge01 MIL:
+    template: edge
+    description: Edge01 Router - Milan, Italy
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2ef5::1
+    listen6: 2a06:a005:2ef1::1
 
   Edge01 DUS:
     template: edge

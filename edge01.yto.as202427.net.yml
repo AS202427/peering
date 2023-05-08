@@ -153,21 +153,21 @@ peers:
 #      - 2a06:a005:2ef8::1
 #    listen6: 2a06:a005:2efa::1
 
-#  Edge01 YVR:
-#    template: core
-#    description: Edge01 Router - Vancouver, Canada
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2ef9::1
-#    listen6: 2a06:a005:2efa::1
+  Edge01 YVR:
+    template: core
+    description: Edge01 Router - Vancouver, Canada
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2ef9::1
+    listen6: 2a06:a005:2efa::1
 
-#  Edge01 FMT:
-#    template: core
-#    description: Edge01 Router - Fremont, US
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2efb::1
-#    listen6: 2a06:a005:2efa::1
+  Edge01 FMT:
+    template: core
+    description: Edge01 Router - Fremont, US
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2efb::1
+    listen6: 2a06:a005:2efa::1
 
   ONIX Route Server:
     template: routeserver
