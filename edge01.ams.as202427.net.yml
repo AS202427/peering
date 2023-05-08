@@ -182,21 +182,6 @@ peers:
       - "202427:104:56393"
       - "202427:105:3512"
 
-  SBG-IX Route Server:
-    disabled: true
-    template: routeserver
-    description: SBG-IX Route Server
-    asn: 56738
-    neighbors:
-      - 2001:7f8:140::56:738:1
-      - 2001:7f8:140::56:738:2
-    local-pref: 210
-    multihop: true
-    listen6: 2001:7f8:140::202:427:1
-    add-on-import:
-      - "202427:104:56738"
-      - "202427:105:4058"
-
   Cloudflare Frys-IX:
     template: peer
     description: Cloudflare via Frys-IX
