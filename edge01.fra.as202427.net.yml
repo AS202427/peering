@@ -158,14 +158,14 @@ peers:
 #    neighbors:
 #      - 2a06:a005:2ef5::1
 #    listen6: 2a06:a005:2ef2::1
-#
-#  Edge01 DUS:
-#    template: core
-#    description: Edge01 Router - Dusseldorf, Germany
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2ef6::1
-#    listen6: 2a06:a005:2ef2::1
+
+  Edge01 DUS:
+    template: core
+    description: Edge01 Router - Dusseldorf, Germany
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2ef6::1
+    listen6: 2a06:a005:2ef2::1
 
   Edge01 AMS:
     template: core

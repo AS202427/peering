@@ -93,15 +93,15 @@ peers:
 #    neighbors:
 #      - 2a06:a005:2ef5::1
 #    listen6: 2a06:a005:2ef1::1
-#
-#  Edge01 DUS:
-#    template: edge
-#    description: Edge01 Router - Dusseldorf, Germany
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2ef6::1
-#    listen6: 2a06:a005:2ef1::1
-#
+
+  Edge01 DUS:
+    template: edge
+    description: Edge01 Router - Dusseldorf, Germany
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2ef6::1
+    listen6: 2a06:a005:2ef1::1
+
   Edge01 AMS:
     template: edge
     description: Edge01 Router - Amsterdam, Netherlands
