@@ -42,17 +42,17 @@ peers:
       - "202427:105:2084"
     as-set: RIPE::AS-ROUTE64
 
-#  Freetransit Project FogIXP:
-#    template: upstream
-#    description: Freetransit Project Upstream via FogIXP
-#    asn: 41051
-#    neighbors:
-#      - 2001:7f8:ca:1::22
-#    local-pref: 130
-#    listen6: 2001:7f8:ca:1::168
-#    add-on-import:
-#      - "202427:104:41051"
-#      - "202427:105:3756"
+  Freetransit Project FogIXP:
+    template: upstream
+    description: Freetransit Project Upstream via FogIXP
+    asn: 41051
+    neighbors:
+      - 2001:7f8:ca:1::22
+    local-pref: 130
+    listen6: 2001:7f8:ca:1::168
+    add-on-import:
+      - "202427:104:41051"
+      - "202427:105:3756"
 
   Hurricane Electric LocIX:
     template: upstream
