@@ -249,20 +249,6 @@ peers:
       - "202427:105:3512"
     as-set: RADB::AS30132:AS-SET
 
-  AS112 SBG-IX:
-    disabled: true
-    template: peer
-    description: AS112 via SBG-IX
-    asn: 112
-    neighbors:
-      - 2001:7f8:140::112:1
-    local-pref: 310
-    multihop: true
-    listen6: 2001:7f8:140::202:427:1
-    add-on-import:
-      - "202427:104:112"
-      - "202427:105:4058"
-
 templates:
   upstream:
 #    allow-local-as: true
