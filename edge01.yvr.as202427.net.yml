@@ -75,70 +75,70 @@ peers:
 #    multihop: false
 #    listen6: 2602:fed2:fb0:89::1
 
-#  Core01 NUE:
-#    template: core
-#    description: Core01 Router - Nuremberg, Germany
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2ef1::1
-#    listen6: 2a06:a005:2ef9::1
+  Core01 NUE:
+    template: core
+    description: Core01 Router - Nuremberg, Germany
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2ef1::1
+    listen6: 2a06:a005:2ef9::1
 
-#  Edge01 FRA:
-#    template: core
-#    description: Edge01 Router - Frankfurt, Germany
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2ef2::1
-#    listen6: 2a06:a005:2ef9::1
+  Edge01 FRA:
+    template: core
+    description: Edge01 Router - Frankfurt, Germany
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2ef2::1
+    listen6: 2a06:a005:2ef9::1
 
-#  Edge01 ZHR:
-#    template: core
-#    description: Edge01 Router - Zurich, Switzerland
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2ef3::1
-#    listen6: 2a06:a005:2ef9::1
+  Edge01 ZHR:
+    template: core
+    description: Edge01 Router - Zurich, Switzerland
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2ef3::1
+    listen6: 2a06:a005:2ef9::1
 
-#  Edge02 ZHR:
-#    template: core
-#    description: Edge02 Router - Zurich, Switzerland
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2ef4::1
-#    listen6: 2a06:a005:2ef9::1
+  Edge02 ZHR:
+    template: core
+    description: Edge02 Router - Zurich, Switzerland
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2ef4::1
+    listen6: 2a06:a005:2ef9::1
 
-#  Edge01 MIL:
-#    template: core
-#    description: Edge01 Router - Milan, Italy
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2ef5::1
-#    listen6: 2a06:a005:2ef9::1
+  Edge01 MIL:
+    template: core
+    description: Edge01 Router - Milan, Italy
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2ef5::1
+    listen6: 2a06:a005:2ef9::1
 
-#  Edge01 DUS:
-#    template: core
-#    description: Edge01 Router - Dusseldorf, Germany
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2ef6::1
-#    listen6: 2a06:a005:2ef9::1
+  Edge01 DUS:
+    template: core
+    description: Edge01 Router - Dusseldorf, Germany
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2ef6::1
+    listen6: 2a06:a005:2ef9::1
 
-#  Edge01 AMS:
-#    template: core
-#    description: Edge01 Router - Amsterdam, Netherlands
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2ef7::1
-#    listen6: 2a06:a005:2ef9::1
+  Edge01 AMS:
+    template: core
+    description: Edge01 Router - Amsterdam, Netherlands
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2ef7::1
+    listen6: 2a06:a005:2ef9::1
 
-#  Edge01 OSL:
-#    template: core
-#    description: Edge01 Router - Oslo, Norway
-#    disabled: true
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2ef8::1
-#    listen6: 2a06:a005:2ef9::1
+  Edge01 OSL:
+    template: core
+    description: Edge01 Router - Oslo, Norway
+    disabled: true
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2ef8::1
+    listen6: 2a06:a005:2ef9::1
 
   Edge01 YTO:
     template: core
