@@ -532,7 +532,7 @@ templates:
 
   core:
     prepends: 1
-    local-pref: 190
+    local-pref: 180
     next-hop-self: true
     add-path-tx: true
     add-path-rx: true
