@@ -194,6 +194,19 @@ peers:
       - "202427:104:24381"
       - "202427:105:3844"
 
+  oneCorp LocIX:
+    template: peer
+    description: oneCorp via LocIX
+    asn: 204035
+    neighbors:
+      - 2a0c:b641:701::20:4035:1
+    local-pref: 320
+    listen6: 2a0c:b641:701:0:a5:20:2427:1
+    add-on-import:
+      - "202427:104:204035"
+      - "202427:105:2084"
+    as-set: AS-ONECORP
+
 templates:
   upstream:
 #    allow-local-as: true
