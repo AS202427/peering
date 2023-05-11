@@ -206,6 +206,7 @@ peers:
       - "202427:104:204035"
       - "202427:105:2084"
     as-set: AS-ONECORP
+    filter-irr: false
 
 templates:
   upstream:
