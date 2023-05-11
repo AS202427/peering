@@ -331,6 +331,7 @@ templates:
       - "202427:101:1"
       - "202427:101:5"
     remove-all-communities: 202427
+    allow-blackhole-community: true
     filter-max-prefix: false
     auto-as-set: true
     role: customer
@@ -348,6 +349,7 @@ templates:
       - "202427:101:1"
       - "202427:101:5"
     remove-all-communities: 202427
+    allow-blackhole-community: true
     enforce-first-as: false
     enforce-peer-nexthop: false
     filter-max-prefix: false
@@ -368,6 +370,7 @@ templates:
       - "202427:101:1"
       - "202427:101:5"
     remove-all-communities: 202427
+    allow-blackhole-community: true
     filter-irr: true
 #    strict-rpki: true
     filter-transit-asns: true
