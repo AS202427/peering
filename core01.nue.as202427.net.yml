@@ -266,4 +266,5 @@ templates:
       - "202427:101:4"
       - "202427:101:5"
     allow-blackhole-community: true
-    rr-cli
+    rr-client: true
+    allow-local-as: true
