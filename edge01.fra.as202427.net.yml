@@ -53,6 +53,11 @@ peers:
     add-on-import:
       - "202427:104:41051"
       - "202427:105:3756"
+    only-announce:
+      - 2a06:a005:28e0::/48 # AS202427-BACKBONE-NETWORK
+      - 2a06:a005:28e2::/48 # AS202427-BACKBONE-NETWORK
+      - 2a0a:6040:2720::/43 # DE-AS202427
+      - 2a0a:6040:27e0::/43 # EU-AS202427
 
   Hurricane Electric LocIX:
     template: upstream
@@ -222,6 +227,11 @@ peers:
     add-on-import:
       - "202427:104:47498"
       - "202427:105:3756"
+    only-announce:
+      - 2a06:a005:28e0::/48 # AS202427-BACKBONE-NETWORK
+      - 2a06:a005:28e2::/48 # AS202427-BACKBONE-NETWORK
+      - 2a0a:6040:2720::/43 # DE-AS202427
+      - 2a0a:6040:27e0::/43 # EU-AS202427
 
   LocIX Route Server:
     template: routeserver
@@ -546,4 +556,4 @@ templates:
       - "202427:101:4"
       - "202427:101:5"
     allow-blackhole-community: true
-    allow-local-as: true
+    allow-local-as: tr

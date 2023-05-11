@@ -183,6 +183,11 @@ peers:
     add-on-import:
       - "202427:104:56393"
       - "202427:105:3512"
+    only-announce:
+      - 2a06:a005:28e0::/48 # AS202427-BACKBONE-NETWORK
+      - 2a06:a005:28e7::/48 # AS202427-BACKBONE-NETWORK
+      - 2a0a:6040:2740::/43 # NL-AS202427
+      - 2a0a:6040:27e0::/43 # EU-AS202427
 
   Cloudflare Frys-IX:
     template: peer
