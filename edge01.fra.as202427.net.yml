@@ -556,4 +556,4 @@ templates:
       - "202427:101:4"
       - "202427:101:5"
     allow-blackhole-community: true
-    allow-local-as: tr
+    allow-local-as: true
