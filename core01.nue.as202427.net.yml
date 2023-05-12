@@ -24,15 +24,6 @@ peers:
       - 127.0.0.2
     neighbor-port: 180
 
-#  sfacctd:
-#    template: lg
-#    description: sfacctd
-#    asn: 202427
-#    listen6: 127.0.0.1
-#    neighbors:
-#      - 127.0.0.3
-#    neighbor-port: 180
-
   qrator:
     template: lg
     description: Radar by Qrator
@@ -110,14 +101,14 @@ peers:
       - 2a06:a005:2ef7::1
     listen6: 2a06:a005:2ef1::1
 
-#  Edge01 OSL:
-#    template: edge
-#    description: Edge01 Router - Oslo, Norway
-#    disabled: true
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2ef8::1
-#    listen6: 2a06:a005:2ef1::1
+  Edge01 OSL:
+    template: edge
+    description: Edge01 Router - Oslo, Norway
+    disabled: true
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2ef8::1
+    listen6: 2a06:a005:2ef1::1
 
   Edge01 YVR:
     template: edge
@@ -145,7 +136,6 @@ peers:
 
 templates:
   upstream:
-#    allow-local-as: true
     local-pref: 100
     add-path-tx: true
     add-path-rx: true

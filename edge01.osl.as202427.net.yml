@@ -27,7 +27,6 @@ peers:
     listen6: 2a0c:9a40:1072::419
     add-on-import:
       - "202427:104:34927"
-    #pre-import-accept: ifog_local_pref()
 
   pmacctd:
     template: lg
@@ -37,15 +36,6 @@ peers:
     neighbors:
       - 127.0.0.2
     neighbor-port: 180
-
-#  sfacctd:
-#    template: lg
-#    description: sfacctd
-#    asn: 202427
-#    listen6: 127.0.0.1
-#    neighbors:
-#      - 127.0.0.3
-#    neighbor-port: 180
 
   qrator:
     template: lg
@@ -76,89 +66,88 @@ peers:
     multihop: true
     listen6: 2a0c:9a40:1072::419
 
-#  Core01 NUE:
-#    template: core
-#    description: Core01 Router - Nuremberg, Germany
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2ef1::1
-#    listen6: 2a06:a005:2ef8::1
+  Core01 NUE:
+    template: core
+    description: Core01 Router - Nuremberg, Germany
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2ef1::1
+    listen6: 2a06:a005:2ef8::1
 
-#  Edge01 FRA:
-#    template: core
-#    description: Edge01 Router - Frankfurt, Germany
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2ef2::1
-#    listen6: 2a06:a005:2ef8::1
+  Edge01 FRA:
+    template: core
+    description: Edge01 Router - Frankfurt, Germany
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2ef2::1
+    listen6: 2a06:a005:2ef8::1
 
-#  Edge01 ZHR:
-#    template: core
-#    description: Edge01 Router - Zurich, Switzerland
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2ef3::1
-#    listen6: 2a06:a005:2ef8::1
+  Edge01 ZHR:
+    template: core
+    description: Edge01 Router - Zurich, Switzerland
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2ef3::1
+    listen6: 2a06:a005:2ef8::1
 
-#  Edge02 ZHR:
-#    template: core
-#    description: Edge02 Router - Zurich, Switzerland
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2ef4::1
-#    listen6: 2a06:a005:2ef8::1
+  Edge02 ZHR:
+    template: core
+    description: Edge02 Router - Zurich, Switzerland
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2ef4::1
+    listen6: 2a06:a005:2ef8::1
 
-#  Edge01 MIL:
-#    template: core
-#    description: Edge01 Router - Milan, Italy
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2ef5::1
-#    listen6: 2a06:a005:2ef8::1
+  Edge01 MIL:
+    template: core
+    description: Edge01 Router - Milan, Italy
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2ef5::1
+    listen6: 2a06:a005:2ef8::1
 
-#  Edge01 DUS:
-#    template: core
-#    description: Edge01 Router - Dusseldorf, Germany
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2ef6::1
-#    listen6: 2a06:a005:2ef8::1
+  Edge01 DUS:
+    template: core
+    description: Edge01 Router - Dusseldorf, Germany
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2ef6::1
+    listen6: 2a06:a005:2ef8::1
 
-#  Edge01 AMS:
-#    template: core
-#    description: Edge01 Router - Amsterdam, Netherlands
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2ef7::1
-#    listen6: 2a06:a005:2ef8::1
+  Edge01 AMS:
+    template: core
+    description: Edge01 Router - Amsterdam, Netherlands
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2ef7::1
+    listen6: 2a06:a005:2ef8::1
 
-#  Edge01 YVR:
-#    template: core
-#    description: Edge01 Router - Vancouver, Canada
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2ef9::1
-#    listen6: 2a06:a005:2ef8::1
+  Edge01 YVR:
+    template: core
+    description: Edge01 Router - Vancouver, Canada
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2ef9::1
+    listen6: 2a06:a005:2ef8::1
 
-#  Edge01 YTO:
-#    template: core
-#    description: Edge01 Router - Toronto, Canada
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2efa::1
-#    listen6: 2a06:a005:2ef8::1
+  Edge01 YTO:
+    template: core
+    description: Edge01 Router - Toronto, Canada
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2efa::1
+    listen6: 2a06:a005:2ef8::1
 
-#  Edge01 FMT:
-#    template: core
-#    description: Edge01 Router - Fremont, US
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2efb::1
-#    listen6: 2a06:a005:2ef8::1
+  Edge01 FMT:
+    template: core
+    description: Edge01 Router - Fremont, US
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2efb::1
+    listen6: 2a06:a005:2ef8::1
 
 templates:
   upstream:
-#    allow-local-as: true
     local-pref: 100
     add-path-tx: true
     add-path-rx: true
