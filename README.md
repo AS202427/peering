@@ -122,3 +122,47 @@ Octets in the function field are the peeringdb id.
 | `202427:105:3836` | Learned at BGP.Exchange - Toronto |
 | `202427:105:3844` | Learned at BGP.Exchange - Dusseldorf |
 | `202427:105:4059` | Learned at ONIX |
+
+## Pref
+
+### Upstream
+
+| Pref | Description |
+| ---- | ----------- |
+| `100` | Default |
+| `110` | Tunnel  |
+| `120` | Paid    |
+| `130` | Free    |
+
+### Routeserver
+
+| Pref | Description |
+| ---- | ----------- |
+| `200` | Default |
+| `210` | Tunnel  |
+| `220` | IXP     |
+
+### Peer
+
+| Pref | Description |
+| ---- | ----------- |
+| `300` | Default |
+| `310` | Tunnel  |
+| `320` | IXP     |
+| `330` | PNI     |
+
+### Downstream
+
+| Pref | Description |
+| ---- | ----------- |
+| `400` | Default |
+| `400` | Tunnel  |
+| `410` | IXP     |
+| `420` | PNI     |
+
+### Internal
+
+| Pref | Description |
+| ---- | ----------- |
+| `180` | Default |
+| `190` | PNI     |
