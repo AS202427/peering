@@ -59,7 +59,6 @@ Octets in the function field are the numeric country identifier defined by ISO 3
 | `202427:104:34872` | Learned from AS34872 - Servperso Systems |
 | `202427:104:34927` | Learned from AS34927 - iFog GmbH |
 | `202427:104:35619` | Learned from AS35619 - Kevin Buehl |
-| `202427:104:34872` | Learned from AS34872 - Servperso Systems |
 | `202427:104:41051` | Learned from AS41051 - Freetransit Project (Openfactory GmbH) |
 | `202427:104:58057` | Learned from AS58057 - Securebit AG |
 | `202427:104:62513` | Learned from AS62513 - GoCodeIT Inc |
