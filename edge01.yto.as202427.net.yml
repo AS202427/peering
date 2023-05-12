@@ -135,14 +135,14 @@ peers:
       - 2a06:a005:2ef7::1
     listen6: 2a06:a005:2efa::1
 
-  Edge01 OSL:
-    template: core
-    description: Edge01 Router - Oslo, Norway
-    disabled: true
-    asn: 202427
-    neighbors:
-      - 2a06:a005:2ef8::1
-    listen6: 2a06:a005:2efa::1
+#  Edge01 OSL:
+#    template: core
+#    description: Edge01 Router - Oslo, Norway
+#    disabled: true
+#    asn: 202427
+#    neighbors:
+#      - 2a06:a005:2ef8::1
+#    listen6: 2a06:a005:2efa::1
 
   Edge01 YVR:
     template: core
