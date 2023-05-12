@@ -56,16 +56,16 @@ Octets in the function field are the numeric country identifier defined by ISO 3
 | --------- | ----------- |
 | `202427:104:835` | Learned from AS6939 - GoCodeIT Inc |
 | `202427:104:6939` | Learned from AS6939 - Hurricane Electric LLC |
+| `202427:104:34872` | Learned from AS34872 - Servperso Systems |
 | `202427:104:34927` | Learned from AS34927 - iFog GmbH |
 | `202427:104:35619` | Learned from AS35619 - Kevin Buehl |
 | `202427:104:34872` | Learned from AS34872 - Servperso Systems |
 | `202427:104:41051` | Learned from AS41051 - Freetransit Project (Openfactory GmbH) |
-| `202427:104:44570` | Learned from AS44570 - Route48.org Tunnel Broker |
-| `202427:104:50058` | Learned from AS50058 - August Internet Limited |
 | `202427:104:58057` | Learned from AS58057 - Securebit AG |
 | `202427:104:62513` | Learned from AS62513 - GoCodeIT Inc |
 | `202427:104:212271` | Learned from AS212271 - Cinzia Tocci trading as C1V |
 | `202427:104:212895` | Learned from AS212895 - Johannes Ernst |
+
 ##### IX Routeserver
 
 | Community | Description |
@@ -78,7 +78,6 @@ Octets in the function field are the numeric country identifier defined by ISO 3
 | `202427:104:49245` | Learned from AS49245 - SIIX |
 | `202427:104:49459` | Learned from AS49459 - IXP FI HEL, IXP LI VAD, IXP NL DRO, IXP UK LON, IXP US FRE |
 | `202427:104:56393` | Learned from AS56393 - Frys-IX |
-| `202427:104:56738` | Learned from AS56738 - SBG-IX |
 | `202427:104:57369` | Learned from AS212100 - FREMIX / ONIX |
 | `202427:104:65513` | Learned from AS65513 - UNM-Exch Canada-West |
 | `202427:104:202409` | Learned from AS202409 - LOCIX Frankfurt, LOCIX Dusseldorf |
@@ -89,14 +88,15 @@ Octets in the function field are the numeric country identifier defined by ISO 3
 | Community | Description |
 | --------- | ----------- |
 | `202427:104:112` | Learned from AS112 - AS112 Project |
+| `202427:104:714` | Learned from AS714 - Apple Inc. |
 | `202427:104:13335` | Learned from AS13335 - Cloudflare, Inc. |
 | `202427:104:15169` | Learned from AS15169 - Google LLC |
+| `202427:104:30132` | Learned from AS30132 - ISC F-ROOT AMS1 |
 | `202427:104:32934` | Learned from AS32934 - Meta Platforms, Inc. |
 | `202427:104:41732` | Learned from AS41732 - HostingFuze Network |
 | `202427:104:51019` | Learned from AS51019 - Kjartan Hrafnkelsson |
 | `202427:104:203069` | Learned from AS203069 - Thomas Riley Brown |
 | `202427:104:211380` | Learned from AS211380 - Simulhost Limited |
-| `202427:104:714` | Learned from AS714 - Apple Inc. |
 
 #### IX
 Octets in the function field are the peeringdb id.
@@ -122,5 +122,4 @@ Octets in the function field are the peeringdb id.
 | `202427:105:3830` | Learned at BGP.Exchange - Zurich |
 | `202427:105:3836` | Learned at BGP.Exchange - Toronto |
 | `202427:105:3844` | Learned at BGP.Exchange - Dusseldorf |
-| `202427:105:4058` | Learned at SBG-IX |
 | `202427:105:4059` | Learned at ONIX |
