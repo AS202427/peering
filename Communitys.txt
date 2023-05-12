@@ -94,4 +94,4 @@
 202427:105:3836,Learned at (IX) BGP.Exchange - Toronto
 202427:105:3844,Learned at (IX) BGP.Exchange - Dusseldorf
 202427:105:4058,Learned at (IX) SBG-IX
-202427:105:4059,Le
+202427:105:4059,Learned at (IX) ONIX
