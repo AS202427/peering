@@ -317,9 +317,10 @@ templates:
     local-pref: 100
     add-path-tx: true
     add-path-rx: true
-#    pre-import-filter: import_filter();
     pre-import-accept: >
      bgp_large_community.add((202427,101,2));
+     bgp_large_community.add((202427,102,756));
+     bgp_large_community.add((202427,103,3));
     announce:
       - "202427:101:1"
       - "202427:101:5"
@@ -333,7 +334,6 @@ templates:
     local-pref: 200
     add-path-tx: true
     add-path-rx: true
-#    pre-import-filter: import_filter();
     pre-import-accept: >
      bgp_large_community.add((202427,101,3));
     announce:
@@ -352,7 +352,6 @@ templates:
     local-pref: 300
     add-path-tx: true
     add-path-rx: true
-#    pre-import-filter: import_filter();
     pre-import-accept: >
      bgp_large_community.add((202427,101,4));
     announce:
@@ -371,7 +370,6 @@ templates:
     local-pref: 400
     add-path-tx: true
     add-path-rx: true
-#    pre-import-filter: import_filter();
     pre-import-accept: >
      bgp_large_community.add((202427,101,5));
     announce:
