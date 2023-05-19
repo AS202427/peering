@@ -2,8 +2,12 @@ peeringdb-api-key: ${edge01-zhr-peeringdb-api-key}
 log-file: /var/log/bird.log
 local-communities:
   - "202427:101:1"
+  - "202427:105:3"
+add-on-import:
   - "202427:102:756"
   - "202427:103:3"
+add-on-export:
+  - "202427:104:3"
 asn: 202427
 prefixes:
   - 2a06:a005:28e0::/48 # AS202427-BACKBONE-NETWORK
@@ -315,8 +319,6 @@ templates:
 #    pre-import-filter: import_filter();
     pre-import-accept: >
      bgp_large_community.add((202427,101,2));
-     bgp_large_community.add((202427,102,756));
-     bgp_large_community.add((202427,103,3));
     announce:
       - "202427:101:1"
       - "202427:101:5"
@@ -333,8 +335,6 @@ templates:
 #    pre-import-filter: import_filter();
     pre-import-accept: >
      bgp_large_community.add((202427,101,3));
-     bgp_large_community.add((202427,102,756));
-     bgp_large_community.add((202427,103,3));
     announce:
       - "202427:101:1"
       - "202427:101:5"
@@ -354,8 +354,6 @@ templates:
 #    pre-import-filter: import_filter();
     pre-import-accept: >
      bgp_large_community.add((202427,101,4));
-     bgp_large_community.add((202427,102,756)); 
-     bgp_large_community.add((202427,103,3));
     announce:
       - "202427:101:1"
       - "202427:101:5"
@@ -375,8 +373,6 @@ templates:
 #    pre-import-filter: import_filter();
     pre-import-accept: >
      bgp_large_community.add((202427,101,5));
-     bgp_large_community.add((202427,102,756));
-     bgp_large_community.add((202427,103,3));
     announce:
       - "202427:101:1"
       - "202427:101:2"
