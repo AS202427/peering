@@ -12,7 +12,7 @@
 202427:102:578,Learned in (Country) Norway
 202427:102:756,Learned in (Country) Switzerland
 202427:102:840,Learned in (Country) United States of America
-# Site
+# Site - Import
 202427:103:1,Learned at (Location) Core01 Nuremberg, DE
 202427:103:2,Learned at (Location) Edge01 Frankfurt, DE
 202427:103:3,Learned at (Location) Edge01 Zurich, CH
@@ -24,6 +24,30 @@
 202427:103:9,Learned at (Location) Edge01 Vancouver, CA
 202427:103:10,Learned at (Location) Edge01 Toronto, CA
 202427:103:11,Learned at (Location) Edge01 Fremont, US
+# Site - Export
+202427:104:1,Exported at (Location) Core01 Nuremberg, DE
+202427:104:2,Exported at (Location) Edge01 Frankfurt, DE
+202427:104:3,Exported at (Location) Edge01 Zurich, CH
+202427:104:4,Exported at (Location) Edge02 Zurich, CH
+202427:104:5,Exported at (Location) Edge01 Milan, IT
+202427:104:6,Exported at (Location) Edge01 Dusseldorf, DE
+202427:104:7,Exported at (Location) Edge01 Amsterdam, NL
+202427:104:8,Exported at (Location) Edge01 Oslo, NO
+202427:104:9,Exported at (Location) Edge01 Vancouver, CA
+202427:104:10,Exported at (Location) Edge01 Toronto, CA
+202427:104:11,Exported at (Location) Edge01 Fremont, US
+# Site - Originated
+202427:105:1,Originated at (Location) Core01 Nuremberg, DE
+202427:105:2,Originated at (Location) Edge01 Frankfurt, DE
+202427:105:3,Originated at (Location) Edge01 Zurich, CH
+202427:105:4,Originated at (Location) Edge02 Zurich, CH
+202427:105:5,Originated at (Location) Edge01 Milan, IT
+202427:105:6,Originated at (Location) Edge01 Dusseldorf, DE
+202427:105:7,Originated at (Location) Edge01 Amsterdam, NL
+202427:105:8,Originated at (Location) Edge01 Oslo, NO
+202427:105:9,Originated at (Location) Edge01 Vancouver, CA
+202427:105:10,Originated at (Location) Edge01 Toronto, CA
+202427:105:11,Originated at (Location) Edge01 Fremont, US
 # Peer - Transit provider
 202427:104:835,Learned from (Transit) AS6939 - GoCodeIT Inc
 202427:104:6939,Learned from (Transit) AS6939 - Hurricane Electric LLC

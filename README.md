@@ -32,7 +32,7 @@ Octets in the function field are the numeric country identifier defined by ISO 3
 | `202427:102:756` | Learned in Switzerland |
 | `202427:102:840` | Learned in United States of America |
 
-#### Site
+#### Site - Import
 
 | Community | Description |
 | --------- | ----------- |
@@ -47,6 +47,38 @@ Octets in the function field are the numeric country identifier defined by ISO 3
 | `202427:103:9` | Learned at Edge01 Vancouver, CA |
 | `202427:103:10` | Learned at Edge01 Toronto, CA |
 | `202427:103:11` | Learned at Edge01 Fremont, US |
+
+#### Site - Export
+
+| Community | Description |
+| --------- | ----------- |
+| `202427:103:1` | Exported at Core01 Nuremberg, DE |
+| `202427:103:2` | Exported at Edge01 Frankfurt, DE |
+| `202427:103:3` | Exported at Edge01 Zurich, CH |
+| `202427:103:4` | Exported at Edge02 Zurich, CH |
+| `202427:103:5` | Exported at Edge01 Milan, IT |
+| `202427:103:6` | Exported at Edge01 Dusseldorf, DE |
+| `202427:103:7` | Exported at Edge01 Amsterdam, NL |
+| `202427:103:8` | Exported at Edge01 Oslo, NO |
+| `202427:103:9` | Exported at Edge01 Vancouver, CA |
+| `202427:103:10` | Exported at Edge01 Toronto, CA |
+| `202427:103:11` | Exported at Edge01 Fremont, US |¨
+
+#### Site - Originated
+
+| Community | Description |
+| --------- | ----------- |
+| `202427:103:1` | Originated at Core01 Nuremberg, DE |
+| `202427:103:2` | Originated at Edge01 Frankfurt, DE |
+| `202427:103:3` | Originated at Edge01 Zurich, CH |
+| `202427:103:4` | Originated at Edge02 Zurich, CH |
+| `202427:103:5` | Originated at Edge01 Milan, IT |
+| `202427:103:6` | Originated at Edge01 Dusseldorf, DE |
+| `202427:103:7` | Originated at Edge01 Amsterdam, NL |
+| `202427:103:8` | Originated at Edge01 Oslo, NO |
+| `202427:103:9` | Originated at Edge01 Vancouver, CA |
+| `202427:103:10` | Originated at Edge01 Toronto, CA |
+| `202427:103:11` | Originated at Edge01 Fremont, US |
 
 #### Peer
 
