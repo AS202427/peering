@@ -18,6 +18,7 @@ prefixes:
 router-id: 104.167.228.27
 source6: 2a06:a005:28ea::1
 default-route: false
+blackhole-bogon-asns: true
 
 peers:
   Xenyth:

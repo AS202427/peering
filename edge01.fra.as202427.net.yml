@@ -18,6 +18,7 @@ prefixes:
 router-id: 193.148.249.102
 source6: 2a06:a005:28e2::1
 default-route: false
+blackhole-bogon-asns: true
 
 peers:
   iFog:

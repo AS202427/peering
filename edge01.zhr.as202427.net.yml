@@ -17,6 +17,7 @@ prefixes:
 router-id: 45.136.137.100
 source6: 2a06:a005:28e3::1
 default-route: false
+blackhole-bogon-asns: true
 
 peers:
   Securebit:

@@ -17,6 +17,7 @@ prefixes:
 router-id: 194.36.144.215
 source6: 2a06:a005:28e1::1
 default-route: false
+blackhole-bogon-asns: true
 
 peers:
   pmacctd:

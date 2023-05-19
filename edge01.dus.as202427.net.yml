@@ -17,6 +17,7 @@ prefixes:
 router-id: 194.28.99.48
 source6: 2a06:a005:28e6::1
 default-route: false
+blackhole-bogon-asns: true
 
 peers:
   Servperso:

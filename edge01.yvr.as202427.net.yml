@@ -17,6 +17,7 @@ prefixes:
 router-id: 23.154.81.124
 source6: 2a06:a005:28e9::1
 default-route: false
+blackhole-bogon-asns: true
 
 peers:
   Hurricane Electric UNMETERED Exchange:
