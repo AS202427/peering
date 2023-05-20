@@ -120,14 +120,26 @@ Octets in the function field are the numeric country identifier defined by ISO 3
 | --------- | ----------- |
 | `202427:104:112` | Learned from AS112 - AS112 Project |
 | `202427:104:714` | Learned from AS714 - Apple Inc. |
+| `202427:104:9044` | Learned from (Peer) AS9044 - BSE Software GmbH / SolNet |
+| `202427:104:13030` | Learned from (Peer) AS13030 - Init7 |
 | `202427:104:13335` | Learned from AS13335 - Cloudflare, Inc. |
 | `202427:104:15169` | Learned from AS15169 - Google LLC |
+| `202427:104:28859` | Learned from (Peer) AS28859 - acdalis informatik |
 | `202427:104:30132` | Learned from AS30132 - ISC F-ROOT AMS1 |
+| `202427:104:32590` | Learned from (Peer) AS32590 - Valve Corporation |
 | `202427:104:32934` | Learned from AS32934 - Meta Platforms, Inc. |
+| `202427:104:35202` | Learned from (Peer) AS35202 - Sam Aschwanden |
 | `202427:104:41732` | Learned from AS41732 - HostingFuze Network |
+| `202427:104:48646` | Learned from (Peer) AS48646 - Stefan Dunkel |
+| `202427:104:48971` | Learned from (Peer) AS48971 - DATAWIRE AG |
 | `202427:104:51019` | Learned from AS51019 - Kjartan Hrafnkelsson |
 | `202427:104:203069` | Learned from AS203069 - Thomas Riley Brown |
+| `202427:104:204035` | Learned from (Peer) AS204035 - oneCorp GmbH |
+| `202427:104:207968` | Learned from (Peer) AS207968 - Raphael Peters |
+| `202427:104:208328` | Learned from (Peer) AS208328 - Luigi Labate |
 | `202427:104:211380` | Learned from AS211380 - Simulhost Limited |
+| `202427:104:213035` | Learned from (Peer) AS213035 - Serverion B.V. |
+| `202427:104:213126` | Learned from (Peer) AS213126 - Andreas Fries |
 
 #### IX
 Octets in the function field are the peeringdb id.
