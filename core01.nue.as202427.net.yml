@@ -59,7 +59,7 @@ peers:
 #    listen6: 2a03:4000:4d:fe1::1
 
   Edge01 FRA:
-    template: edge
+    template: core
     description: Edge01 Router - Frankfurt, Germany
     asn: 202427
     neighbors:
@@ -67,7 +67,7 @@ peers:
     listen6: 2a06:a005:2ef1::1
 
   Edge01 ZHR:
-    template: edge
+    template: core
     description: Edge01 Router - Zurich, Switzerland
     asn: 202427
     neighbors:
@@ -75,7 +75,7 @@ peers:
     listen6: 2a06:a005:2ef1::1
 
   Edge02 ZHR:
-    template: edge
+    template: core
     description: Edge02 Router - Zurich, Switzerland
     asn: 202427
     neighbors:
@@ -83,7 +83,7 @@ peers:
     listen6: 2a06:a005:2ef1::1
 
   Edge01 MIL:
-    template: edge
+    template: core
     description: Edge01 Router - Milan, Italy
     asn: 202427
     neighbors:
@@ -91,7 +91,7 @@ peers:
     listen6: 2a06:a005:2ef1::1
 
   Edge01 DUS:
-    template: edge
+    template: core
     description: Edge01 Router - Dusseldorf, Germany
     asn: 202427
     neighbors:
@@ -99,7 +99,7 @@ peers:
     listen6: 2a06:a005:2ef1::1
 
   Edge01 AMS:
-    template: edge
+    template: core
     description: Edge01 Router - Amsterdam, Netherlands
     asn: 202427
     neighbors:
@@ -107,7 +107,7 @@ peers:
     listen6: 2a06:a005:2ef1::1
 
 #  Edge01 OSL:
-#    template: edge
+#    template: core
 #    description: Edge01 Router - Oslo, Norway
 #    disabled: true
 #    asn: 202427
@@ -116,7 +116,7 @@ peers:
 #    listen6: 2a06:a005:2ef1::1
 
   Edge01 YVR:
-    template: edge
+    template: core
     description: Edge01 Router - Vancouver, Canada
     asn: 202427
     neighbors:
@@ -124,7 +124,7 @@ peers:
     listen6: 2a06:a005:2ef1::1
 
   Edge01 YTO:
-    template: edge
+    template: core
     description: Edge01 Router - Toronto, Canada
     asn: 202427
     neighbors:
@@ -132,7 +132,7 @@ peers:
     listen6: 2a06:a005:2ef1::1
 
   Edge01 FMT:
-    template: edge
+    template: core
     description: Edge01 Router - Fremont, US
     asn: 202427
     neighbors:
@@ -235,19 +235,4 @@ templates:
       - "202427:101:4"
       - "202427:101:5"
     allow-blackhole-community: true
-    allow-local-as: true
-
-  edge:
-    prepends: 1
-    local-pref: 180
-    next-hop-self: true
-    add-path-tx: true
-    add-path-rx: true
-    announce:
-      - "202427:101:1"
-      - "202427:101:3"
-      - "202427:101:4"
-      - "202427:101:5"
-    allow-blackhole-community: true
-    rr-client: true
     allow-local-as: true
