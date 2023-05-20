@@ -360,7 +360,7 @@ templates:
     remove-all-communities: 202427
     allow-blackhole-community: true
     filter-irr: true
-#    strict-rpki: true
+    strict-rpki: true
     filter-transit-asns: true
     auto-import-limits: true
     auto-as-set: true
