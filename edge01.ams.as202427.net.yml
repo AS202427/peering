@@ -246,6 +246,19 @@ peers:
       - "202427:105:3512"
     as-set: RADB::AS30132:AS-SET
 
+  Serverion Frys-IX:
+    template: peer
+    description: Serverion via Frys-IX
+    asn: 213035
+    neighbors:
+      - 2001:7f8:10f::3:402b:174
+    local-pref: 320
+    listen6: 2001:7f8:10f::3:16bb:205
+    add-on-import:
+      - "202427:104:213035"
+      - "202427:105:3512"
+    as-set: AS-SERVERION
+
 templates:
   upstream:
     local-pref: 100
