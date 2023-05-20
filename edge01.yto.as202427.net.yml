@@ -177,7 +177,7 @@ peers:
     add-on-import:
       - "202427:104:57369"
       - "202427:105:4059"
-    as-set: AS-ONIX-CONNECTED
+    as-set: AS57369:AS-ONIX
 
   AS112 ONIX:
     template: peer
