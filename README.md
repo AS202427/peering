@@ -148,6 +148,7 @@ Octets in the function field are the peeringdb id.
 | `202427:105:2746` | Learned at IXP US FRE |
 | `202427:105:3512` | Learned at Frys-IX |
 | `202427:105:3528` | Learned at SIIX |
+| `202427:105:3685` | Learned at FREMIX |
 | `202427:105:3756` | Learned at FogIXP |
 | `202427:105:3829` | Learned at BGP.Exchange - Frankfurt |
 | `202427:105:3830` | Learned at BGP.Exchange - Zurich |
