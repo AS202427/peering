@@ -319,8 +319,6 @@ templates:
     add-path-rx: true
     pre-import-accept: >
      bgp_large_community.add((202427,101,2));
-     bgp_large_community.add((202427,102,756));
-     bgp_large_community.add((202427,103,3));
     announce:
       - "202427:101:1"
       - "202427:101:5"
