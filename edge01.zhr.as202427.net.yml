@@ -33,18 +33,6 @@ peers:
     add-on-import:
       - "202427:104:58057"
 
-  Kevin Buehl SBIX:
-    template: upstream
-    description: Kevin Buehl via SBIX
-    asn: 35619
-    neighbors:
-      - 2001:7f8:d9:5b::8b23:1
-    local-pref: 130
-    listen6: 2001:7f8:d9:5b::0003:16bb:1
-    add-on-import:
-      - "202427:104:35619"
-      - "202427:105:2571"
-
   Kevin Buehl 4IXP:
     template: upstream
     description: Kevin Buehl via 4IXP
@@ -56,6 +44,18 @@ peers:
     add-on-import:
       - "202427:104:35619"
       - "202427:105:2447"
+
+  Kevin Buehl SBIX:
+    template: upstream
+    description: Kevin Buehl via SBIX
+    asn: 35619
+    neighbors:
+      - 2001:7f8:d9:5b::8b23:1
+    local-pref: 130
+    listen6: 2001:7f8:d9:5b::0003:16bb:1
+    add-on-import:
+      - "202427:104:35619"
+      - "202427:105:2571"
 
   # ========= Looking Glasses =========
   pmacctd:
@@ -179,21 +179,6 @@ peers:
     listen6: 2a06:a005:2ef3::1
 
   # ========= Route Servers =========
-  SBIX Route Server:
-    template: routeserver
-    description: SBIX Route Server
-    asn: 47422
-    neighbors:
-      - 2001:7f8:d9:5b::b93e:1
-      - 2001:7f8:d9:5b::b93e:2
-      - 2001:7f8:d9:5b::b93e:3
-      - 2001:7f8:d9:5b::b93e:4
-    local-pref: 220
-    listen6: 2001:7f8:d9:5b::0003:16bb:1
-    password: wfcqZ68m9eNE4hT
-    add-on-import:
-      - "202427:104:47422"
-      - "202427:105:2571"
 
   4IXP Route Server:
     template: routeserver
@@ -209,6 +194,22 @@ peers:
     add-on-import:
       - "202427:104:35708"
       - "202427:105:2447"
+
+  SBIX Route Server:
+    template: routeserver
+    description: SBIX Route Server
+    asn: 47422
+    neighbors:
+      - 2001:7f8:d9:5b::b93e:1
+      - 2001:7f8:d9:5b::b93e:2
+      - 2001:7f8:d9:5b::b93e:3
+      - 2001:7f8:d9:5b::b93e:4
+    local-pref: 220
+    listen6: 2001:7f8:d9:5b::0003:16bb:1
+    password: wfcqZ68m9eNE4hT
+    add-on-import:
+      - "202427:104:47422"
+      - "202427:105:2571"
 
 #  IXPcat BUC01 Route Server:
 #    template: routeserver
@@ -266,19 +267,7 @@ peers:
 #      - "202427:105:000"
 #    as-set: RIPE::AS-IXPS
 
-  # ========= Peers - SBIX =========
-#  Redacted Devs SBIX:
-#    template: peer
-#    description: Redacted Devs via SBIX
-#    asn: 393577
-#    neighbors:
-#      - 2001:7f8:d9:5b:0:6:169:1
-#    local-pref: 320
-#    listen6: 2001:7f8:d9:5b::0003:16bb:1
-#    add-on-import:
-#      - "202427:104:393577"
-#      - "202427:105:2571"
-#
+  # ========= Peers - 4IXP =========
 #  Redacted Devs 4IXP:
 #    template: peer
 #    description: Redacted Devs via 4IXP
