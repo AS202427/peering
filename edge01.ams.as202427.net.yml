@@ -183,6 +183,19 @@ peers:
       - "202427:105:3512"
 
   # ========= Peers - Frys-IX =========
+  IPng Frys-IX:
+    template: peer
+    description: IPng via Frys-IX
+    asn: 8298
+    neighbors:
+      - 2001:7f8:10f::206a:130
+    local-pref: 320
+    listen6: 2001:7f8:10f::3:16bb:205
+    add-on-import:
+      - "202427:104:8298"
+      - "202427:105:3512"
+    as-set: AS8298:AS-IPNG
+
   Cloudflare Frys-IX:
     template: peer
     description: Cloudflare via Frys-IX
@@ -194,20 +207,6 @@ peers:
     add-on-import:
       - "202427:104:13335"
       - "202427:105:3512"
-
-  Meta Frys-IX:
-    template: peer
-    description: Meta via Frys-IX
-    asn: 32934
-    neighbors:
-      - 2001:7f8:10f::80a6:225
-      - 2001:7f8:10f::80a6:226
-    local-pref: 320
-    listen6: 2001:7f8:10f::3:16bb:205
-    add-on-import:
-      - "202427:104:32934"
-      - "202427:105:3512"
-    as-set: AS-FACEBOOK
 
   Google Frys-IX:
     template: peer
@@ -224,19 +223,6 @@ peers:
       - "202427:105:3512"
     as-set: AS-GOOGLE
 
-  Valve Frys-IX:
-    template: peer
-    description: Valve via Frys-IX
-    asn: 32590
-    neighbors:
-      - 2001:7f8:10f::7f4e:199
-    local-pref: 320
-    listen6: 2001:7f8:10f::3:16bb:205
-    add-on-import:
-      - "202427:104:32590"
-      - "202427:105:3512"
-    as-set: RADB::AS-VALVE
-
   ISC F-ROOT AMS1 Frys-IX:
     template: peer
     description: ISC F-ROOT AMS1 via Frys-IX
@@ -250,6 +236,33 @@ peers:
       - "202427:105:3512"
     as-set: RADB::AS30132:AS-SET
 
+  Valve Frys-IX:
+    template: peer
+    description: Valve via Frys-IX
+    asn: 32590
+    neighbors:
+      - 2001:7f8:10f::7f4e:199
+    local-pref: 320
+    listen6: 2001:7f8:10f::3:16bb:205
+    add-on-import:
+      - "202427:104:32590"
+      - "202427:105:3512"
+    as-set: RADB::AS-VALVE
+
+  Meta Frys-IX:
+    template: peer
+    description: Meta via Frys-IX
+    asn: 32934
+    neighbors:
+      - 2001:7f8:10f::80a6:225
+      - 2001:7f8:10f::80a6:226
+    local-pref: 320
+    listen6: 2001:7f8:10f::3:16bb:205
+    add-on-import:
+      - "202427:104:32934"
+      - "202427:105:3512"
+    as-set: AS-FACEBOOK
+
   Serverion Frys-IX:
     template: peer
     description: Serverion via Frys-IX
@@ -262,19 +275,6 @@ peers:
       - "202427:104:213035"
       - "202427:105:3512"
     as-set: AS-SERVERION
-
-  IPng Frys-IX:
-    template: peer
-    description: IPng via Frys-IX
-    asn: 8298
-    neighbors:
-      - 2001:7f8:10f::206a:130
-    local-pref: 320
-    listen6: 2001:7f8:10f::3:16bb:205
-    add-on-import:
-      - "202427:104:8298"
-      - "202427:105:3512"
-    as-set: AS8298:AS-IPNG
 
 templates:
   upstream:
