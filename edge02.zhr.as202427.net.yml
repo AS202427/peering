@@ -225,19 +225,6 @@ peers:
       - "202427:105:3830"
 
   # ========= Peers - CHIX-CH =========
-  IPng CHIX-CH:
-    template: peer
-    description: IPng Networks GmbH via CHIX-CH
-    asn: 8298
-    neighbors:
-      - 2001:7f8:cc:333::150
-    local-pref: 320
-    listen6: 2001:7f8:cc:333::182
-    add-on-import:
-      - "202427:104:8298"
-      - "202427:105:2365"
-    as-set: AS8298:AS-IPNG
-
   SolNet CHIX-CH:
     template: peer
     description: BSE Software GmbH / SolNet via CHIX-CH
