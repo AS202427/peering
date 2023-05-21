@@ -309,6 +309,19 @@ peers:
 #      - "202427:104:210667"
 #      - "202427:105:2084"
 
+  IPng LocIX:
+    template: peer
+    description: IPng via LocIX
+    asn: 8298
+    neighbors:
+      - 2001:7f8:f2:e1::8298:1
+    local-pref: 320
+    listen6: 2001:7f8:f2:e1:0:20:2427:1
+    add-on-import:
+      - "202427:104:8298"
+      - "202427:105:2084"
+    as-set: AS8298:AS-IPNG
+
   Thomas Riley Brown FogIXP:
     template: peer
     description: Thomas Riley Brown via FogIXP
@@ -381,6 +394,20 @@ peers:
       - "202427:104:41732"
       - "202427:105:3756"
 
+  IPng FogIXP:
+    template: peer
+    description: IPng via FogIXP
+    asn: 8298
+    neighbors:
+      - 2001:7f8:ca:1::43
+      - 2001:7f8:ca:1::44
+    local-pref: 320
+    listen6: 2001:7f8:ca:1::168
+    add-on-import:
+      - "202427:104:8298"
+      - "202427:105:3756"
+    as-set: AS8298:AS-IPNG
+
   Cloudflare NL-IX:
     template: peer
     description: Cloudflare via NL-IX
@@ -447,6 +474,19 @@ peers:
       - "202427:104:15169"
       - "202427:105:64"
     as-set: AS-GOOGLE
+
+  IPng NL-ix:
+    template: peer
+    description: IPng via NL-ix
+    asn: 8298
+    neighbors:
+      - 2001:7f8:13::a500:8298:1
+    local-pref: 320
+    listen6: 2001:7f8:13::a520:2427:1
+    add-on-import:
+      - "202427:104:8298"
+      - "202427:105:64"
+    as-set: AS8298:AS-IPNG
 
 templates:
   upstream:

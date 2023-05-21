@@ -259,6 +259,19 @@ peers:
       - "202427:105:3512"
     as-set: AS-SERVERION
 
+  IPng Frys-IX:
+    template: peer
+    description: IPng via Frys-IX
+    asn: 8298
+    neighbors:
+      - 2001:7f8:10f::206a:130
+    local-pref: 320
+    listen6: 2001:7f8:10f::3:16bb:205
+    add-on-import:
+      - "202427:104:8298"
+      - "202427:105:3512"
+    as-set: AS8298:AS-IPNG
+
 templates:
   upstream:
     local-pref: 100
