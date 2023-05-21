@@ -208,6 +208,19 @@ peers:
       - "202427:104:51019"
       - "202427:105:4059"
 
+  Linode ONIX:
+    template: peer
+    description: Linode via ONIX
+    asn: 63949
+    neighbors:
+      - 2001:504:125:e1::31
+    local-pref: 320
+    listen6: 2001:504:125:e1::c
+    add-on-import:
+      - "202427:104:63949"
+      - "202427:105:4059"
+    as-set: AS-LINODE
+
   Thomas Riley Brown ONIX:
     template: peer
     description: Thomas Riley Brown via ONIX

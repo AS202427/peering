@@ -133,6 +133,7 @@ Octets in the function field are the numeric country identifier defined by ISO 3
 | `202427:104:48646` | Learned from (Peer) AS48646 - Stefan Dunkel |
 | `202427:104:48971` | Learned from (Peer) AS48971 - DATAWIRE AG |
 | `202427:104:51019` | Learned from AS51019 - Kjartan Hrafnkelsson |
+| `202427:104:63949` | Learned from (Peer) AS63949 - Linode AS63949 |
 | `202427:104:203069` | Learned from AS203069 - Thomas Riley Brown |
 | `202427:104:204035` | Learned from (Peer) AS204035 - oneCorp GmbH |
 | `202427:104:207968` | Learned from (Peer) AS207968 - Raphael Peters |
