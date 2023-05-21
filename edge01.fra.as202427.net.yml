@@ -209,19 +209,6 @@ peers:
       - 2a06:a005:2efb::1
     listen6: 2a06:a005:2ef2::1
 
-  FogIXP Route Server:
-    template: routeserver
-    description: FogIXP Route Server
-    asn: 47498
-    neighbors:
-      - 2001:7f8:ca:1::111
-      - 2001:7f8:ca:1::222
-    local-pref: 220
-    listen6: 2001:7f8:ca:1::168
-    add-on-import:
-      - "202427:104:47498"
-      - "202427:105:3756"
-
   LocIX Route Server:
     template: routeserver
     description: LocIX Route Server
@@ -234,7 +221,20 @@ peers:
     listen6: 2001:7f8:f2:e1:0:20:2427:1
     add-on-import:
       - "202427:104:202409"
-      - "202427:105:2084"
+      - "202427:105:2084"  
+
+  FogIXP Route Server:
+    template: routeserver
+    description: FogIXP Route Server
+    asn: 47498
+    neighbors:
+      - 2001:7f8:ca:1::111
+      - 2001:7f8:ca:1::222
+    local-pref: 220
+    listen6: 2001:7f8:ca:1::168
+    add-on-import:
+      - "202427:104:47498"
+      - "202427:105:3756"
 
   NL-IX Route Server:
     template: routeserver
