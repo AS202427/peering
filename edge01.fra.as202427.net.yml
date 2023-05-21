@@ -75,9 +75,9 @@ peers:
       - "202427:105:2084"
     as-set: RADB::AS-HURRICANEV6
 
-  Hurricane Electric NL-IX:
+  Hurricane Electric NL-ix:
     template: upstream
-    description: Hurricane Electric LLC Upstream via NL-IX
+    description: Hurricane Electric LLC Upstream via NL-ix
     asn: 6939
     neighbors:
       - 2001:7f8:13::a500:6939:1
@@ -236,9 +236,9 @@ peers:
       - "202427:104:47498"
       - "202427:105:3756"
 
-  NL-IX Route Server:
+  NL-ix Route Server:
     template: routeserver
-    description: NL-IX Route Server
+    description: NL-ix Route Server
     asn: 34307
     neighbors:
       - 2001:7f8:13::a503:4307:1
@@ -408,9 +408,9 @@ peers:
       - "202427:105:3756"
     as-set: AS8298:AS-IPNG
 
-  Cloudflare NL-IX:
+  Cloudflare NL-ix:
     template: peer
-    description: Cloudflare via NL-IX
+    description: Cloudflare viaNL-ix
     asn: 13335
     neighbors:
       - 2001:7f8:13::a501:3335:1
@@ -422,9 +422,9 @@ peers:
       - "202427:104:13335"
       - "202427:105:64"
 
-  Meta NL-IX:
+  Meta NL-ix:
     template: peer
-    description: Meta via NL-IX
+    description: Meta via NL-ix
     asn: 32934
     neighbors:
       - 2001:7f8:13::a503:2934:1
@@ -436,9 +436,9 @@ peers:
       - "202427:105:64"
     as-set: AS-FACEBOOK
 
-#  Dominik Pohl NL-IX:
+#  Dominik Pohl NL-ix:
 #    template: peer
-#    description: Dominik Pohl via NL-IX
+#    description: Dominik Pohl via NL-ix
 #    asn: 205848
 #    neighbors:
 #      - 2001:7f8:13::a520:5848:1
@@ -448,9 +448,9 @@ peers:
 #      - "202427:104:205848"
 #      - "202427:105:64"
 
-  Apple NL-IX:
+  Apple NL-ix:
     template: peer
-    description: Apple via NL-IX
+    description: Apple via NL-ix
     asn: 714
     neighbors:
       - 2001:7f8:13::a500:714:1
@@ -461,9 +461,9 @@ peers:
       - "202427:104:714"
       - "202427:105:64"
 
-  Google NL-IX:
+  Google NL-ix:
     template: peer
-    description: Google via NL-IX
+    description: Google via NL-ix
     asn: 15169
     neighbors:
       - 2001:7f8:13::a501:5169:1
