@@ -32,6 +32,7 @@ peers:
     add-on-import:
       - "202427:104:6939"
       - "202427:105:2452"
+    as-set: RADB::AS-HURRICANEV6
 
   Johannes Ernst UNMETERED Exchange:
     template: upstream

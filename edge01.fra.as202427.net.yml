@@ -44,6 +44,7 @@ peers:
     add-on-import:
       - "202427:104:6939"
       - "202427:105:2084"
+    as-set: RADB::AS-HURRICANEV6
 
   Johannes Ernst LocIX:
     template: upstream
@@ -85,6 +86,7 @@ peers:
     add-on-import:
       - "202427:104:6939"
       - "202427:105:64"
+    as-set: RADB::AS-HURRICANEV6
 
   # ========= Looking Glasses =========
   pmacctd:
