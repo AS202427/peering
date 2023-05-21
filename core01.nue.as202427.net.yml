@@ -20,6 +20,9 @@ default-route: false
 blackhole-bogon-asns: true
 
 peers:
+  # ========= Upstreams =========
+
+  # ========= Looking Glasses =========
   pmacctd:
     template: lg
     description: pmacctd
@@ -58,6 +61,7 @@ peers:
 #    multihop: true
 #    listen6: 2a03:4000:4d:fe1::1
 
+  # ========= Internal =========
   Edge01 FRA:
     template: core
     description: Edge01 Router - Frankfurt, Germany
@@ -138,6 +142,8 @@ peers:
     neighbors:
       - 2a06:a005:2efb::1
     listen6: 2a06:a005:2ef1::1
+
+  # ========= Route Servers =========
 
 templates:
   upstream:

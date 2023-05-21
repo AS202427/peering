@@ -20,6 +20,7 @@ default-route: false
 blackhole-bogon-asns: true
 
 peers:
+  # ========= Upstreams =========
   Securebit:
     template: upstream
     description: Securebit AG Upstream
@@ -43,7 +44,6 @@ peers:
     add-on-import:
       - "202427:104:35619"
       - "202427:105:2571"
-    as-set: RIPE::AS-BUEHL
 
   Kevin Buehl 4IXP:
     template: upstream
@@ -56,8 +56,8 @@ peers:
     add-on-import:
       - "202427:104:35619"
       - "202427:105:2447"
-    as-set: RIPE::AS-BUEHL
 
+  # ========= Looking Glasses =========
   pmacctd:
     template: lg
     description: pmacctd
@@ -96,6 +96,7 @@ peers:
 #    multihop: true
 #    listen6: 2a09:4c0:100:2d88::8964
 
+  # ========= Internal =========
   Core01 NUE:
     template: core
     description: Core01 Router - Nuremberg, Germany
@@ -177,6 +178,7 @@ peers:
       - 2a06:a005:2efb::1
     listen6: 2a06:a005:2ef3::1
 
+  # ========= Route Servers =========
   SBIX Route Server:
     template: routeserver
     description: SBIX Route Server
@@ -264,6 +266,7 @@ peers:
 #      - "202427:105:000"
 #    as-set: RIPE::AS-IXPS
 
+  # ========= Peers - SBIX =========
 #  Redacted Devs SBIX:
 #    template: peer
 #    description: Redacted Devs via SBIX

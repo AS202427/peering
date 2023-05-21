@@ -20,6 +20,7 @@ default-route: false
 blackhole-bogon-asns: true
 
 peers:
+  # ========= Upstreams =========
   Servperso:
     template: upstream
     description: Servperso Systems Upstream
@@ -31,6 +32,7 @@ peers:
     add-on-import:
       - "202427:104:34872"
 
+  # ========= Looking Glasses =========
   pmacctd:
     template: lg
     description: pmacctd
@@ -69,6 +71,7 @@ peers:
 #    multihop: true
 #    listen6: 2a0c:b640:13:48::1
 
+  # ========= Internal =========
   Core01 NUE:
     template: core
     description: Core01 Router - Nuremberg, Germany
@@ -150,6 +153,7 @@ peers:
       - 2a06:a005:2efb::1
     listen6: 2a06:a005:2ef6::1
 
+  # ========= Route Servers =========
   LocIX Route Server:
     template: routeserver
     description: LocIX Route Server
@@ -190,6 +194,7 @@ peers:
       - "202427:104:24381"
       - "202427:105:3844"
 
+  # ========= Peers - LocIX =========
   oneCorp LocIX:
     template: peer
     description: oneCorp via LocIX

@@ -22,6 +22,7 @@ default-route: false
 blackhole-bogon-asns: true
 
 peers:
+  # ========= Upstreams =========
   iFog:
     template: upstream
     description: iFog GmbH Upstream
@@ -33,9 +34,9 @@ peers:
     add-on-import:
       - "202427:104:34927"
 
-  Hurricane Electric CH-IX:
+  Hurricane Electric CHIX-CH:
     template: upstream
-    description: Hurricane Electric LLC Upstream via CH-IX
+    description: Hurricane Electric LLC Upstream via CHIX-CH
     asn: 6939
     neighbors:
       - 2001:7f8:cc:333::137
@@ -44,8 +45,8 @@ peers:
     add-on-import:
       - "202427:104:6939"
       - "202427:105:2365"
-    as-set: RADB::AS-HURRICANEV6
 
+  # ========= Looking Glasses =========
   pmacctd:
     template: lg
     description: pmacctd
@@ -84,6 +85,7 @@ peers:
 #    multihop: true
 #    listen6: 2a06:a005:28e4::1
 
+  # ========= Internal =========
   Core01 NUE:
     template: core
     description: Core01 Router - Nuremberg, Germany
@@ -167,9 +169,10 @@ peers:
       - 2a06:a005:2efb::1
     listen6: 2a06:a005:2ef4::1
 
-  CH-IX Route Server:
+  # ========= Route Servers =========
+  CHIX-CH Route Server:
     template: routeserver
-    description: CH-IX Route Server
+    description: CHIX-CH Route Server
     asn: 212100
     neighbors:
       - 2001:7f8:cc:333::254
@@ -220,9 +223,35 @@ peers:
       - "202427:104:24381"
       - "202427:105:3830"
 
-  Init7 CH-IX:
+  # ========= Peers - CHIX-CH =========
+  IPng CHIX-CH:
     template: peer
-    description: Init7 via CH-IX
+    description: IPng Networks GmbH via CHIX-CH
+    asn: 8298
+    neighbors:
+      - 2001:7f8:cc:333::150
+    local-pref: 320
+    listen6: 2001:7f8:cc:333::182
+    add-on-import:
+      - "202427:104:8298"
+      - "202427:105:2365"
+    as-set: AS8298:AS-IPNG
+
+  SolNet CHIX-CH:
+    template: peer
+    description: BSE Software GmbH / SolNet via CHIX-CH
+    asn: 9044
+    neighbors:
+      - 2001:7f8:cc:333::152
+    local-pref: 320
+    listen6: 2001:7f8:cc:333::182
+    add-on-import:
+      - "202427:104:9044"
+      - "202427:105:2365"
+
+  Init7 CHIX-CH:
+    template: peer
+    description: Init7 via CHIX-CH
     asn: 13030
     neighbors:
       - 2001:7f8:cc:333::177
@@ -232,57 +261,9 @@ peers:
       - "202427:104:13030"
       - "202427:105:2365"
 
-  acdalis informatik CH-IX:
+  Google CHIX-CH:
     template: peer
-    description: acdalis informatik via CH-IX
-    asn: 28859
-    neighbors:
-      - 2001:7f8:cc:333::144
-    local-pref: 320
-    listen6: 2001:7f8:cc:333::182
-    add-on-import:
-      - "202427:104:28859"
-      - "202427:105:2365"
-
-  Andreas Fries CH-IX:
-    template: peer
-    description: Andreas Fries via CH-IX
-    asn: 213126
-    neighbors:
-      - 2001:7f8:cc:333::148
-    local-pref: 320
-    listen6: 2001:7f8:cc:333::182
-    add-on-import:
-      - "202427:104:213126"
-      - "202427:105:2365"
-
-  DATAWIRE AG CH-IX:
-    template: peer
-    description: DATAWIRE AG via CH-IX
-    asn: 48971
-    neighbors:
-      - 2001:7f8:cc:333::131
-    local-pref: 320
-    listen6: 2001:7f8:cc:333::182
-    add-on-import:
-      - "202427:104:48971"
-      - "202427:105:2365"
-
-  Sam Aschwanden CH-IX:
-    template: peer
-    description: Sam Aschwanden via CH-IX
-    asn: 35202
-    neighbors:
-      - 2001:7f8:cc:333::143
-    local-pref: 320
-    listen6: 2001:7f8:cc:333::182
-    add-on-import:
-      - "202427:104:35202"
-      - "202427:105:2365"
-
-  Google CH-IX:
-    template: peer
-    description: Google via CH-IX
+    description: Google via CHIX-CH
     asn: 15169
     neighbors:
       - 2001:7f8:cc:333::169
@@ -294,9 +275,33 @@ peers:
       - "202427:105:2365"
     as-set: AS-GOOGLE
 
-  Stefan Dunkel CH-IX:
+  acdalis informatik CHIX-CH:
     template: peer
-    description: Stefan Dunkel via CH-IX
+    description: acdalis informatik via CHIX-CH
+    asn: 28859
+    neighbors:
+      - 2001:7f8:cc:333::144
+    local-pref: 320
+    listen6: 2001:7f8:cc:333::182
+    add-on-import:
+      - "202427:104:28859"
+      - "202427:105:2365"
+
+  Sam Aschwanden CHIX-CH:
+    template: peer
+    description: Sam Aschwanden via CHIX-CH
+    asn: 35202
+    neighbors:
+      - 2001:7f8:cc:333::143
+    local-pref: 320
+    listen6: 2001:7f8:cc:333::182
+    add-on-import:
+      - "202427:104:35202"
+      - "202427:105:2365"
+
+  Stefan Dunkel CHIX-CH:
+    template: peer
+    description: Stefan Dunkel via CHIX-CH
     asn: 48646
     neighbors:
       - 2001:7f8:cc:333::140
@@ -306,9 +311,21 @@ peers:
       - "202427:104:48646"
       - "202427:105:2365"
 
-  Raphael Peters CH-IX:
+  DATAWIRE AG CHIX-CH:
     template: peer
-    description: Raphael Peters via CH-IX
+    description: DATAWIRE AG via CHIX-CH
+    asn: 48971
+    neighbors:
+      - 2001:7f8:cc:333::131
+    local-pref: 320
+    listen6: 2001:7f8:cc:333::182
+    add-on-import:
+      - "202427:104:48971"
+      - "202427:105:2365"
+
+  Raphael Peters CHIX-CH:
+    template: peer
+    description: Raphael Peters via CHIX-CH
     asn: 207968
     neighbors:
       - 2001:7f8:cc:333::157
@@ -318,30 +335,19 @@ peers:
       - "202427:104:207968"
       - "202427:105:2365"
 
-  SolNet CH-IX:
+  Andreas Fries CHIX-CH:
     template: peer
-    description: SolNet via CH-IX
-    asn: 9044
+    description: Andreas Fries via CHIX-CH
+    asn: 213126
     neighbors:
-      - 2001:7f8:cc:333::152
+      - 2001:7f8:cc:333::148
     local-pref: 320
     listen6: 2001:7f8:cc:333::182
     add-on-import:
-      - "202427:104:9044"
+      - "202427:104:213126"
       - "202427:105:2365"
 
-  IPng CH-IX:
-    template: peer
-    description: IPng via CH-IX
-    asn: 8298
-    neighbors:
-      - 2001:7f8:cc:333::150
-    local-pref: 320
-    listen6: 2001:7f8:cc:333::182
-    add-on-import:
-      - "202427:104:8298"
-      - "202427:105:2365"
-    as-set: AS8298:AS-IPNG
+  # ========= Peers - SwissIX =========
 
 templates:
   upstream:

@@ -20,6 +20,7 @@ default-route: false
 blackhole-bogon-asns: true
 
 peers:
+  # ========= Upstreams =========
   Hurricane Electric UNMETERED Exchange:
     template: upstream
     description: Hurricane Electric LLC Upstream via UNMETERED Exchange
@@ -31,7 +32,6 @@ peers:
     add-on-import:
       - "202427:104:6939"
       - "202427:105:2452"
-    as-set: RADB::AS-HURRICANEV6
 
   Johannes Ernst UNMETERED Exchange:
     template: upstream
@@ -44,8 +44,8 @@ peers:
     add-on-import:
       - "202427:104:212895"
       - "202427:105:2452"
-    as-set: RIPE::AS-ROUTE64
 
+  # ========= Looking Glasses =========
   pmacctd:
     template: lg
     description: pmacctd
@@ -84,6 +84,7 @@ peers:
 #    multihop: false
 #    listen6: 2602:fed2:fb0:89::1
 
+  # ========= Internal =========
   Core01 NUE:
     template: core
     description: Core01 Router - Nuremberg, Germany
@@ -165,6 +166,7 @@ peers:
       - 2a06:a005:2efb::1
     listen6: 2a06:a005:2ef9::1
 
+  # ========= Route Servers =========
   UNMETERED Exchange Route Server:
     template: routeserver
     description: UNMETERED Exchange Route Server
@@ -180,19 +182,7 @@ peers:
     auto-import-limits: false
     auto-as-set: false
 
-  BGP.Exchange Route Server:
-    template: routeserver
-    description: BGP.Exchange Toronto Route Server
-    disabled: true
-    asn: 24381
-    neighbors:
-      - 2a0e:8f01:1000:33::1
-    local-pref: 220
-    listen6: 2a0e:8f01:1000:33::102
-    add-on-import:
-      - "202427:104:24381"
-      - "202427:105:3836"
-
+  # ========= Peers - UNMETERED Exchange =========
   AS112 UNMETERED Exchange:
     template: peer
     description: AS112 via UNMETERED Exchange

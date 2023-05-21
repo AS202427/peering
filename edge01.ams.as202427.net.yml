@@ -21,6 +21,7 @@ default-route: false
 blackhole-bogon-asns: true
 
 peers:
+  # ========= Upstreams =========
   iFog:
     template: upstream
     description: iFog Upstream
@@ -43,8 +44,8 @@ peers:
     add-on-import:
       - "202427:104:6939"
       - "202427:105:3512"
-    as-set: RADB::AS-HURRICANEV6
 
+  # ========= Looking Glasses =========
   pmacctd:
     template: lg
     description: pmacctd
@@ -83,6 +84,7 @@ peers:
 #    multihop: true
 #    listen6: 2a0c:9a40:1072::419
 
+  # ========= Internal =========
   Core01 NUE:
     template: core
     description: Core01 Router - Nuremberg, Germany
@@ -166,6 +168,7 @@ peers:
       - 2a06:a005:2efb::1
     listen6: 2a06:a005:2ef7::1
 
+  # ========= Route Servers =========
   Frys-IX Route Server:
     template: routeserver
     description: Frys-IX Route Server
@@ -179,6 +182,7 @@ peers:
       - "202427:104:56393"
       - "202427:105:3512"
 
+  # ========= Peers - Frys-IX =========
   Cloudflare Frys-IX:
     template: peer
     description: Cloudflare via Frys-IX

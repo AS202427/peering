@@ -21,6 +21,7 @@ default-route: false
 blackhole-bogon-asns: true
 
 peers:
+  # ========= Upstreams =========
   iFog:
     template: upstream
     description: iFog GmbH Upstream
@@ -43,7 +44,6 @@ peers:
     add-on-import:
       - "202427:104:212895"
       - "202427:105:2084"
-    as-set: RIPE::AS-ROUTE64
 
   Freetransit Project FogIXP:
     template: upstream
@@ -73,7 +73,6 @@ peers:
     add-on-import:
       - "202427:104:6939"
       - "202427:105:2084"
-    as-set: RADB::AS-HURRICANEV6
 
   Hurricane Electric NL-ix:
     template: upstream
@@ -86,8 +85,8 @@ peers:
     add-on-import:
       - "202427:104:6939"
       - "202427:105:64"
-    as-set: RADB::AS-HURRICANEV6
 
+  # ========= Looking Glasses =========
   pmacctd:
     template: lg
     description: pmacctd
@@ -126,6 +125,7 @@ peers:
 #    multihop: true
 #    listen6: 2a0c:9a40:1::237
 
+  # ========= Internal =========
   Core01 NUE:
     template: core
     description: Core01 Router - Nuremberg, Germany
@@ -209,6 +209,7 @@ peers:
       - 2a06:a005:2efb::1
     listen6: 2a06:a005:2ef2::1
 
+  # ========= Route Servers =========
   LocIX Route Server:
     template: routeserver
     description: LocIX Route Server
@@ -261,6 +262,7 @@ peers:
       - "202427:104:24381"
       - "202427:105:3829"
 
+  # ========= Peers - LocIX =========
   AS112 LocIX:
     template: peer
     description: AS112 via LocIX
@@ -322,6 +324,7 @@ peers:
       - "202427:105:2084"
     as-set: AS8298:AS-IPNG
 
+  # ========= Peers - FogIXP =========
   Thomas Riley Brown FogIXP:
     template: peer
     description: Thomas Riley Brown via FogIXP
@@ -408,6 +411,7 @@ peers:
       - "202427:105:3756"
     as-set: AS8298:AS-IPNG
 
+  # ========= Peers - NL-ix =========
   Cloudflare NL-ix:
     template: peer
     description: Cloudflare viaNL-ix

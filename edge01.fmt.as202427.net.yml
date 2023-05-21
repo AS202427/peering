@@ -21,6 +21,7 @@ default-route: false
 blackhole-bogon-asns: true
 
 peers:
+  # ========= Upstreams =========
   iFog:
     template: upstream
     description: iFog Upstream
@@ -32,6 +33,7 @@ peers:
     add-on-import:
       - "202427:104:34927"
 
+  # ========= Looking Glasses =========
   pmacctd:
     template: lg
     description: pmacctd
@@ -70,6 +72,7 @@ peers:
 #    multihop: true
 #    listen6: 2a0c:9a40:1072::419
 
+  # ========= Internal =========
   Core01 NUE:
     template: core
     description: Core01 Router - Nuremberg, Germany
@@ -151,6 +154,7 @@ peers:
       - 2a06:a005:2efa::1
     listen6: 2a06:a005:2efb::1
 
+  # ========= Route Servers =========
   FREMIX Route Server:
     template: routeserver
     description: FREMIX Route Server
@@ -165,6 +169,7 @@ peers:
       - "202427:105:3685"
     as-set: AS57369:AS-FREMIX
 
+  # ========= Peers - FREMIX =========
   AS112 FREMIX:
     template: peer
     description: AS112 via FREMIX

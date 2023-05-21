@@ -21,6 +21,7 @@ default-route: false
 blackhole-bogon-asns: true
 
 peers:
+  # ========= Upstreams =========
   C1V:
     template: upstream
     description: C1V Upstream
@@ -31,9 +32,9 @@ peers:
     listen6: 2a05:4140:3::744
     add-on-import:
       - "202427:104:212271"
-    as-set: RIPE::AS-C1VHOSTING
     multihop: true
 
+  # ========= Looking Glasses =========
   pmacctd:
     template: lg
     description: pmacctd
@@ -72,6 +73,7 @@ peers:
 #    multihop: true
 #    listen6: 2a05:4140:3::744
 
+  # ========= Internal =========
   Core01 NUE:
     template: core
     description: Core01 Router - Nuremberg, Germany
@@ -153,6 +155,7 @@ peers:
       - 2a06:a005:2efb::1
     listen6: 2a06:a005:2ef5::1
 
+  # ========= Route Servers =========
   SIIX Route Server:
     template: routeserver
     description: SIIX Route Server
@@ -165,6 +168,8 @@ peers:
       - "202427:104:49245"
       - "202427:105:3528"
     as-set: RIPE::AS-SIIX
+
+  # ========= Peers - SIIX =========
 
 templates:
   upstream:
