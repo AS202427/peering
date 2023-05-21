@@ -124,6 +124,7 @@ Octets in the function field are the numeric country identifier defined by ISO 3
 | `202427:104:13030` | Learned from AS13030 - Init7 |
 | `202427:104:13335` | Learned from AS13335 - Cloudflare, Inc. |
 | `202427:104:15169` | Learned from AS15169 - Google LLC |
+| `202427:104:24940` | Learned from AS24940 - Hetzner Online |
 | `202427:104:28859` | Learned from AS28859 - acdalis informatik |
 | `202427:104:30132` | Learned from AS30132 - ISC F-ROOT AMS1 |
 | `202427:104:32590` | Learned from AS32590 - Valve Corporation |

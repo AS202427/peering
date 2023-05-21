@@ -428,6 +428,19 @@ peers:
       - "202427:105:64"
     as-set: AS-GOOGLE
 
+  Hetzner NL-ix:
+    template: peer
+    description: Hetzner via NL-ix
+    asn: 24940
+    neighbors:
+      - 2001:7f8:13::a502:4940:1
+    local-pref: 320
+    listen6: 2001:7f8:13::a520:2427:1
+    add-on-import:
+      - "202427:104:24940"
+      - "202427:105:64"
+    as-set: AS-HETZNER
+
   Meta NL-ix:
     template: peer
     description: Meta via NL-ix
