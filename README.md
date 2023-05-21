@@ -120,6 +120,7 @@ Octets in the function field are the numeric country identifier defined by ISO 3
 | --------- | ----------- |
 | `202427:104:112` | Learned from AS112 - AS112 Project |
 | `202427:104:714` | Learned from AS714 - Apple Inc. |
+| `202427:104:8298` | Learned from (Peer) AS8298 - IPng Networks GmbH |
 | `202427:104:9044` | Learned from (Peer) AS9044 - BSE Software GmbH / SolNet |
 | `202427:104:13030` | Learned from (Peer) AS13030 - Init7 |
 | `202427:104:13335` | Learned from AS13335 - Cloudflare, Inc. |

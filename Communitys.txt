@@ -75,6 +75,7 @@
 # Peer - Peering
 202427:104:112,Learned from (Peer) AS112 - AS112 Project
 202427:104:714,Learned from (Peer) AS714 - Apple Inc.
+202427:104:8298,Learned from (Peer) AS8298 - IPng Networks GmbH
 202427:104:9044,Learned from (Peer) AS9044 - BSE Software GmbH / SolNet
 202427:104:13030,Learned from (Peer) AS13030 - Init7
 202427:104:13335,Learned from (Peer) AS13335 - Cloudflare, Inc.
