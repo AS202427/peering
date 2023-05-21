@@ -33,30 +33,6 @@ peers:
     add-on-import:
       - "202427:104:58057"
 
-  Kevin Buehl 4IXP:
-    template: upstream
-    description: Kevin Buehl via 4IXP
-    asn: 35619
-    neighbors:
-      - 2001:7f8:d9:5b::8b23:1
-    local-pref: 130
-    listen6: 2001:7f8:d0::3:16bb:1
-    add-on-import:
-      - "202427:104:35619"
-      - "202427:105:2447"
-
-  Kevin Buehl SBIX:
-    template: upstream
-    description: Kevin Buehl via SBIX
-    asn: 35619
-    neighbors:
-      - 2001:7f8:d9:5b::8b23:1
-    local-pref: 130
-    listen6: 2001:7f8:d9:5b::0003:16bb:1
-    add-on-import:
-      - "202427:104:35619"
-      - "202427:105:2571"
-
   # ========= Looking Glasses =========
   pmacctd:
     template: lg
