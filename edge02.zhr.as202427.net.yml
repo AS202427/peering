@@ -101,6 +101,7 @@ peers:
     asn: 202427
     neighbors:
       - 2a06:a005:2902::1
+    prepends: 0
     local-pref: 190
     listen6: 2a06:a005:2904::1
 
@@ -134,6 +135,7 @@ peers:
     asn: 202427
     neighbors:
       - 2a06:a005:2907::1
+    prepends: 0
     local-pref: 190
     listen6: 2a06:a005:2904::1
 
