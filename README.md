@@ -109,6 +109,7 @@ Octets in the function field are the numeric country identifier defined by ISO 3
 | `202427:104:49245` | Learned from AS49245 - SIIX |
 | `202427:104:49459` | Learned from AS49459 - IXP FI HEL, IXP LI VAD, IXP NL DRO, IXP UK LON, IXP US FRE |
 | `202427:104:56393` | Learned from AS56393 - Frys-IX |
+| `202427:104:56584` | Learned from AS56584 - INTERIX |
 | `202427:104:57369` | Learned from AS212100 - FREMIX / ONIX |
 | `202427:104:65513` | Learned from AS65513 - UNM-Exch Canada-West |
 | `202427:104:202409` | Learned from AS202409 - LOCIX Frankfurt, LOCIX Dusseldorf |
@@ -168,6 +169,7 @@ Octets in the function field are the peeringdb id.
 | `202427:105:3830` | Learned at BGP.Exchange - Zurich |
 | `202427:105:3836` | Learned at BGP.Exchange - Toronto |
 | `202427:105:3844` | Learned at BGP.Exchange - Dusseldorf |
+| `202427:105:3990` | Learned at INTERIX |
 | `202427:105:4059` | Learned at ONIX |
 
 ## Pref

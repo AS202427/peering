@@ -68,6 +68,7 @@
 202427:104:49245,Learned from (Routeserver) AS49245 - SIIX
 202427:104:49459,Learned from (Routeserver) AS49459 - IXP FI HEL, IXP LI VAD, IXP NL DRO, IXP UK LON, IXP US FRE
 202427:104:56393,Learned from (Routeserver) AS56393 - Frys-IX
+202427:104:56584,Learned from (Routeserver) AS56584 - INTERIX
 202427:104:57369,Learned from (Routeserver) AS212100 - FREMIX / ONIX
 202427:104:65513,Learned from (Routeserver) AS65513 - UNM-Exch Canada-West
 202427:104:202409,Learned from (Routeserver) AS202409 - LOCIX Frankfurt, LOCIX Dusseldorf
@@ -106,7 +107,7 @@
 202427:105:2365,Learned at (IX) CHIX-CH
 202427:105:2447,Learned at (IX) 4b42 Internet Exchange Point
 202427:105:2452,Learned at (IX) UNM-Exch Canada-West
-202427:105:2571,Learned at (IX)SBIX ZRH
+202427:105:2571,Learned at (IX) SBIX ZRH
 202427:105:2700,Learned at (IX) IXP FI HEL
 202427:105:2704,Learned at (IX) IXP UK LON
 202427:105:2705,Learned at (IX) IXP NL DRO
@@ -121,4 +122,5 @@
 202427:105:3830,Learned at (IX) BGP.Exchange - Zurich
 202427:105:3836,Learned at (IX) BGP.Exchange - Toronto
 202427:105:3844,Learned at (IX) BGP.Exchange - Dusseldorf
+202427:105:3990,Learned at (IX) INTERIX
 202427:105:4059,Learned at (IX) ONIX
