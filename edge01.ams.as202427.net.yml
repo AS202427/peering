@@ -183,6 +183,20 @@ peers:
       - "202427:104:56393"
       - "202427:105:3512"
 
+  InterIX Route Server:
+    template: routeserver
+    description: InterIX Route Server
+    asn: 56584
+    neighbors:
+      - 2001:7f8:134::253
+      - 2001:7f8:134::254
+      - 2001:7f8:134::251
+    local-pref: 220
+    listen6: 2001:7f8:134::43
+    add-on-import:
+      - "202427:104:56584"
+      - "202427:105:3990"
+
   # ========= Peers - Frys-IX =========
   AS112 Frys-IX:
     template: peer
