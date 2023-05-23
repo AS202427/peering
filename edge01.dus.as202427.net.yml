@@ -195,6 +195,18 @@ peers:
       - "202427:105:3844"
 
   # ========= Peers - LocIX =========
+  AS112 LocIX:
+    template: peer
+    description: AS112 via LocIX
+    asn: 112
+    neighbors:
+      - 2a0c:b641:701:0:a5:0:112:1
+    local-pref: 320
+    listen6: 2a0c:b641:701:0:a5:20:2427:1
+    add-on-import:
+      - "202427:104:112"
+      - "202427:105:2730"
+
   oneCorp LocIX:
     template: peer
     description: oneCorp via LocIX

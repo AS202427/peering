@@ -314,6 +314,18 @@ peers:
 #      - "202427:105:2084"
 
   # ========= Peers - FogIXP =========
+  AS112 FogIXP:
+    template: peer
+    description: AS112 via FogIXP
+    asn: 112
+    neighbors:
+      - 2001:7f8:ca:1::12
+    local-pref: 320
+    listen6: 2001:7f8:ca:1::168
+    add-on-import:
+      - "202427:104:112"
+      - "202427:105:3756"
+
   HostingFuze FogIXP:
     template: peer
     description: HostingFuze via FogIXP
@@ -387,6 +399,18 @@ peers:
       - "202427:105:3756"
 
   # ========= Peers - NL-ix =========
+  AS112 NL-ix:
+    template: peer
+    description: AS112 via NL-ix
+    asn: 112
+    neighbors:
+      - 2001:7f8:13::a500:112:1
+    local-pref: 320
+    listen6: 2001:7f8:13::a520:2427:1
+    add-on-import:
+      - "202427:104:112"
+      - "202427:105:64"
+
   Apple NL-ix:
     template: peer
     description: Apple via NL-ix
