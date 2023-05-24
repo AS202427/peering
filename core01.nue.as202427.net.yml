@@ -159,7 +159,6 @@ templates:
     remove-all-communities: 202427
     allow-blackhole-community: true
     filter-max-prefix: false
-    auto-as-set: true
     role: customer
 
   routeserver:
@@ -179,7 +178,6 @@ templates:
     filter-max-prefix: false
     filter-transit-asns: true
 #    filter-never-via-route-servers: true
-    auto-as-set: true
 
   peer:
     local-pref: 300
@@ -197,7 +195,6 @@ templates:
     strict-rpki: true
     filter-transit-asns: true
     auto-import-limits: true
-    auto-as-set: true
     role: peer
 
   downstream:
@@ -219,7 +216,6 @@ templates:
     strict-rpki: true
     filter-transit-asns: true
     auto-import-limits: true
-    auto-as-set: true
     role: provider
 
   lg:

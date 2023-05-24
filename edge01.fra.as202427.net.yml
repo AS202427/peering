@@ -30,6 +30,7 @@ peers:
       - 2a0c:9a40:1::1
     local-pref: 120
     listen6: 2a0c:9a40:1::237
+    as-set: AS-IFOG
 
   Hurricane Electric LocIX:
     template: upstream
@@ -53,6 +54,7 @@ peers:
     listen6: 2001:7f8:f2:e1:0:20:2427:1
     add-on-import:
       - "202427:105:2084"
+    as-set: RIPE::AS-ROUTE64
 
   Freetransit Project FogIXP:
     template: upstream
@@ -69,6 +71,7 @@ peers:
       - 2a06:a005:28e2::/48 # AS202427-BACKBONE-NETWORK
       - 2a0a:6040:2720::/43 # DE-AS202427
       - 2a0a:6040:27e0::/43 # EU-AS202427
+    as-set: AS41051:AS-ALL
 
   Hurricane Electric NL-ix:
     template: upstream
@@ -217,7 +220,8 @@ peers:
     local-pref: 220
     listen6: 2001:7f8:f2:e1:0:20:2427:1
     add-on-import:
-      - "202427:105:2084"  
+      - "202427:105:2084"
+    as-set: AS-LOCIX
 
   FogIXP Route Server:
     template: routeserver
@@ -230,6 +234,7 @@ peers:
     listen6: 2001:7f8:ca:1::168
     add-on-import:
       - "202427:105:3756"
+    as-set: AS-FOGIXP
 
   NL-ix Route Server:
     template: routeserver
@@ -242,6 +247,7 @@ peers:
     listen6: 2001:7f8:13::a520:2427:1
     add-on-import:
       - "202427:105:64"
+    as-set: AS-NL-IX-RS
 
   BGP.Exchange Route Server:
     template: routeserver
@@ -253,6 +259,7 @@ peers:
     listen6: 2a0e:8f01:1000:24::100
     add-on-import:
       - "202427:105:3829"
+    as-set: AS-BGPEXCHANGE
 
   # ========= Peers - LocIX =========
   AS112 LocIX:
@@ -265,6 +272,7 @@ peers:
     listen6: 2001:7f8:f2:e1:0:20:2427:1
     add-on-import:
       - "202427:105:2084"
+    as-set: AS112
 
   #  Dominik Pohl LocIX:
   #    template: peer
@@ -287,6 +295,7 @@ peers:
     listen6: 2001:7f8:f2:e1:0:20:2427:1
     add-on-import:
       - "202427:105:2084"
+    as-set: AS208328:AS-LUIGILABATE
 
 #   Adam Goodenough LocIX:
 #    template: peer
@@ -310,6 +319,7 @@ peers:
     listen6: 2001:7f8:ca:1::168
     add-on-import:
       - "202427:105:3756"
+    as-set: AS112
 
   HostingFuze FogIXP:
     template: peer
@@ -321,6 +331,7 @@ peers:
     listen6: 2001:7f8:ca:1::168
     add-on-import:
       - "202427:105:3756"
+    as-set: AS-HFN
 
   Thomas Riley Brown FogIXP:
     template: peer
@@ -332,6 +343,7 @@ peers:
     listen6: 2001:7f8:ca:1::168
     add-on-import:
       - "202427:105:3756"
+    as-set: AS-XZR
 
 #  Tomas Oliveira Valente Leite de Castro FogIXP:
 #    template: peer
@@ -376,6 +388,7 @@ peers:
     listen6: 2001:7f8:ca:1::168
     add-on-import:
       - "202427:105:3756"
+    as-set: AS211380:AS-SIMULHOST
 
   # ========= Peers - NL-ix =========
   AS112 NL-ix:
@@ -388,6 +401,7 @@ peers:
     listen6: 2001:7f8:13::a520:2427:1
     add-on-import:
       - "202427:105:64"
+    as-set: AS112
 
   Apple NL-ix:
     template: peer
@@ -400,6 +414,7 @@ peers:
     listen6: 2001:7f8:13::a520:2427:1
     add-on-import:
       - "202427:105:64"
+    as-set: AS-APPLE
 
   Cloudflare NL-ix:
     template: peer
@@ -413,6 +428,7 @@ peers:
     listen6: 2001:7f8:13::a520:2427:1
     add-on-import:
       - "202427:105:64"
+    as-set: AS-CLOUDFLARE
 
   Google NL-ix:
     template: peer
@@ -478,7 +494,6 @@ templates:
     remove-all-communities: 202427
     allow-blackhole-community: true
     filter-max-prefix: false
-    auto-as-set: true
     role: customer
 
   routeserver:
@@ -498,7 +513,6 @@ templates:
     filter-max-prefix: false
     filter-transit-asns: true
 #    filter-never-via-route-servers: true
-    auto-as-set: true
 
   peer:
     local-pref: 300
@@ -516,7 +530,6 @@ templates:
     strict-rpki: true
     filter-transit-asns: true
     auto-import-limits: true
-    auto-as-set: true
     role: peer
 
   downstream:
@@ -538,7 +551,6 @@ templates:
     strict-rpki: true
     filter-transit-asns: true
     auto-import-limits: true
-    auto-as-set: true
     role: provider
 
   lg:

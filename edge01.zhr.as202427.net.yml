@@ -30,6 +30,7 @@ peers:
     local-pref: 120
     listen6: 2a09:4c0:100:2d88::8964
     password: wfcqZ68m9eNE4hT
+    as-set: AS-SBAG
 
   # ========= Looking Glasses =========
   pmacctd:
@@ -235,40 +236,6 @@ peers:
 #      - "202427:105:000"
 #    as-set: RIPE::AS-IXPS
 
-  # ========= Peers - 4IXP =========
-#  Redacted Devs 4IXP:
-#    template: peer
-#    description: Redacted Devs via 4IXP
-#    asn: 393577
-#    neighbors:
-#      - 2001:7f8:d0::6:169:1
-#    local-pref: 320
-#    listen6: 2001:7f8:d0::3:16bb:1
-#    add-on-import:
-#      - "202427:105:2447"
-
-#  Tomas Oliveira Valente Leite de Castro 4IXP:
-#    template: peer
-#    description: Tomas Oliveira Valente Leite de Castro via 4IXP
-#    asn: 203619
-#    neighbors:
-#      - 2001:7f8:d0::3:1b63:1
-#    local-pref: 320
-#    listen6: 2001:7f8:d0::3:16bb:1
-#    add-on-import:
-#      - "202427:105:2447"
-
-#  Valentin Girard 4IXP:
-#    template: peer
-#    description: Valentin Girard via 4IXP
-#    asn: 202573
-#    neighbors:
-#      - 2001:7f8:d0::3:174d:1
-#    local-pref: 320
-#    listen6: 2001:7f8:d0::3:16bb:1
-#    add-on-import:
-#      - "202427:105:2447"
-
 templates:
   upstream:
     local-pref: 100
@@ -283,7 +250,6 @@ templates:
     remove-all-communities: 202427
     allow-blackhole-community: true
     filter-max-prefix: false
-    auto-as-set: true
     role: customer
 
   routeserver:
@@ -303,7 +269,6 @@ templates:
     filter-max-prefix: false
     filter-transit-asns: true
 #    filter-never-via-route-servers: true
-    auto-as-set: true
 
   peer:
     local-pref: 300
@@ -321,7 +286,6 @@ templates:
     strict-rpki: true
     filter-transit-asns: true
     auto-import-limits: true
-    auto-as-set: true
     role: peer
 
   downstream:
@@ -343,7 +307,6 @@ templates:
     strict-rpki: true
     filter-transit-asns: true
     auto-import-limits: true
-    auto-as-set: true
     role: provider
 
   lg:

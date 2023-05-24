@@ -30,6 +30,7 @@ peers:
       - 2a0c:9a40:1072::1
     local-pref: 120
     listen6: 2a0c:9a40:1072::419
+    as-set: AS-IFOG
 
   Hurricane Electric Frys-IX:
     template: upstream
@@ -176,6 +177,7 @@ peers:
     listen6: 2001:7f8:10f::3:16bb:205
     add-on-import:
       - "202427:105:3512"
+    as-set: AS-FRYS-IX-CONNECTED
 
   InterIX Route Server:
     template: routeserver
@@ -189,6 +191,7 @@ peers:
     listen6: 2001:7f8:134::43
     add-on-import:
       - "202427:105:3990"
+    as-set: AS56584:AS-INTERIX
 
   # ========= Peers - Frys-IX =========
   AS112 Frys-IX:
@@ -201,6 +204,7 @@ peers:
     listen6: 2001:7f8:10f::3:16bb:205
     add-on-import:
       - "202427:105:3512"
+    as-set: AS112
 
   Cloudflare Frys-IX:
     template: peer
@@ -212,6 +216,7 @@ peers:
     listen6: 2001:7f8:10f::3:16bb:205
     add-on-import:
       - "202427:105:3512"
+    as-set: AS-CLOUDFLARE
 
   Google Frys-IX:
     template: peer
@@ -290,7 +295,6 @@ templates:
     remove-all-communities: 202427
     allow-blackhole-community: true
     filter-max-prefix: false
-    auto-as-set: true
     role: customer
 
   routeserver:
@@ -310,7 +314,6 @@ templates:
     filter-max-prefix: false
     filter-transit-asns: true
 #    filter-never-via-route-servers: true
-    auto-as-set: true
 
   peer:
     local-pref: 300
@@ -328,7 +331,6 @@ templates:
     strict-rpki: true
     filter-transit-asns: true
     auto-import-limits: true
-    auto-as-set: true
     role: peer
 
   downstream:
@@ -350,7 +352,6 @@ templates:
     strict-rpki: true
     filter-transit-asns: true
     auto-import-limits: true
-    auto-as-set: true
     role: provider
 
   lg:

@@ -29,6 +29,7 @@ peers:
       - 2a0c:b640:13::ffff
     local-pref: 120
     listen6: 2a0c:b640:13:48::1
+    as-set: AS-SERVPERSO
 
   # ========= Looking Glasses =========
   pmacctd:
@@ -163,6 +164,7 @@ peers:
     listen6: 2a0c:b641:701:0:a5:20:2427:1
     add-on-import:
       - "202427:105:2084"
+    as-set: AS-LOCIX
 
 #  IXPcat AMS01 Route Server:
 #    template: routeserver
@@ -188,6 +190,7 @@ peers:
     listen6: 2a0e:8f01:1000:46::115
     add-on-import:
       - "202427:105:3844"
+    as-set: AS-BGPEXCHANGE
 
   # ========= Peers - LocIX =========
   AS112 LocIX:
@@ -200,6 +203,7 @@ peers:
     listen6: 2a0c:b641:701:0:a5:20:2427:1
     add-on-import:
       - "202427:105:2730"
+    as-set: AS112
 
   oneCorp LocIX:
     template: peer
@@ -227,7 +231,6 @@ templates:
     remove-all-communities: 202427
     allow-blackhole-community: true
     filter-max-prefix: false
-    auto-as-set: true
     role: customer
 
   routeserver:
@@ -247,7 +250,6 @@ templates:
     filter-max-prefix: false
     filter-transit-asns: true
 #    filter-never-via-route-servers: true
-    auto-as-set: true
 
   peer:
     local-pref: 300
@@ -265,7 +267,6 @@ templates:
     strict-rpki: true
     filter-transit-asns: true
     auto-import-limits: true
-    auto-as-set: true
     role: peer
 
   downstream:
@@ -287,7 +288,6 @@ templates:
     strict-rpki: true
     filter-transit-asns: true
     auto-import-limits: true
-    auto-as-set: true
     role: provider
 
   lg:

@@ -31,6 +31,7 @@ peers:
       - 2a0c:9a40:1050::1
     local-pref: 120
     listen6: 2a0c:9a40:1050::418
+    as-set: AS-IFOG
 
   Hurricane Electric CHIX-CH:
     template: upstream
@@ -179,6 +180,7 @@ peers:
     listen6: 2001:7f8:cc:333::182
     add-on-import:
       - "202427:105:2365"
+    as-set: AS-CHIX-RS
 
 #  IXPcat VAD01 Route Server:
 #    template: routeserver
@@ -216,6 +218,7 @@ peers:
     listen6: 2a0e:8f01:1000:25::109
     add-on-import:
       - "202427:105:3830"
+    as-set: AS-BGPEXCHANGE
 
   # ========= Peers - CHIX-CH =========
   SolNet CHIX-CH:
@@ -228,6 +231,7 @@ peers:
     listen6: 2001:7f8:cc:333::182
     add-on-import:
       - "202427:105:2365"
+    as-set: AS-SOLNET
 
   Init7 CHIX-CH:
     template: peer
@@ -239,6 +243,7 @@ peers:
     listen6: 2001:7f8:cc:333::182
     add-on-import:
       - "202427:105:2365"
+    as-set: AS-INIT7
 
   Google CHIX-CH:
     template: peer
@@ -263,6 +268,7 @@ peers:
     listen6: 2001:7f8:cc:333::182
     add-on-import:
       - "202427:105:2365"
+    as-set: 28859
 
   Sam Aschwanden CHIX-CH:
     template: peer
@@ -274,6 +280,7 @@ peers:
     listen6: 2001:7f8:cc:333::182
     add-on-import:
       - "202427:105:2365"
+    as-set: AS-OTG
 
   Stefan Dunkel CHIX-CH:
     template: peer
@@ -285,6 +292,7 @@ peers:
     listen6: 2001:7f8:cc:333::182
     add-on-import:
       - "202427:105:2365"
+    as-set: AS-STEFANDUNKEL
 
   DATAWIRE AG CHIX-CH:
     template: peer
@@ -296,6 +304,7 @@ peers:
     listen6: 2001:7f8:cc:333::182
     add-on-import:
       - "202427:105:2365"
+    as-set: AS-DATAWIRE
 
   Raphael Peters CHIX-CH:
     template: peer
@@ -307,6 +316,7 @@ peers:
     listen6: 2001:7f8:cc:333::182
     add-on-import:
       - "202427:105:2365"
+    as-set: AS-RAPPET
 
   Andreas Fries CHIX-CH:
     template: peer
@@ -318,6 +328,7 @@ peers:
     listen6: 2001:7f8:cc:333::182
     add-on-import:
       - "202427:105:2365"
+    as-set: 213126
 
   # ========= Peers - SwissIX =========
 
@@ -335,7 +346,6 @@ templates:
     remove-all-communities: 202427
     allow-blackhole-community: true
     filter-max-prefix: false
-    auto-as-set: true
     role: customer
 
   routeserver:
@@ -355,7 +365,6 @@ templates:
     filter-max-prefix: false
     filter-transit-asns: true
 #    filter-never-via-route-servers: true
-    auto-as-set: true
 
   peer:
     local-pref: 300
@@ -373,7 +382,6 @@ templates:
     strict-rpki: true
     filter-transit-asns: true
     auto-import-limits: true
-    auto-as-set: true
     role: peer
 
   downstream:
@@ -395,7 +403,6 @@ templates:
     strict-rpki: true
     filter-transit-asns: true
     auto-import-limits: true
-    auto-as-set: true
     role: provider
 
   lg:

@@ -30,6 +30,7 @@ peers:
       - 2a0c:9a40:1005::1
     local-pref: 120
     listen6: 2a0c:9a40:1005::326
+    as-set: AS-IFOG
 
   # ========= Looking Glasses =========
   pmacctd:
@@ -178,6 +179,7 @@ peers:
     add-on-import:
       - "202427:104:112"
       - "202427:105:3685"
+    as-set: AS112
 
 templates:
   upstream:
@@ -193,7 +195,6 @@ templates:
     remove-all-communities: 202427
     allow-blackhole-community: true
     filter-max-prefix: false
-    auto-as-set: true
     role: customer
 
   routeserver:
@@ -213,7 +214,6 @@ templates:
     filter-max-prefix: false
     filter-transit-asns: true
 #    filter-never-via-route-servers: true
-    auto-as-set: true
 
   peer:
     local-pref: 300
@@ -231,7 +231,6 @@ templates:
     strict-rpki: true
     filter-transit-asns: true
     auto-import-limits: true
-    auto-as-set: true
     role: peer
 
   downstream:
@@ -253,7 +252,6 @@ templates:
     strict-rpki: true
     filter-transit-asns: true
     auto-import-limits: true
-    auto-as-set: true
     role: provider
 
   lg:

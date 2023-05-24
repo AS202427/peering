@@ -43,6 +43,7 @@ peers:
     listen6: 2602:ffb1:200:0:192:34:27:97
     add-on-import:
       - "202427:105:2452"
+    as-set: RIPE::AS-ROUTE64
 
   # ========= Looking Glasses =========
   pmacctd:
@@ -178,7 +179,7 @@ peers:
     add-on-import:
       - "202427:105:2452"
     auto-import-limits: false
-    auto-as-set: false
+    as-set: AS65513
 
   # ========= Peers - UNMETERED Exchange =========
   AS112 UNMETERED Exchange:
@@ -192,6 +193,7 @@ peers:
     listen6: 2602:ffb1:200:0:192:34:27:97
     add-on-import:
       - "202427:105:2452"
+    as-set: AS112
 
 templates:
   upstream:
@@ -207,7 +209,6 @@ templates:
     remove-all-communities: 202427
     allow-blackhole-community: true
     filter-max-prefix: false
-    auto-as-set: true
     role: customer
 
   routeserver:
@@ -227,7 +228,6 @@ templates:
     filter-max-prefix: false
     filter-transit-asns: true
 #    filter-never-via-route-servers: true
-    auto-as-set: true
 
   peer:
     local-pref: 300
@@ -245,7 +245,6 @@ templates:
     strict-rpki: true
     filter-transit-asns: true
     auto-import-limits: true
-    auto-as-set: true
     role: peer
 
   downstream:
@@ -267,7 +266,6 @@ templates:
     strict-rpki: true
     filter-transit-asns: true
     auto-import-limits: true
-    auto-as-set: true
     role: provider
 
   lg:
