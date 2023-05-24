@@ -277,5 +277,6 @@ templates:
       - "202427:101:3"
       - "202427:101:4"
       - "202427:101:5"
+    enforce-first-as: false
     allow-blackhole-community: true
     allow-local-as: true
