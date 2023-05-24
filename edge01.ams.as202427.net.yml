@@ -30,7 +30,7 @@ peers:
       - 2a0c:9a40:1072::1
     local-pref: 120
     listen6: 2a0c:9a40:1072::419
-    as-set: AS-IFOG
+    as-set: RIPE::AS-IFOG
 
   Hurricane Electric Frys-IX:
     template: upstream

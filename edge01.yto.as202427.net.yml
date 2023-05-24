@@ -31,7 +31,7 @@ peers:
     local-pref: 120
     multihop: true
     listen6: 2602:fd50:0100:006d:5dac:5bd6:bc85:e12e
-    as-set: AS-GOCODEIT-ALL
+    as-set: ARIN::AS-GOCODEIT-ALL
 
   Hurricane Electric ONIX:
     template: upstream

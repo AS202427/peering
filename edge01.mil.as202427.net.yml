@@ -165,7 +165,7 @@ peers:
     listen6: 2001:7f8:112::16
     add-on-import:
       - "202427:105:3528"
-    as-set: RIPE::AS-SIIX
+    as-set: AS49245
 
   # ========= Peers - SIIX =========
 

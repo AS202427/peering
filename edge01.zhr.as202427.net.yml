@@ -30,7 +30,7 @@ peers:
     local-pref: 120
     listen6: 2a09:4c0:100:2d88::8964
     password: wfcqZ68m9eNE4hT
-    as-set: AS-SBAG
+    as-set: RIPE::AS-SBAG
 
   # ========= Looking Glasses =========
   pmacctd:

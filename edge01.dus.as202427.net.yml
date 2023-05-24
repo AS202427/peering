@@ -29,7 +29,7 @@ peers:
       - 2a0c:b640:13::ffff
     local-pref: 120
     listen6: 2a0c:b640:13:48::1
-    as-set: AS-SERVPERSO
+    as-set: RIPE::AS-SERVPERSO
 
   # ========= Looking Glasses =========
   pmacctd:
