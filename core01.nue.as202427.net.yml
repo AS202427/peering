@@ -63,7 +63,7 @@ peers:
 
   # ========= Internal =========
   Edge01 FRA:
-    template: core
+    template: core-wg
     description: Edge01 Router - Frankfurt, Germany
     asn: 202427
     neighbors:
@@ -71,7 +71,7 @@ peers:
     listen6: 2a06:a005:2ef1::1
 
   Edge01 ZHR:
-    template: core
+    template: core-wg
     description: Edge01 Router - Zurich, Switzerland
     asn: 202427
     neighbors:
@@ -79,7 +79,7 @@ peers:
     listen6: 2a06:a005:2ef1::1
 
   Edge02 ZHR:
-    template: core
+    template: core-wg
     description: Edge02 Router - Zurich, Switzerland
     asn: 202427
     neighbors:
@@ -87,7 +87,7 @@ peers:
     listen6: 2a06:a005:2ef1::1
 
   Edge01 MIL:
-    template: core
+    template: core-wg
     description: Edge01 Router - Milan, Italy
     asn: 202427
     neighbors:
@@ -95,7 +95,7 @@ peers:
     listen6: 2a06:a005:2ef1::1
 
   Edge01 DUS:
-    template: core
+    template: core-wg
     description: Edge01 Router - Dusseldorf, Germany
     asn: 202427
     neighbors:
@@ -103,7 +103,7 @@ peers:
     listen6: 2a06:a005:2ef1::1
 
   Edge01 AMS:
-    template: core
+    template: core-wg
     description: Edge01 Router - Amsterdam, Netherlands
     asn: 202427
     neighbors:
@@ -111,7 +111,7 @@ peers:
     listen6: 2a06:a005:2ef1::1
 
 #  Edge01 OSL:
-#    template: core
+#    template: core-wg
 #    description: Edge01 Router - Oslo, Norway
 #    disabled: true
 #    asn: 202427
@@ -120,7 +120,7 @@ peers:
 #    listen6: 2a06:a005:2ef1::1
 
   Edge01 YVR:
-    template: core
+    template: core-wg
     description: Edge01 Router - Vancouver, Canada
     asn: 202427
     neighbors:
@@ -128,7 +128,7 @@ peers:
     listen6: 2a06:a005:2ef1::1
 
   Edge01 YTO:
-    template: core
+    template: core-wg
     description: Edge01 Router - Toronto, Canada
     asn: 202427
     neighbors:
@@ -136,7 +136,7 @@ peers:
     listen6: 2a06:a005:2ef1::1
 
   Edge01 FMT:
-    template: core
+    template: core-wg
     description: Edge01 Router - Fremont, US
     asn: 202427
     neighbors:
@@ -152,6 +152,7 @@ templates:
     add-path-rx: true
     pre-import-accept: >
      bgp_large_community.add((202427,101,2));
+     bgp_large_community.add((202427,104,<pathvector.asn>));
     announce:
       - "202427:101:1"
       - "202427:101:5"
@@ -167,6 +168,7 @@ templates:
     add-path-rx: true
     pre-import-accept: >
      bgp_large_community.add((202427,101,3));
+     bgp_large_community.add((202427,104,<pathvector.asn>));
     announce:
       - "202427:101:1"
       - "202427:101:5"
@@ -185,6 +187,7 @@ templates:
     add-path-rx: true
     pre-import-accept: >
      bgp_large_community.add((202427,101,4));
+     bgp_large_community.add((202427,104,<pathvector.asn>));
     announce:
       - "202427:101:1"
       - "202427:101:5"
@@ -203,6 +206,7 @@ templates:
     add-path-rx: true
     pre-import-accept: >
      bgp_large_community.add((202427,101,5));
+     bgp_large_community.add((202427,104,<pathvector.asn>));
     announce:
       - "202427:101:1"
       - "202427:101:2"
@@ -230,7 +234,7 @@ templates:
     receive-limit4: 0
     receive-limit6: 0
 
-  core:
+  core-wg:
     prepends: 1
     local-pref: 180
     next-hop-self: true
@@ -240,6 +244,50 @@ templates:
       - "202427:101:3"
       - "202427:101:4"
       - "202427:101:5"
+    remove-communities:
+      - "202427:104:1"
+      - "202427:104:2"
+      - "202427:104:3"
+      - "202427:104:4"
+      - "202427:104:5"
+      - "202427:104:6"
+      - "202427:104:7"
+      - "202427:104:8"
+      - "202427:104:9"
+      - "202427:104:10"
+      - "202427:104:11"
+      - "202427:104:12"
+      - "202427:104:13"
+      - "202427:104:14"
+      - "202427:104:15"
+    allow-blackhole-community: true
+    allow-local-as: true
+
+  core-l2:
+    local-pref: 190
+    next-hop-self: true
+    add-path-tx: true
+    add-path-rx: true
+    announce:
+      - "202427:101:3"
+      - "202427:101:4"
+      - "202427:101:5"
+    remove-communities:
+      - "202427:104:1"
+      - "202427:104:2"
+      - "202427:104:3"
+      - "202427:104:4"
+      - "202427:104:5"
+      - "202427:104:6"
+      - "202427:104:7"
+      - "202427:104:8"
+      - "202427:104:9"
+      - "202427:104:10"
+      - "202427:104:11"
+      - "202427:104:12"
+      - "202427:104:13"
+      - "202427:104:14"
+      - "202427:104:15"
     enforce-first-as: false
     allow-blackhole-community: true
     allow-local-as: true

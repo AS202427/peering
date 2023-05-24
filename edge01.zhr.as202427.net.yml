@@ -30,8 +30,6 @@ peers:
     local-pref: 120
     listen6: 2a09:4c0:100:2d88::8964
     password: wfcqZ68m9eNE4hT
-    add-on-import:
-      - "202427:104:58057"
 
   # ========= Looking Glasses =========
   pmacctd:
@@ -74,7 +72,7 @@ peers:
 
   # ========= Internal =========
   Core01 NUE:
-    template: core
+    template: core-wg
     description: Core01 Router - Nuremberg, Germany
     asn: 202427
     neighbors:
@@ -82,7 +80,7 @@ peers:
     listen6: 2a06:a005:2ef3::1
 
   Edge01 FRA:
-    template: core
+    template: core-wg
     description: Edge01 Router - Frankfurt, Germany
     asn: 202427
     neighbors:
@@ -90,7 +88,7 @@ peers:
     listen6: 2a06:a005:2ef3::1
 
   Edge02 ZHR:
-    template: core
+    template: core-wg
     description: Edge02 Router - Zurich, Switzerland
     asn: 202427
     neighbors:
@@ -98,7 +96,7 @@ peers:
     listen6: 2a06:a005:2ef3::1
 
   Edge01 MIL:
-    template: core
+    template: core-wg
     description: Edge01 Router - Milan, Italy
     asn: 202427
     neighbors:
@@ -106,7 +104,7 @@ peers:
     listen6: 2a06:a005:2ef3::1
 
   Edge01 DUS:
-    template: core
+    template: core-wg
     description: Edge01 Router - Dusseldorf, Germany
     asn: 202427
     neighbors:
@@ -114,7 +112,7 @@ peers:
     listen6: 2a06:a005:2ef3::1
 
   Edge01 AMS:
-    template: core
+    template: core-wg
     description: Edge01 Router - Amsterdam, Netherlands
     asn: 202427
     neighbors:
@@ -122,7 +120,7 @@ peers:
     listen6: 2a06:a005:2ef3::1
 
 #  Edge01 OSL:
-#    template: core
+#    template: core-wg
 #    description: Edge01 Router - Oslo, Norway
 #    disabled: true
 #    asn: 202427
@@ -131,7 +129,7 @@ peers:
 #    listen6: 2a06:a005:2ef3::1
 
   Edge01 YVR:
-    template: core
+    template: core-wg
     description: Edge01 Router - Vancouver, Canada
     asn: 202427
     neighbors:
@@ -139,7 +137,7 @@ peers:
     listen6: 2a06:a005:2ef3::1
 
   Edge01 YTO:
-    template: core
+    template: core-wg
     description: Edge01 Router - Toronto, Canada
     asn: 202427
     neighbors:
@@ -147,7 +145,7 @@ peers:
     listen6: 2a06:a005:2ef3::1
 
   Edge01 FMT:
-    template: core
+    template: core-wg
     description: Edge01 Router - Fremont, US
     asn: 202427
     neighbors:
@@ -168,7 +166,6 @@ peers:
     listen6: 2001:7f8:d0::3:16bb:1
     password: X13ybs4n9crwvMB
     add-on-import:
-      - "202427:104:35708"
       - "202427:105:2447"
 
   SBIX Route Server:
@@ -184,7 +181,6 @@ peers:
     listen6: 2001:7f8:d9:5b::0003:16bb:1
     password: wfcqZ68m9eNE4hT
     add-on-import:
-      - "202427:104:47422"
       - "202427:105:2571"
 
 #  IXPcat BUC01 Route Server:
@@ -197,7 +193,6 @@ peers:
 #    local-pref: 210
 #    listen6: 2001:7f8:d0:524f::3:16bb:1
 #    add-on-import:
-#      - "202427:104:49459"
 #      - "202427:105:000"
 #    as-set: RIPE::AS-IXPS
 #
@@ -211,7 +206,6 @@ peers:
 #    local-pref: 210
 #    listen6: 2001:7f8:d0:5553::3:16bb:1
 #    add-on-import:
-#      - "202427:104:49459"
 #      - "202427:105:2746"
 #    as-set: RIPE::AS-IXPS
 #
@@ -225,7 +219,6 @@ peers:
 #    local-pref: 210
 #    listen6: 2001:7f8:d0:4649::3:16bb:1
 #    add-on-import:
-#      - "202427:104:49459"
 #      - "202427:105:2700"
 #    as-set: RIPE::AS-IXPS
 #
@@ -239,7 +232,6 @@ peers:
 #    local-pref: 210
 #    listen6: 2001:7f8:d0:494e::3:16bb:1
 #    add-on-import:
-#      - "202427:104:49459"
 #      - "202427:105:000"
 #    as-set: RIPE::AS-IXPS
 
@@ -253,7 +245,6 @@ peers:
 #    local-pref: 320
 #    listen6: 2001:7f8:d0::3:16bb:1
 #    add-on-import:
-#      - "202427:104:393577"
 #      - "202427:105:2447"
 
 #  Tomas Oliveira Valente Leite de Castro 4IXP:
@@ -265,7 +256,6 @@ peers:
 #    local-pref: 320
 #    listen6: 2001:7f8:d0::3:16bb:1
 #    add-on-import:
-#      - "202427:104:203619"
 #      - "202427:105:2447"
 
 #  Valentin Girard 4IXP:
@@ -277,7 +267,6 @@ peers:
 #    local-pref: 320
 #    listen6: 2001:7f8:d0::3:16bb:1
 #    add-on-import:
-#      - "202427:104:202573"
 #      - "202427:105:2447"
 
 templates:
@@ -287,6 +276,7 @@ templates:
     add-path-rx: true
     pre-import-accept: >
      bgp_large_community.add((202427,101,2));
+     bgp_large_community.add((202427,104,<pathvector.asn>));
     announce:
       - "202427:101:1"
       - "202427:101:5"
@@ -302,6 +292,7 @@ templates:
     add-path-rx: true
     pre-import-accept: >
      bgp_large_community.add((202427,101,3));
+     bgp_large_community.add((202427,104,<pathvector.asn>));
     announce:
       - "202427:101:1"
       - "202427:101:5"
@@ -320,6 +311,7 @@ templates:
     add-path-rx: true
     pre-import-accept: >
      bgp_large_community.add((202427,101,4));
+     bgp_large_community.add((202427,104,<pathvector.asn>));
     announce:
       - "202427:101:1"
       - "202427:101:5"
@@ -338,6 +330,7 @@ templates:
     add-path-rx: true
     pre-import-accept: >
      bgp_large_community.add((202427,101,5));
+     bgp_large_community.add((202427,104,<pathvector.asn>));
     announce:
       - "202427:101:1"
       - "202427:101:2"
@@ -365,7 +358,7 @@ templates:
     receive-limit4: 0
     receive-limit6: 0
 
-  core:
+  core-wg:
     prepends: 1
     local-pref: 180
     next-hop-self: true
@@ -375,6 +368,50 @@ templates:
       - "202427:101:3"
       - "202427:101:4"
       - "202427:101:5"
+    remove-communities:
+      - "202427:104:1"
+      - "202427:104:2"
+      - "202427:104:3"
+      - "202427:104:4"
+      - "202427:104:5"
+      - "202427:104:6"
+      - "202427:104:7"
+      - "202427:104:8"
+      - "202427:104:9"
+      - "202427:104:10"
+      - "202427:104:11"
+      - "202427:104:12"
+      - "202427:104:13"
+      - "202427:104:14"
+      - "202427:104:15"
+    allow-blackhole-community: true
+    allow-local-as: true
+
+  core-l2:
+    local-pref: 190
+    next-hop-self: true
+    add-path-tx: true
+    add-path-rx: true
+    announce:
+      - "202427:101:3"
+      - "202427:101:4"
+      - "202427:101:5"
+    remove-communities:
+      - "202427:104:1"
+      - "202427:104:2"
+      - "202427:104:3"
+      - "202427:104:4"
+      - "202427:104:5"
+      - "202427:104:6"
+      - "202427:104:7"
+      - "202427:104:8"
+      - "202427:104:9"
+      - "202427:104:10"
+      - "202427:104:11"
+      - "202427:104:12"
+      - "202427:104:13"
+      - "202427:104:14"
+      - "202427:104:15"
     enforce-first-as: false
     allow-blackhole-community: true
     allow-local-as: true

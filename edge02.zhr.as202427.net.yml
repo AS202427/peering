@@ -31,8 +31,6 @@ peers:
       - 2a0c:9a40:1050::1
     local-pref: 120
     listen6: 2a0c:9a40:1050::418
-    add-on-import:
-      - "202427:104:34927"
 
   Hurricane Electric CHIX-CH:
     template: upstream
@@ -43,7 +41,6 @@ peers:
     local-pref: 130
     listen6: 2001:7f8:cc:333::182
     add-on-import:
-      - "202427:104:6939"
       - "202427:105:2365"
     as-set: RADB::AS-HURRICANEV6
 
@@ -88,7 +85,7 @@ peers:
 
   # ========= Internal =========
   Core01 NUE:
-    template: core
+    template: core-wg
     description: Core01 Router - Nuremberg, Germany
     asn: 202427
     neighbors:
@@ -96,17 +93,16 @@ peers:
     listen6: 2a06:a005:2ef4::1
 
   Edge01 FRA:
-    template: core
+    template: core-l2
     description: Edge01 Router - Frankfurt, Germany
     asn: 202427
     neighbors:
       - 2a06:a005:2902::1
-    prepends: 0
     local-pref: 190
     listen6: 2a06:a005:2904::1
 
   Edge01 ZHR:
-    template: core
+    template: core-wg
     description: Edge01 Router - Zurich, Switzerland
     asn: 202427
     neighbors:
@@ -114,7 +110,7 @@ peers:
     listen6: 2a06:a005:2ef4::1
 
   Edge01 MIL:
-    template: core
+    template: core-wg
     description: Edge01 Router - Milan, Italy
     asn: 202427
     neighbors:
@@ -122,7 +118,7 @@ peers:
     listen6: 2a06:a005:2ef4::1
 
   Edge01 DUS:
-    template: core
+    template: core-wg
     description: Edge01 Router - Dusseldorf, Germany
     asn: 202427
     neighbors:
@@ -130,17 +126,16 @@ peers:
     listen6: 2a06:a005:2ef4::1
 
   Edge01 AMS:
-    template: core
+    template: core-l2
     description: Edge01 Router - Amsterdam, Netherlands
     asn: 202427
     neighbors:
       - 2a06:a005:2907::1
-    prepends: 0
     local-pref: 190
     listen6: 2a06:a005:2904::1
 
 #  Edge01 OSL:
-#    template: core
+#    template: core-wg
 #    description: Edge01 Router - Oslo, Norway
 #    disabled: true
 #    asn: 202427
@@ -149,7 +144,7 @@ peers:
 #    listen6: 2a06:a005:2ef4::1
 
   Edge01 YVR:
-    template: core
+    template: core-wg
     description: Edge01 Router - Vancouver, Canada
     asn: 202427
     neighbors:
@@ -157,7 +152,7 @@ peers:
     listen6: 2a06:a005:2ef4::1
 
   Edge01 YTO:
-    template: core
+    template: core-wg
     description: Edge01 Router - Toronto, Canada
     asn: 202427
     neighbors:
@@ -165,7 +160,7 @@ peers:
     listen6: 2a06:a005:2ef4::1
 
   Edge01 FMT:
-    template: core
+    template: core-wg
     description: Edge01 Router - Fremont, US
     asn: 202427
     neighbors:
@@ -183,7 +178,6 @@ peers:
     local-pref: 220
     listen6: 2001:7f8:cc:333::182
     add-on-import:
-      - "202427:104:212100"
       - "202427:105:2365"
 
 #  IXPcat VAD01 Route Server:
@@ -196,7 +190,6 @@ peers:
 #    local-pref: 210
 #    listen6: 2001:7f8:d0:4c49::3:16bb:1
 #    add-on-import:
-#      - "202427:104:49459"
 #      - "202427:105:2728"
 #    as-set: RIPE::AS-IXPS
 
@@ -210,7 +203,6 @@ peers:
 #    local-pref: 210
 #    listen6: 2001:7f8:d0:4742::3:16bb:1
 #    add-on-import:
-#      - "202427:104:49459"
 #      - "202427:105:2704"
 #    as-set: RIPE::AS-IXPS
 
@@ -223,7 +215,6 @@ peers:
     local-pref: 220
     listen6: 2a0e:8f01:1000:25::109
     add-on-import:
-      - "202427:104:24381"
       - "202427:105:3830"
 
   # ========= Peers - CHIX-CH =========
@@ -236,7 +227,6 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:cc:333::182
     add-on-import:
-      - "202427:104:9044"
       - "202427:105:2365"
 
   Init7 CHIX-CH:
@@ -248,7 +238,6 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:cc:333::182
     add-on-import:
-      - "202427:104:13030"
       - "202427:105:2365"
 
   Google CHIX-CH:
@@ -261,7 +250,6 @@ peers:
     listen6: 2001:7f8:cc:333::182
     password: ${edge02-zhr-google-chix-password}
     add-on-import:
-      - "202427:104:15169"
       - "202427:105:2365"
     as-set: AS-GOOGLE
 
@@ -274,7 +262,6 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:cc:333::182
     add-on-import:
-      - "202427:104:28859"
       - "202427:105:2365"
 
   Sam Aschwanden CHIX-CH:
@@ -286,7 +273,6 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:cc:333::182
     add-on-import:
-      - "202427:104:35202"
       - "202427:105:2365"
 
   Stefan Dunkel CHIX-CH:
@@ -298,7 +284,6 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:cc:333::182
     add-on-import:
-      - "202427:104:48646"
       - "202427:105:2365"
 
   DATAWIRE AG CHIX-CH:
@@ -310,7 +295,6 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:cc:333::182
     add-on-import:
-      - "202427:104:48971"
       - "202427:105:2365"
 
   Raphael Peters CHIX-CH:
@@ -322,7 +306,6 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:cc:333::182
     add-on-import:
-      - "202427:104:207968"
       - "202427:105:2365"
 
   Andreas Fries CHIX-CH:
@@ -334,7 +317,6 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:cc:333::182
     add-on-import:
-      - "202427:104:213126"
       - "202427:105:2365"
 
   # ========= Peers - SwissIX =========
@@ -346,6 +328,7 @@ templates:
     add-path-rx: true
     pre-import-accept: >
      bgp_large_community.add((202427,101,2));
+     bgp_large_community.add((202427,104,<pathvector.asn>));
     announce:
       - "202427:101:1"
       - "202427:101:5"
@@ -361,6 +344,7 @@ templates:
     add-path-rx: true
     pre-import-accept: >
      bgp_large_community.add((202427,101,3));
+     bgp_large_community.add((202427,104,<pathvector.asn>));
     announce:
       - "202427:101:1"
       - "202427:101:5"
@@ -379,6 +363,7 @@ templates:
     add-path-rx: true
     pre-import-accept: >
      bgp_large_community.add((202427,101,4));
+     bgp_large_community.add((202427,104,<pathvector.asn>));
     announce:
       - "202427:101:1"
       - "202427:101:5"
@@ -397,6 +382,7 @@ templates:
     add-path-rx: true
     pre-import-accept: >
      bgp_large_community.add((202427,101,5));
+     bgp_large_community.add((202427,104,<pathvector.asn>));
     announce:
       - "202427:101:1"
       - "202427:101:2"
@@ -424,7 +410,7 @@ templates:
     receive-limit4: 0
     receive-limit6: 0
 
-  core:
+  core-wg:
     prepends: 1
     local-pref: 180
     next-hop-self: true
@@ -434,6 +420,50 @@ templates:
       - "202427:101:3"
       - "202427:101:4"
       - "202427:101:5"
+    remove-communities:
+      - "202427:104:1"
+      - "202427:104:2"
+      - "202427:104:3"
+      - "202427:104:4"
+      - "202427:104:5"
+      - "202427:104:6"
+      - "202427:104:7"
+      - "202427:104:8"
+      - "202427:104:9"
+      - "202427:104:10"
+      - "202427:104:11"
+      - "202427:104:12"
+      - "202427:104:13"
+      - "202427:104:14"
+      - "202427:104:15"
+    allow-blackhole-community: true
+    allow-local-as: true
+
+  core-l2:
+    local-pref: 190
+    next-hop-self: true
+    add-path-tx: true
+    add-path-rx: true
+    announce:
+      - "202427:101:3"
+      - "202427:101:4"
+      - "202427:101:5"
+    remove-communities:
+      - "202427:104:1"
+      - "202427:104:2"
+      - "202427:104:3"
+      - "202427:104:4"
+      - "202427:104:5"
+      - "202427:104:6"
+      - "202427:104:7"
+      - "202427:104:8"
+      - "202427:104:9"
+      - "202427:104:10"
+      - "202427:104:11"
+      - "202427:104:12"
+      - "202427:104:13"
+      - "202427:104:14"
+      - "202427:104:15"
     enforce-first-as: false
     allow-blackhole-community: true
     allow-local-as: true

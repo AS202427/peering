@@ -30,8 +30,6 @@ peers:
       - 2a0c:9a40:1::1
     local-pref: 120
     listen6: 2a0c:9a40:1::237
-    add-on-import:
-      - "202427:104:34927"
 
   Hurricane Electric LocIX:
     template: upstream
@@ -42,7 +40,6 @@ peers:
     local-pref: 130
     listen6: 2001:7f8:f2:e1:0:20:2427:1
     add-on-import:
-      - "202427:104:6939"
       - "202427:105:2084"
     as-set: RADB::AS-HURRICANEV6
 
@@ -55,7 +52,6 @@ peers:
     local-pref: 130
     listen6: 2001:7f8:f2:e1:0:20:2427:1
     add-on-import:
-      - "202427:104:212895"
       - "202427:105:2084"
 
   Freetransit Project FogIXP:
@@ -67,7 +63,6 @@ peers:
     local-pref: 130
     listen6: 2001:7f8:ca:1::168
     add-on-import:
-      - "202427:104:41051"
       - "202427:105:3756"
     only-announce:
       - 2a06:a005:28e0::/48 # AS202427-BACKBONE-NETWORK
@@ -84,7 +79,6 @@ peers:
     local-pref: 130
     listen6: 2001:7f8:13::a520:2427:1
     add-on-import:
-      - "202427:104:6939"
       - "202427:105:64"
     as-set: RADB::AS-HURRICANEV6
 
@@ -129,7 +123,7 @@ peers:
 
   # ========= Internal =========
   Core01 NUE:
-    template: core
+    template: core-wg
     description: Core01 Router - Nuremberg, Germany
     asn: 202427
     neighbors:
@@ -137,7 +131,7 @@ peers:
     listen6: 2a06:a005:2ef2::1
 
   Edge01 ZHR:
-    template: core
+    template: core-wg
     description: Edge01 Router - Zurich, Switzerland
     asn: 202427
     neighbors:
@@ -145,17 +139,16 @@ peers:
     listen6: 2a06:a005:2ef2::1
 
   Edge02 ZHR:
-    template: core
+    template: core-l2
     description: Edge02 Router - Zurich, Switzerland
     asn: 202427
     neighbors:
       - 2a06:a005:2904::1
-    prepends: 0
     local-pref: 190
     listen6: 2a06:a005:2902::1
 
   Edge01 MIL:
-    template: core
+    template: core-wg
     description: Edge01 Router - Milan, Italy
     asn: 202427
     neighbors:
@@ -163,7 +156,7 @@ peers:
     listen6: 2a06:a005:2ef2::1
 
   Edge01 DUS:
-    template: core
+    template: core-wg
     description: Edge01 Router - Dusseldorf, Germany
     asn: 202427
     neighbors:
@@ -171,17 +164,16 @@ peers:
     listen6: 2a06:a005:2ef2::1
 
   Edge01 AMS:
-    template: core
+    template: core-l2
     description: Edge01 Router - Amsterdam, Netherlands
     asn: 202427
     neighbors:
       - 2a06:a005:2907::1
-    prepends: 0
     local-pref: 190
     listen6: 2a06:a005:2902::1
 
 #  Edge01 OSL:
-#    template: core
+#    template: core-wg
 #    description: Edge01 Router - Oslo, Norway
 #    disabled: true
 #    asn: 202427
@@ -190,7 +182,7 @@ peers:
 #    listen6: 2a06:a005:2ef2::1
 
   Edge01 YVR:
-    template: core
+    template: core-wg
     description: Edge01 Router - Vancouver, Canada
     asn: 202427
     neighbors:
@@ -198,7 +190,7 @@ peers:
     listen6: 2a06:a005:2ef2::1
 
   Edge01 YTO:
-    template: core
+    template: core-wg
     description: Edge01 Router - Toronto, Canada
     asn: 202427
     neighbors:
@@ -206,7 +198,7 @@ peers:
     listen6: 2a06:a005:2ef2::1
 
   Edge01 FMT:
-    template: core
+    template: core-wg
     description: Edge01 Router - Fremont, US
     asn: 202427
     neighbors:
@@ -225,7 +217,6 @@ peers:
     local-pref: 220
     listen6: 2001:7f8:f2:e1:0:20:2427:1
     add-on-import:
-      - "202427:104:202409"
       - "202427:105:2084"  
 
   FogIXP Route Server:
@@ -238,7 +229,6 @@ peers:
     local-pref: 220
     listen6: 2001:7f8:ca:1::168
     add-on-import:
-      - "202427:104:47498"
       - "202427:105:3756"
 
   NL-ix Route Server:
@@ -251,7 +241,6 @@ peers:
     local-pref: 220
     listen6: 2001:7f8:13::a520:2427:1
     add-on-import:
-      - "202427:104:34307"
       - "202427:105:64"
 
   BGP.Exchange Route Server:
@@ -263,7 +252,6 @@ peers:
     local-pref: 220
     listen6: 2a0e:8f01:1000:24::100
     add-on-import:
-      - "202427:104:24381"
       - "202427:105:3829"
 
   # ========= Peers - LocIX =========
@@ -276,7 +264,6 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:f2:e1:0:20:2427:1
     add-on-import:
-      - "202427:104:112"
       - "202427:105:2084"
 
   #  Dominik Pohl LocIX:
@@ -288,7 +275,6 @@ peers:
   #    local-pref: 320
   #    listen6: 2001:7f8:f2:e1:0:20:2427:1
   #    add-on-import:
-  #      - "202427:104:205848"
   #      - "202427:105:2084"
 
   Luigi Labate LocIX:
@@ -300,7 +286,6 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:f2:e1:0:20:2427:1
     add-on-import:
-      - "202427:104:208328"
       - "202427:105:2084"
 
 #   Adam Goodenough LocIX:
@@ -312,7 +297,6 @@ peers:
 #    local-pref: 320
 #    listen6: 2001:7f8:f2:e1:0:20:2427:1
 #    add-on-import:
-#      - "202427:104:210667"
 #      - "202427:105:2084"
 
   # ========= Peers - FogIXP =========
@@ -325,7 +309,6 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:ca:1::168
     add-on-import:
-      - "202427:104:112"
       - "202427:105:3756"
 
   HostingFuze FogIXP:
@@ -337,7 +320,6 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:ca:1::168
     add-on-import:
-      - "202427:104:41732"
       - "202427:105:3756"
 
   Thomas Riley Brown FogIXP:
@@ -349,7 +331,6 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:ca:1::168
     add-on-import:
-      - "202427:104:203069"
       - "202427:105:3756"
 
 #  Tomas Oliveira Valente Leite de Castro FogIXP:
@@ -361,7 +342,6 @@ peers:
 #    local-pref: 320
 #    listen6: 2001:7f8:ca:1::168
 #    add-on-import:
-#      - "202427:104:203619"
 #      - "202427:105:3756"
 
 #  Dominik Pohl FogIXP:
@@ -373,7 +353,6 @@ peers:
 #    local-pref: 320
 #    listen6: 2001:7f8:ca:1::168
 #    add-on-import:
-#      - "202427:104:205848"
 #      - "202427:105:3756"
 
 #  Adam Goodenough FogIXP:
@@ -385,7 +364,6 @@ peers:
 #    local-pref: 320
 #    listen6: 2001:7f8:ca:1::168
 #    add-on-import:
-#      - "202427:104:210667"
 #      - "202427:105:3756"
 
   Simulhost FogIXP:
@@ -397,7 +375,6 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:ca:1::168
     add-on-import:
-      - "202427:104:211380"
       - "202427:105:3756"
 
   # ========= Peers - NL-ix =========
@@ -410,7 +387,6 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:13::a520:2427:1
     add-on-import:
-      - "202427:104:112"
       - "202427:105:64"
 
   Apple NL-ix:
@@ -423,7 +399,6 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:13::a520:2427:1
     add-on-import:
-      - "202427:104:714"
       - "202427:105:64"
 
   Cloudflare NL-ix:
@@ -437,7 +412,6 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:13::a520:2427:1
     add-on-import:
-      - "202427:104:13335"
       - "202427:105:64"
 
   Google NL-ix:
@@ -450,7 +424,6 @@ peers:
     listen6: 2001:7f8:13::a520:2427:1
     password: ${edge01-fra-google-nlix-password}
     add-on-import:
-      - "202427:104:15169"
       - "202427:105:64"
     as-set: AS-GOOGLE
 
@@ -463,7 +436,6 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:13::a520:2427:1
     add-on-import:
-      - "202427:104:24940"
       - "202427:105:64"
     as-set: AS-HETZNER
 
@@ -477,7 +449,6 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:13::a520:2427:1
     add-on-import:
-      - "202427:104:32934"
       - "202427:105:64"
     as-set: AS-FACEBOOK
 
@@ -500,6 +471,7 @@ templates:
     add-path-rx: true
     pre-import-accept: >
      bgp_large_community.add((202427,101,2));
+     bgp_large_community.add((202427,104,<pathvector.asn>));
     announce:
       - "202427:101:1"
       - "202427:101:5"
@@ -515,6 +487,7 @@ templates:
     add-path-rx: true
     pre-import-accept: >
      bgp_large_community.add((202427,101,3));
+     bgp_large_community.add((202427,104,<pathvector.asn>));
     announce:
       - "202427:101:1"
       - "202427:101:5"
@@ -533,6 +506,7 @@ templates:
     add-path-rx: true
     pre-import-accept: >
      bgp_large_community.add((202427,101,4));
+     bgp_large_community.add((202427,104,<pathvector.asn>));
     announce:
       - "202427:101:1"
       - "202427:101:5"
@@ -551,6 +525,7 @@ templates:
     add-path-rx: true
     pre-import-accept: >
      bgp_large_community.add((202427,101,5));
+     bgp_large_community.add((202427,104,<pathvector.asn>));
     announce:
       - "202427:101:1"
       - "202427:101:2"
@@ -578,7 +553,7 @@ templates:
     receive-limit4: 0
     receive-limit6: 0
 
-  core:
+  core-wg:
     prepends: 1
     local-pref: 180
     next-hop-self: true
@@ -588,6 +563,50 @@ templates:
       - "202427:101:3"
       - "202427:101:4"
       - "202427:101:5"
+    remove-communities:
+      - "202427:104:1"
+      - "202427:104:2"
+      - "202427:104:3"
+      - "202427:104:4"
+      - "202427:104:5"
+      - "202427:104:6"
+      - "202427:104:7"
+      - "202427:104:8"
+      - "202427:104:9"
+      - "202427:104:10"
+      - "202427:104:11"
+      - "202427:104:12"
+      - "202427:104:13"
+      - "202427:104:14"
+      - "202427:104:15"
+    allow-blackhole-community: true
+    allow-local-as: true
+
+  core-l2:
+    local-pref: 190
+    next-hop-self: true
+    add-path-tx: true
+    add-path-rx: true
+    announce:
+      - "202427:101:3"
+      - "202427:101:4"
+      - "202427:101:5"
+    remove-communities:
+      - "202427:104:1"
+      - "202427:104:2"
+      - "202427:104:3"
+      - "202427:104:4"
+      - "202427:104:5"
+      - "202427:104:6"
+      - "202427:104:7"
+      - "202427:104:8"
+      - "202427:104:9"
+      - "202427:104:10"
+      - "202427:104:11"
+      - "202427:104:12"
+      - "202427:104:13"
+      - "202427:104:14"
+      - "202427:104:15"
     enforce-first-as: false
     allow-blackhole-community: true
     allow-local-as: true
