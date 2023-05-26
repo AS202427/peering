@@ -206,6 +206,18 @@ peers:
       - "202427:105:3512"
     as-set: AS112
 
+  Netwerkvereniging Coloclue Frys-IX:
+    template: peer
+    description: Netwerkvereniging Coloclue via Frys-IX
+    asn: 8283
+    neighbors:
+      - 2001:7f8:10f::205b:140
+    local-pref: 320
+    listen6: 2001:7f8:10f::3:16bb:205
+    add-on-import:
+      - "202427:105:3512"
+    as-set: AS8283:AS-COLOCLUE
+
   Cloudflare Frys-IX:
     template: peer
     description: Cloudflare via Frys-IX
@@ -280,6 +292,31 @@ peers:
     add-on-import:
       - "202427:105:3512"
     as-set: AS-SERVERION
+
+  # ========= Peers - InterIX =========
+  Netwerkvereniging Coloclue InterIX:
+    template: peer
+    description: Netwerkvereniging Coloclue via InterIX
+    asn: 8283
+    neighbors:
+      - 2001:7f8:134::16
+    local-pref: 320
+    listen6: 2001:7f8:134::43
+    add-on-import:
+      - "202427:105:3990"
+    as-set: AS8283:AS-COLOCLUE
+
+  Cloudflare InterIX:
+    template: peer
+    description: Cloudflare via InterIX
+    asn: 13335
+    neighbors:
+      - 2001:7f8:134::40
+    local-pref: 320
+    listen6: 2001:7f8:134::43
+    add-on-import:
+      - "202427:105:3990"
+    as-set: AS-CLOUDFLARE
 
 templates:
   upstream:

@@ -416,6 +416,19 @@ peers:
       - "202427:105:64"
     as-set: AS-APPLE
 
+  Netwerkvereniging Coloclue NL-ix:
+    template: peer
+    description: Netwerkvereniging Coloclue via NL-ix
+    asn: 8283
+    neighbors:
+      - 2001:7f8:13::a500:8283:1
+      - 2001:7f8:13::a500:8283:2
+    local-pref: 320
+    listen6: 2001:7f8:13::a520:2427:1
+    add-on-import:
+      - "202427:105:64"
+    as-set: AS8283:AS-COLOCLUE
+
   Cloudflare NL-ix:
     template: peer
     description: Cloudflare viaNL-ix
