@@ -306,6 +306,18 @@ peers:
       - "202427:105:2365"
     as-set: AS-DATAWIRE
 
+  Hats Network CHIX-CH:
+    template: peer
+    description: Hats Network via CHIX-CH
+    asn: 203314
+    neighbors:
+      - 2001:7f8:cc:333::174
+    local-pref: 320
+    listen6: 2001:7f8:cc:333::182
+    add-on-import:
+      - "202427:105:2365"
+    as-set: AS203314:AS-HATS
+
   Raphael Peters CHIX-CH:
     template: peer
     description: Raphael Peters via CHIX-CH
