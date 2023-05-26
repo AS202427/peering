@@ -490,7 +490,6 @@ peers:
 #    local-pref: 320
 #    listen6: 2001:7f8:13::a520:2427:1
 #    add-on-import:
-#      - "202427:104:205848"
 #      - "202427:105:64"
 
 templates:
