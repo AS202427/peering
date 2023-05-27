@@ -367,6 +367,18 @@ peers:
       - "202427:105:3756"
     as-set: RIPE::AS212635:AS-212635
 
+  LUJE.net FogIXP:
+    template: peer
+    description: LUJE.net via FogIXP
+    asn: 212855
+    neighbors:
+      - 2001:7f8:ca:1::42
+    local-pref: 320
+    listen6: 2001:7f8:ca:1::168
+    add-on-import:
+      - "202427:105:3756"
+    as-set: RIPE::AS212855:AS-LUJE
+
   # ========= Peers - LocIX =========
   AS112 LocIX:
     template: peer
@@ -563,6 +575,18 @@ peers:
     add-on-import:
       - "202427:105:64"
     as-set: RIPE::AS212635:AS-212635
+
+  LUJE.net NL-ix:
+    template: peer
+    description: LUJE.net via NL-ix
+    asn: 212855
+    neighbors:
+      - 2001:7f8:13::a521:2855:1
+    local-pref: 320
+    listen6: 2001:7f8:13::a520:2427:1
+    add-on-import:
+      - "202427:105:64"
+    as-set: RIPE::AS212855:AS-LUJE
 
 templates:
   upstream:
