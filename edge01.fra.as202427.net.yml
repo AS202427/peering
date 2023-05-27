@@ -310,17 +310,17 @@ peers:
       - "202427:105:3756"
     as-set: AS-XZR
 
-  #  Hats Network FogIXP:
-  #    template: peer
-  #    description: Hats Network via FogIXP
-  #    asn: 203314
-  #    neighbors:
-  #      - 2001:7f8:ca:1::176
-  #    local-pref: 320
-  #    listen6: 2001:7f8:ca:1::168
-  #    add-on-import:
-  #      - "202427:105:3756"
-  #    as-set: AS203314:AS-HATS
+  Hats Network FogIXP:
+    template: peer
+    description: Hats Network via FogIXP
+    asn: 203314
+    neighbors:
+      - 2001:7f8:ca:1::176
+    local-pref: 320
+    listen6: 2001:7f8:ca:1::168
+    add-on-import:
+      - "202427:105:3756"
+    as-set: AS203314:AS-HATS
 
   #  Tomas Oliveira Valente Leite de Castro FogIXP:
   #    template: peer
@@ -566,17 +566,17 @@ peers:
       - "202427:105:64"
     as-set: AS-FACEBOOK
 
-#  Hats Network NL-ix:
-#    template: peer
-#    description: Hats Network via NL-ix
-#    asn: 203314
-#    neighbors:
-#      - 2001:7f8:13::a520:3314:1
-#    local-pref: 320
-#    listen6: 2001:7f8:13::a520:2427:1
-#    add-on-import:
-#      - "202427:105:64"
-#    as-set: AS203314:AS-HATS
+  Hats Network NL-ix:
+    template: peer
+    description: Hats Network via NL-ix
+    asn: 203314
+    neighbors:
+      - 2001:7f8:13::a520:3314:1
+    local-pref: 320
+    listen6: 2001:7f8:13::a520:2427:1
+    add-on-import:
+      - "202427:105:64"
+    as-set: AS203314:AS-HATS
 
 #  Dominik Pohl NL-ix:
 #    template: peer
