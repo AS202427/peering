@@ -16,6 +16,7 @@ prefixes:
   - 2a0a:6040:27e0::/43 # EU-AS202427
  #- 2a07:54c2:b00b::/48 # ::/b00b collective
 router-id: 152.89.170.81
+irr-server: 128.241.192.40 # rr.ntt.net
 source6: 2a06:a005:28e5::1
 default-route: false
 blackhole-bogon-asns: true
