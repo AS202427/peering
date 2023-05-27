@@ -352,7 +352,7 @@ peers:
     listen6: 2001:7f8:cc:333::182
     add-on-import:
       - "202427:105:2365"
-    as-set: 213126
+    as-set: AS213126
 
   # ========= Peers - SwissIX =========
 
