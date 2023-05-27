@@ -223,7 +223,7 @@ peers:
   # ========= Peers - CHIX-CH =========
   SolNet CHIX-CH:
     template: peer
-    description: BSE Software GmbH / SolNet via CHIX-CH
+    description: SolNet via CHIX-CH
     asn: 9044
     neighbors:
       - 2001:7f8:cc:333::152
