@@ -121,7 +121,9 @@ Octets in the function field are the numeric country identifier defined by ISO 3
 | --------- | ----------- |
 | `202427:104:112` | Learned from AS112 - AS112 Project |
 | `202427:104:714` | Learned from AS714 - Apple Inc. |
+| `202427:104:8283` | Learned from AS8283 - Netwerkvereniging Coloclue
 | `202427:104:9044` | Learned from AS9044 - BSE Software GmbH / SolNet |
+| `202427:104:12307` | Learned from AS12307 - Sandro Bolliger |
 | `202427:104:13030` | Learned from AS13030 - Init7 |
 | `202427:104:13335` | Learned from AS13335 - Cloudflare, Inc. |
 | `202427:104:15169` | Learned from AS15169 - Google LLC |
@@ -130,17 +132,22 @@ Octets in the function field are the numeric country identifier defined by ISO 3
 | `202427:104:30132` | Learned from AS30132 - ISC F-ROOT AMS1 |
 | `202427:104:32590` | Learned from AS32590 - Valve Corporation |
 | `202427:104:32934` | Learned from AS32934 - Meta Platforms, Inc. |
+| `202427:104:34549` | Learned from AS34549 - meerfarbig |
 | `202427:104:35202` | Learned from AS35202 - Sam Aschwanden |
 | `202427:104:41732` | Learned from AS41732 - HostingFuze Network |
 | `202427:104:48646` | Learned from AS48646 - Stefan Dunkel |
 | `202427:104:48971` | Learned from AS48971 - DATAWIRE AG |
 | `202427:104:51019` | Learned from AS51019 - Kjartan Hrafnkelsson |
 | `202427:104:63949` | Learned from AS63949 - Linode |
+| `202427:104:200132` | Learned from AS200132 - NetOne NL |
 | `202427:104:203069` | Learned from AS203069 - Thomas Riley Brown |
+| `202427:104:203314` | Learned from AS203314 - Hats Network |
 | `202427:104:204035` | Learned from AS204035 - oneCorp GmbH |
 | `202427:104:207968` | Learned from AS207968 - Raphael Peters |
 | `202427:104:208328` | Learned from AS208328 - Luigi Labate |
 | `202427:104:211380` | Learned from AS211380 - Simulhost Limited |
+| `202427:104:212635` | Learned from AS212635 - AS212635 |
+| `202427:104:212855` | Learned from AS212855 - LUJE.net |
 | `202427:104:213035` | Learned from AS213035 - Serverion B.V. |
 | `202427:104:213126` | Learned from AS213126 - Andreas Fries |
 
@@ -214,4 +221,4 @@ Octets in the function field are the peeringdb id.
 | Pref | Description |
 | ---- | ----------- |
 | `180` | Default |
-| `190` | PNI     |
+| `190` | PNI
