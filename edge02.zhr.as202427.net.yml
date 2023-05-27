@@ -280,7 +280,19 @@ peers:
     listen6: 2001:7f8:cc:333::182
     add-on-import:
       - "202427:105:2365"
-    as-set: 28859
+    as-set: AS28859
+
+  meerfarbig CHIX-CH:
+    template: peer
+    description: meerfarbig via CHIX-CH
+    asn: 34549
+    neighbors:
+      - 2001:7f8:cc:333::146
+    local-pref: 320
+    listen6: 2001:7f8:cc:333::182
+    add-on-import:
+      - "202427:105:2365"
+    as-set: AS-MEER
 
   Sam Aschwanden CHIX-CH:
     template: peer
