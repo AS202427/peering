@@ -205,6 +205,18 @@ peers:
       - "202427:105:2730"
     as-set: AS112
 
+  meerfarbig LocIX:
+    template: peer
+    description: meerfarbig via LocIX
+    asn: 34549
+    neighbors:
+      - 2a0c:b641:701::a120:4549:1
+    local-pref: 320
+    listen6: 2a0c:b641:701:0:a5:20:2427:1
+    add-on-import:
+      - "202427:105:2730"
+    as-set: AS-MEER
+
   oneCorp LocIX:
     template: peer
     description: oneCorp via LocIX

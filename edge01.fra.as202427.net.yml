@@ -274,6 +274,18 @@ peers:
       - "202427:105:3756"
     as-set: AS112
 
+  meerfarbig FogIXP:
+    template: peer
+    description: meerfarbig via FogIXP
+    asn: 34549
+    neighbors:
+      - 2001:7f8:ca:1::131
+    local-pref: 320
+    listen6: 2001:7f8:ca:1::168
+    add-on-import:
+      - "202427:105:3756"
+    as-set: AS-MEER
+
 #  HostingFuze FogIXP:
 #    template: peer
 #    description: HostingFuze via FogIXP
