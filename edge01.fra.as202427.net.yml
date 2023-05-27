@@ -528,6 +528,18 @@ peers:
 #    add-on-import:
 #      - "202427:105:64"
 
+  AS212635 NL-ix:
+    template: peer
+    description: AS212635 via NL-ix
+    asn: 212635
+    neighbors:
+      - 2001:7f8:13::a521:2635:1
+    local-pref: 320
+    listen6: 2001:7f8:13::a520:2427:1
+    add-on-import:
+      - "202427:105:64"
+    as-set: RIPE::AS212635:AS-212635
+
 templates:
   upstream:
     local-pref: 100
