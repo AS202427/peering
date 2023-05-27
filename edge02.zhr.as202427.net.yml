@@ -270,7 +270,7 @@ peers:
     password: ${edge02-zhr-google-chix-password}
     add-on-import:
       - "202427:105:2365"
-    as-set: RADB:AS-GOOGLE
+    as-set: RADB::AS-GOOGLE
 
   acdalis informatik CHIX-CH:
     template: peer
