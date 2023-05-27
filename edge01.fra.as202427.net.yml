@@ -32,6 +32,23 @@ peers:
     listen6: 2a0c:9a40:1::237
     as-set: RIPE::AS-IFOG
 
+  Freetransit Project FogIXP:
+    template: upstream
+    description: Freetransit Project Upstream via FogIXP
+    asn: 41051
+    neighbors:
+      - 2001:7f8:ca:1::22
+    local-pref: 130
+    listen6: 2001:7f8:ca:1::168
+    add-on-import:
+      - "202427:105:3756"
+    only-announce:
+      - 2a06:a005:28e0::/48 # AS202427-BACKBONE-NETWORK
+      - 2a06:a005:28e2::/48 # AS202427-BACKBONE-NETWORK
+      - 2a0a:6040:2720::/43 # DE-AS202427
+      - 2a0a:6040:27e0::/43 # EU-AS202427
+    as-set: AS41051:AS-ALL
+
   Hurricane Electric LocIX:
     template: upstream
     description: Hurricane Electric LLC Upstream via LocIX
@@ -55,23 +72,6 @@ peers:
     add-on-import:
       - "202427:105:2084"
     as-set: RIPE::AS-ROUTE64
-
-  Freetransit Project FogIXP:
-    template: upstream
-    description: Freetransit Project Upstream via FogIXP
-    asn: 41051
-    neighbors:
-      - 2001:7f8:ca:1::22
-    local-pref: 130
-    listen6: 2001:7f8:ca:1::168
-    add-on-import:
-      - "202427:105:3756"
-    only-announce:
-      - 2a06:a005:28e0::/48 # AS202427-BACKBONE-NETWORK
-      - 2a06:a005:28e2::/48 # AS202427-BACKBONE-NETWORK
-      - 2a0a:6040:2720::/43 # DE-AS202427
-      - 2a0a:6040:27e0::/43 # EU-AS202427
-    as-set: AS41051:AS-ALL
 
   Hurricane Electric NL-ix:
     template: upstream
@@ -209,6 +209,19 @@ peers:
     listen6: 2a06:a005:2ef2::1
 
   # ========= Route Servers =========
+  FogIXP Route Server:
+    template: routeserver
+    description: FogIXP Route Server
+    asn: 47498
+    neighbors:
+      - 2001:7f8:ca:1::111
+      - 2001:7f8:ca:1::222
+    local-pref: 220
+    listen6: 2001:7f8:ca:1::168
+    add-on-import:
+      - "202427:105:3756"
+    as-set: AS-FOGIXP
+
   LocIX Route Server:
     template: routeserver
     description: LocIX Route Server
@@ -222,19 +235,6 @@ peers:
     add-on-import:
       - "202427:105:2084"
     as-set: AS-LOCIX
-
-  FogIXP Route Server:
-    template: routeserver
-    description: FogIXP Route Server
-    asn: 47498
-    neighbors:
-      - 2001:7f8:ca:1::111
-      - 2001:7f8:ca:1::222
-    local-pref: 220
-    listen6: 2001:7f8:ca:1::168
-    add-on-import:
-      - "202427:105:3756"
-    as-set: AS-FOGIXP
 
   NL-ix Route Server:
     template: routeserver
@@ -261,6 +261,112 @@ peers:
       - "202427:105:3829"
     as-set: AS-BGPEXCHANGE
 
+  # ========= Peers - FogIXP =========
+  AS112 FogIXP:
+    template: peer
+    description: AS112 via FogIXP
+    asn: 112
+    neighbors:
+      - 2001:7f8:ca:1::12
+    local-pref: 320
+    listen6: 2001:7f8:ca:1::168
+    add-on-import:
+      - "202427:105:3756"
+    as-set: AS112
+
+#  HostingFuze FogIXP:
+#    template: peer
+#    description: HostingFuze via FogIXP
+#    asn: 41732
+#    neighbors:
+#      - 2001:7f8:ca:1:0:4:1732:1
+#    local-pref: 320
+#    listen6: 2001:7f8:ca:1::168
+#    add-on-import:
+#      - "202427:105:3756"
+#    as-set: AS-HFN
+
+  Thomas Riley Brown FogIXP:
+    template: peer
+    description: Thomas Riley Brown via FogIXP
+    asn: 203069
+    neighbors:
+      - 2001:7f8:ca:1:0:20:3069:1
+    local-pref: 320
+    listen6: 2001:7f8:ca:1::168
+    add-on-import:
+      - "202427:105:3756"
+    as-set: AS-XZR
+
+  #  Hats Network FogIXP:
+  #    template: peer
+  #    description: Hats Network via FogIXP
+  #    asn: 203314
+  #    neighbors:
+  #      - 2001:7f8:ca:1::176
+  #    local-pref: 320
+  #    listen6: 2001:7f8:ca:1::168
+  #    add-on-import:
+  #      - "202427:105:3756"
+  #    as-set: AS203314:AS-HATS
+
+  #  Tomas Oliveira Valente Leite de Castro FogIXP:
+  #    template: peer
+  #    description: Tomas Oliveira Valente Leite de Castro via FogIXP
+  #    asn: 203619
+  #    neighbors:
+  #      - 2001:7f8:ca:1::154
+  #    local-pref: 320
+  #    listen6: 2001:7f8:ca:1::168
+  #    add-on-import:
+  #      - "202427:105:3756"
+
+  #  Dominik Pohl FogIXP:
+  #    template: peer
+  #    description: Dominik Pohl via FogIXP
+  #    asn: 205848
+  #    neighbors:
+  #      - 2001:7f8:ca:1::124
+  #    local-pref: 320
+  #    listen6: 2001:7f8:ca:1::168
+  #    add-on-import:
+  #      - "202427:105:3756"
+
+  #  Adam Goodenough FogIXP:
+  #    template: peer
+  #    description: Adam Goodenough via FogIXP
+  #    asn: 210667
+  #    neighbors:
+  #      - 2001:7f8:ca:1::116
+  #    local-pref: 320
+  #    listen6: 2001:7f8:ca:1::168
+  #    add-on-import:
+  #      - "202427:105:3756"
+
+#  Simulhost FogIXP:
+#    template: peer
+#    description: Simulhost via FogIXP
+#    asn: 211380
+#    neighbors:
+#      - 2001:7f8:ca:1:0:21:1380:1
+#    local-pref: 320
+#    listen6: 2001:7f8:ca:1::168
+#    add-on-import:
+#      - "202427:105:3756"
+#    as-set: AS211380:AS-SIMULHOST
+
+  AS212635 FogIXP:
+    template: peer
+    description: AS212635 via FogIXP
+    asn: 212635
+    neighbors:
+      - 2001:7f8:ca:1::34
+    local-pref: 320
+    listen6: 2001:7f8:ca:1::168
+    add-on-import:
+      - "202427:105:3756"
+    as-set: RIPE::AS212635:AS-212635
+
   # ========= Peers - LocIX =========
   AS112 LocIX:
     template: peer
@@ -274,17 +380,17 @@ peers:
       - "202427:105:2084"
     as-set: AS112
 
-  Hats Network LocIX:
-    template: peer
-    description: Hats Network via LocIX
-    asn: 203314
-    neighbors:
-      - 2001:7f8:f2:e1:0:20:3314:1
-    local-pref: 320
-    listen6: 2001:7f8:f2:e1:0:20:2427:1
-    add-on-import:
-      - "202427:105:2084"
-    as-set: AS203314:AS-HATS
+#  Hats Network LocIX:
+#    template: peer
+#    description: Hats Network via LocIX
+#    asn: 203314
+#    neighbors:
+#      - 2001:7f8:f2:e1:0:20:3314:1
+#    local-pref: 320
+#    listen6: 2001:7f8:f2:e1:0:20:2427:1
+#    add-on-import:
+#      - "202427:105:2084"
+#    as-set: AS203314:AS-HATS
 
   #  Dominik Pohl LocIX:
   #    template: peer
@@ -320,99 +426,17 @@ peers:
 #    add-on-import:
 #      - "202427:105:2084"
 
-  # ========= Peers - FogIXP =========
-  AS112 FogIXP:
+  AS212635 LocIX:
     template: peer
-    description: AS112 via FogIXP
-    asn: 112
+    description: AS212635 via LocIX
+    asn: 212635
     neighbors:
-      - 2001:7f8:ca:1::12
+      - 2001:7f8:f2:e1:0:21:2635:1
     local-pref: 320
-    listen6: 2001:7f8:ca:1::168
+    listen6: 2001:7f8:f2:e1:0:20:2427:1
     add-on-import:
-      - "202427:105:3756"
-    as-set: AS112
-
-  HostingFuze FogIXP:
-    template: peer
-    description: HostingFuze via FogIXP
-    asn: 41732
-    neighbors:
-      - 2001:7f8:ca:1:0:4:1732:1
-    local-pref: 320
-    listen6: 2001:7f8:ca:1::168
-    add-on-import:
-      - "202427:105:3756"
-    as-set: AS-HFN
-
-  Thomas Riley Brown FogIXP:
-    template: peer
-    description: Thomas Riley Brown via FogIXP
-    asn: 203069
-    neighbors:
-      - 2001:7f8:ca:1:0:20:3069:1
-    local-pref: 320
-    listen6: 2001:7f8:ca:1::168
-    add-on-import:
-      - "202427:105:3756"
-    as-set: AS-XZR
-
-  Hats Network FogIXP:
-    template: peer
-    description: Hats Network via FogIXP
-    asn: 203314
-    neighbors:
-      - 2001:7f8:ca:1::176
-    local-pref: 320
-    listen6: 2001:7f8:ca:1::168
-    add-on-import:
-      - "202427:105:3756"
-    as-set: AS203314:AS-HATS
-
-#  Tomas Oliveira Valente Leite de Castro FogIXP:
-#    template: peer
-#    description: Tomas Oliveira Valente Leite de Castro via FogIXP
-#    asn: 203619
-#    neighbors:
-#      - 2001:7f8:ca:1::154
-#    local-pref: 320
-#    listen6: 2001:7f8:ca:1::168
-#    add-on-import:
-#      - "202427:105:3756"
-
-#  Dominik Pohl FogIXP:
-#    template: peer
-#    description: Dominik Pohl via FogIXP
-#    asn: 205848
-#    neighbors:
-#      - 2001:7f8:ca:1::124
-#    local-pref: 320
-#    listen6: 2001:7f8:ca:1::168
-#    add-on-import:
-#      - "202427:105:3756"
-
-#  Adam Goodenough FogIXP:
-#    template: peer
-#    description: Adam Goodenough via FogIXP
-#    asn: 210667
-#    neighbors:
-#      - 2001:7f8:ca:1::116
-#    local-pref: 320
-#    listen6: 2001:7f8:ca:1::168
-#    add-on-import:
-#      - "202427:105:3756"
-
-  Simulhost FogIXP:
-    template: peer
-    description: Simulhost via FogIXP
-    asn: 211380
-    neighbors:
-      - 2001:7f8:ca:1:0:21:1380:1
-    local-pref: 320
-    listen6: 2001:7f8:ca:1::168
-    add-on-import:
-      - "202427:105:3756"
-    as-set: AS211380:AS-SIMULHOST
+      - "202427:105:2084"
+    as-set: RIPE::AS212635:AS-212635
 
   # ========= Peers - NL-ix =========
   AS112 NL-ix:
@@ -505,17 +529,17 @@ peers:
       - "202427:105:64"
     as-set: AS-FACEBOOK
 
-  Hats Network NL-ix:
-    template: peer
-    description: Hats Network via NL-ix
-    asn: 203314
-    neighbors:
-      - 2001:7f8:13::a520:3314:1
-    local-pref: 320
-    listen6: 2001:7f8:13::a520:2427:1
-    add-on-import:
-      - "202427:105:64"
-    as-set: AS203314:AS-HATS
+#  Hats Network NL-ix:
+#    template: peer
+#    description: Hats Network via NL-ix
+#    asn: 203314
+#    neighbors:
+#      - 2001:7f8:13::a520:3314:1
+#    local-pref: 320
+#    listen6: 2001:7f8:13::a520:2427:1
+#    add-on-import:
+#      - "202427:105:64"
+#    as-set: AS203314:AS-HATS
 
 #  Dominik Pohl NL-ix:
 #    template: peer
