@@ -306,6 +306,30 @@ peers:
       - "202427:105:3512"
     as-set: RIPE::AS212635:AS-212635
 
+  LUJE.net Frys-IX:
+    template: peer
+    description: LUJE.net via Frys-IX
+    asn: 212855
+    neighbors:
+      - 2001:7f8:10f::3:3f95:152
+    local-pref: 320
+    listen6: 2001:7f8:10f::3:16bb:205
+    add-on-import:
+      - "202427:105:3512"
+    as-set: RIPE::AS212855:AS-LUJE
+
+  NetOne NL Frys-IX:
+    template: peer
+    description: NetOne NL via Frys-IX
+    asn: 200132
+    neighbors:
+      - 2001:7f8:10f::3:dc4:239
+    local-pref: 320
+    listen6: 2001:7f8:10f::3:16bb:205
+    add-on-import:
+      - "202427:105:3512"
+    as-set: AS-NETONE-NL
+
   # ========= Peers - InterIX =========
   Netwerkvereniging Coloclue InterIX:
     template: peer
