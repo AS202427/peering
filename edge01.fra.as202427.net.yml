@@ -404,17 +404,30 @@ peers:
       - "202427:105:2084"
     as-set: AS112
 
-#  Hats Network LocIX:
-#    template: peer
-#    description: Hats Network via LocIX
-#    asn: 203314
-#    neighbors:
-#      - 2001:7f8:f2:e1:0:20:3314:1
-#    local-pref: 320
-#    listen6: 2001:7f8:f2:e1:0:20:2427:1
-#    add-on-import:
-#      - "202427:105:2084"
-#    as-set: AS203314:AS-HATS
+  meerfarbig LocIX:
+    template: peer
+    description: meerfarbig via LocIX
+    asn: 34549
+    neighbors:
+      - 2001:7f8:f2:e1:0:a120:4549:1
+      - 2001:7f8:f2:e1:0:a120:4549:2
+    local-pref: 320
+    listen6: 2001:7f8:f2:e1:0:20:2427:1
+    add-on-import:
+      - "202427:105:2084"
+    as-set: AS-MEER
+
+  Hats Network LocIX:
+    template: peer
+    description: Hats Network via LocIX
+    asn: 203314
+    neighbors:
+      - 2001:7f8:f2:e1:0:20:3314:1
+    local-pref: 320
+    listen6: 2001:7f8:f2:e1:0:20:2427:1
+    add-on-import:
+      - "202427:105:2084"
+    as-set: AS203314:AS-HATS
 
   #  Dominik Pohl LocIX:
   #    template: peer
