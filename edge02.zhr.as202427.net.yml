@@ -233,17 +233,18 @@ peers:
       - "202427:105:2365"
     as-set: AS-SOLNET
 
-  Sandro Bolliger CHIX-CH:
-    template: peer
-    description: Sandro Bolliger via CHIX-CH
-    asn: 12307
-    neighbors:
-      - 2001:7f8:cc:333::155
-    local-pref: 320
-    listen6: 2001:7f8:cc:333::182
-    add-on-import:
-      - "202427:105:2365"
-    as-set: AS-RAVANA
+#  Sandro Bolliger CHIX-CH:
+#    template: peer
+#    description: Sandro Bolliger via CHIX-CH
+#    asn: 12307
+#    neighbors:
+#      - 2001:7f8:cc:333::155
+#    local-pref: 320
+#    listen6: 2001:7f8:cc:333::182
+#    password: ${edge02-zhr-as12307-chix-password}
+#    add-on-import:
+#      - "202427:105:2365"
+#    as-set: AS-RAVANA
 
   Init7 CHIX-CH:
     template: peer
@@ -255,7 +256,7 @@ peers:
     listen6: 2001:7f8:cc:333::182
     add-on-import:
       - "202427:105:2365"
-    as-set: AS-INIT7
+    as-set: RIPE::AS-INIT7
 
   Google CHIX-CH:
     template: peer
@@ -268,7 +269,7 @@ peers:
     password: ${edge02-zhr-google-chix-password}
     add-on-import:
       - "202427:105:2365"
-    as-set: AS-GOOGLE
+    as-set: RADB:AS-GOOGLE
 
   acdalis informatik CHIX-CH:
     template: peer
@@ -318,9 +319,9 @@ peers:
       - "202427:105:2365"
     as-set: AS-STEFANDUNKEL
 
-  DATAWIRE AG CHIX-CH:
+  DATAWIRE CHIX-CH:
     template: peer
-    description: DATAWIRE AG via CHIX-CH
+    description: DATAWIRE via CHIX-CH
     asn: 48971
     neighbors:
       - 2001:7f8:cc:333::131
@@ -352,7 +353,7 @@ peers:
     listen6: 2001:7f8:cc:333::182
     add-on-import:
       - "202427:105:2365"
-    as-set: AS-RAPPET
+    as-set: RIPE::AS-RAPPET
 
   Andreas Fries CHIX-CH:
     template: peer
