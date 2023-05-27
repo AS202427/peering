@@ -212,6 +212,7 @@ peers:
     asn: 8283
     neighbors:
       - 2001:7f8:10f::205b:140
+      - 2001:7f8:10f::205b:187
     local-pref: 320
     listen6: 2001:7f8:10f::3:16bb:205
     add-on-import:
