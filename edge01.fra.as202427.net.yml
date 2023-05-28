@@ -392,6 +392,20 @@ peers:
       - "202427:105:3756"
     as-set: RIPE::AS212855:AS-LUJE
 
+  Bakker IT FogIXP:
+    template: peer
+    passive: true
+    description: Bakker IT via FogIXP
+    asn: 44103
+    neighbors:
+      - 2001:7f8:ca:1::115
+      - 2001:7f8:ca:1::167
+    local-pref: 320
+    listen6: 2001:7f8:ca:1::168
+    add-on-import:
+      - "202427:105:3756"
+    as-set: AS-BAKKER-IT
+
   # ========= Peers - LocIX =========
   AS112 LocIX:
     template: peer
@@ -475,6 +489,18 @@ peers:
     add-on-import:
       - "202427:105:2084"
     as-set: RIPE::AS212635:AS-212635
+
+  Bakker IT LocIX:
+    template: peer
+    description: Bakker IT via LocIX
+    asn: 44103
+    neighbors:
+      - 2001:7f8:f2:e1:0:4:4103:1
+    local-pref: 320
+    listen6: 2001:7f8:f2:e1:0:20:2427:1
+    add-on-import:
+      - "202427:105:2084"
+    as-set: AS-BAKKER-IT
 
   # ========= Peers - NL-ix =========
   AS112 NL-ix:
