@@ -616,6 +616,7 @@ peers:
 
   H4Hosting NL-ix:
     template: peer
+    passive: true
     description: H4Hosting via NL-ix
     asn: 51050
     neighbors:
