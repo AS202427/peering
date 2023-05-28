@@ -357,6 +357,19 @@ peers:
       - "202427:105:3512"
     as-set: AS-H4HOSTING
 
+  Solutions4XS Frys-IX:
+    template: peer
+    passive: true
+    description: Solutions4XS via Frys-IX
+    asn: 209288
+    neighbors:
+      - 2001:7f8:10f::3:3188:146
+    local-pref: 320
+    listen6: 2001:7f8:10f::3:16bb:205
+    add-on-import:
+      - "202427:105:3512"
+    as-set: AS-SOL4XS
+
   # ========= Peers - InterIX =========
   Netwerkvereniging Coloclue InterIX:
     template: peer
@@ -393,6 +406,18 @@ peers:
     add-on-import:
       - "202427:105:3990"
     as-set: RIPE::AS212635:AS-212635
+
+  Solutions4XS InterIX:
+    template: peer
+    description: Solutions4XS via InterIX
+    asn: 209288
+    neighbors:
+      - 2001:7f8:134::17
+    local-pref: 320
+    listen6: 2001:7f8:134::43
+    add-on-import:
+      - "202427:105:3990"
+    as-set: AS-SOL4XS
 
 templates:
   upstream:
