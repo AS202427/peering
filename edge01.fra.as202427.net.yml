@@ -666,6 +666,19 @@ peers:
       - "202427:105:64"
     as-set: AS-KODDOS
 
+  WD6.net NL-ix:
+    template: peer
+    passive: true
+    description: WD6.net via NL-ix
+    asn: 20495
+    neighbors:
+      - 2001:7f8:13::a502:495:1
+    local-pref: 320
+    listen6: 2001:7f8:13::a520:2427:1
+    add-on-import:
+      - "202427:105:64"
+    as-set: AS-WEDARE
+
 templates:
   upstream:
     local-pref: 100
