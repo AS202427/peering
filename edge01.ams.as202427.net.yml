@@ -409,6 +409,7 @@ peers:
 
   Solutions4XS InterIX:
     template: peer
+    passive: true
     description: Solutions4XS via InterIX
     asn: 209288
     neighbors:
