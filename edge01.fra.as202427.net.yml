@@ -529,6 +529,19 @@ peers:
       - "202427:105:2084"
     as-set: AS-EFERO
 
+  IP-Max LocIX:
+    template: peer
+    passive: true
+    description: IP-Max via LocIX
+    asn: 25091
+    neighbors:
+      - 2001:7f8:f2:e1:0:2:5091:1
+    local-pref: 320
+    listen6: 2001:7f8:f2:e1:0:20:2427:1
+    add-on-import:
+      - "202427:105:2084"
+    as-set: RIPE::AS-IP-MAX-V6
+
   # ========= Peers - NL-ix =========
   AS112 NL-ix:
     template: peer
@@ -718,6 +731,19 @@ peers:
     add-on-import:
       - "202427:105:64"
     as-set: AS56381:AS-ALL
+
+  IP-Max NL-ix:
+    template: peer
+    passive: true
+    description: IP-Max via NL-ix
+    asn: 25091
+    neighbors:
+      - 2001:7f8:13::a502:5091:1
+    local-pref: 320
+    listen6: 2001:7f8:13::a520:2427:1
+    add-on-import:
+      - "202427:105:64"
+    as-set: RIPE::AS-IP-MAX-V6
 
 templates:
   upstream:

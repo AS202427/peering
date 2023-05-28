@@ -422,6 +422,19 @@ peers:
       - "202427:105:3512"
     as-set: AS-WEDARE
 
+  IP-Max Frys-IX:
+    template: peer
+    passive: true
+    description: IP-Max via Frys-IX
+    asn: 25091
+    neighbors:
+      - 2001:7f8:10f::6203:135
+    local-pref: 320
+    listen6: 2001:7f8:10f::3:16bb:205
+    add-on-import:
+      - "202427:105:3512"
+    as-set: RIPE::AS-IP-MAX-V6
+
   # ========= Peers - InterIX =========
   Netwerkvereniging Coloclue InterIX:
     template: peer
@@ -510,6 +523,19 @@ peers:
     add-on-import:
       - "202427:105:3990"
     as-set: AS-WEDARE
+
+  IP-Max InterIX:
+    template: peer
+    passive: true
+    description: IP-Max via InterIX
+    asn: 25091
+    neighbors:
+      - 2001:7f8:134::22
+    local-pref: 320
+    listen6: 2001:7f8:134::43
+    add-on-import:
+      - "202427:105:3990"
+    as-set: RIPE::AS-IP-MAX-V6
 
 templates:
   upstream:
