@@ -398,18 +398,18 @@ peers:
       - "202427:105:3512"
     as-set: AS-KODDOS
 
-  Bakker IT Frys-IX:
-    template: peer
-    passive: true
-    description: Bakker IT via Frys-IX
-    asn: 44103
-    neighbors:
-      - 2001:7f8:10f::ac47:131
-    local-pref: 320
-    listen6: 2001:7f8:10f::3:16bb:205
-    add-on-import:
-      - "202427:105:3512"
-    as-set: AS-BAKKER-IT
+#  Bakker IT Frys-IX:
+#    template: peer
+#    passive: true
+#    description: Bakker IT via Frys-IX
+#    asn: 44103
+#    neighbors:
+#      - 2001:7f8:10f::ac47:131
+#    local-pref: 320
+#    listen6: 2001:7f8:10f::3:16bb:205
+#    add-on-import:
+#      - "202427:105:3512"
+#    as-set: AS-BAKKER-IT
 
   WD6.net Frys-IX:
     template: peer
