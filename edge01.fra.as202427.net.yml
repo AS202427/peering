@@ -746,18 +746,18 @@ peers:
       - "202427:105:64"
     as-set: AS-WEDARE
 
-  level66.network NL-ix:
-    template: peer
-    passive: true
-    description: level66.network via NL-ix
-    asn: 56381
-    neighbors:
-      - 2001:7f8:13::a505:6381:1
-    local-pref: 320
-    listen6: 2001:7f8:13::a520:2427:1
-    add-on-import:
-      - "202427:105:64"
-    as-set: AS56381:AS-ALL
+#  level66.network NL-ix:
+#    template: peer
+#    passive: true
+#    description: level66.network via NL-ix
+#    asn: 56381
+#    neighbors:
+#      - 2001:7f8:13::a505:6381:1
+#    local-pref: 320
+#    listen6: 2001:7f8:13::a520:2427:1
+#    add-on-import:
+#      - "202427:105:64"
+#    as-set: AS56381:AS-ALL
 
   IP-Max NL-ix:
     template: peer
