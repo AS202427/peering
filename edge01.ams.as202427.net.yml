@@ -331,6 +331,8 @@ peers:
       - "202427:105:3512"
     as-set: AS-NETONE-NL
 
+#========================
+
   H2B IT Solutions Frys-IX:
     template: peer
     passive: true
@@ -483,6 +485,8 @@ peers:
     add-on-import:
       - "202427:105:3990"
     as-set: RIPE::AS212635:AS-212635
+
+#========================
 
   Solutions4XS InterIX:
     template: peer
