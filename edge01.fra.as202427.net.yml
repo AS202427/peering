@@ -406,18 +406,18 @@ peers:
       - "202427:105:3756"
     as-set: AS-BAKKER-IT
 
-  efero FogIXP:
-    template: peer
-    passive: true
-    description: efero via FogIXP
-    asn: 208431
-    neighbors:
-      - 2001:7f8:ca:1::107
-    local-pref: 320
-    listen6: 2001:7f8:ca:1::168
-    add-on-import:
-      - "202427:105:3756"
-    as-set: AS-EFERO
+#  efero FogIXP:
+#    template: peer
+#    passive: true
+#    description: efero via FogIXP
+#    asn: 208431
+#    neighbors:
+#      - 2001:7f8:ca:1::107
+#    local-pref: 320
+#    listen6: 2001:7f8:ca:1::168
+#    add-on-import:
+#      - "202427:105:3756"
+#    as-set: AS-EFERO
 
 #  Openfactory FogIXP:
 #    template: peer
@@ -529,18 +529,18 @@ peers:
       - "202427:105:2084"
     as-set: AS-BAKKER-IT
 
-  efero LocIX:
-    template: peer
-    passive: true
-    description: efero via LocIX
-    asn: 208431
-    neighbors:
-      - 2001:7f8:f2:e1:0:20:8431:1
-    local-pref: 320
-    listen6: 2001:7f8:f2:e1:0:20:2427:1
-    add-on-import:
-      - "202427:105:2084"
-    as-set: AS-EFERO
+#  efero LocIX:
+#    template: peer
+#    passive: true
+#    description: efero via LocIX
+#    asn: 208431
+#    neighbors:
+#      - 2001:7f8:f2:e1:0:20:8431:1
+#    local-pref: 320
+#    listen6: 2001:7f8:f2:e1:0:20:2427:1
+#    add-on-import:
+#      - "202427:105:2084"
+#    as-set: AS-EFERO
 
   IP-Max LocIX:
     template: peer
