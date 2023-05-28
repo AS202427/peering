@@ -372,18 +372,18 @@ peers:
       - "202427:105:3512"
     as-set: AS-SOL4XS
 
-  WARIAN Frys-IX:
-    template: peer
-    passive: true
-    description: WARIAN via Frys-IX
-    asn: 56911
-    neighbors:
-      - 2001:7f8:10f::de4f:162
-    local-pref: 320
-    listen6: 2001:7f8:10f::3:16bb:205
-    add-on-import:
-      - "202427:105:3512"
-    as-set: AS56911:AS-WARIAN-EU
+#  WARIAN Frys-IX:
+#    template: peer
+#    passive: true
+#    description: WARIAN via Frys-IX
+#    asn: 56911
+#    neighbors:
+#      - 2001:7f8:10f::de4f:162
+#    local-pref: 320
+#    listen6: 2001:7f8:10f::3:16bb:205
+#    add-on-import:
+#      - "202427:105:3512"
+#    as-set: AS56911:AS-WARIAN-EU
 
   KoDDoS Frys-IX:
     template: peer
@@ -501,18 +501,18 @@ peers:
       - "202427:105:3990"
     as-set: AS-SOL4XS
 
-  WARIAN InterIX:
-    template: peer
-    passive: true
-    description: WARIAN via InterIX
-    asn: 56911
-    neighbors:
-      - 2001:7f8:134::24
-    local-pref: 320
-    listen6: 2001:7f8:134::43
-    add-on-import:
-      - "202427:105:3990"
-    as-set: AS56911:AS-WARIAN-EU
+#  WARIAN InterIX:
+#    template: peer
+#    passive: true
+#    description: WARIAN via InterIX
+#    asn: 56911
+#    neighbors:
+#      - 2001:7f8:134::24
+#    local-pref: 320
+#    listen6: 2001:7f8:134::43
+#    add-on-import:
+#      - "202427:105:3990"
+#    as-set: AS56911:AS-WARIAN-EU
 
   KoDDoS InterIX:
     template: peer
