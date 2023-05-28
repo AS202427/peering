@@ -182,6 +182,20 @@ peers:
       - "202427:105:3685"
     as-set: AS112
 
+  VNP FREMIX:
+    template: peer
+    passive: true
+    description: VNP via FREMIX
+    asn: 56328
+    neighbors:
+      - 2001:504:125:e0::5
+    local-pref: 320
+    listen6: 2001:504:125:e0::b
+    add-on-import:
+      - "202427:104:112"
+      - "202427:105:3685"
+    as-set: AS-VNPNET
+
 templates:
   upstream:
     local-pref: 100

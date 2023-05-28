@@ -621,6 +621,46 @@ peers:
       - "202427:105:2084"
     as-set: AS-KORVESNET
 
+  Prozeta LocIX:
+    template: peer
+    passive: true
+    description: Prozeta via LocIX
+    asn: 49025
+    neighbors:
+      - 2001:7f8:f2:e1:0:4:9025:1
+      - 2001:7f8:f2:e1:0:4:9025:2
+    local-pref: 320
+    listen6: 2001:7f8:f2:e1:0:20:2427:1
+    add-on-import:
+      - "202427:105:2084"
+    as-set: AS-PROZETA-NET
+
+  luYs LocIX:
+    template: peer
+    passive: true
+    description: luYs via LocIX
+    asn: 141712
+    neighbors:
+      - 2001:7f8:f2:e1:0:a514:1712:1
+    local-pref: 320
+    listen6: 2001:7f8:f2:e1:0:20:2427:1
+    add-on-import:
+      - "202427:105:2084"
+    as-set: AS-LUYS
+
+  cupaco LocIX:
+    template: peer
+    passive: true
+    description: cupaco via LocIX
+    asn: 212580
+    neighbors:
+      - 2001:7f8:f2:e1:0:a121:2580:1
+    local-pref: 320
+    listen6: 2001:7f8:f2:e1:0:20:2427:1
+    add-on-import:
+      - "202427:105:2084"
+    as-set: AS-CUPACO
+
   # ========= Peers - NL-ix =========
   AS112 NL-ix:
     template: peer

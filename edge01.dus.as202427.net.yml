@@ -257,6 +257,32 @@ peers:
 #      - "202427:105:2730"
 #    as-set: AS58299:AS-ALL
 
+  PHILUNET LocIX:
+    template: peer
+    passive: true
+    description: PHILUNET via LocIX
+    asn: 205112
+    neighbors:
+      - 2a0c:b641:701:0:a5:205:112:1
+    local-pref: 320
+    listen6: 2a0c:b641:701:0:a5:20:2427:1
+    add-on-import:
+      - "202427:105:2730"
+    as-set: RIPE::AS-PHILUNET
+
+  PacketStream LocIX:
+    template: peer
+    passive: true
+    description: PacketStream via LocIX
+    asn: 139648
+    neighbors:
+      - 2a0c:b641:701::13:9648:1
+    local-pref: 320
+    listen6: 2a0c:b641:701:0:a5:20:2427:1
+    add-on-import:
+      - "202427:105:2730"
+    as-set: AS139648
+
 templates:
   upstream:
     local-pref: 100
