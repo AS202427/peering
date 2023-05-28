@@ -232,7 +232,6 @@ peers:
 
   IP-Max LocIX:
     template: peer
-    passive: true
     description: IP-Max via LocIX
     asn: 25091
     neighbors:

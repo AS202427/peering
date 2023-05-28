@@ -424,7 +424,6 @@ peers:
 
   IP-Max Frys-IX:
     template: peer
-    passive: true
     description: IP-Max via Frys-IX
     asn: 25091
     neighbors:
@@ -539,7 +538,6 @@ peers:
 
   IP-Max InterIX:
     template: peer
-    passive: true
     description: IP-Max via InterIX
     asn: 25091
     neighbors:
