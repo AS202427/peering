@@ -83,6 +83,7 @@
 202427:104:13335,Learned from (Peer) AS13335 - Cloudflare, Inc.
 202427:104:15169,Learned from (Peer) AS15169 - Google LLC
 202427:104:24940,Learned from (Peer) AS24940 - Hetzner Online
+202427:104:25091,Learned from (Peer) AS25091 - IP-Max
 202427:104:28859,Learned from (Peer) AS28859 - acdalis informatik
 202427:104:30132,Learned from (Peer) AS30132 - ISC F-ROOT AMS1
 202427:104:32590,Learned from (Peer) AS32590 - Valve Corporation
