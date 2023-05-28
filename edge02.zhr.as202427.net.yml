@@ -370,6 +370,7 @@ peers:
 
   level66.network CHIX-CH:
     template: peer
+    passive: true
     description: level66.network via CHIX-CH
     asn: 56381
     neighbors:
