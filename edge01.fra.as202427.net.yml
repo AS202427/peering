@@ -627,6 +627,19 @@ peers:
       - "202427:105:64"
     as-set: AS-H4HOSTING
 
+  KoDDoS NL-ix:
+    template: peer
+    passive: true
+    description: KoDDoS via NL-ix
+    asn: 206264
+    neighbors:
+      - 2001:7f8:13::a520:6264:1
+    local-pref: 320
+    listen6: 2001:7f8:13::a520:2427:1
+    add-on-import:
+      - "202427:105:64"
+    as-set: AS-KODDOS
+
 templates:
   upstream:
     local-pref: 100

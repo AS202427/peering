@@ -383,6 +383,19 @@ peers:
       - "202427:105:3512"
     as-set: AS56911:AS-WARIAN-EU
 
+  KoDDoS Frys-IX:
+    template: peer
+    passive: true
+    description: KoDDoS via Frys-IX
+    asn: 206264
+    neighbors:
+      - 2001:7f8:10f::3:25b8:159
+    local-pref: 320
+    listen6: 2001:7f8:10f::3:16bb:205
+    add-on-import:
+      - "202427:105:3512"
+    as-set: AS-KODDOS
+
   # ========= Peers - InterIX =========
   Netwerkvereniging Coloclue InterIX:
     template: peer
@@ -445,6 +458,19 @@ peers:
     add-on-import:
       - "202427:105:3990"
     as-set: AS56911:AS-WARIAN-EU
+
+  KoDDoS InterIX:
+    template: peer
+    passive: true
+    description: KoDDoS via InterIX
+    asn: 206264
+    neighbors:
+      - 2001:7f8:134::92
+    local-pref: 320
+    listen6: 2001:7f8:134::43
+    add-on-import:
+      - "202427:105:3990"
+    as-set: AS-KODDOS
 
 templates:
   upstream:
