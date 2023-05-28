@@ -614,6 +614,18 @@ peers:
       - "202427:105:64"
     as-set: RIPE::AS212855:AS-LUJE
 
+  H4Hosting NL-ix:
+    template: peer
+    description: H4Hosting via NL-ix
+    asn: 51050
+    neighbors:
+      - 2001:7f8:13::a505:1050:1
+    local-pref: 320
+    listen6: 2001:7f8:13::a520:2427:1
+    add-on-import:
+      - "202427:105:64"
+    as-set: AS-H4HOSTING
+
 templates:
   upstream:
     local-pref: 100

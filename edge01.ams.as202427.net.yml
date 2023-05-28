@@ -344,6 +344,19 @@ peers:
       - "202427:105:3512"
     as-set: RIPE::AS43414:AS-H2B
 
+  H4Hosting Frys-IX:
+    template: peer
+    passive: true
+    description: H4Hosting via Frys-IX
+    asn: 51050
+    neighbors:
+      - 2001:7f8:10f::c76a:173
+    local-pref: 320
+    listen6: 2001:7f8:10f::3:16bb:205
+    add-on-import:
+      - "202427:105:3512"
+    as-set: AS-H4HOSTING
+
   # ========= Peers - InterIX =========
   Netwerkvereniging Coloclue InterIX:
     template: peer
