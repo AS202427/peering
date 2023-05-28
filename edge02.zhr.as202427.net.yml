@@ -409,6 +409,19 @@ peers:
 #      - "202427:105:2365"
 #    as-set: AS58299:AS-ALL
 
+  Asympto Networks CHIX-CH:
+    template: peer
+    passive: true
+    description: Asympto Networks via CHIX-CH
+    asn: 39533
+    neighbors:
+      - 2001:7f8:cc:333::149
+    local-pref: 320
+    listen6: 2001:7f8:cc:333::182
+    add-on-import:
+      - "202427:105:2365"
+    as-set: AS39533:AS-ALL
+
   # ========= Peers - SwissIX =========
 
 templates:
