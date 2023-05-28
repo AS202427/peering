@@ -246,6 +246,18 @@ peers:
       - "202427:105:3512"
     as-set: AS-GOOGLE
 
+  IP-Max Frys-IX:
+    template: peer
+    description: IP-Max via Frys-IX
+    asn: 25091
+    neighbors:
+      - 2001:7f8:10f::6203:135
+    local-pref: 320
+    listen6: 2001:7f8:10f::3:16bb:205
+    add-on-import:
+      - "202427:105:3512"
+    as-set: RIPE::AS-IP-MAX-V6
+
   ISC F-ROOT AMS1 Frys-IX:
     template: peer
     description: ISC F-ROOT AMS1 via Frys-IX
@@ -424,18 +436,6 @@ peers:
       - "202427:105:3512"
     as-set: AS-WEDARE
 
-  IP-Max Frys-IX:
-    template: peer
-    description: IP-Max via Frys-IX
-    asn: 25091
-    neighbors:
-      - 2001:7f8:10f::6203:135
-    local-pref: 320
-    listen6: 2001:7f8:10f::3:16bb:205
-    add-on-import:
-      - "202427:105:3512"
-    as-set: RIPE::AS-IP-MAX-V6
-
 #  Openfactory Frys-IX:
 #    template: peer
 #    passive: true
@@ -473,6 +473,18 @@ peers:
     add-on-import:
       - "202427:105:3990"
     as-set: AS-CLOUDFLARE
+
+  IP-Max InterIX:
+    template: peer
+    description: IP-Max via InterIX
+    asn: 25091
+    neighbors:
+      - 2001:7f8:134::22
+    local-pref: 320
+    listen6: 2001:7f8:134::43
+    add-on-import:
+      - "202427:105:3990"
+    as-set: RIPE::AS-IP-MAX-V6
 
   AS212635 InterIX:
     template: peer
@@ -539,18 +551,6 @@ peers:
     add-on-import:
       - "202427:105:3990"
     as-set: AS-WEDARE
-
-  IP-Max InterIX:
-    template: peer
-    description: IP-Max via InterIX
-    asn: 25091
-    neighbors:
-      - 2001:7f8:134::22
-    local-pref: 320
-    listen6: 2001:7f8:134::43
-    add-on-import:
-      - "202427:105:3990"
-    as-set: RIPE::AS-IP-MAX-V6
 
 #  Openfactory InterIX:
 #    template: peer

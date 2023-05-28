@@ -206,6 +206,18 @@ peers:
       - "202427:105:2730"
     as-set: AS112
 
+  IP-Max LocIX:
+    template: peer
+    description: IP-Max via LocIX
+    asn: 25091
+    neighbors:
+      - 2a0c:b641:701::2:5091:1
+    local-pref: 320
+    listen6: 2a0c:b641:701:0:a5:20:2427:1
+    add-on-import:
+      - "202427:105:2730"
+    as-set: RIPE::AS-IP-MAX-V6
+
   meerfarbig LocIX:
     template: peer
     description: meerfarbig via LocIX
@@ -231,18 +243,6 @@ peers:
     as-set: AS-ONECORP
 
 #========================
-
-  IP-Max LocIX:
-    template: peer
-    description: IP-Max via LocIX
-    asn: 25091
-    neighbors:
-      - 2a0c:b641:701::2:5091:1
-    local-pref: 320
-    listen6: 2a0c:b641:701:0:a5:20:2427:1
-    add-on-import:
-      - "202427:105:2730"
-    as-set: RIPE::AS-IP-MAX-V6
 
 #  Openfactory LocIX:
 #    template: peer
