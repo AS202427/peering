@@ -121,7 +121,8 @@ Octets in the function field are the numeric country identifier defined by ISO 3
 | --------- | ----------- |
 | `202427:104:112` | Learned from AS112 - AS112 Project |
 | `202427:104:714` | Learned from AS714 - Apple Inc. |
-| `202427:104:8283` | Learned from AS8283 - Netwerkvereniging Coloclue
+| `202427:104:4775` | Learned from AS4775 - Globe Telecom |
+| `202427:104:8283` | Learned from AS8283 - Netwerkvereniging Coloclue |
 | `202427:104:9044` | Learned from AS9044 - BSE Software GmbH / SolNet |
 | `202427:104:12307` | Learned from AS12307 - Sandro Bolliger |
 | `202427:104:13030` | Learned from AS13030 - Init7 |

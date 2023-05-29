@@ -76,6 +76,7 @@
 # Peer - Peering
 202427:104:112,Learned from (Peer) AS112 - AS112 Project
 202427:104:714,Learned from (Peer) AS714 - Apple Inc.
+202427:104:4775,Learned from (Peer) AS4775 - Globe Telecom
 202427:104:8283,Learned from (Peer) AS8283 - Netwerkvereniging Coloclue
 202427:104:9044,Learned from (Peer) AS9044 - BSE Software GmbH / SolNet
 202427:104:12307,Learned from (Peer) AS12307 - Sandro Bolliger

@@ -675,6 +675,18 @@ peers:
       - "202427:105:64"
     as-set: AS-APPLE
 
+  Globe Telecom NL-ix:
+    template: peer
+    description: Globe Telecom via NL-ix
+    asn: 4775
+    neighbors:
+      - 2001:7f8:13::a500:4775:1
+    local-pref: 320
+    listen6: 2001:7f8:13::a520:2427:1
+    add-on-import:
+      - "202427:105:64"
+    as-set: AS-TRANSIT-GLOBE
+
   Netwerkvereniging Coloclue NL-ix:
     template: peer
     description: Netwerkvereniging Coloclue via NL-ix
@@ -1026,19 +1038,6 @@ peers:
       - "202427:105:64"
     as-set: AS-TRANSROUTE
 
-  Globe Telecom NL-ix:
-    template: peer
-    passive: true
-    description: Globe Telecom via NL-ix
-    asn: 4775
-    neighbors:
-      - 2001:7f8:13::a500:4775:1
-    local-pref: 320
-    listen6: 2001:7f8:13::a520:2427:1
-    add-on-import:
-      - "202427:105:64"
-    as-set: AS-TRANSIT-GLOBE
-
   CAT-IIG NL-ix:
     template: peer
     passive: true
@@ -1206,7 +1205,7 @@ templates:
     filter-irr: true
     strict-rpki: true
     filter-transit-asns: true
-    auto-import-limits: true
+    #auto-import-limits: true
     role: peer
 
   downstream:
