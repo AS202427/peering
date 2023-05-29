@@ -436,18 +436,18 @@ peers:
       - "202427:105:3512"
     as-set: AS-WEDARE
 
-#  Openfactory Frys-IX:
-#    template: peer
-#    passive: true
-#    description: Openfactory via Frys-IX
-#    asn: 58299
-#    neighbors:
-#      - 2001:7f8:10f::e3bb:137
-#    local-pref: 320
-#    listen6: 2001:7f8:10f::3:16bb:205
-#    add-on-import:
-#      - "202427:105:3512"
-#    as-set: AS58299:AS-ALL
+  Openfactory Frys-IX:
+    template: peer
+    passive: true
+    description: Openfactory via Frys-IX
+    asn: 58299
+    neighbors:
+      - 2001:7f8:10f::e3bb:137
+    local-pref: 320
+    listen6: 2001:7f8:10f::3:16bb:205
+    add-on-import:
+      - "202427:105:3512"
+    as-set: AS58299:AS-ALL
 
   Prolocation Frys-IX:
     template: peer
@@ -578,18 +578,18 @@ peers:
       - "202427:105:3990"
     as-set: AS-WEDARE
 
-#  Openfactory InterIX:
-#    template: peer
-#    passive: true
-#    description: Openfactory via InterIX
-#    asn: 58299
-#    neighbors:
-#      - 2001:7f8:134::13
-#    local-pref: 320
-#    listen6: 2001:7f8:134::43
-#    add-on-import:
-#      - "202427:105:3990"
-#    as-set: AS58299:AS-ALL
+  Openfactory InterIX:
+    template: peer
+    passive: true
+    description: Openfactory via InterIX
+    asn: 58299
+    neighbors:
+      - 2001:7f8:134::13
+    local-pref: 320
+    listen6: 2001:7f8:134::43
+    add-on-import:
+      - "202427:105:3990"
+    as-set: AS58299:AS-ALL
 
 templates:
   upstream:

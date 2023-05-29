@@ -396,18 +396,18 @@ peers:
 #      - "202427:105:2365"
 #    as-set: AS-EFERO
 
-#  Openfactory CHIX-CH:
-#    template: peer
-#    passive: true
-#    description: Openfactory via CHIX-CH
-#    asn: 58299
-#    neighbors:
-#      - 2001:7f8:cc:333::130
-#    local-pref: 320
-#    listen6: 2001:7f8:cc:333::182
-#    add-on-import:
-#      - "202427:105:2365"
-#    as-set: AS58299:AS-ALL
+  Openfactory CHIX-CH:
+    template: peer
+    passive: true
+    description: Openfactory via CHIX-CH
+    asn: 58299
+    neighbors:
+      - 2001:7f8:cc:333::130
+    local-pref: 320
+    listen6: 2001:7f8:cc:333::182
+    add-on-import:
+      - "202427:105:2365"
+    as-set: AS58299:AS-ALL
 
   Asympto Networks CHIX-CH:
     template: peer

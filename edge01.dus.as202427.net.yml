@@ -244,18 +244,18 @@ peers:
 
 #========================
 
-#  Openfactory LocIX:
-#    template: peer
-#    passive: true
-#    description: Openfactory via LocIX
-#    asn: 58299
-#    neighbors:
-#      - 2a0c:b641:701::5:8299:1
-#    local-pref: 320
-#    listen6: 2a0c:b641:701:0:a5:20:2427:1
-#    add-on-import:
-#      - "202427:105:2730"
-#    as-set: AS58299:AS-ALL
+  Openfactory LocIX:
+    template: peer
+    passive: true
+    description: Openfactory via LocIX
+    asn: 58299
+    neighbors:
+      - 2a0c:b641:701::5:8299:1
+    local-pref: 320
+    listen6: 2a0c:b641:701:0:a5:20:2427:1
+    add-on-import:
+      - "202427:105:2730"
+    as-set: AS58299:AS-ALL
 
   PHILUNET LocIX:
     template: peer
@@ -269,19 +269,6 @@ peers:
     add-on-import:
       - "202427:105:2730"
     as-set: RIPE::AS-PHILUNET
-
-  PacketStream LocIX:
-    template: peer
-    passive: true
-    description: PacketStream via LocIX
-    asn: 139648
-    neighbors:
-      - 2a0c:b641:701::13:9648:1
-    local-pref: 320
-    listen6: 2a0c:b641:701:0:a5:20:2427:1
-    add-on-import:
-      - "202427:105:2730"
-    as-set: AS139648
 
 templates:
   upstream:

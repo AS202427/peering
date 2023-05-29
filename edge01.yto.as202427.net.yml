@@ -262,6 +262,99 @@ peers:
 #    add-on-import:
 #      - "202427:105:4059"
 
+#========================
+
+  Svens Jansons ONIX:
+    template: peer
+    passive: true
+    description: Svens Jansons via ONIX
+    asn: 50755
+    neighbors:
+      - 2001:504:125:e1::cf
+    local-pref: 320
+    listen6: 2001:504:125:e1::c
+    add-on-import:
+      - "202427:105:4059"
+    as-set: AS50755:AS-SJOHNSON
+
+  Rifqi Arief Pamungkas ONIX:
+    template: peer
+    passive: true
+    description: Rifqi Arief Pamungkas via ONIX
+    asn: 199514
+    neighbors:
+      - 2001:504:125:e1::cd
+    local-pref: 320
+    listen6: 2001:504:125:e1::c
+    add-on-import:
+      - "202427:105:4059"
+    as-set: RIPE::AS-RAPDODGE
+
+  andrewnet ONIX:
+    template: peer
+    passive: true
+    description: andrewnet via ONIX
+    asn: 1003
+    neighbors:
+      - 2001:504:125:e1::21
+    local-pref: 320
+    listen6: 2001:504:125:e1::c
+    add-on-import:
+      - "202427:105:4059"
+    as-set: AS-ANDREWNET
+
+  Lachlan Roche ONIX:
+    template: peer
+    passive: true
+    description: Lachlan Roche via ONIX
+    asn: 212276
+    neighbors:
+      - 2001:504:125:e1::33
+    local-pref: 320
+    listen6: 2001:504:125:e1::c
+    add-on-import:
+      - "202427:105:4059"
+    as-set: AS-SLOTHNET
+
+  Aubrey Rose ONIX:
+    template: peer
+    passive: true
+    description: Aubrey Rose via ONIX
+    asn: 54681
+    neighbors:
+      - 2001:504:125:e1::36
+    local-pref: 320
+    listen6: 2001:504:125:e1::c
+    add-on-import:
+      - "202427:105:4059"
+    as-set: AS-RTT
+
+  EasyVM ONIX:
+    template: peer
+    passive: true
+    description: EasyVM via ONIX
+    asn: 26930
+    neighbors:
+      - 2001:504:125:e1::50
+    local-pref: 320
+    listen6: 2001:504:125:e1::c
+    add-on-import:
+      - "202427:105:4059"
+    as-set: AS-EASYVM
+
+  MythicalKitten ONIX:
+    template: peer
+    passive: true
+    description: MythicalKitten via ONIX
+    asn: 48581
+    neighbors:
+      - 2001:504:125:e1::16
+    local-pref: 320
+    listen6: 2001:504:125:e1::c
+    add-on-import:
+      - "202427:105:4059"
+    as-set: RIPE::AS-MYTHICALKITTEN
+
 templates:
   upstream:
     local-pref: 100

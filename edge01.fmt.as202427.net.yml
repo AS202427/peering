@@ -198,6 +198,34 @@ peers:
       - "202427:105:3685"
     as-set: AS-VNPNET
 
+  Aubrey Rose FREMIX:
+    template: peer
+    passive: true
+    description: Aubrey Rose via FREMIX
+    asn: 54681
+    neighbors:
+      - 2001:504:125:e0::10
+    local-pref: 320
+    listen6: 2001:504:125:e0::b
+    add-on-import:
+      - "202427:104:112"
+      - "202427:105:3685"
+    as-set: AS-RTT
+
+  MythicalKitten FREMIX:
+    template: peer
+    passive: true
+    description: MythicalKitten via FREMIX
+    asn: 48581
+    neighbors:
+      - 2001:504:125:e0::14
+    local-pref: 320
+    listen6: 2001:504:125:e0::b
+    add-on-import:
+      - "202427:104:112"
+      - "202427:105:3685"
+    as-set: RIPE::AS-MYTHICALKITTEN
+
 templates:
   upstream:
     local-pref: 100

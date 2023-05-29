@@ -392,6 +392,8 @@ peers:
       - "202427:105:3756"
     as-set: RIPE::AS212855:AS-LUJE
 
+#========================
+
 #  Bakker IT FogIXP:
 #    template: peer
 #    passive: true
@@ -419,18 +421,18 @@ peers:
 #      - "202427:105:3756"
 #    as-set: AS-EFERO
 
-#  Openfactory FogIXP:
-#    template: peer
-#    passive: true
-#    description: Openfactory via FogIXP
-#    asn: 58299
-#    neighbors:
-#      - 2001:7f8:ca:1::130
-#    local-pref: 320
-#    listen6: 2001:7f8:ca:1::168
-#    add-on-import:
-#      - "202427:105:3756"
-#    as-set: AS58299:AS-ALL
+  Openfactory FogIXP:
+    template: peer
+    passive: true
+    description: Openfactory via FogIXP
+    asn: 58299
+    neighbors:
+      - 2001:7f8:ca:1::130
+    local-pref: 320
+    listen6: 2001:7f8:ca:1::168
+    add-on-import:
+      - "202427:105:3756"
+    as-set: AS58299:AS-ALL
 
   Tritan Development FogIXP:
     template: peer
@@ -582,18 +584,18 @@ peers:
 #      - "202427:105:2084"
 #    as-set: AS-EFERO
 
-#  Openfactory LocIX:
-#    template: peer
-#    passive: true
-#    description: Openfactory via LocIX
-#    asn: 58299
-#    neighbors:
-#      - 2001:7f8:f2:e1:0:a005:8299:1
-#    local-pref: 320
-#    listen6: 2001:7f8:f2:e1:0:20:2427:1
-#    add-on-import:
-#      - "202427:105:2084"
-#    as-set: AS58299:AS-ALL
+  Openfactory LocIX:
+    template: peer
+    passive: true
+    description: Openfactory via LocIX
+    asn: 58299
+    neighbors:
+      - 2001:7f8:f2:e1:0:a005:8299:1
+    local-pref: 320
+    listen6: 2001:7f8:f2:e1:0:20:2427:1
+    add-on-import:
+      - "202427:105:2084"
+    as-set: AS58299:AS-ALL
 
   FS IT-Systeme LocIX:
     template: peer
@@ -620,20 +622,6 @@ peers:
     add-on-import:
       - "202427:105:2084"
     as-set: AS-KORVESNET
-
-  Prozeta LocIX:
-    template: peer
-    passive: true
-    description: Prozeta via LocIX
-    asn: 49025
-    neighbors:
-      - 2001:7f8:f2:e1:0:4:9025:1
-      - 2001:7f8:f2:e1:0:4:9025:2
-    local-pref: 320
-    listen6: 2001:7f8:f2:e1:0:20:2427:1
-    add-on-import:
-      - "202427:105:2084"
-    as-set: AS-PROZETA-NET
 
   luYs LocIX:
     template: peer
@@ -764,6 +752,18 @@ peers:
       - "202427:105:64"
     as-set: AS-FACEBOOK
 
+  Opteamax NL-ix:
+    template: peer
+    description: Opteamax via NL-ix
+    asn: 48200
+    neighbors:
+      - 2001:7f8:13::a504:8200:1
+    local-pref: 320
+    listen6: 2001:7f8:13::a520:2427:1
+    add-on-import:
+      - "202427:105:64"
+    as-set: AS48200:AS-OPTEAMAX
+
   Hats Network NL-ix:
     template: peer
     description: Hats Network via NL-ix
@@ -865,18 +865,18 @@ peers:
 #      - "202427:105:64"
 #    as-set: AS56381:AS-ALL
 
-#  Openfactory NL-ix:
-#    template: peer
-#    passive: true
-#    description: Openfactory via NL-ix
-#    asn: 58299
-#    neighbors:
-#      - 2001:7f8:13::a505:8299:1
-#    local-pref: 320
-#    listen6: 2001:7f8:13::a520:2427:1
-#    add-on-import:
-#      - "202427:105:64"
-#    as-set: AS58299:AS-ALL
+  Openfactory NL-ix:
+    template: peer
+    passive: true
+    description: Openfactory via NL-ix
+    asn: 58299
+    neighbors:
+      - 2001:7f8:13::a505:8299:1
+    local-pref: 320
+    listen6: 2001:7f8:13::a520:2427:1
+    add-on-import:
+      - "202427:105:64"
+    as-set: AS58299:AS-ALL
 
   eBay NL-ix:
     template: peer
@@ -1039,32 +1039,6 @@ peers:
       - "202427:105:64"
     as-set: AS-TRANSIT-GLOBE
 
-  WeservIT NL-ix:
-    template: peer
-    passive: true
-    description: WeservIT via NL-ix
-    asn: 198203
-    neighbors:
-      - 2001:7f8:13::a519:8203:1
-    local-pref: 320
-    listen6: 2001:7f8:13::a520:2427:1
-    add-on-import:
-      - "202427:105:64"
-    as-set: AS-ROUTELABEL
-
-  Opteamax NL-ix:
-    template: peer
-    passive: true
-    description: Opteamax via NL-ix
-    asn: 48200
-    neighbors:
-      - 2001:7f8:13::a504:8200:1
-    local-pref: 320
-    listen6: 2001:7f8:13::a520:2427:1
-    add-on-import:
-      - "202427:105:64"
-    as-set: AS48200:AS-OPTEAMAX
-
   CAT-IIG NL-ix:
     template: peer
     passive: true
@@ -1129,32 +1103,6 @@ peers:
     add-on-import:
       - "202427:105:64"
     as-set: RIPE::AS-DAWICO
-
-  CONVERGE ICT SOLUTION NL-ix:
-    template: peer
-    passive: true
-    description: CONVERGE ICT SOLUTION via NL-ix
-    asn: 17639
-    neighbors:
-      - 2001:7f8:13::a501:7639:1
-    local-pref: 320
-    listen6: 2001:7f8:13::a520:2427:1
-    add-on-import:
-      - "202427:105:64"
-    as-set: AS17639:AS-CUSTOMERS
-
-  Prolocation NL-ix:
-    template: peer
-    passive: true
-    description: Prolocation via NL-ix
-    asn: 41887
-    neighbors:
-      - 2001:7f8:13::a504:1887:1
-    local-pref: 320
-    listen6: 2001:7f8:13::a520:2427:1
-    add-on-import:
-      - "202427:105:64"
-    as-set: RIPE::AS-PROLOCATION
 
   KeenSystems NL-ix:
     template: peer
