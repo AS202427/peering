@@ -13,100 +13,99 @@
 202427:102:756,Learned in Switzerland
 202427:102:840,Learned in United States of America
 # PoP - Import
-202427:103:1,Learned at nue01
-202427:103:2,Learned at fra01
-202427:103:3,Learned at zhr01
-202427:103:4,Learned at zhr02
-202427:103:5,Learned at mil01
-202427:103:6,Learned at dus01
-202427:103:7,Learned at ams01
-202427:103:8,Learned at osl01
-202427:103:9,Learned at yvr01
-202427:103:10,Learned at yto01
-202427:103:11,Learned at fmt01
+202427:103:1,Learned at NUE01
+202427:103:2,Learned at FRA01
+202427:103:3,Learned at ZHR01
+202427:103:4,Learned at ZHR02
+202427:103:5,Learned at MIL01
+202427:103:6,Learned at DUS01
+202427:103:7,Learned at AMS01
+202427:103:8,Learned at OSL01
+202427:103:9,Learned at YVR01
+202427:103:10,Learned at YTO01
+202427:103:11,Learned at FMT01
 # PoP - Export
-202427:104:1,Exported at nue01
-202427:104:2,Exported at fra01
-202427:104:3,Exported at zhr01
-202427:104:4,Exported at zhr02
-202427:104:5,Exported at mil01
-202427:104:6,Exported at dus01
-202427:104:7,Exported at ams01
-202427:104:8,Exported at osl01
-202427:104:9,Exported at yvr01
-202427:104:10,Exported at yto01
-202427:104:11,Exported at fmt01
+202427:104:1,Exported at NUE01
+202427:104:2,Exported at FRA01
+202427:104:3,Exported at ZHR01
+202427:104:4,Exported at ZHR02
+202427:104:5,Exported at MIL01
+202427:104:6,Exported at DUS01
+202427:104:7,Exported at AMS01
+202427:104:8,Exported at OSL01
+202427:104:9,Exported at YVR01
+202427:104:10,Exported at YTO01
+202427:104:11,Exported at FMT01
 # PoP - Originated
-202427:105:1,Originated at nue01
-202427:105:2,Originated at fra01
-202427:105:3,Originated at zhr01
-202427:105:4,Originated at zhr02
-202427:105:5,Originated at mil01
-202427:105:6,Originated at dus01
-202427:105:7,Originated at ams01
-202427:105:8,Originated at osl01
-202427:105:9,Originated at yvr01
-202427:105:10,Originated at yto01
-202427:105:11,Originated at fmt01
+202427:105:1,Originated at NUE01
+202427:105:2,Originated at FRA01
+202427:105:3,Originated at ZHR01
+202427:105:4,Originated at ZHR02
+202427:105:5,Originated at MIL01
+202427:105:6,Originated at DUS01
+202427:105:7,Originated at AMS01
+202427:105:8,Originated at OSL01
+202427:105:9,Originated at YVR01
+202427:105:10,Originated at YTO01
+202427:105:11,Originated at FMT01
 # Peer - Transit provider
-202427:104:835,Learned from (Transit) AS6939 - GoCodeIT Inc
-202427:104:6939,Learned from (Transit) AS6939 - Hurricane Electric LLC
-202427:104:34872,Learned from (Transit) AS34872 - Servperso Systems
-202427:104:34927,Learned from (Transit) AS34927 - iFog GmbH
-202427:104:35619,Learned from (Transit) AS35619 - Kevin Buehl
-202427:104:41051,Learned from (Transit) AS41051 - Freetransit Project (Openfactory GmbH)
-202427:104:58057,Learned from (Transit) AS58057 - Securebit AG
-202427:104:62513,Learned from (Transit) AS62513 - GoCodeIT Inc
-202427:104:212271,Learned from (Transit) AS212271 - Cinzia Tocci trading as C1V
-202427:104:212895,Learned from (Transit) AS212895 - Johannes Ernst
+202427:104:835,Learned from Transit - GoCodeIT Inc
+202427:104:6939,Learned from Transit - Hurricane Electric LLC
+202427:104:34872,Learned from Transit - Servperso Systems
+202427:104:34927,Learned from Transit - iFog GmbH
+202427:104:41051,Learned from Transit - Freetransit Project (Openfactory GmbH)
+202427:104:58057,Learned from Transit - Securebit AG
+202427:104:62513,Learned from Transit - GoCodeIT Inc
+202427:104:212271,Learned from Transit - Cinzia Tocci trading as C1V
+202427:104:212895,Learned from Transit - Johannes Ernst
 # Peer - IX Routeserver
-202427:104:24381,Learned from (Routeserver) AS24381 - BGP.Exchange
-202427:104:34307,Learned from (Routeserver) AS34307 - NL-ix
-202427:104:35708,Learned from (Routeserver) AS35708 - 4b42 Internet Exchange Point
-202427:104:47422,Learned from (Routeserver) AS47422 - SBIX ZRH
-202427:104:47498,Learned from (Routeserver) AS47498 - FogIXP
-202427:104:49245,Learned from (Routeserver) AS49245 - SIIX
-202427:104:49459,Learned from (Routeserver) AS49459 - IXP FI HEL, IXP LI VAD, IXP NL DRO, IXP UK LON, IXP US FRE
-202427:104:56393,Learned from (Routeserver) AS56393 - Frys-IX
-202427:104:56584,Learned from (Routeserver) AS56584 - INTERIX
-202427:104:57369,Learned from (Routeserver) AS212100 - FREMIX / ONIX
-202427:104:65513,Learned from (Routeserver) AS65513 - UNM-Exch Canada-West
-202427:104:202409,Learned from (Routeserver) AS202409 - LOCIX Frankfurt, LOCIX Dusseldorf
-202427:104:212100,Learned from (Routeserver) AS212100 - CHIX-CH
+202427:104:24381,Learned from Routeserver -  BGP.Exchange
+202427:104:34307,Learned from Routeserver -  NL-ix
+202427:104:35708,Learned from Routeserver -  4b42 Internet Exchange Point
+202427:104:47422,Learned from Routeserver -  SBIX ZRH
+202427:104:47498,Learned from Routeserver -  FogIXP
+202427:104:49245,Learned from Routeserver -  SIIX
+202427:104:49459,Learned from Routeserver -  IXP FI HEL, IXP LI VAD, IXP NL DRO, IXP UK LON, IXP US FRE
+202427:104:56393,Learned from Routeserver -  Frys-IX
+202427:104:56584,Learned from Routeserver -  INTERIX
+202427:104:57369,Learned from Routeserver -  FREMIX / ONIX
+202427:104:65513,Learned from Routeserver -  UNM-Exch Canada-West
+202427:104:202409,Learned from Routeserver -  LOCIX Frankfurt, LOCIX Dusseldorf
+202427:104:212100,Learned from Routeserver -  CHIX-CH
 # Peer - Peering
-202427:104:112,Learned from (Peer) AS112 - AS112 Project
-202427:104:714,Learned from (Peer) AS714 - Apple Inc.
-202427:104:4775,Learned from (Peer) AS4775 - Globe Telecom
-202427:104:8283,Learned from (Peer) AS8283 - Netwerkvereniging Coloclue
-202427:104:9044,Learned from (Peer) AS9044 - BSE Software GmbH / SolNet
-202427:104:12307,Learned from (Peer) AS12307 - Sandro Bolliger
-202427:104:13030,Learned from (Peer) AS13030 - Init7
-202427:104:13335,Learned from (Peer) AS13335 - Cloudflare, Inc.
-202427:104:15169,Learned from (Peer) AS15169 - Google LLC
-202427:104:24940,Learned from (Peer) AS24940 - Hetzner Online
-202427:104:25091,Learned from (Peer) AS25091 - IP-Max
-202427:104:28859,Learned from (Peer) AS28859 - acdalis informatik
-202427:104:30132,Learned from (Peer) AS30132 - ISC F-ROOT AMS1
-202427:104:32590,Learned from (Peer) AS32590 - Valve Corporation
-202427:104:32934,Learned from (Peer) AS32934 - Meta Platforms, Inc.
-202427:104:34549,Learned from (Peer) AS34549 - meerfarbig
-202427:104:35202,Learned from (Peer) AS35202 - Sam Aschwanden
-202427:104:41732,Learned from (Peer) AS41732 - HostingFuze Network
-202427:104:48646,Learned from (Peer) AS48646 - Stefan Dunkel
-202427:104:48971,Learned from (Peer) AS48971 - DATAWIRE AG
-202427:104:51019,Learned from (Peer) AS51019 - Kjartan Hrafnkelsson
-202427:104:63949,Learned from (Peer) AS63949 - Linode
-202427:104:200132,Learned from (Peer) AS200132 - NetOne NL
-202427:104:203069,Learned from (Peer) AS203069 - Thomas Riley Brown
-202427:104:203314,Learned from (Peer) AS203314 - Hats Network
-202427:104:204035,Learned from (Peer) AS204035 - oneCorp GmbH
-202427:104:207968,Learned from (Peer) AS207968 - Raphael Peters
-202427:104:208328,Learned from (Peer) AS208328 - Luigi Labate
-202427:104:211380,Learned from (Peer) AS211380 - Simulhost Limited
-202427:104:212635,Learned from (Peer) AS212635 - AS212635
-202427:104:212855,Learned from (Peer) AS212855 - LUJE.net
-202427:104:213035,Learned from (Peer) AS213035 - Serverion B.V.
-202427:104:213126,Learned from (Peer) AS213126 - Andreas Fries
+202427:104:112,Learned from Peer - AS112 Project
+202427:104:714,Learned from Peer - Apple Inc.
+202427:104:4775,Learned from Peer - Globe Telecom
+202427:104:8283,Learned from Peer - Netwerkvereniging Coloclue
+202427:104:9044,Learned from Peer - BSE Software GmbH / SolNet
+202427:104:12307,Learned from Peer - Sandro Bolliger
+202427:104:13030,Learned from Peer - Init7
+202427:104:13335,Learned from Peer - Cloudflare, Inc.
+202427:104:15169,Learned from Peer - Google LLC
+202427:104:24940,Learned from Peer - Hetzner Online
+202427:104:25091,Learned from Peer - IP-Max
+202427:104:28859,Learned from Peer - acdalis informatik
+202427:104:30132,Learned from Peer - ISC F-ROOT AMS1
+202427:104:32590,Learned from Peer - Valve Corporation
+202427:104:32934,Learned from Peer - Meta Platforms, Inc.
+202427:104:34549,Learned from Peer - meerfarbig
+202427:104:35202,Learned from Peer - Sam Aschwanden
+202427:104:41732,Learned from Peer - HostingFuze Network
+202427:104:48646,Learned from Peer - Stefan Dunkel
+202427:104:48971,Learned from Peer - DATAWIRE AG
+202427:104:51019,Learned from Peer - Kjartan Hrafnkelsson
+202427:104:63949,Learned from Peer - Linode
+202427:104:200132,Learned from Peer - NetOne NL
+202427:104:203069,Learned from Peer - Thomas Riley Brown
+202427:104:203314,Learned from Peer - Hats Network
+202427:104:204035,Learned from Peer - oneCorp GmbH
+202427:104:207968,Learned from Peer - Raphael Peters
+202427:104:208328,Learned from Peer - Luigi Labate
+202427:104:211380,Learned from Peer - Simulhost Limited
+202427:104:212635,Learned from Peer - AS212635
+202427:104:212855,Learned from Peer - LUJE.net
+202427:104:213035,Learned from Peer - Serverion B.V.
+202427:104:213126,Learned from Peer - Andreas Fries
 # Peer
 202427:104:nnn,Learned from AS$0
 # IX
