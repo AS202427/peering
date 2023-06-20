@@ -22,28 +22,28 @@ blackhole-bogon-asns: true
 
 peers:
   # ========= Upstreams =========
-  Hurricane Electric UNMETERED Exchange:
+  Hurricane Electric UNM-Exch Canada-West:
     template: upstream
-    description: Hurricane Electric LLC Upstream via UNMETERED Exchange
+    description: Hurricane Electric LLC Upstream via UNM-Exch Canada-West
     asn: 6939
     neighbors:
       - 2602:ffb1:200:0:192:34:27:6
     local-pref: 130
     listen6: 2602:ffb1:200:0:192:34:27:97
     add-on-import:
-      - "202427:105:2452"
+      - "202427:107:2452"
     as-set: RADB::AS-HURRICANEV6
 
-  Johannes Ernst UNMETERED Exchange:
+  Johannes Ernst UNM-Exch Canada-West:
     template: upstream
-    description: Johannes Ernst Upstream via UNMETERED Exchange
+    description: Johannes Ernst Upstream via UNM-Exch Canada-West
     asn: 212895
     neighbors:
       - 2602:ffb1:200:0:192:34:27:59
     local-pref: 130
     listen6: 2602:ffb1:200:0:192:34:27:97
     add-on-import:
-      - "202427:105:2452"
+      - "202427:107:2452"
     as-set: RIPE::AS-ROUTE64
 
   # ========= Looking Glasses =========
@@ -178,77 +178,64 @@ peers:
     local-pref: 220
     listen6: 2602:ffb1:200:0:192:34:27:97
     add-on-import:
-      - "202427:105:2452"
+      - "202427:107:2452"
     auto-import-limits: false
     as-set: AS65513
 
-  # ========= Peers - UNMETERED Exchange =========
-  AS112 UNMETERED Exchange:
+  # ========= Peers - UNM-Exch Canada-West =========
+  AS112 UNM-Exch Canada-West:
     template: peer
-    description: AS112 via UNMETERED Exchange
+    description: AS112 via UNM-Exch Canada-West
     asn: 112
     neighbors:
       - 2602:ffb1:200:0:192:34:27:252
     local-pref: 320
     listen6: 2602:ffb1:200:0:192:34:27:97
     add-on-import:
-      - "202427:105:2452"
+      - "202427:107:2452"
     as-set: AS112
 
 #========================
 
-  Morewave Communication UNMETERED Exchange:
+  Tech Futures Interactive UNM-Exch Canada-West:
     template: peer
     passive: true
-    description: Morewave Communication via UNMETERED Exchange
-    asn: 14642
-    neighbors:
-      - 2602:ffb1:200:0:192:34:27:7
-    local-pref: 320
-    listen6: 2602:ffb1:200:0:192:34:27:97
-    add-on-import:
-      - "202427:105:2452"
-    as-set: AS14642:AS-ALL
-
-  Tech Futures Interactive UNMETERED Exchange:
-    template: peer
-    passive: true
-    description: Tech Futures Interactive via UNMETERED Exchange
+    description: Tech Futures Interactive via UNM-Exch Canada-West
     asn: 394256
     neighbors:
       - 2602:ffb1:200:0:192:34:27:5
-      - 2602:ffb1:200:0:192:34:27:105
+      - 2602:ffb1:200:0:192:34:27:107
     local-pref: 320
     listen6: 2602:ffb1:200:0:192:34:27:97
     add-on-import:
-      - "202427:105:2452"
+      - "202427:107:2452"
     as-set: AS-CLOUDSINGULARITY
 
-  UNMETERED UNMETERED Exchange:
+  UNMETERED UNM-Exch Canada-West:
     template: peer
     passive: true
-    description: UNMETERED via UNMETERED Exchange
+    description: UNMETERED via UNM-Exch Canada-West
     asn: 54133
     neighbors:
       - 2602:ffb1:200:0:192:34:27:1
     local-pref: 320
     listen6: 2602:ffb1:200:0:192:34:27:97
     add-on-import:
-      - "202427:105:2452"
+      - "202427:107:2452"
     as-set: AS-CLOUDSINGULARITY
 
-  AEBC Internet Exchange:
+  KTT Iceland UNM-Exch Canada-West:
     template: peer
     passive: true
-    description: AEBC Internet via UNMETERED Exchange
-    asn: 25668
+    description: KTT Iceland via UNM-Exch Canada-West
+    asn: 51019
     neighbors:
-      - 2602:ffb1:200:0:192:34:27:28
+      - 2602:ffb1:200:0:192:34:27:110
     local-pref: 320
     listen6: 2602:ffb1:200:0:192:34:27:97
     add-on-import:
-      - "202427:105:2452"
-    as-set: AS-CIPHERKEY-TRANSIT
+      - "202427:107:2452"
+    as-set: AS51019:AS-ALL
 
 templates:
   upstream:
@@ -257,7 +244,7 @@ templates:
     add-path-rx: true
     pre-import-accept: >
      bgp_large_community.add((202427,101,2));
-     bgp_large_community.add((202427,104,<pathvector.asn>));
+     bgp_large_community.add((202427,106,<pathvector.asn>));
     announce:
       - "202427:101:1"
       - "202427:101:5"
@@ -272,7 +259,7 @@ templates:
     add-path-rx: true
     pre-import-accept: >
      bgp_large_community.add((202427,101,3));
-     bgp_large_community.add((202427,104,<pathvector.asn>));
+     bgp_large_community.add((202427,106,<pathvector.asn>));
     announce:
       - "202427:101:1"
       - "202427:101:5"
@@ -290,7 +277,7 @@ templates:
     add-path-rx: true
     pre-import-accept: >
      bgp_large_community.add((202427,101,4));
-     bgp_large_community.add((202427,104,<pathvector.asn>));
+     bgp_large_community.add((202427,106,<pathvector.asn>));
     announce:
       - "202427:101:1"
       - "202427:101:5"
@@ -308,7 +295,7 @@ templates:
     add-path-rx: true
     pre-import-accept: >
      bgp_large_community.add((202427,101,5));
-     bgp_large_community.add((202427,104,<pathvector.asn>));
+     bgp_large_community.add((202427,106,<pathvector.asn>));
     announce:
       - "202427:101:1"
       - "202427:101:2"

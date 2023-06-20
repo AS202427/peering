@@ -165,7 +165,7 @@ peers:
     local-pref: 220
     listen6: 2001:504:125:e0::b
     add-on-import:
-      - "202427:105:3685"
+      - "202427:107:3685"
     as-set: AS57369:AS-FREMIX
 
   # ========= Peers - FREMIX =========
@@ -178,8 +178,7 @@ peers:
     local-pref: 320
     listen6: 2001:504:125:e0::b
     add-on-import:
-      - "202427:104:112"
-      - "202427:105:3685"
+      - "202427:107:3685"
     as-set: AS112
 
 #========================
@@ -194,8 +193,7 @@ peers:
     local-pref: 320
     listen6: 2001:504:125:e0::b
     add-on-import:
-      - "202427:104:112"
-      - "202427:105:3685"
+      - "202427:107:3685"
     as-set: AS-VNPNET
 
   Aubrey Rose FREMIX:
@@ -208,8 +206,7 @@ peers:
     local-pref: 320
     listen6: 2001:504:125:e0::b
     add-on-import:
-      - "202427:104:112"
-      - "202427:105:3685"
+      - "202427:107:3685"
     as-set: AS-RTT
 
   MythicalKitten FREMIX:
@@ -222,9 +219,21 @@ peers:
     local-pref: 320
     listen6: 2001:504:125:e0::b
     add-on-import:
-      - "202427:104:112"
-      - "202427:105:3685"
+      - "202427:107:3685"
     as-set: RIPE::AS-MYTHICALKITTEN
+
+  KTT Iceland FREMIX:
+    template: peer
+    passive: true
+    description: KTT Iceland via FREMIX
+    asn: 51019
+    neighbors:
+      - 2001:504:125:e0::15
+    local-pref: 320
+    listen6: 2001:504:125:e0::b
+    add-on-import:
+      - "202427:107:3685"
+    as-set: AS51019:AS-ALL
 
 templates:
   upstream:
@@ -233,7 +242,7 @@ templates:
     add-path-rx: true
     pre-import-accept: >
      bgp_large_community.add((202427,101,2));
-     bgp_large_community.add((202427,104,<pathvector.asn>));
+     bgp_large_community.add((202427,106,<pathvector.asn>));
     announce:
       - "202427:101:1"
       - "202427:101:5"
@@ -248,7 +257,7 @@ templates:
     add-path-rx: true
     pre-import-accept: >
      bgp_large_community.add((202427,101,3));
-     bgp_large_community.add((202427,104,<pathvector.asn>));
+     bgp_large_community.add((202427,106,<pathvector.asn>));
     announce:
       - "202427:101:1"
       - "202427:101:5"
@@ -266,7 +275,7 @@ templates:
     add-path-rx: true
     pre-import-accept: >
      bgp_large_community.add((202427,101,4));
-     bgp_large_community.add((202427,104,<pathvector.asn>));
+     bgp_large_community.add((202427,106,<pathvector.asn>));
     announce:
       - "202427:101:1"
       - "202427:101:5"
@@ -284,7 +293,7 @@ templates:
     add-path-rx: true
     pre-import-accept: >
      bgp_large_community.add((202427,101,5));
-     bgp_large_community.add((202427,104,<pathvector.asn>));
+     bgp_large_community.add((202427,106,<pathvector.asn>));
     announce:
       - "202427:101:1"
       - "202427:101:2"

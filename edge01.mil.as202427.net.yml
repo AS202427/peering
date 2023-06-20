@@ -165,7 +165,7 @@ peers:
     local-pref: 220
     listen6: 2001:7f8:112::16
     add-on-import:
-      - "202427:105:3528"
+      - "202427:107:3528"
     as-set: AS49245
 
   # ========= Peers - SIIX =========
@@ -177,7 +177,7 @@ templates:
     add-path-rx: true
     pre-import-accept: >
      bgp_large_community.add((202427,101,2));
-     bgp_large_community.add((202427,104,<pathvector.asn>));
+     bgp_large_community.add((202427,106,<pathvector.asn>));
     announce:
       - "202427:101:1"
       - "202427:101:5"
@@ -192,7 +192,7 @@ templates:
     add-path-rx: true
     pre-import-accept: >
      bgp_large_community.add((202427,101,3));
-     bgp_large_community.add((202427,104,<pathvector.asn>));
+     bgp_large_community.add((202427,106,<pathvector.asn>));
     announce:
       - "202427:101:1"
       - "202427:101:5"
@@ -210,7 +210,7 @@ templates:
     add-path-rx: true
     pre-import-accept: >
      bgp_large_community.add((202427,101,4));
-     bgp_large_community.add((202427,104,<pathvector.asn>));
+     bgp_large_community.add((202427,106,<pathvector.asn>));
     announce:
       - "202427:101:1"
       - "202427:101:5"
@@ -228,7 +228,7 @@ templates:
     add-path-rx: true
     pre-import-accept: >
      bgp_large_community.add((202427,101,5));
-     bgp_large_community.add((202427,104,<pathvector.asn>));
+     bgp_large_community.add((202427,106,<pathvector.asn>));
     announce:
       - "202427:101:1"
       - "202427:101:2"

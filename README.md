@@ -91,7 +91,6 @@ Octets in the function field are the numeric country identifier defined by ISO 3
 | `202427:104:34872` | Learned from Transit - Servperso Systems |
 | `202427:104:34927` | Learned from Transit - iFog GmbH |
 | `202427:104:41051` | Learned from Transit - Freetransit Project (Openfactory GmbH) |
-| `202427:104:58057` | Learned from Transit - Securebit AG |
 | `202427:104:62513` | Learned from Transit - GoCodeIT Inc |
 | `202427:104:212271` | Learned from Transit - Cinzia Tocci trading as C1V |
 | `202427:104:212895` | Learned from Transit - Johannes Ernst |
@@ -103,10 +102,10 @@ Octets in the function field are the numeric country identifier defined by ISO 3
 | `202427:104:24381` | Learned from Routeserver - BGP.Exchange |
 | `202427:104:34307` | Learned from Routeserver - NL-ix |
 | `202427:104:35708` | Learned from Routeserver - 4b42 Internet Exchange Point |
+| `202427:106:42476` | Learned from Routeserver - SwissIX |
 | `202427:104:47422` | Learned from Routeserver - SBIX ZRH |
 | `202427:104:47498` | Learned from Routeserver - FogIXP |
 | `202427:104:49245` | Learned from Routeserver - SIIX |
-| `202427:104:49459` | Learned from Routeserver - IXP FI HEL, IXP LI VAD, IXP NL DRO, IXP UK LON, IXP US FRE |
 | `202427:104:56393` | Learned from Routeserver - Frys-IX |
 | `202427:104:56584` | Learned from Routeserver - INTERIX |
 | `202427:104:57369` | Learned from Routeserver - FREMIX / ONIX |
@@ -157,16 +156,13 @@ Octets in the function field are the peeringdb id.
 
 | Community | Description |
 | --------- | ----------- |
+| `202427:105:60` | Learned at SwissIX |
 | `202427:105:64` | Learned at NL-ix |
 | `202427:105:2084` | Learned at LOCIX Frankfurt |
 | `202427:105:2365` | Learned at CHIX-CH |
 | `202427:105:2447` | Learned at 4b42 Internet Exchange Point |
 | `202427:105:2452` | Learned at UNM-Exch Canada-West |
 | `202427:105:2571` | Learned at SBIX ZRH |
-| `202427:105:2700` | Learned at IXP FI HEL |
-| `202427:105:2704` | Learned at IXP UK LON |
-| `202427:105:2705` | Learned at IXP NL DRO |
-| `202427:105:2728` | Learned at IXP LI VAD |
 | `202427:105:2730` | Learned at LOCIX Dusseldorf |
 | `202427:105:2746` | Learned at IXP US FRE |
 | `202427:105:3512` | Learned at Frys-IX |
@@ -213,7 +209,6 @@ Octets in the function field are the peeringdb id.
 | Pref | Description |
 | ---- | ----------- |
 | `400` | Default |
-| `400` | Tunnel  |
 | `410` | IXP     |
 | `420` | PNI     |
 
@@ -222,4 +217,4 @@ Octets in the function field are the peeringdb id.
 | Pref | Description |
 | ---- | ----------- |
 | `180` | Default |
-| `190` | PNI
+| `190` | PNI     |

@@ -42,7 +42,7 @@ peers:
     local-pref: 130
     listen6: 2001:7f8:ca:1::168
     add-on-import:
-      - "202427:105:3756"
+      - "202427:107:3756"
     only-announce:
       - 2a06:a005:28e0::/48 # AS202427-BACKBONE-NETWORK
       - 2a06:a005:28e2::/48 # AS202427-BACKBONE-NETWORK
@@ -59,7 +59,7 @@ peers:
     local-pref: 130
     listen6: 2001:7f8:f2:e1:0:20:2427:1
     add-on-import:
-      - "202427:105:2084"
+      - "202427:107:2084"
     as-set: RADB::AS-HURRICANEV6
 
   Johannes Ernst LocIX:
@@ -71,7 +71,7 @@ peers:
     local-pref: 130
     listen6: 2001:7f8:f2:e1:0:20:2427:1
     add-on-import:
-      - "202427:105:2084"
+      - "202427:107:2084"
     as-set: RIPE::AS-ROUTE64
 
   Hurricane Electric NL-ix:
@@ -83,7 +83,7 @@ peers:
     local-pref: 130
     listen6: 2001:7f8:13::a520:2427:1
     add-on-import:
-      - "202427:105:64"
+      - "202427:107:64"
     as-set: RADB::AS-HURRICANEV6
 
   # ========= Looking Glasses =========
@@ -220,7 +220,7 @@ peers:
     local-pref: 220
     listen6: 2001:7f8:ca:1::168
     add-on-import:
-      - "202427:105:3756"
+      - "202427:107:3756"
     as-set: AS-FOGIXP
 
   LocIX Route Server:
@@ -234,7 +234,7 @@ peers:
     local-pref: 220
     listen6: 2001:7f8:f2:e1:0:20:2427:1
     add-on-import:
-      - "202427:105:2084"
+      - "202427:107:2084"
     as-set: AS-LOCIX
 
   NL-ix Route Server:
@@ -247,7 +247,7 @@ peers:
     local-pref: 220
     listen6: 2001:7f8:13::a520:2427:1
     add-on-import:
-      - "202427:105:64"
+      - "202427:107:64"
     as-set: AS-NL-IX-RS
 
   BGP.Exchange Route Server:
@@ -259,7 +259,7 @@ peers:
     local-pref: 220
     listen6: 2a0e:8f01:1000:24::100
     add-on-import:
-      - "202427:105:3829"
+      - "202427:107:3829"
     as-set: AS-BGPEXCHANGE
 
   # ========= Peers - FogIXP =========
@@ -272,101 +272,8 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:ca:1::168
     add-on-import:
-      - "202427:105:3756"
+      - "202427:107:3756"
     as-set: AS112
-
-  meerfarbig FogIXP:
-    template: peer
-    description: meerfarbig via FogIXP
-    asn: 34549
-    neighbors:
-      - 2001:7f8:ca:1::131
-    local-pref: 320
-    listen6: 2001:7f8:ca:1::168
-    add-on-import:
-      - "202427:105:3756"
-    as-set: AS-MEER
-
-#  HostingFuze FogIXP:
-#    template: peer
-#    description: HostingFuze via FogIXP
-#    asn: 41732
-#    neighbors:
-#      - 2001:7f8:ca:1:0:4:1732:1
-#    local-pref: 320
-#    listen6: 2001:7f8:ca:1::168
-#    add-on-import:
-#      - "202427:105:3756"
-#    as-set: AS-HFN
-
-  Thomas Riley Brown FogIXP:
-    template: peer
-    description: Thomas Riley Brown via FogIXP
-    asn: 203069
-    neighbors:
-      - 2001:7f8:ca:1:0:20:3069:1
-    local-pref: 320
-    listen6: 2001:7f8:ca:1::168
-    add-on-import:
-      - "202427:105:3756"
-    as-set: AS-XZR
-
-  Hats Network FogIXP:
-    template: peer
-    description: Hats Network via FogIXP
-    asn: 203314
-    neighbors:
-      - 2001:7f8:ca:1::176
-    local-pref: 320
-    listen6: 2001:7f8:ca:1::168
-    add-on-import:
-      - "202427:105:3756"
-    as-set: AS203314:AS-HATS
-
-  #  Tomas Oliveira Valente Leite de Castro FogIXP:
-  #    template: peer
-  #    description: Tomas Oliveira Valente Leite de Castro via FogIXP
-  #    asn: 203619
-  #    neighbors:
-  #      - 2001:7f8:ca:1::154
-  #    local-pref: 320
-  #    listen6: 2001:7f8:ca:1::168
-  #    add-on-import:
-  #      - "202427:105:3756"
-
-  #  Dominik Pohl FogIXP:
-  #    template: peer
-  #    description: Dominik Pohl via FogIXP
-  #    asn: 205848
-  #    neighbors:
-  #      - 2001:7f8:ca:1::124
-  #    local-pref: 320
-  #    listen6: 2001:7f8:ca:1::168
-  #    add-on-import:
-  #      - "202427:105:3756"
-
-  #  Adam Goodenough FogIXP:
-  #    template: peer
-  #    description: Adam Goodenough via FogIXP
-  #    asn: 210667
-  #    neighbors:
-  #      - 2001:7f8:ca:1::116
-  #    local-pref: 320
-  #    listen6: 2001:7f8:ca:1::168
-  #    add-on-import:
-  #      - "202427:105:3756"
-
-#  Simulhost FogIXP:
-#    template: peer
-#    description: Simulhost via FogIXP
-#    asn: 211380
-#    neighbors:
-#      - 2001:7f8:ca:1:0:21:1380:1
-#    local-pref: 320
-#    listen6: 2001:7f8:ca:1::168
-#    add-on-import:
-#      - "202427:105:3756"
-#    as-set: AS211380:AS-SIMULHOST
 
   AS212635 FogIXP:
     template: peer
@@ -377,7 +284,7 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:ca:1::168
     add-on-import:
-      - "202427:105:3756"
+      - "202427:107:3756"
     as-set: RIPE::AS212635:AS-212635
 
   LUJE.net FogIXP:
@@ -389,24 +296,133 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:ca:1::168
     add-on-import:
-      - "202427:105:3756"
+      - "202427:107:3756"
     as-set: RIPE::AS212855:AS-LUJE
+
+  Tritan Development FogIXP:
+    template: peer
+    passive: true
+    description: Tritan Development via FogIXP
+    asn: 393577
+    neighbors:
+      - 2001:7f8:ca:1:0:39:3577:1
+    local-pref: 320
+    listen6: 2001:7f8:ca:1::168
+    add-on-import:
+      - "202427:107:3756"
+    as-set: AS-TRITAN-ASNS
 
 #========================
 
-#  Bakker IT FogIXP:
+  meerfarbig FogIXP:
+    template: peer
+    passive: true
+    description: meerfarbig via FogIXP
+    asn: 34549
+    neighbors:
+      - 2001:7f8:ca:1::131
+    local-pref: 320
+    listen6: 2001:7f8:ca:1::168
+    add-on-import:
+      - "202427:107:3756"
+    as-set: AS-MEER
+
+#  HostingFuze FogIXP:
 #    template: peer
-#    passive: true
-#    description: Bakker IT via FogIXP
-#    asn: 44103
+#    description: HostingFuze via FogIXP
+#    asn: 41732
 #    neighbors:
-#      - 2001:7f8:ca:1::115
-#      - 2001:7f8:ca:1::167
+#      - 2001:7f8:ca:1:0:4:1732:1
 #    local-pref: 320
 #    listen6: 2001:7f8:ca:1::168
 #    add-on-import:
-#      - "202427:105:3756"
-#    as-set: AS-BAKKER-IT
+#      - "202427:107:3756"
+#    as-set: AS-HFN
+
+  Thomas Riley Brown FogIXP:
+    template: peer
+    passive: true
+    description: Thomas Riley Brown via FogIXP
+    asn: 203069
+    neighbors:
+      - 2001:7f8:ca:1:0:20:3069:1
+    local-pref: 320
+    listen6: 2001:7f8:ca:1::168
+    add-on-import:
+      - "202427:107:3756"
+    as-set: AS-XZR
+
+  Hats Network FogIXP:
+    template: peer
+    passive: true
+    description: Hats Network via FogIXP
+    asn: 203314
+    neighbors:
+      - 2001:7f8:ca:1::176
+    local-pref: 320
+    listen6: 2001:7f8:ca:1::168
+    add-on-import:
+      - "202427:107:3756"
+    as-set: AS203314:AS-HATS
+
+  #  Tomas Oliveira Valente Leite de Castro FogIXP:
+  #    template: peer
+  #    description: Tomas Oliveira Valente Leite de Castro via FogIXP
+  #    asn: 203619
+  #    neighbors:
+  #      - 2001:7f8:ca:1::154
+  #    local-pref: 320
+  #    listen6: 2001:7f8:ca:1::168
+  #    add-on-import:
+  #      - "202427:107:3756"
+
+  #  Dominik Pohl FogIXP:
+  #    template: peer
+  #    description: Dominik Pohl via FogIXP
+  #    asn: 205848
+  #    neighbors:
+  #      - 2001:7f8:ca:1::124
+  #    local-pref: 320
+  #    listen6: 2001:7f8:ca:1::168
+  #    add-on-import:
+  #      - "202427:107:3756"
+
+  #  Adam Goodenough FogIXP:
+  #    template: peer
+  #    description: Adam Goodenough via FogIXP
+  #    asn: 210667
+  #    neighbors:
+  #      - 2001:7f8:ca:1::116
+  #    local-pref: 320
+  #    listen6: 2001:7f8:ca:1::168
+  #    add-on-import:
+  #      - "202427:107:3756"
+
+#  Simulhost FogIXP:
+#    template: peer
+#    description: Simulhost via FogIXP
+#    asn: 211380
+#    neighbors:
+#      - 2001:7f8:ca:1:0:21:1380:1
+#    local-pref: 320
+#    listen6: 2001:7f8:ca:1::168
+#    add-on-import:
+#      - "202427:107:3756"
+#    as-set: AS211380:AS-SIMULHOST
+
+  Bakker IT FogIXP:
+    template: peer
+    passive: true
+    description: Bakker IT via FogIXP
+    asn: 44103
+    neighbors:
+      - 2001:7f8:ca:1::115
+      - 2001:7f8:ca:1::167
+    local-pref: 320
+    listen6: 2001:7f8:ca:1::168
+    add-on-import:
+      - "202427:107:3756"
+    as-set: AS-BAKKER-IT
 
 #  efero FogIXP:
 #    template: peer
@@ -418,7 +434,7 @@ peers:
 #    local-pref: 320
 #    listen6: 2001:7f8:ca:1::168
 #    add-on-import:
-#      - "202427:105:3756"
+#      - "202427:107:3756"
 #    as-set: AS-EFERO
 
   Openfactory FogIXP:
@@ -431,21 +447,8 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:ca:1::168
     add-on-import:
-      - "202427:105:3756"
+      - "202427:107:3756"
     as-set: AS58299:AS-ALL
-
-  Tritan Development FogIXP:
-    template: peer
-    passive: true
-    description: Tritan Development via FogIXP
-    asn: 393577
-    neighbors:
-      - 2001:7f8:ca:1:0:39:3577:1
-    local-pref: 320
-    listen6: 2001:7f8:ca:1::168
-    add-on-import:
-      - "202427:105:3756"
-    as-set: AS-TRITAN-ASNS
 
   Korves.Net FogIXP:
     template: peer
@@ -457,8 +460,21 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:ca:1::168
     add-on-import:
-      - "202427:105:3756"
+      - "202427:107:3756"
     as-set: AS-KORVESNET
+
+  KTT Iceland FogIXP:
+    template: peer
+    passive: true
+    description: KTT Iceland via FogIXP
+    asn: 51019
+    neighbors:
+      - 2001:7f8:ca:1::182
+    local-pref: 320
+    listen6: 2001:7f8:ca:1::168
+    add-on-import:
+      - "202427:107:3756"
+    as-set: AS51019:AS-ALL
 
   # ========= Peers - LocIX =========
   AS112 LocIX:
@@ -470,7 +486,7 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:f2:e1:0:20:2427:1
     add-on-import:
-      - "202427:105:2084"
+      - "202427:107:2084"
     as-set: AS112
 
   IP-Max LocIX:
@@ -482,11 +498,26 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:f2:e1:0:20:2427:1
     add-on-import:
-      - "202427:105:2084"
+      - "202427:107:2084"
     as-set: RIPE::AS-IP-MAX-V6
+
+  AS212635 LocIX:
+    template: peer
+    description: AS212635 via LocIX
+    asn: 212635
+    neighbors:
+      - 2001:7f8:f2:e1:0:21:2635:1
+    local-pref: 320
+    listen6: 2001:7f8:f2:e1:0:20:2427:1
+    add-on-import:
+      - "202427:107:2084"
+    as-set: RIPE::AS212635:AS-212635
+
+#========================
 
   meerfarbig LocIX:
     template: peer
+    passive: true
     description: meerfarbig via LocIX
     asn: 34549
     neighbors:
@@ -495,11 +526,12 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:f2:e1:0:20:2427:1
     add-on-import:
-      - "202427:105:2084"
+      - "202427:107:2084"
     as-set: AS-MEER
 
   Hats Network LocIX:
     template: peer
+    passive: true
     description: Hats Network via LocIX
     asn: 203314
     neighbors:
@@ -507,7 +539,7 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:f2:e1:0:20:2427:1
     add-on-import:
-      - "202427:105:2084"
+      - "202427:107:2084"
     as-set: AS203314:AS-HATS
 
   #  Dominik Pohl LocIX:
@@ -519,10 +551,11 @@ peers:
   #    local-pref: 320
   #    listen6: 2001:7f8:f2:e1:0:20:2427:1
   #    add-on-import:
-  #      - "202427:105:2084"
+  #      - "202427:107:2084"
 
   Luigi Labate LocIX:
     template: peer
+    passive: true
     description: Luigi Labate via LocIX
     asn: 208328
     neighbors:
@@ -530,7 +563,7 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:f2:e1:0:20:2427:1
     add-on-import:
-      - "202427:105:2084"
+      - "202427:107:2084"
     as-set: AS208328:AS-LUIGILABATE
 
 #   Adam Goodenough LocIX:
@@ -542,34 +575,20 @@ peers:
 #    local-pref: 320
 #    listen6: 2001:7f8:f2:e1:0:20:2427:1
 #    add-on-import:
-#      - "202427:105:2084"
+#      - "202427:107:2084"
 
-  AS212635 LocIX:
+  Bakker IT LocIX:
     template: peer
-    description: AS212635 via LocIX
-    asn: 212635
+    passive: true
+    description: Bakker IT via LocIX
+    asn: 44103
     neighbors:
-      - 2001:7f8:f2:e1:0:21:2635:1
+      - 2001:7f8:f2:e1:0:4:4103:1
     local-pref: 320
     listen6: 2001:7f8:f2:e1:0:20:2427:1
     add-on-import:
-      - "202427:105:2084"
-    as-set: RIPE::AS212635:AS-212635
-
-#========================
-
-#  Bakker IT LocIX:
-#    template: peer
-#    passive: true
-#    description: Bakker IT via LocIX
-#    asn: 44103
-#    neighbors:
-#      - 2001:7f8:f2:e1:0:4:4103:1
-#    local-pref: 320
-#    listen6: 2001:7f8:f2:e1:0:20:2427:1
-#    add-on-import:
-#      - "202427:105:2084"
-#    as-set: AS-BAKKER-IT
+      - "202427:107:2084"
+    as-set: AS-BAKKER-IT
 
 #  efero LocIX:
 #    template: peer
@@ -581,7 +600,7 @@ peers:
 #    local-pref: 320
 #    listen6: 2001:7f8:f2:e1:0:20:2427:1
 #    add-on-import:
-#      - "202427:105:2084"
+#      - "202427:107:2084"
 #    as-set: AS-EFERO
 
   Openfactory LocIX:
@@ -594,7 +613,7 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:f2:e1:0:20:2427:1
     add-on-import:
-      - "202427:105:2084"
+      - "202427:107:2084"
     as-set: AS58299:AS-ALL
 
   FS IT-Systeme LocIX:
@@ -607,7 +626,7 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:f2:e1:0:20:2427:1
     add-on-import:
-      - "202427:105:2084"
+      - "202427:107:2084"
     as-set: AS-FSITSYSTEME
 
   Korves.Net LocIX:
@@ -620,7 +639,7 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:f2:e1:0:20:2427:1
     add-on-import:
-      - "202427:105:2084"
+      - "202427:107:2084"
     as-set: AS-KORVESNET
 
   luYs LocIX:
@@ -633,21 +652,21 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:f2:e1:0:20:2427:1
     add-on-import:
-      - "202427:105:2084"
+      - "202427:107:2084"
     as-set: AS-LUYS
 
-  cupaco LocIX:
+  KTT Iceland LocIX:
     template: peer
     passive: true
-    description: cupaco via LocIX
-    asn: 212580
+    description: KTT Iceland via LocIX
+    asn: 51019
     neighbors:
-      - 2001:7f8:f2:e1:0:a121:2580:1
+      - 2001:7f8:f2:e1:0:5:1019:1
     local-pref: 320
     listen6: 2001:7f8:f2:e1:0:20:2427:1
     add-on-import:
-      - "202427:105:2084"
-    as-set: AS-CUPACO
+      - "202427:107:2084"
+    as-set: AS51019:AS-ALL
 
   # ========= Peers - NL-ix =========
   AS112 NL-ix:
@@ -659,7 +678,7 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:13::a520:2427:1
     add-on-import:
-      - "202427:105:64"
+      - "202427:107:64"
     as-set: AS112
 
   Apple NL-ix:
@@ -672,7 +691,7 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:13::a520:2427:1
     add-on-import:
-      - "202427:105:64"
+      - "202427:107:64"
     as-set: AS-APPLE
 
   Globe Telecom NL-ix:
@@ -684,7 +703,7 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:13::a520:2427:1
     add-on-import:
-      - "202427:105:64"
+      - "202427:107:64"
     as-set: AS-TRANSIT-GLOBE
 
   Netwerkvereniging Coloclue NL-ix:
@@ -697,7 +716,7 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:13::a520:2427:1
     add-on-import:
-      - "202427:105:64"
+      - "202427:107:64"
     as-set: AS8283:AS-COLOCLUE
 
   Cloudflare NL-ix:
@@ -711,8 +730,8 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:13::a520:2427:1
     add-on-import:
-      - "202427:105:64"
-    as-set: AS-CLOUDFLARE
+      - "202427:107:64"
+    as-set: ARIN::AS13335:AS-CLOUDFLARE
 
   Google NL-ix:
     template: peer
@@ -724,7 +743,7 @@ peers:
     listen6: 2001:7f8:13::a520:2427:1
     password: ${edge01-fra-google-nlix-password}
     add-on-import:
-      - "202427:105:64"
+      - "202427:107:64"
     as-set: AS-GOOGLE
 
   Hetzner NL-ix:
@@ -736,7 +755,7 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:13::a520:2427:1
     add-on-import:
-      - "202427:105:64"
+      - "202427:107:64"
     as-set: AS-HETZNER
 
   IP-Max NL-ix:
@@ -748,7 +767,7 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:13::a520:2427:1
     add-on-import:
-      - "202427:105:64"
+      - "202427:107:64"
     as-set: RIPE::AS-IP-MAX-V6
 
   Meta NL-ix:
@@ -761,8 +780,32 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:13::a520:2427:1
     add-on-import:
-      - "202427:105:64"
+      - "202427:107:64"
     as-set: AS-FACEBOOK
+
+  Dataline Net NL-ix:
+    template: peer
+    description: Dataline Net via NL-ix
+    asn: 35297
+    neighbors:
+      - 2001:7f8:13::a503:5297:1
+    local-pref: 320
+    listen6: 2001:7f8:13::a520:2427:1
+    add-on-import:
+      - "202427:107:64"
+    as-set: RIPE::AS-DL-WORLD
+
+  Dawico NL-ix:
+    template: peer
+    description: Dawico via NL-ix
+    asn: 39614
+    neighbors:
+      - 2001:7f8:13::a503:9614:1
+    local-pref: 320
+    listen6: 2001:7f8:13::a520:2427:1
+    add-on-import:
+      - "202427:107:64"
+    as-set: RIPE::AS-DAWICO
 
   Opteamax NL-ix:
     template: peer
@@ -773,31 +816,20 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:13::a520:2427:1
     add-on-import:
-      - "202427:105:64"
+      - "202427:107:64"
     as-set: AS48200:AS-OPTEAMAX
 
-  Hats Network NL-ix:
+  Anycast Global Backbone NL-ix:
     template: peer
-    description: Hats Network via NL-ix
-    asn: 203314
+    description: Anycast Global Backbone via NL-ix
+    asn: 58511
     neighbors:
-      - 2001:7f8:13::a520:3314:1
+      - 2001:7f8:13::a505:8511:1
     local-pref: 320
     listen6: 2001:7f8:13::a520:2427:1
     add-on-import:
-      - "202427:105:64"
-    as-set: AS203314:AS-HATS
-
-#  Dominik Pohl NL-ix:
-#    template: peer
-#    description: Dominik Pohl via NL-ix
-#    asn: 205848
-#    neighbors:
-#      - 2001:7f8:13::a520:5848:1
-#    local-pref: 320
-#    listen6: 2001:7f8:13::a520:2427:1
-#    add-on-import:
-#      - "202427:105:64"
+      - "202427:107:64"
+    as-set: AS-CIT
 
   AS212635 NL-ix:
     template: peer
@@ -808,7 +840,7 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:13::a520:2427:1
     add-on-import:
-      - "202427:105:64"
+      - "202427:107:64"
     as-set: RIPE::AS212635:AS-212635
 
   LUJE.net NL-ix:
@@ -820,10 +852,48 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:13::a520:2427:1
     add-on-import:
-      - "202427:105:64"
+      - "202427:107:64"
     as-set: RIPE::AS212855:AS-LUJE
 
+  Tritan Development NL-ix:
+    template: peer
+    passive: true
+    description: Tritan Development via NL-ix
+    asn: 393577
+    neighbors:
+      - 2001:7f8:13::a539:3577:1
+    local-pref: 320
+    listen6: 2001:7f8:13::a520:2427:1
+    add-on-import:
+      - "202427:107:64"
+    as-set: AS-TRITAN-ASNS
+
 #========================
+
+  Hats Network NL-ix:
+    template: peer
+    passive: true
+    description: Hats Network via NL-ix
+    asn: 203314
+    neighbors:
+      - 2001:7f8:13::a520:3314:1
+    local-pref: 320
+    listen6: 2001:7f8:13::a520:2427:1
+    add-on-import:
+      - "202427:107:64"
+    as-set: AS203314:AS-HATS
+
+#  Dominik Pohl NL-ix:
+#    template: peer
+#    description: Dominik Pohl via NL-ix
+#    asn: 205848
+#    neighbors:
+#      - 2001:7f8:13::a520:5848:1
+#    local-pref: 320
+#    listen6: 2001:7f8:13::a520:2427:1
+#    add-on-import:
+#      - "202427:107:64"
+
 
   H4Hosting NL-ix:
     template: peer
@@ -835,7 +905,7 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:13::a520:2427:1
     add-on-import:
-      - "202427:105:64"
+      - "202427:107:64"
     as-set: AS-H4HOSTING
 
   KoDDoS NL-ix:
@@ -848,7 +918,7 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:13::a520:2427:1
     add-on-import:
-      - "202427:105:64"
+      - "202427:107:64"
     as-set: AS-KODDOS
 
   WD6.net NL-ix:
@@ -861,21 +931,21 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:13::a520:2427:1
     add-on-import:
-      - "202427:105:64"
+      - "202427:107:64"
     as-set: AS-WEDARE
 
-#  level66.network NL-ix:
-#    template: peer
-#    passive: true
-#    description: level66.network via NL-ix
-#    asn: 56381
-#    neighbors:
-#      - 2001:7f8:13::a505:6381:1
-#    local-pref: 320
-#    listen6: 2001:7f8:13::a520:2427:1
-#    add-on-import:
-#      - "202427:105:64"
-#    as-set: AS56381:AS-ALL
+  level66.network NL-ix:
+    template: peer
+    passive: true
+    description: level66.network via NL-ix
+    asn: 56381
+    neighbors:
+      - 2001:7f8:13::a505:6381:1
+    local-pref: 320
+    listen6: 2001:7f8:13::a520:2427:1
+    add-on-import:
+      - "202427:107:64"
+    as-set: AS56381:AS-ALL
 
   Openfactory NL-ix:
     template: peer
@@ -887,7 +957,7 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:13::a520:2427:1
     add-on-import:
-      - "202427:105:64"
+      - "202427:107:64"
     as-set: AS58299:AS-ALL
 
   eBay NL-ix:
@@ -902,7 +972,7 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:13::a520:2427:1
     add-on-import:
-      - "202427:105:64"
+      - "202427:107:64"
     as-set: AS-EBAYMTBB
 
   Korton NL-ix:
@@ -916,7 +986,7 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:13::a520:2427:1
     add-on-import:
-      - "202427:105:64"
+      - "202427:107:64"
     as-set: AS-KORTON
 
   cyberways NL-ix:
@@ -929,7 +999,7 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:13::a520:2427:1
     add-on-import:
-      - "202427:105:64"
+      - "202427:107:64"
     as-set: AS13132
 
   Redhosting NL-ix:
@@ -943,21 +1013,8 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:13::a520:2427:1
     add-on-import:
-      - "202427:105:64"
+      - "202427:107:64"
     as-set: AS-REDHOSTING
-
-  Anycast Global Backbone NL-ix:
-    template: peer
-    passive: true
-    description: Anycast Global Backbone via NL-ix
-    asn: 58511
-    neighbors:
-      - 2001:7f8:13::a505:8511:1
-    local-pref: 320
-    listen6: 2001:7f8:13::a520:2427:1
-    add-on-import:
-      - "202427:105:64"
-    as-set: AS-CIT
 
   IPB Internet Provider Berlin NL-ix:
     template: peer
@@ -969,7 +1026,7 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:13::a520:2427:1
     add-on-import:
-      - "202427:105:64"
+      - "202427:107:64"
     as-set: AS-IPB
 
   Tampnet NL-ix:
@@ -982,7 +1039,7 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:13::a520:2427:1
     add-on-import:
-      - "202427:105:64"
+      - "202427:107:64"
     as-set: AS-TAMPNET
 
   NBIP NL-ix:
@@ -996,7 +1053,7 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:13::a520:2427:1
     add-on-import:
-      - "202427:105:64"
+      - "202427:107:64"
     as-set: AS-NBIP6
 
   Serbia BroadBand NL-ix:
@@ -1009,7 +1066,7 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:13::a520:2427:1
     add-on-import:
-      - "202427:105:64"
+      - "202427:107:64"
     as-set: AS-SBB
 
   SG.GS NL-ix:
@@ -1022,7 +1079,7 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:13::a520:2427:1
     add-on-import:
-      - "202427:105:64"
+      - "202427:107:64"
     as-set: AS-SGGS
 
   Transroute Telecom NL-ix:
@@ -1035,7 +1092,7 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:13::a520:2427:1
     add-on-import:
-      - "202427:105:64"
+      - "202427:107:64"
     as-set: AS-TRANSROUTE
 
   CAT-IIG NL-ix:
@@ -1048,7 +1105,7 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:13::a520:2427:1
     add-on-import:
-      - "202427:105:64"
+      - "202427:107:64"
     as-set: AS-CAT-IIG
 
   LASOTEL NL-ix:
@@ -1061,21 +1118,8 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:13::a520:2427:1
     add-on-import:
-      - "202427:105:64"
+      - "202427:107:64"
     as-set: AS-LASOTEL
-
-  Dataline Net NL-ix:
-    template: peer
-    passive: true
-    description: Dataline Net via NL-ix
-    asn: 35297
-    neighbors:
-      - 2001:7f8:13::a503:5297:1
-    local-pref: 320
-    listen6: 2001:7f8:13::a520:2427:1
-    add-on-import:
-      - "202427:105:64"
-    as-set: RIPE::AS-DL-WORLD
 
   iunxi NL-ix:
     template: peer
@@ -1087,21 +1131,8 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:13::a520:2427:1
     add-on-import:
-      - "202427:105:64"
+      - "202427:107:64"
     as-set: AS-IUNXI
-
-  Dawico NL-ix:
-    template: peer
-    passive: true
-    description: Dawico via NL-ix
-    asn: 39614
-    neighbors:
-      - 2001:7f8:13::a503:9614:1
-    local-pref: 320
-    listen6: 2001:7f8:13::a520:2427:1
-    add-on-import:
-      - "202427:105:64"
-    as-set: RIPE::AS-DAWICO
 
   KeenSystems NL-ix:
     template: peer
@@ -1114,7 +1145,7 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:13::a520:2427:1
     add-on-import:
-      - "202427:105:64"
+      - "202427:107:64"
     as-set: AS-KEENSYSTEMS
 
   Asympto Networks NL-ix:
@@ -1127,7 +1158,7 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:13::a520:2427:1
     add-on-import:
-      - "202427:105:64"
+      - "202427:107:64"
     as-set: AS39533:AS-ALL
 
   FS IT-Systeme NL-ix:
@@ -1140,21 +1171,21 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:13::a520:2427:1
     add-on-import:
-      - "202427:105:64"
+      - "202427:107:64"
     as-set: AS-FSITSYSTEME
 
-  Tritan Development NL-ix:
+  KTT Iceland NL-ix:
     template: peer
     passive: true
-    description: Tritan Development via NL-ix
-    asn: 393577
+    description: KTT Iceland via NL-ix
+    asn: 51019
     neighbors:
-      - 2001:7f8:13::a539:3577:1
+      - 2001:7f8:13::a505:1019:1
     local-pref: 320
     listen6: 2001:7f8:13::a520:2427:1
     add-on-import:
-      - "202427:105:64"
-    as-set: AS-TRITAN-ASNS
+      - "202427:107:64"
+    as-set: AS51019:AS-ALL
 
 templates:
   upstream:
@@ -1163,7 +1194,7 @@ templates:
     add-path-rx: true
     pre-import-accept: >
      bgp_large_community.add((202427,101,2));
-     bgp_large_community.add((202427,104,<pathvector.asn>));
+     bgp_large_community.add((202427,106,<pathvector.asn>));
     announce:
       - "202427:101:1"
       - "202427:101:5"
@@ -1178,7 +1209,7 @@ templates:
     add-path-rx: true
     pre-import-accept: >
      bgp_large_community.add((202427,101,3));
-     bgp_large_community.add((202427,104,<pathvector.asn>));
+     bgp_large_community.add((202427,106,<pathvector.asn>));
     announce:
       - "202427:101:1"
       - "202427:101:5"
@@ -1196,7 +1227,7 @@ templates:
     add-path-rx: true
     pre-import-accept: >
      bgp_large_community.add((202427,101,4));
-     bgp_large_community.add((202427,104,<pathvector.asn>));
+     bgp_large_community.add((202427,106,<pathvector.asn>));
     announce:
       - "202427:101:1"
       - "202427:101:5"
@@ -1214,7 +1245,7 @@ templates:
     add-path-rx: true
     pre-import-accept: >
      bgp_large_community.add((202427,101,5));
-     bgp_large_community.add((202427,104,<pathvector.asn>));
+     bgp_large_community.add((202427,106,<pathvector.asn>));
     announce:
       - "202427:101:1"
       - "202427:101:2"

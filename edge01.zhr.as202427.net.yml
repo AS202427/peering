@@ -168,7 +168,7 @@ peers:
     listen6: 2001:7f8:d0::3:16bb:1
     password: X13ybs4n9crwvMB
     add-on-import:
-      - "202427:105:2447"
+      - "202427:107:2447"
 
   SBIX Route Server:
     template: routeserver
@@ -183,7 +183,7 @@ peers:
     listen6: 2001:7f8:d9:5b::0003:16bb:1
     password: wfcqZ68m9eNE4hT
     add-on-import:
-      - "202427:105:2571"
+      - "202427:107:2571"
 
 #  IXPcat BUC01 Route Server:
 #    template: routeserver
@@ -195,7 +195,7 @@ peers:
 #    local-pref: 210
 #    listen6: 2001:7f8:d0:524f::3:16bb:1
 #    add-on-import:
-#      - "202427:105:000"
+#      - "202427:107:000"
 #    as-set: RIPE::AS-IXPS
 #
 #  IXPcat FRE01 Route Server:
@@ -208,7 +208,7 @@ peers:
 #    local-pref: 210
 #    listen6: 2001:7f8:d0:5553::3:16bb:1
 #    add-on-import:
-#      - "202427:105:2746"
+#      - "202427:107:2746"
 #    as-set: RIPE::AS-IXPS
 #
 #  IXPcat HEL01 Route Server:
@@ -221,7 +221,7 @@ peers:
 #    local-pref: 210
 #    listen6: 2001:7f8:d0:4649::3:16bb:1
 #    add-on-import:
-#      - "202427:105:2700"
+#      - "202427:107:2700"
 #    as-set: RIPE::AS-IXPS
 #
 #  IXPcat MUM01 Route Server:
@@ -234,7 +234,7 @@ peers:
 #    local-pref: 210
 #    listen6: 2001:7f8:d0:494e::3:16bb:1
 #    add-on-import:
-#      - "202427:105:000"
+#      - "202427:107:000"
 #    as-set: RIPE::AS-IXPS
 
 templates:
@@ -244,7 +244,7 @@ templates:
     add-path-rx: true
     pre-import-accept: >
      bgp_large_community.add((202427,101,2));
-     bgp_large_community.add((202427,104,<pathvector.asn>));
+     bgp_large_community.add((202427,106,<pathvector.asn>));
     announce:
       - "202427:101:1"
       - "202427:101:5"
@@ -259,7 +259,7 @@ templates:
     add-path-rx: true
     pre-import-accept: >
      bgp_large_community.add((202427,101,3));
-     bgp_large_community.add((202427,104,<pathvector.asn>));
+     bgp_large_community.add((202427,106,<pathvector.asn>));
     announce:
       - "202427:101:1"
       - "202427:101:5"
@@ -277,7 +277,7 @@ templates:
     add-path-rx: true
     pre-import-accept: >
      bgp_large_community.add((202427,101,4));
-     bgp_large_community.add((202427,104,<pathvector.asn>));
+     bgp_large_community.add((202427,106,<pathvector.asn>));
     announce:
       - "202427:101:1"
       - "202427:101:5"
@@ -295,7 +295,7 @@ templates:
     add-path-rx: true
     pre-import-accept: >
      bgp_large_community.add((202427,101,5));
-     bgp_large_community.add((202427,104,<pathvector.asn>));
+     bgp_large_community.add((202427,106,<pathvector.asn>));
     announce:
       - "202427:101:1"
       - "202427:101:2"

@@ -164,7 +164,7 @@ peers:
     local-pref: 220
     listen6: 2a0c:b641:701:0:a5:20:2427:1
     add-on-import:
-      - "202427:105:2084"
+      - "202427:107:2084"
     as-set: AS-LOCIX
 
 #  IXPcat AMS01 Route Server:
@@ -177,7 +177,7 @@ peers:
 #    local-pref: 210
 #    listen6: 2001:7f8:d0:4e4c::3:16bb:1
 #    add-on-import:
-#      - "202427:105:2705"
+#      - "202427:107:2705"
 #    as-set: RIPE::AS-IXPS
 
   BGP.Exchange Route Server:
@@ -190,7 +190,7 @@ peers:
     local-pref: 220
     listen6: 2a0e:8f01:1000:46::115
     add-on-import:
-      - "202427:105:3844"
+      - "202427:107:3844"
     as-set: AS-BGPEXCHANGE
 
   # ========= Peers - LocIX =========
@@ -203,7 +203,7 @@ peers:
     local-pref: 320
     listen6: 2a0c:b641:701:0:a5:20:2427:1
     add-on-import:
-      - "202427:105:2730"
+      - "202427:107:2730"
     as-set: AS112
 
   IP-Max LocIX:
@@ -215,11 +215,14 @@ peers:
     local-pref: 320
     listen6: 2a0c:b641:701:0:a5:20:2427:1
     add-on-import:
-      - "202427:105:2730"
+      - "202427:107:2730"
     as-set: RIPE::AS-IP-MAX-V6
+
+#========================
 
   meerfarbig LocIX:
     template: peer
+    passive: true
     description: meerfarbig via LocIX
     asn: 34549
     neighbors:
@@ -227,11 +230,12 @@ peers:
     local-pref: 320
     listen6: 2a0c:b641:701:0:a5:20:2427:1
     add-on-import:
-      - "202427:105:2730"
+      - "202427:107:2730"
     as-set: AS-MEER
 
   oneCorp LocIX:
     template: peer
+    passive: true
     description: oneCorp via LocIX
     asn: 204035
     neighbors:
@@ -239,10 +243,8 @@ peers:
     local-pref: 320
     listen6: 2a0c:b641:701:0:a5:20:2427:1
     add-on-import:
-      - "202427:105:2730"
+      - "202427:107:2730"
     as-set: AS-ONECORP
-
-#========================
 
   Openfactory LocIX:
     template: peer
@@ -254,7 +256,7 @@ peers:
     local-pref: 320
     listen6: 2a0c:b641:701:0:a5:20:2427:1
     add-on-import:
-      - "202427:105:2730"
+      - "202427:107:2730"
     as-set: AS58299:AS-ALL
 
   PHILUNET LocIX:
@@ -267,7 +269,7 @@ peers:
     local-pref: 320
     listen6: 2a0c:b641:701:0:a5:20:2427:1
     add-on-import:
-      - "202427:105:2730"
+      - "202427:107:2730"
     as-set: RIPE::AS-PHILUNET
 
 templates:
@@ -277,7 +279,7 @@ templates:
     add-path-rx: true
     pre-import-accept: >
      bgp_large_community.add((202427,101,2));
-     bgp_large_community.add((202427,104,<pathvector.asn>));
+     bgp_large_community.add((202427,106,<pathvector.asn>));
     announce:
       - "202427:101:1"
       - "202427:101:5"
@@ -292,7 +294,7 @@ templates:
     add-path-rx: true
     pre-import-accept: >
      bgp_large_community.add((202427,101,3));
-     bgp_large_community.add((202427,104,<pathvector.asn>));
+     bgp_large_community.add((202427,106,<pathvector.asn>));
     announce:
       - "202427:101:1"
       - "202427:101:5"
@@ -310,7 +312,7 @@ templates:
     add-path-rx: true
     pre-import-accept: >
      bgp_large_community.add((202427,101,4));
-     bgp_large_community.add((202427,104,<pathvector.asn>));
+     bgp_large_community.add((202427,106,<pathvector.asn>));
     announce:
       - "202427:101:1"
       - "202427:101:5"
@@ -328,7 +330,7 @@ templates:
     add-path-rx: true
     pre-import-accept: >
      bgp_large_community.add((202427,101,5));
-     bgp_large_community.add((202427,104,<pathvector.asn>));
+     bgp_large_community.add((202427,106,<pathvector.asn>));
     announce:
       - "202427:101:1"
       - "202427:101:2"

@@ -42,7 +42,7 @@ peers:
     local-pref: 130
     listen6: 2001:7f8:10f::3:16bb:205
     add-on-import:
-      - "202427:105:3512"
+      - "202427:107:3512"
     as-set: RADB::AS-HURRICANEV6
 
   # ========= Looking Glasses =========
@@ -177,7 +177,7 @@ peers:
     local-pref: 220
     listen6: 2001:7f8:10f::3:16bb:205
     add-on-import:
-      - "202427:105:3512"
+      - "202427:107:3512"
     as-set: AS-FRYS-IX-CONNECTED
 
   InterIX Route Server:
@@ -191,7 +191,7 @@ peers:
     local-pref: 220
     listen6: 2001:7f8:134::43
     add-on-import:
-      - "202427:105:3990"
+      - "202427:107:3990"
     as-set: AS56584:AS-INTERIX
 
   # ========= Peers - Frys-IX =========
@@ -204,7 +204,7 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:10f::3:16bb:205
     add-on-import:
-      - "202427:105:3512"
+      - "202427:107:3512"
     as-set: AS112
 
   Netwerkvereniging Coloclue Frys-IX:
@@ -217,7 +217,7 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:10f::3:16bb:205
     add-on-import:
-      - "202427:105:3512"
+      - "202427:107:3512"
     as-set: AS8283:AS-COLOCLUE
 
   Cloudflare Frys-IX:
@@ -229,8 +229,8 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:10f::3:16bb:205
     add-on-import:
-      - "202427:105:3512"
-    as-set: AS-CLOUDFLARE
+      - "202427:107:3512"
+    as-set: ARIN::AS13335:AS-CLOUDFLARE
 
   Google Frys-IX:
     template: peer
@@ -243,7 +243,7 @@ peers:
     listen6: 2001:7f8:10f::3:16bb:205
     password: ${edge01-ams-google-frysix-password}
     add-on-import:
-      - "202427:105:3512"
+      - "202427:107:3512"
     as-set: AS-GOOGLE
 
   IP-Max Frys-IX:
@@ -255,7 +255,7 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:10f::3:16bb:205
     add-on-import:
-      - "202427:105:3512"
+      - "202427:107:3512"
     as-set: RIPE::AS-IP-MAX-V6
 
   ISC F-ROOT AMS1 Frys-IX:
@@ -267,20 +267,8 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:10f::3:16bb:205
     add-on-import:
-      - "202427:105:3512"
+      - "202427:107:3512"
     as-set: RADB::AS30132:AS-SET
-
-  Valve Frys-IX:
-    template: peer
-    description: Valve via Frys-IX
-    asn: 32590
-    neighbors:
-      - 2001:7f8:10f::7f4e:199
-    local-pref: 320
-    listen6: 2001:7f8:10f::3:16bb:205
-    add-on-import:
-      - "202427:105:3512"
-    as-set: RADB::AS-VALVE
 
   Meta Frys-IX:
     template: peer
@@ -292,20 +280,20 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:10f::3:16bb:205
     add-on-import:
-      - "202427:105:3512"
+      - "202427:107:3512"
     as-set: AS-FACEBOOK
 
-  Serverion Frys-IX:
+  NetOne NL Frys-IX:
     template: peer
-    description: Serverion via Frys-IX
-    asn: 213035
+    description: NetOne NL via Frys-IX
+    asn: 200132
     neighbors:
-      - 2001:7f8:10f::3:402b:174
+      - 2001:7f8:10f::3:dc4:239
     local-pref: 320
     listen6: 2001:7f8:10f::3:16bb:205
     add-on-import:
-      - "202427:105:3512"
-    as-set: AS-SERVERION
+      - "202427:107:3512"
+    as-set: AS-NETONE-NL
 
   AS212635 Frys-IX:
     template: peer
@@ -316,7 +304,7 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:10f::3:16bb:205
     add-on-import:
-      - "202427:105:3512"
+      - "202427:107:3512"
     as-set: RIPE::AS212635:AS-212635
 
   LUJE.net Frys-IX:
@@ -328,22 +316,36 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:10f::3:16bb:205
     add-on-import:
-      - "202427:105:3512"
+      - "202427:107:3512"
     as-set: RIPE::AS212855:AS-LUJE
 
-  NetOne NL Frys-IX:
+#========================
+
+  Valve Frys-IX:
     template: peer
-    description: NetOne NL via Frys-IX
-    asn: 200132
+    passive: true
+    description: Valve via Frys-IX
+    asn: 32590
     neighbors:
-      - 2001:7f8:10f::3:dc4:239
+      - 2001:7f8:10f::7f4e:199
     local-pref: 320
     listen6: 2001:7f8:10f::3:16bb:205
     add-on-import:
-      - "202427:105:3512"
-    as-set: AS-NETONE-NL
+      - "202427:107:3512"
+    as-set: RADB::AS-VALVE
 
-#========================
+  Serverion Frys-IX:
+    template: peer
+    passive: true
+    description: Serverion via Frys-IX
+    asn: 213035
+    neighbors:
+      - 2001:7f8:10f::3:402b:174
+    local-pref: 320
+    listen6: 2001:7f8:10f::3:16bb:205
+    add-on-import:
+      - "202427:107:3512"
+    as-set: AS-SERVERION
 
   H2B IT Solutions Frys-IX:
     template: peer
@@ -355,7 +357,7 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:10f::3:16bb:205
     add-on-import:
-      - "202427:105:3512"
+      - "202427:107:3512"
     as-set: RIPE::AS43414:AS-H2B
 
   H4Hosting Frys-IX:
@@ -368,7 +370,7 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:10f::3:16bb:205
     add-on-import:
-      - "202427:105:3512"
+      - "202427:107:3512"
     as-set: AS-H4HOSTING
 
   Solutions4XS Frys-IX:
@@ -381,21 +383,21 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:10f::3:16bb:205
     add-on-import:
-      - "202427:105:3512"
+      - "202427:107:3512"
     as-set: AS-SOL4XS
 
-#  WARIAN Frys-IX:
-#    template: peer
-#    passive: true
-#    description: WARIAN via Frys-IX
-#    asn: 56911
-#    neighbors:
-#      - 2001:7f8:10f::de4f:162
-#    local-pref: 320
-#    listen6: 2001:7f8:10f::3:16bb:205
-#    add-on-import:
-#      - "202427:105:3512"
-#    as-set: AS56911:AS-WARIAN-EU
+  WARIAN Frys-IX:
+    template: peer
+    passive: true
+    description: WARIAN via Frys-IX
+    asn: 56911
+    neighbors:
+      - 2001:7f8:10f::de4f:162
+    local-pref: 320
+    listen6: 2001:7f8:10f::3:16bb:205
+    add-on-import:
+      - "202427:107:3512"
+    as-set: AS56911:AS-WARIAN-EU
 
   KoDDoS Frys-IX:
     template: peer
@@ -407,21 +409,21 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:10f::3:16bb:205
     add-on-import:
-      - "202427:105:3512"
+      - "202427:107:3512"
     as-set: AS-KODDOS
 
-#  Bakker IT Frys-IX:
-#    template: peer
-#    passive: true
-#    description: Bakker IT via Frys-IX
-#    asn: 44103
-#    neighbors:
-#      - 2001:7f8:10f::ac47:131
-#    local-pref: 320
-#    listen6: 2001:7f8:10f::3:16bb:205
-#    add-on-import:
-#      - "202427:105:3512"
-#    as-set: AS-BAKKER-IT
+  Bakker IT Frys-IX:
+    template: peer
+    passive: true
+    description: Bakker IT via Frys-IX
+    asn: 44103
+    neighbors:
+      - 2001:7f8:10f::ac47:131
+    local-pref: 320
+    listen6: 2001:7f8:10f::3:16bb:205
+    add-on-import:
+      - "202427:107:3512"
+    as-set: AS-BAKKER-IT
 
   WD6.net Frys-IX:
     template: peer
@@ -433,7 +435,7 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:10f::3:16bb:205
     add-on-import:
-      - "202427:105:3512"
+      - "202427:107:3512"
     as-set: AS-WEDARE
 
   Openfactory Frys-IX:
@@ -446,7 +448,7 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:10f::3:16bb:205
     add-on-import:
-      - "202427:105:3512"
+      - "202427:107:3512"
     as-set: AS58299:AS-ALL
 
   Prolocation Frys-IX:
@@ -459,7 +461,7 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:10f::3:16bb:205
     add-on-import:
-      - "202427:105:3512"
+      - "202427:107:3512"
     as-set: RIPE::AS-PROLOCATION
 
   KeenSystems Frys-IX:
@@ -472,7 +474,7 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:10f::3:16bb:205
     add-on-import:
-      - "202427:105:3512"
+      - "202427:107:3512"
     as-set: AS-KEENSYSTEMS
 
   # ========= Peers - InterIX =========
@@ -485,7 +487,7 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:134::43
     add-on-import:
-      - "202427:105:3990"
+      - "202427:107:3990"
     as-set: AS8283:AS-COLOCLUE
 
   Cloudflare InterIX:
@@ -497,8 +499,8 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:134::43
     add-on-import:
-      - "202427:105:3990"
-    as-set: AS-CLOUDFLARE
+      - "202427:107:3990"
+    as-set: ARIN::AS13335:AS-CLOUDFLARE
 
   IP-Max InterIX:
     template: peer
@@ -509,7 +511,7 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:134::43
     add-on-import:
-      - "202427:105:3990"
+      - "202427:107:3990"
     as-set: RIPE::AS-IP-MAX-V6
 
   AS212635 InterIX:
@@ -521,7 +523,7 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:134::43
     add-on-import:
-      - "202427:105:3990"
+      - "202427:107:3990"
     as-set: RIPE::AS212635:AS-212635
 
 #========================
@@ -536,21 +538,21 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:134::43
     add-on-import:
-      - "202427:105:3990"
+      - "202427:107:3990"
     as-set: AS-SOL4XS
 
-#  WARIAN InterIX:
-#    template: peer
-#    passive: true
-#    description: WARIAN via InterIX
-#    asn: 56911
-#    neighbors:
-#      - 2001:7f8:134::24
-#    local-pref: 320
-#    listen6: 2001:7f8:134::43
-#    add-on-import:
-#      - "202427:105:3990"
-#    as-set: AS56911:AS-WARIAN-EU
+  WARIAN InterIX:
+    template: peer
+    passive: true
+    description: WARIAN via InterIX
+    asn: 56911
+    neighbors:
+      - 2001:7f8:134::24
+    local-pref: 320
+    listen6: 2001:7f8:134::43
+    add-on-import:
+      - "202427:107:3990"
+    as-set: AS56911:AS-WARIAN-EU
 
   KoDDoS InterIX:
     template: peer
@@ -562,7 +564,7 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:134::43
     add-on-import:
-      - "202427:105:3990"
+      - "202427:107:3990"
     as-set: AS-KODDOS
 
   WD6.net InterIX:
@@ -575,7 +577,7 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:134::43
     add-on-import:
-      - "202427:105:3990"
+      - "202427:107:3990"
     as-set: AS-WEDARE
 
   Openfactory InterIX:
@@ -588,7 +590,7 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:134::43
     add-on-import:
-      - "202427:105:3990"
+      - "202427:107:3990"
     as-set: AS58299:AS-ALL
 
 templates:
@@ -598,7 +600,7 @@ templates:
     add-path-rx: true
     pre-import-accept: >
      bgp_large_community.add((202427,101,2));
-     bgp_large_community.add((202427,104,<pathvector.asn>));
+     bgp_large_community.add((202427,106,<pathvector.asn>));
     announce:
       - "202427:101:1"
       - "202427:101:5"
@@ -613,7 +615,7 @@ templates:
     add-path-rx: true
     pre-import-accept: >
      bgp_large_community.add((202427,101,3));
-     bgp_large_community.add((202427,104,<pathvector.asn>));
+     bgp_large_community.add((202427,106,<pathvector.asn>));
     announce:
       - "202427:101:1"
       - "202427:101:5"
@@ -631,7 +633,7 @@ templates:
     add-path-rx: true
     pre-import-accept: >
      bgp_large_community.add((202427,101,4));
-     bgp_large_community.add((202427,104,<pathvector.asn>));
+     bgp_large_community.add((202427,106,<pathvector.asn>));
     announce:
       - "202427:101:1"
       - "202427:101:5"
@@ -649,7 +651,7 @@ templates:
     add-path-rx: true
     pre-import-accept: >
      bgp_large_community.add((202427,101,5));
-     bgp_large_community.add((202427,104,<pathvector.asn>));
+     bgp_large_community.add((202427,106,<pathvector.asn>));
     announce:
       - "202427:101:1"
       - "202427:101:2"
