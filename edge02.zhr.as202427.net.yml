@@ -105,14 +105,6 @@ peers:
     local-pref: 190
     listen6: 2a06:a005:2904::1
 
-  Edge01 ZHR:
-    template: core-wg
-    description: Edge01 Router - Zurich, Switzerland
-    asn: 202427
-    neighbors:
-      - 2a06:a005:2ef3::1
-    listen6: 2a06:a005:2ef4::1
-
   Edge01 MIL:
     template: core-wg
     description: Edge01 Router - Milan, Italy

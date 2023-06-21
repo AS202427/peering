@@ -101,14 +101,6 @@ peers:
       - 2a06:a005:2902::1
     listen6: 2a06:a005:2907::1
 
-  Edge01 ZHR:
-    template: core-wg
-    description: Edge01 Router - Zurich, Switzerland
-    asn: 202427
-    neighbors:
-      - 2a06:a005:2ef3::1
-    listen6: 2a06:a005:2ef7::1
-
   Edge02 ZHR:
     template: core-l2
     description: Edge02 Router - Zurich, Switzerland
