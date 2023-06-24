@@ -76,35 +76,25 @@
 202427:106:714,Learned from Peer - Apple Inc.
 202427:106:4775,Learned from Peer - Globe Telecom
 202427:106:8283,Learned from Peer - Netwerkvereniging Coloclue
-202427:106:9044,Learned from Peer - BSE Software GmbH / SolNet
-202427:106:12307,Learned from Peer - Sandro Bolliger
-202427:106:13030,Learned from Peer - Init7
 202427:106:13335,Learned from Peer - Cloudflare, Inc.
 202427:106:15169,Learned from Peer - Google LLC
 202427:106:24940,Learned from Peer - Hetzner Online
 202427:106:25091,Learned from Peer - IP-Max
-202427:106:28859,Learned from Peer - acdalis informatik
 202427:106:30132,Learned from Peer - ISC F-ROOT AMS1
-202427:106:32590,Learned from Peer - Valve Corporation
 202427:106:32934,Learned from Peer - Meta Platforms, Inc.
-202427:106:34549,Learned from Peer - meerfarbig
-202427:106:35202,Learned from Peer - Sam Aschwanden
-202427:106:41732,Learned from Peer - HostingFuze Network
-202427:106:48646,Learned from Peer - Stefan Dunkel
-202427:106:48971,Learned from Peer - DATAWIRE AG
-202427:106:51019,Learned from Peer - Kjartan Hrafnkelsson
+202427:106:35297,Learned from Peer - Dataline Net
+202427:106:39614,Learned from Peer - Dawico
+202427:106:48200,Learned from Peer - Opteamax
+202427:106:48581,Learned from Peer - MythicalKitten
+202427:106:51019,Learned from Peer - KTT Iceland
+202427:106:58299,Learned from Peer - Openfactory
+202427:106:58511,Learned from Peer - Anycast Global Backbone
 202427:106:63949,Learned from Peer - Linode
 202427:106:200132,Learned from Peer - NetOne NL
 202427:106:203069,Learned from Peer - Thomas Riley Brown
-202427:106:203314,Learned from Peer - Hats Network
-202427:106:204035,Learned from Peer - oneCorp GmbH
-202427:106:207968,Learned from Peer - Raphael Peters
-202427:106:208328,Learned from Peer - Luigi Labate
-202427:106:211380,Learned from Peer - Simulhost Limited
 202427:106:212635,Learned from Peer - AS212635
 202427:106:212855,Learned from Peer - LUJE.net
-202427:106:213035,Learned from Peer - Serverion B.V.
-202427:106:213126,Learned from Peer - Andreas Fries
+202427:106:393577,Learned from Peer - Tritan Development
 # Peer
 202427:106:nnn,Learned from AS$0
 # IX
