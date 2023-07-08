@@ -1,23 +1,58 @@
 peeringdb-api-key: ${edge01-ams-peeringdb-api-key}
 log-file: /var/log/bird.log
+global-config: >
+ function reject_region_communitys() {
+   if ((202427, 112, 1) ~ bgp_large_community) then reject; # Not in Europe
+   if ((202427, 111, 2) ~ bgp_large_community) then reject; # Only North America
+ }
+ function reject_country_communitys() {
+   if ((202427, 114, 528) ~ bgp_large_community) then reject; # Not in Netherlands
+   if ((202427, 113, 124) ~ bgp_large_community) then reject; # Only Canada
+   if ((202427, 113, 276) ~ bgp_large_community) then reject; # Only Germany
+   if ((202427, 113, 380) ~ bgp_large_community) then reject; # Only Italy
+   if ((202427, 113, 578) ~ bgp_large_community) then reject; # Only Norway
+   if ((202427, 113, 756) ~ bgp_large_community) then reject; # Only in Switzerland
+   if ((202427, 113, 840) ~ bgp_large_community) then reject; # Only United States of America
+ }
+ function reject_pop_communitys() {
+   if ((202427, 116, 7) ~ bgp_large_community) then reject; # Not at AMS01
+   if ((202427, 115, 1) ~ bgp_large_community) then reject; # Only at NUE01
+   if ((202427, 115, 1) ~ bgp_large_community) then reject; # Only at FRA01
+   if ((202427, 115, 3) ~ bgp_large_community) then reject; # Only at ZHR01
+   if ((202427, 115, 4) ~ bgp_large_community) then reject; # Only at ZHR02
+   if ((202427, 115, 5) ~ bgp_large_community) then reject; # Only at MIL01
+   if ((202427, 115, 6) ~ bgp_large_community) then reject; # Only at DUS01
+   if ((202427, 115, 8) ~ bgp_large_community) then reject; # Only at OSL01
+   if ((202427, 115, 9) ~ bgp_large_community) then reject; # Only at YVR01
+   if ((202427, 115, 10) ~ bgp_large_community) then reject; # Only at YTO01
+   if ((202427, 115, 11) ~ bgp_large_community) then reject; # Only at FMT01
+   if ((202427, 115, 12) ~ bgp_large_community) then reject; # Only at Reserved
+   if ((202427, 115, 13) ~ bgp_large_community) then reject; # Only at Reserved
+   if ((202427, 115, 14) ~ bgp_large_community) then reject; # Only at Reserved
+   if ((202427, 115, 15) ~ bgp_large_community) then reject; # Only at Reserved
+ }
+ function reject_out_of_region() {
+   if ((202427, 103, 2) ~ bgp_large_community) then reject; # North America
+ }
 local-communities:
   - "202427:101:1"
-  - "202427:105:7"
+  - "202427:106:7" # Location Specific (PoP)
 add-on-import:
-  - "202427:102:528"
-  - "202427:103:7"
+  - "202427:102:528" # Location Specific (Country)
+  - "202427:103:1" # Location Specific (Region)
+  - "202427:104:7" # Location Specific (PoP)
 add-on-export:
-  - "202427:104:7"
+  - "202427:105:7" # Location Specific (PoP)
 asn: 202427
-prefixes:
+prefixes: # Location Specific
   - 2a06:a005:28e0::/48 # AS202427-BACKBONE-NETWORK
   - 2a06:a005:28e7::/48 # AS202427-BACKBONE-NETWORK
   - 2a0a:6040:2740::/43 # NL-AS202427
   - 2a0a:6040:27e0::/43 # EU-AS202427
  #- 2a07:54c2:b00b::/48 # ::/b00b collective
-router-id: 193.148.248.163
+router-id: 193.148.248.163 # Location Specific (PoP)
 irr-server: 128.241.192.40 # rr.ntt.net
-source6: 2a06:a005:28e7::1
+source6: 2a06:a005:28e7::1 # Location Specific (PoP)
 default-route: false
 blackhole-bogon-asns: true
 
@@ -42,7 +77,7 @@ peers:
     local-pref: 130
     listen6: 2001:7f8:10f::3:16bb:205
     add-on-import:
-      - "202427:107:3512"
+      - "202427:108:3512" # IX
     as-set: RADB::AS-HURRICANEV6
 
   # ========= Looking Glasses =========
@@ -85,13 +120,13 @@ peers:
 #    listen6: 2a0c:9a40:1072::419
 
   # ========= Internal =========
-  Core01 NUE:
-    template: core-wg
-    description: Core01 Router - Nuremberg, Germany
-    asn: 202427
-    neighbors:
-      - 2a06:a005:2ef1::1
-    listen6: 2a06:a005:2ef7::1
+#  Core01 NUE:
+#    template: core-wg
+#    description: Core01 Router - Nuremberg, Germany
+#    asn: 202427
+#    neighbors:
+#      - 2a06:a005:2ef1::1
+#    listen6: 2a06:a005:2ef7::1
 
   Edge01 FRA:
     template: core-l2
@@ -109,21 +144,21 @@ peers:
       - 2a06:a005:2904::1
     listen6: 2a06:a005:2907::1
 
-  Edge01 MIL:
-    template: core-wg
-    description: Edge01 Router - Milan, Italy
-    asn: 202427
-    neighbors:
-      - 2a06:a005:2ef5::1
-    listen6: 2a06:a005:2ef7::1
-
-  Edge01 DUS:
-    template: core-wg
-    description: Edge01 Router - Dusseldorf, Germany
-    asn: 202427
-    neighbors:
-      - 2a06:a005:2ef6::1
-    listen6: 2a06:a005:2ef7::1
+#  Edge01 MIL:
+#    template: core-wg
+#    description: Edge01 Router - Milan, Italy
+#    asn: 202427
+#    neighbors:
+#      - 2a06:a005:2ef5::1
+#    listen6: 2a06:a005:2ef7::1
+#
+#  Edge01 DUS:
+#    template: core-wg
+#    description: Edge01 Router - Dusseldorf, Germany
+#    asn: 202427
+#    neighbors:
+#      - 2a06:a005:2ef6::1
+#    listen6: 2a06:a005:2ef7::1
 
 #  Edge01 OSL:
 #    template: core-wg
@@ -134,29 +169,29 @@ peers:
 #      - 2a06:a005:2ef8::1
 #    listen6: 2a06:a005:2ef7::1
 
-  Edge01 YVR:
-    template: core-wg
-    description: Edge01 Router - Vancouver, Canada
-    asn: 202427
-    neighbors:
-      - 2a06:a005:2ef9::1
-    listen6: 2a06:a005:2ef7::1
+#  Edge01 YVR:
+#    template: core-wg
+#    description: Edge01 Router - Vancouver, Canada
+#    asn: 202427
+#    neighbors:
+#      - 2a06:a005:2ef9::1
+#    listen6: 2a06:a005:2ef7::1
 
-  Edge01 YTO:
-    template: core-wg
-    description: Edge01 Router - Toronto, Canada
-    asn: 202427
-    neighbors:
-      - 2a06:a005:2efa::1
-    listen6: 2a06:a005:2ef7::1
-
-  Edge01 FMT:
-    template: core-wg
-    description: Edge01 Router - Fremont, US
-    asn: 202427
-    neighbors:
-      - 2a06:a005:2efb::1
-    listen6: 2a06:a005:2ef7::1
+#  Edge01 YTO:
+#    template: core-wg
+#    description: Edge01 Router - Toronto, Canada
+#    asn: 202427
+#    neighbors:
+#      - 2a06:a005:2efa::1
+#    listen6: 2a06:a005:2ef7::1
+#
+#  Edge01 FMT:
+#    template: core-wg
+#    description: Edge01 Router - Fremont, US
+#    asn: 202427
+#    neighbors:
+#      - 2a06:a005:2efb::1
+#    listen6: 2a06:a005:2ef7::1
 
   # ========= Route Servers =========
   Frys-IX Route Server:
@@ -169,7 +204,7 @@ peers:
     local-pref: 220
     listen6: 2001:7f8:10f::3:16bb:205
     add-on-import:
-      - "202427:107:3512"
+      - "202427:108:3512" # IX
     as-set: AS-FRYS-IX-CONNECTED
 
   InterIX Route Server:
@@ -183,21 +218,21 @@ peers:
     local-pref: 220
     listen6: 2001:7f8:134::43
     add-on-import:
-      - "202427:107:3990"
+      - "202427:108:3990" # IX
     as-set: AS56584:AS-INTERIX
 
   # ========= Peers - Frys-IX =========
-  AS112 Frys-IX:
-    template: peer
-    description: AS112 via Frys-IX
-    asn: 112
-    neighbors:
-      - 2001:7f8:10f::70:252
-    local-pref: 320
-    listen6: 2001:7f8:10f::3:16bb:205
-    add-on-import:
-      - "202427:107:3512"
-    as-set: AS112
+#  AS112 Frys-IX:
+#    template: peer
+#    description: AS112 via Frys-IX
+#    asn: 112
+#    neighbors:
+#      - 2001:7f8:10f::70:252
+#    local-pref: 320
+#    listen6: 2001:7f8:10f::3:16bb:205
+#    add-on-import:
+#      - "202427:108:3512" # IX
+#    as-set: AS112
 
   Netwerkvereniging Coloclue Frys-IX:
     template: peer
@@ -209,7 +244,7 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:10f::3:16bb:205
     add-on-import:
-      - "202427:107:3512"
+      - "202427:108:3512" # IX
     as-set: AS8283:AS-COLOCLUE
 
   Cloudflare Frys-IX:
@@ -221,7 +256,7 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:10f::3:16bb:205
     add-on-import:
-      - "202427:107:3512"
+      - "202427:108:3512" # IX
     as-set: ARIN::AS13335:AS-CLOUDFLARE
 
   Google Frys-IX:
@@ -233,9 +268,9 @@ peers:
       - 2001:7f8:10f::3b41:220
     local-pref: 320
     listen6: 2001:7f8:10f::3:16bb:205
-    password: ${edge01-ams-google-frysix-password}
+    password: ${edge01-ams-as15169-frysix-password}
     add-on-import:
-      - "202427:107:3512"
+      - "202427:108:3512" # IX
     as-set: AS-GOOGLE
 
   IP-Max Frys-IX:
@@ -247,7 +282,7 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:10f::3:16bb:205
     add-on-import:
-      - "202427:107:3512"
+      - "202427:108:3512" # IX
     as-set: RIPE::AS-IP-MAX-V6
 
   ISC F-ROOT AMS1 Frys-IX:
@@ -259,7 +294,7 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:10f::3:16bb:205
     add-on-import:
-      - "202427:107:3512"
+      - "202427:108:3512" # IX
     as-set: RADB::AS30132:AS-SET
 
   Meta Frys-IX:
@@ -272,8 +307,20 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:10f::3:16bb:205
     add-on-import:
-      - "202427:107:3512"
+      - "202427:108:3512" # IX
     as-set: AS-FACEBOOK
+
+  Openfactory Frys-IX:
+    template: peer
+    description: Openfactory via Frys-IX
+    asn: 58299
+    neighbors:
+      - 2001:7f8:10f::e3bb:137
+    local-pref: 320
+    listen6: 2001:7f8:10f::3:16bb:205
+    add-on-import:
+      - "202427:108:3512" # IX
+    as-set: AS58299:AS-ALL
 
   NetOne NL Frys-IX:
     template: peer
@@ -284,7 +331,7 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:10f::3:16bb:205
     add-on-import:
-      - "202427:107:3512"
+      - "202427:108:3512" # IX
     as-set: AS-NETONE-NL
 
   AS212635 Frys-IX:
@@ -296,7 +343,7 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:10f::3:16bb:205
     add-on-import:
-      - "202427:107:3512"
+      - "202427:108:3512" # IX
     as-set: RIPE::AS212635:AS-212635
 
   LUJE.net Frys-IX:
@@ -308,166 +355,153 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:10f::3:16bb:205
     add-on-import:
-      - "202427:107:3512"
+      - "202427:108:3512" # IX
     as-set: RIPE::AS212855:AS-LUJE
 
 #========================
 
-  Valve Frys-IX:
-    template: peer
-    passive: true
-    description: Valve via Frys-IX
-    asn: 32590
-    neighbors:
-      - 2001:7f8:10f::7f4e:199
-    local-pref: 320
-    listen6: 2001:7f8:10f::3:16bb:205
-    add-on-import:
-      - "202427:107:3512"
-    as-set: RADB::AS-VALVE
+#  Valve Frys-IX:
+#    template: peer
+#    passive: true
+#    description: Valve via Frys-IX
+#    asn: 32590
+#    neighbors:
+#      - 2001:7f8:10f::7f4e:199
+#    local-pref: 320
+#    listen6: 2001:7f8:10f::3:16bb:205
+#    add-on-import:
+#      - "202427:108:3512" # IX
+#    as-set: RADB::AS-VALVE
 
-  Serverion Frys-IX:
-    template: peer
-    passive: true
-    description: Serverion via Frys-IX
-    asn: 213035
-    neighbors:
-      - 2001:7f8:10f::3:402b:174
-    local-pref: 320
-    listen6: 2001:7f8:10f::3:16bb:205
-    add-on-import:
-      - "202427:107:3512"
-    as-set: AS-SERVERION
+#  Serverion Frys-IX:
+#    template: peer
+#    passive: true
+#    description: Serverion via Frys-IX
+#    asn: 213035
+#    neighbors:
+#      - 2001:7f8:10f::3:402b:174
+#    local-pref: 320
+#    listen6: 2001:7f8:10f::3:16bb:205
+#    add-on-import:
+#      - "202427:108:3512" # IX
+#    as-set: AS-SERVERION
 
-  H2B IT Solutions Frys-IX:
-    template: peer
-    passive: true
-    description: H2B IT Solutions via Frys-IX
-    asn: 43414
-    neighbors:
-      - 2001:7f8:10f::a996:142
-    local-pref: 320
-    listen6: 2001:7f8:10f::3:16bb:205
-    add-on-import:
-      - "202427:107:3512"
-    as-set: RIPE::AS43414:AS-H2B
+#  H2B IT Solutions Frys-IX:
+#    template: peer
+#    passive: true
+#    description: H2B IT Solutions via Frys-IX
+#    asn: 43414
+#    neighbors:
+#      - 2001:7f8:10f::a996:142
+#    local-pref: 320
+#    listen6: 2001:7f8:10f::3:16bb:205
+#    add-on-import:
+#      - "202427:108:3512" # IX
+#    as-set: RIPE::AS43414:AS-H2B
 
-  H4Hosting Frys-IX:
-    template: peer
-    passive: true
-    description: H4Hosting via Frys-IX
-    asn: 51050
-    neighbors:
-      - 2001:7f8:10f::c76a:173
-    local-pref: 320
-    listen6: 2001:7f8:10f::3:16bb:205
-    add-on-import:
-      - "202427:107:3512"
-    as-set: AS-H4HOSTING
+#  H4Hosting Frys-IX:
+#    template: peer
+#    passive: true
+#    description: H4Hosting via Frys-IX
+#    asn: 51050
+#    neighbors:
+#      - 2001:7f8:10f::c76a:173
+#    local-pref: 320
+#    listen6: 2001:7f8:10f::3:16bb:205
+#    add-on-import:
+#      - "202427:108:3512" # IX
+#    as-set: AS-H4HOSTING
 
-  Solutions4XS Frys-IX:
-    template: peer
-    passive: true
-    description: Solutions4XS via Frys-IX
-    asn: 209288
-    neighbors:
-      - 2001:7f8:10f::3:3188:146
-    local-pref: 320
-    listen6: 2001:7f8:10f::3:16bb:205
-    add-on-import:
-      - "202427:107:3512"
-    as-set: AS-SOL4XS
+#  Solutions4XS Frys-IX:
+#    template: peer
+#    passive: true
+#    description: Solutions4XS via Frys-IX
+#    asn: 209288
+#    neighbors:
+#      - 2001:7f8:10f::3:3188:146
+#    local-pref: 320
+#    listen6: 2001:7f8:10f::3:16bb:205
+#    add-on-import:
+#      - "202427:108:3512" # IX
+#    as-set: AS-SOL4XS
 
-  WARIAN Frys-IX:
-    template: peer
-    passive: true
-    description: WARIAN via Frys-IX
-    asn: 56911
-    neighbors:
-      - 2001:7f8:10f::de4f:162
-    local-pref: 320
-    listen6: 2001:7f8:10f::3:16bb:205
-    add-on-import:
-      - "202427:107:3512"
-    as-set: AS56911:AS-WARIAN-EU
+#  WARIAN Frys-IX:
+#    template: peer
+#    passive: true
+#    description: WARIAN via Frys-IX
+#    asn: 56911
+#    neighbors:
+#      - 2001:7f8:10f::de4f:162
+#    local-pref: 320
+#    listen6: 2001:7f8:10f::3:16bb:205
+#    add-on-import:
+#      - "202427:108:3512" # IX
+#    as-set: AS56911:AS-WARIAN-EU
 
-  KoDDoS Frys-IX:
-    template: peer
-    passive: true
-    description: KoDDoS via Frys-IX
-    asn: 206264
-    neighbors:
-      - 2001:7f8:10f::3:25b8:159
-    local-pref: 320
-    listen6: 2001:7f8:10f::3:16bb:205
-    add-on-import:
-      - "202427:107:3512"
-    as-set: AS-KODDOS
+#  KoDDoS Frys-IX:
+#    template: peer
+#    passive: true
+#    description: KoDDoS via Frys-IX
+#    asn: 206264
+#    neighbors:
+#      - 2001:7f8:10f::3:25b8:159
+#    local-pref: 320
+#    listen6: 2001:7f8:10f::3:16bb:205
+#    add-on-import:
+#      - "202427:108:3512" # IX
+#    as-set: AS-KODDOS
 
-  Bakker IT Frys-IX:
-    template: peer
-    passive: true
-    description: Bakker IT via Frys-IX
-    asn: 44103
-    neighbors:
-      - 2001:7f8:10f::ac47:131
-    local-pref: 320
-    listen6: 2001:7f8:10f::3:16bb:205
-    add-on-import:
-      - "202427:107:3512"
-    as-set: AS-BAKKER-IT
+#  Bakker IT Frys-IX:
+#    template: peer
+#    passive: true
+#    description: Bakker IT via Frys-IX
+#    asn: 44103
+#    neighbors:
+#      - 2001:7f8:10f::ac47:131
+#    local-pref: 320
+#    listen6: 2001:7f8:10f::3:16bb:205
+#    add-on-import:
+#      - "202427:108:3512" # IX
+#    as-set: AS-BAKKER-IT
 
-  WD6.net Frys-IX:
-    template: peer
-    passive: true
-    description: WD6.net via Frys-IX
-    asn: 20495
-    neighbors:
-      - 2001:7f8:10f::500f:139
-    local-pref: 320
-    listen6: 2001:7f8:10f::3:16bb:205
-    add-on-import:
-      - "202427:107:3512"
-    as-set: AS-WEDARE
+#  WD6.net Frys-IX:
+#    template: peer
+#    passive: true
+#    description: WD6.net via Frys-IX
+#    asn: 20495
+#    neighbors:
+#      - 2001:7f8:10f::500f:139
+#    local-pref: 320
+#    listen6: 2001:7f8:10f::3:16bb:205
+#    add-on-import:
+#      - "202427:108:3512" # IX
+#    as-set: AS-WEDARE
 
-  Openfactory Frys-IX:
-    template: peer
-    passive: true
-    description: Openfactory via Frys-IX
-    asn: 58299
-    neighbors:
-      - 2001:7f8:10f::e3bb:137
-    local-pref: 320
-    listen6: 2001:7f8:10f::3:16bb:205
-    add-on-import:
-      - "202427:107:3512"
-    as-set: AS58299:AS-ALL
+#  Prolocation Frys-IX:
+#    template: peer
+#    passive: true
+#    description: Prolocation via Frys-IX
+#    asn: 41887
+#    neighbors:
+#      - 2001:7f8:10f::a39f:156
+#    local-pref: 320
+#    listen6: 2001:7f8:10f::3:16bb:205
+#    add-on-import:
+#      - "202427:108:3512" # IX
+#    as-set: RIPE::AS-PROLOCATION
 
-  Prolocation Frys-IX:
-    template: peer
-    passive: true
-    description: Prolocation via Frys-IX
-    asn: 41887
-    neighbors:
-      - 2001:7f8:10f::a39f:156
-    local-pref: 320
-    listen6: 2001:7f8:10f::3:16bb:205
-    add-on-import:
-      - "202427:107:3512"
-    as-set: RIPE::AS-PROLOCATION
-
-  KeenSystems Frys-IX:
-    template: peer
-    passive: true
-    description: KeenSystems via Frys-IX
-    asn: 199939
-    neighbors:
-      - 2001:7f8:10f::3:d03:222
-    local-pref: 320
-    listen6: 2001:7f8:10f::3:16bb:205
-    add-on-import:
-      - "202427:107:3512"
-    as-set: AS-KEENSYSTEMS
+#  KeenSystems Frys-IX:
+#    template: peer
+#    passive: true
+#    description: KeenSystems via Frys-IX
+#    asn: 199939
+#    neighbors:
+#      - 2001:7f8:10f::3:d03:222
+#    local-pref: 320
+#    listen6: 2001:7f8:10f::3:16bb:205
+#    add-on-import:
+#      - "202427:108:3512" # IX
+#    as-set: AS-KEENSYSTEMS
 
   # ========= Peers - InterIX =========
   Netwerkvereniging Coloclue InterIX:
@@ -479,7 +513,7 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:134::43
     add-on-import:
-      - "202427:107:3990"
+      - "202427:108:3990" # IX
     as-set: AS8283:AS-COLOCLUE
 
   Cloudflare InterIX:
@@ -491,7 +525,7 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:134::43
     add-on-import:
-      - "202427:107:3990"
+      - "202427:108:3990" # IX
     as-set: ARIN::AS13335:AS-CLOUDFLARE
 
   IP-Max InterIX:
@@ -503,8 +537,20 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:134::43
     add-on-import:
-      - "202427:107:3990"
+      - "202427:108:3990" # IX
     as-set: RIPE::AS-IP-MAX-V6
+
+  Openfactory InterIX:
+    template: peer
+    description: Openfactory via InterIX
+    asn: 58299
+    neighbors:
+      - 2001:7f8:134::13
+    local-pref: 320
+    listen6: 2001:7f8:134::43
+    add-on-import:
+      - "202427:108:3990" # IX
+    as-set: AS58299:AS-ALL
 
   AS212635 InterIX:
     template: peer
@@ -515,75 +561,62 @@ peers:
     local-pref: 320
     listen6: 2001:7f8:134::43
     add-on-import:
-      - "202427:107:3990"
+      - "202427:108:3990" # IX
     as-set: RIPE::AS212635:AS-212635
 
 #========================
 
-  Solutions4XS InterIX:
-    template: peer
-    passive: true
-    description: Solutions4XS via InterIX
-    asn: 209288
-    neighbors:
-      - 2001:7f8:134::17
-    local-pref: 320
-    listen6: 2001:7f8:134::43
-    add-on-import:
-      - "202427:107:3990"
-    as-set: AS-SOL4XS
+#  Solutions4XS InterIX:
+#    template: peer
+#    passive: true
+#    description: Solutions4XS via InterIX
+#    asn: 209288
+#    neighbors:
+#      - 2001:7f8:134::17
+#    local-pref: 320
+#    listen6: 2001:7f8:134::43
+#    add-on-import:
+#      - "202427:108:3990" # IX
+#    as-set: AS-SOL4XS
 
-  WARIAN InterIX:
-    template: peer
-    passive: true
-    description: WARIAN via InterIX
-    asn: 56911
-    neighbors:
-      - 2001:7f8:134::24
-    local-pref: 320
-    listen6: 2001:7f8:134::43
-    add-on-import:
-      - "202427:107:3990"
-    as-set: AS56911:AS-WARIAN-EU
+#  WARIAN InterIX:
+#    template: peer
+#    passive: true
+#    description: WARIAN via InterIX
+#    asn: 56911
+#    neighbors:
+#      - 2001:7f8:134::24
+#    local-pref: 320
+#    listen6: 2001:7f8:134::43
+#    add-on-import:
+#      - "202427:108:3990" # IX
+#    as-set: AS56911:AS-WARIAN-EU
 
-  KoDDoS InterIX:
-    template: peer
-    passive: true
-    description: KoDDoS via InterIX
-    asn: 206264
-    neighbors:
-      - 2001:7f8:134::92
-    local-pref: 320
-    listen6: 2001:7f8:134::43
-    add-on-import:
-      - "202427:107:3990"
-    as-set: AS-KODDOS
+#  KoDDoS InterIX:
+#    template: peer
+#    passive: true
+#    description: KoDDoS via InterIX
+#    asn: 206264
+#    neighbors:
+#      - 2001:7f8:134::92
+#    local-pref: 320
+#    listen6: 2001:7f8:134::43
+#    add-on-import:
+#      - "202427:108:3990" # IX
+#    as-set: AS-KODDOS
 
-  WD6.net InterIX:
-    template: peer
-    passive: true
-    description: WD6.net via InterIX
-    asn: 20495
-    neighbors:
-      - 2001:7f8:134::9
-    local-pref: 320
-    listen6: 2001:7f8:134::43
-    add-on-import:
-      - "202427:107:3990"
-    as-set: AS-WEDARE
-
-  Openfactory InterIX:
-    template: peer
-    passive: true
-    description: Openfactory via InterIX
-    asn: 58299
-    neighbors:
-      - 2001:7f8:134::13
-    local-pref: 320
-    listen6: 2001:7f8:134::43
-    add-on-import:
-      - "202427:107:3990"
-    as-set: AS58299:AS-ALL
+#  WD6.net InterIX:
+#    template: peer
+#    passive: true
+#    description: WD6.net via InterIX
+#    asn: 20495
+#    neighbors:
+#      - 2001:7f8:134::9
+#    local-pref: 320
+#    listen6: 2001:7f8:134::43
+#    add-on-import:
+#      - "202427:108:3990" # IX
+#    as-set: AS-WEDARE
 
 templates:
   upstream:
@@ -592,7 +625,12 @@ templates:
     add-path-rx: true
     pre-import-accept: >
      bgp_large_community.add((202427,101,2));
-     bgp_large_community.add((202427,106,<pathvector.asn>));
+     bgp_large_community.add((202427,107,<pathvector.asn>));
+    pre-export: >
+     reject_region_communitys();
+     reject_country_communitys();
+     reject_pop_communitys();
+     if ((202427, 110, <pathvector.asn>) ~ bgp_large_community) then reject;
     announce:
       - "202427:101:1"
       - "202427:101:5"
@@ -607,7 +645,12 @@ templates:
     add-path-rx: true
     pre-import-accept: >
      bgp_large_community.add((202427,101,3));
-     bgp_large_community.add((202427,106,<pathvector.asn>));
+     bgp_large_community.add((202427,107,<pathvector.asn>));
+    pre-export: >
+     reject_region_communitys();
+     reject_country_communitys();
+     reject_pop_communitys();
+     if ((202427, 110, <pathvector.asn>) ~ bgp_large_community) then reject;
     announce:
       - "202427:101:1"
       - "202427:101:5"
@@ -625,7 +668,12 @@ templates:
     add-path-rx: true
     pre-import-accept: >
      bgp_large_community.add((202427,101,4));
-     bgp_large_community.add((202427,106,<pathvector.asn>));
+     bgp_large_community.add((202427,107,<pathvector.asn>));
+    pre-export: >
+     reject_region_communitys();
+     reject_country_communitys();
+     reject_pop_communitys();
+     if ((202427, 110, <pathvector.asn>) ~ bgp_large_community) then reject;
     announce:
       - "202427:101:1"
       - "202427:101:5"
@@ -643,7 +691,12 @@ templates:
     add-path-rx: true
     pre-import-accept: >
      bgp_large_community.add((202427,101,5));
-     bgp_large_community.add((202427,106,<pathvector.asn>));
+     bgp_large_community.add((202427,107,<pathvector.asn>));
+    pre-export: >
+     reject_region_communitys();
+     reject_country_communitys();
+     reject_pop_communitys();
+     if ((202427, 110, <pathvector.asn>) ~ bgp_large_community) then reject;
     announce:
       - "202427:101:1"
       - "202427:101:2"
@@ -674,6 +727,7 @@ templates:
     prepends: 1
     local-pref: 180
     next-hop-self: true
+    allow-local-as: true
     add-path-tx: true
     add-path-rx: true
     announce:
@@ -681,27 +735,27 @@ templates:
       - "202427:101:4"
       - "202427:101:5"
     remove-communities:
-      - "202427:104:1"
-      - "202427:104:2"
-      - "202427:104:3"
-      - "202427:104:4"
-      - "202427:104:5"
-      - "202427:104:6"
-      - "202427:104:7"
-      - "202427:104:8"
-      - "202427:104:9"
-      - "202427:104:10"
-      - "202427:104:11"
-      - "202427:104:12"
-      - "202427:104:13"
-      - "202427:104:14"
-      - "202427:104:15"
+      - "202427:105:1"
+      - "202427:105:2"
+      - "202427:105:3"
+      - "202427:105:4"
+      - "202427:105:5"
+      - "202427:105:6"
+      - "202427:105:7"
+      - "202427:105:8"
+      - "202427:105:9"
+      - "202427:105:10"
+      - "202427:105:11"
+      - "202427:105:12"
+      - "202427:105:13"
+      - "202427:105:14"
+      - "202427:105:15"
     allow-blackhole-community: true
-    allow-local-as: true
 
   core-l2:
     local-pref: 190
     next-hop-self: true
+    allow-local-as: true
     add-path-tx: true
     add-path-rx: true
     announce:
@@ -709,21 +763,21 @@ templates:
       - "202427:101:4"
       - "202427:101:5"
     remove-communities:
-      - "202427:104:1"
-      - "202427:104:2"
-      - "202427:104:3"
-      - "202427:104:4"
-      - "202427:104:5"
-      - "202427:104:6"
-      - "202427:104:7"
-      - "202427:104:8"
-      - "202427:104:9"
-      - "202427:104:10"
-      - "202427:104:11"
-      - "202427:104:12"
-      - "202427:104:13"
-      - "202427:104:14"
-      - "202427:104:15"
+      - "202427:105:1"
+      - "202427:105:2"
+      - "202427:105:3"
+      - "202427:105:4"
+      - "202427:105:5"
+      - "202427:105:6"
+      - "202427:105:7"
+      - "202427:105:8"
+      - "202427:105:9"
+      - "202427:105:10"
+      - "202427:105:11"
+      - "202427:105:12"
+      - "202427:105:13"
+      - "202427:105:14"
+      - "202427:105:15"
     enforce-first-as: false
     allow-blackhole-community: true
-    allow-local-as: true
+    filter-rpki: false

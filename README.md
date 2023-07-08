@@ -152,9 +152,7 @@ Octets in the function field are the peeringdb id.
 | `202427:107:2365` | Learned at CHIX-CH |
 | `202427:107:2447` | Learned at 4b42 Internet Exchange Point |
 | `202427:107:2452` | Learned at UNM-Exch Canada-West |
-| `202427:107:2571` | Learned at SBIX ZRH |
 | `202427:107:2730` | Learned at LOCIX Dusseldorf |
-| `202427:107:2746` | Learned at IXP US FRE |
 | `202427:107:3512` | Learned at Frys-IX |
 | `202427:107:3528` | Learned at SIIX |
 | `202427:107:3685` | Learned at FREMIX |

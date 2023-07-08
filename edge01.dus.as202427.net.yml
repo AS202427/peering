@@ -1,22 +1,40 @@
 peeringdb-api-key: ${edge01-dus-peeringdb-api-key}
 log-file: /var/log/bird.log
+global-config: >
+ function reject_region_communitys() {
+   if ((202427, 112, 1) ~ bgp_large_community) then reject; # Not in Europe
+   if ((202427, 111, 2) ~ bgp_large_community) then reject; # Only North America
+ }
+ function reject_country_communitys() {
+   if ((202427, 114, 276) ~ bgp_large_community) then reject; # Not in Germany
+   if ((202427, 113, 124) ~ bgp_large_community) then reject; # Only Canada
+   if ((202427, 113, 380) ~ bgp_large_community) then reject; # Only Italy
+   if ((202427, 113, 528) ~ bgp_large_community) then reject; # Only Netherlands
+   if ((202427, 113, 578) ~ bgp_large_community) then reject; # Only Norway
+   if ((202427, 113, 756) ~ bgp_large_community) then reject; # Only in Switzerland
+   if ((202427, 113, 840) ~ bgp_large_community) then reject; # Only United States of America
+ }
+ function reject_out_of_region() {
+   if ((202427, 103, 2) ~ bgp_large_community) then reject; # North America
+ }
 local-communities:
   - "202427:101:1"
-  - "202427:105:6"
+  - "202427:106:6" # Location Specific (PoP)
 add-on-import:
-  - "202427:102:276"
-  - "202427:103:6"
+  - "202427:102:276" # Location Specific (Country)
+  - "202427:103:1" # Location Specific (Region)
+  - "202427:104:6" # Location Specific (PoP)
 add-on-export:
-  - "202427:104:6"
+  - "202427:105:6" # Location Specific (PoP)
 asn: 202427
-prefixes:
+prefixes: # Location Specific
   - 2a06:a005:28e0::/48 # AS202427-BACKBONE-NETWORK
   - 2a06:a005:28e6::/48 # AS202427-BACKBONE-NETWORK
   - 2a0a:6040:27e0::/43 # EU-AS202427
  #- 2a07:54c2:b00b::/48 # ::/b00b collective
-router-id: 194.28.99.48
+router-id: 194.28.99.48 # Location Specific (PoP)
 irr-server: 128.241.192.40 # rr.ntt.net
-source6: 2a06:a005:28e6::1
+source6: 2a06:a005:28e6::1 # Location Specific (PoP)
 default-route: false
 blackhole-bogon-asns: true
 
@@ -72,45 +90,45 @@ peers:
 #    listen6: 2a0c:b640:13:48::1
 
   # ========= Internal =========
-  Core01 NUE:
-    template: core-wg
-    description: Core01 Router - Nuremberg, Germany
-    asn: 202427
-    neighbors:
-      - 2a06:a005:2ef1::1
-    listen6: 2a06:a005:2ef6::1
-
-  Edge01 FRA:
-    template: core-wg
-    description: Edge01 Router - Frankfurt, Germany
-    asn: 202427
-    neighbors:
-      - 2a06:a005:2ef2::1
-    listen6: 2a06:a005:2ef6::1
-
-  Edge02 ZHR:
-    template: core-wg
-    description: Edge02 Router - Zurich, Switzerland
-    asn: 202427
-    neighbors:
-      - 2a06:a005:2ef4::1
-    listen6: 2a06:a005:2ef6::1
-
-  Edge01 MIL:
-    template: core-wg
-    description: Edge01 Router - Milan, Italy
-    asn: 202427
-    neighbors:
-      - 2a06:a005:2ef5::1
-    listen6: 2a06:a005:2ef6::1
-
-  Edge01 AMS:
-    template: core-wg
-    description: Edge01 Router - Amsterdam, Netherlands
-    asn: 202427
-    neighbors:
-      - 2a06:a005:2ef7::1
-    listen6: 2a06:a005:2ef6::1
+#  Core01 NUE:
+#    template: core-wg
+#    description: Core01 Router - Nuremberg, Germany
+#    asn: 202427
+#    neighbors:
+#      - 2a06:a005:2ef1::1
+#    listen6: 2a06:a005:2ef6::1
+#
+#  Edge01 FRA:
+#    template: core-wg
+#    description: Edge01 Router - Frankfurt, Germany
+#    asn: 202427
+#    neighbors:
+#      - 2a06:a005:2ef2::1
+#    listen6: 2a06:a005:2ef6::1
+#
+#  Edge02 ZHR:
+#    template: core-wg
+#    description: Edge02 Router - Zurich, Switzerland
+#    asn: 202427
+#    neighbors:
+#      - 2a06:a005:2ef4::1
+#    listen6: 2a06:a005:2ef6::1
+#
+#  Edge01 MIL:
+#    template: core-wg
+#    description: Edge01 Router - Milan, Italy
+#    asn: 202427
+#    neighbors:
+#      - 2a06:a005:2ef5::1
+#    listen6: 2a06:a005:2ef6::1
+#
+#  Edge01 AMS:
+#    template: core-wg
+#    description: Edge01 Router - Amsterdam, Netherlands
+#    asn: 202427
+#    neighbors:
+#      - 2a06:a005:2ef7::1
+#    listen6: 2a06:a005:2ef6::1
 
 #  Edge01 OSL:
 #    template: core-wg
@@ -121,29 +139,29 @@ peers:
 #      - 2a06:a005:2ef8::1
 #    listen6: 2a06:a005:2ef6::1
 
-  Edge01 YVR:
-    template: core-wg
-    description: Edge01 Router - Vancouver, Canada
-    asn: 202427
-    neighbors:
-      - 2a06:a005:2ef9::1
-    listen6: 2a06:a005:2ef6::1
-
-  Edge01 YTO:
-    template: core-wg
-    description: Edge01 Router - Toronto, Canada
-    asn: 202427
-    neighbors:
-      - 2a06:a005:2efa::1
-    listen6: 2a06:a005:2ef6::1
-
-  Edge01 FMT:
-    template: core-wg
-    description: Edge01 Router - Fremont, US
-    asn: 202427
-    neighbors:
-      - 2a06:a005:2efb::1
-    listen6: 2a06:a005:2ef6::1
+#  Edge01 YVR:
+#    template: core-wg
+#    description: Edge01 Router - Vancouver, Canada
+#    asn: 202427
+#    neighbors:
+#      - 2a06:a005:2ef9::1
+#    listen6: 2a06:a005:2ef6::1
+#
+#  Edge01 YTO:
+#    template: core-wg
+#    description: Edge01 Router - Toronto, Canada
+#    asn: 202427
+#    neighbors:
+#      - 2a06:a005:2efa::1
+#    listen6: 2a06:a005:2ef6::1
+#
+#  Edge01 FMT:
+#    template: core-wg
+#    description: Edge01 Router - Fremont, US
+#    asn: 202427
+#    neighbors:
+#      - 2a06:a005:2efb::1
+#    listen6: 2a06:a005:2ef6::1
 
   # ========= Route Servers =========
   LocIX Route Server:
@@ -156,7 +174,7 @@ peers:
     local-pref: 220
     listen6: 2a0c:b641:701:0:a5:20:2427:1
     add-on-import:
-      - "202427:107:2084"
+      - "202427:108:2084"
     as-set: AS-LOCIX
 
 #  IXPcat AMS01 Route Server:
@@ -169,7 +187,7 @@ peers:
 #    local-pref: 210
 #    listen6: 2001:7f8:d0:4e4c::3:16bb:1
 #    add-on-import:
-#      - "202427:107:2705"
+#      - "202427:108:2705"
 #    as-set: RIPE::AS-IXPS
 
   BGP.Exchange Route Server:
@@ -182,7 +200,7 @@ peers:
     local-pref: 220
     listen6: 2a0e:8f01:1000:46::115
     add-on-import:
-      - "202427:107:3844"
+      - "202427:108:3844"
     as-set: AS-BGPEXCHANGE
 
   # ========= Peers - LocIX =========
@@ -195,7 +213,7 @@ peers:
     local-pref: 320
     listen6: 2a0c:b641:701:0:a5:20:2427:1
     add-on-import:
-      - "202427:107:2730"
+      - "202427:108:2730"
     as-set: AS112
 
   IP-Max LocIX:
@@ -207,40 +225,11 @@ peers:
     local-pref: 320
     listen6: 2a0c:b641:701:0:a5:20:2427:1
     add-on-import:
-      - "202427:107:2730"
+      - "202427:108:2730"
     as-set: RIPE::AS-IP-MAX-V6
-
-#========================
-
-  meerfarbig LocIX:
-    template: peer
-    passive: true
-    description: meerfarbig via LocIX
-    asn: 34549
-    neighbors:
-      - 2a0c:b641:701::a120:4549:1
-    local-pref: 320
-    listen6: 2a0c:b641:701:0:a5:20:2427:1
-    add-on-import:
-      - "202427:107:2730"
-    as-set: AS-MEER
-
-  oneCorp LocIX:
-    template: peer
-    passive: true
-    description: oneCorp via LocIX
-    asn: 204035
-    neighbors:
-      - 2a0c:b641:701::20:4035:1
-    local-pref: 320
-    listen6: 2a0c:b641:701:0:a5:20:2427:1
-    add-on-import:
-      - "202427:107:2730"
-    as-set: AS-ONECORP
 
   Openfactory LocIX:
     template: peer
-    passive: true
     description: Openfactory via LocIX
     asn: 58299
     neighbors:
@@ -248,21 +237,49 @@ peers:
     local-pref: 320
     listen6: 2a0c:b641:701:0:a5:20:2427:1
     add-on-import:
-      - "202427:107:2730"
+      - "202427:108:2730"
     as-set: AS58299:AS-ALL
 
-  PHILUNET LocIX:
-    template: peer
-    passive: true
-    description: PHILUNET via LocIX
-    asn: 205112
-    neighbors:
-      - 2a0c:b641:701:0:a5:205:112:1
-    local-pref: 320
-    listen6: 2a0c:b641:701:0:a5:20:2427:1
-    add-on-import:
-      - "202427:107:2730"
-    as-set: RIPE::AS-PHILUNET
+#========================
+
+#  meerfarbig LocIX:
+#    template: peer
+#    passive: true
+#    description: meerfarbig via LocIX
+#    asn: 34549
+#    neighbors:
+#      - 2a0c:b641:701::a120:4549:1
+#    local-pref: 320
+#    listen6: 2a0c:b641:701:0:a5:20:2427:1
+#    add-on-import:
+#      - "202427:108:2730"
+#    as-set: AS-MEER
+
+#  oneCorp LocIX:
+#    template: peer
+#    passive: true
+#    description: oneCorp via LocIX
+#    asn: 204035
+#    neighbors:
+#      - 2a0c:b641:701::20:4035:1
+#    local-pref: 320
+#    listen6: 2a0c:b641:701:0:a5:20:2427:1
+#    add-on-import:
+#      - "202427:108:2730"
+#    as-set: AS-ONECORP
+
+#  PHILUNET LocIX:
+#    template: peer
+#    passive: true
+#    description: PHILUNET via LocIX
+#    asn: 205112
+#    neighbors:
+#      - 2a0c:b641:701:0:a5:205:112:1
+#    local-pref: 320
+#    listen6: 2a0c:b641:701:0:a5:20:2427:1
+#    add-on-import:
+#      - "202427:108:2730"
+#    as-set: RIPE::AS-PHILUNET
 
 templates:
   upstream:
@@ -271,7 +288,11 @@ templates:
     add-path-rx: true
     pre-import-accept: >
      bgp_large_community.add((202427,101,2));
-     bgp_large_community.add((202427,106,<pathvector.asn>));
+     bgp_large_community.add((202427,107,<pathvector.asn>));
+    pre-export: >
+     reject_region_communitys();
+     reject_country_communitys();
+     if ((202427, 110, <pathvector.asn>) ~ bgp_large_community) then reject;
     announce:
       - "202427:101:1"
       - "202427:101:5"
@@ -286,7 +307,11 @@ templates:
     add-path-rx: true
     pre-import-accept: >
      bgp_large_community.add((202427,101,3));
-     bgp_large_community.add((202427,106,<pathvector.asn>));
+     bgp_large_community.add((202427,107,<pathvector.asn>));
+    pre-export: >
+     reject_region_communitys();
+     reject_country_communitys();
+     if ((202427, 110, <pathvector.asn>) ~ bgp_large_community) then reject;
     announce:
       - "202427:101:1"
       - "202427:101:5"
@@ -304,7 +329,11 @@ templates:
     add-path-rx: true
     pre-import-accept: >
      bgp_large_community.add((202427,101,4));
-     bgp_large_community.add((202427,106,<pathvector.asn>));
+     bgp_large_community.add((202427,107,<pathvector.asn>));
+    pre-export: >
+     reject_region_communitys();
+     reject_country_communitys();
+     if ((202427, 110, <pathvector.asn>) ~ bgp_large_community) then reject;
     announce:
       - "202427:101:1"
       - "202427:101:5"
@@ -322,7 +351,11 @@ templates:
     add-path-rx: true
     pre-import-accept: >
      bgp_large_community.add((202427,101,5));
-     bgp_large_community.add((202427,106,<pathvector.asn>));
+     bgp_large_community.add((202427,107,<pathvector.asn>));
+    pre-export: >
+     reject_region_communitys();
+     reject_country_communitys();
+     if ((202427, 110, <pathvector.asn>) ~ bgp_large_community) then reject;
     announce:
       - "202427:101:1"
       - "202427:101:2"
@@ -353,6 +386,7 @@ templates:
     prepends: 1
     local-pref: 180
     next-hop-self: true
+    allow-local-as: true
     add-path-tx: true
     add-path-rx: true
     announce:
@@ -360,27 +394,27 @@ templates:
       - "202427:101:4"
       - "202427:101:5"
     remove-communities:
-      - "202427:104:1"
-      - "202427:104:2"
-      - "202427:104:3"
-      - "202427:104:4"
-      - "202427:104:5"
-      - "202427:104:6"
-      - "202427:104:7"
-      - "202427:104:8"
-      - "202427:104:9"
-      - "202427:104:10"
-      - "202427:104:11"
-      - "202427:104:12"
-      - "202427:104:13"
-      - "202427:104:14"
-      - "202427:104:15"
+      - "202427:105:1"
+      - "202427:105:2"
+      - "202427:105:3"
+      - "202427:105:4"
+      - "202427:105:5"
+      - "202427:105:6"
+      - "202427:105:7"
+      - "202427:105:8"
+      - "202427:105:9"
+      - "202427:105:10"
+      - "202427:105:11"
+      - "202427:105:12"
+      - "202427:105:13"
+      - "202427:105:14"
+      - "202427:105:15"
     allow-blackhole-community: true
-    allow-local-as: true
 
   core-l2:
     local-pref: 190
     next-hop-self: true
+    allow-local-as: true
     add-path-tx: true
     add-path-rx: true
     announce:
@@ -388,21 +422,21 @@ templates:
       - "202427:101:4"
       - "202427:101:5"
     remove-communities:
-      - "202427:104:1"
-      - "202427:104:2"
-      - "202427:104:3"
-      - "202427:104:4"
-      - "202427:104:5"
-      - "202427:104:6"
-      - "202427:104:7"
-      - "202427:104:8"
-      - "202427:104:9"
-      - "202427:104:10"
-      - "202427:104:11"
-      - "202427:104:12"
-      - "202427:104:13"
-      - "202427:104:14"
-      - "202427:104:15"
+      - "202427:105:1"
+      - "202427:105:2"
+      - "202427:105:3"
+      - "202427:105:4"
+      - "202427:105:5"
+      - "202427:105:6"
+      - "202427:105:7"
+      - "202427:105:8"
+      - "202427:105:9"
+      - "202427:105:10"
+      - "202427:105:11"
+      - "202427:105:12"
+      - "202427:105:13"
+      - "202427:105:14"
+      - "202427:105:15"
     enforce-first-as: false
     allow-blackhole-community: true
-    allow-local-as: true
+    filter-rpki: false
