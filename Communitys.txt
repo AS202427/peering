@@ -12,106 +12,152 @@
 202427:102:578,Learned in Norway
 202427:102:756,Learned in Switzerland
 202427:102:840,Learned in United States of America
+# Region
+202427:103:1,Learned in Europe
+202427:103:2,Learned in North America
 # PoP - Import
-202427:103:1,Learned at NUE01
-202427:103:2,Learned at FRA01
-202427:103:3,Learned at ZHR01
-202427:103:4,Learned at ZHR02
-202427:103:5,Learned at MIL01
-202427:103:6,Learned at DUS01
-202427:103:7,Learned at AMS01
-202427:103:8,Learned at OSL01
-202427:103:9,Learned at YVR01
-202427:103:10,Learned at YTO01
-202427:103:11,Learned at FMT01
+202427:104:1,Learned at NUE01
+202427:104:2,Learned at FRA01
+202427:104:3,Learned at ZHR01
+202427:104:4,Learned at ZHR02
+202427:104:5,Learned at MIL01
+202427:104:6,Learned at DUS01
+202427:104:7,Learned at AMS01
+202427:104:8,Learned at OSL01
+202427:104:9,Learned at YVR01
+202427:104:10,Learned at YTO01
+202427:104:11,Learned at FMT01
 # PoP - Export
-202427:104:1,Exported at NUE01
-202427:104:2,Exported at FRA01
-202427:104:3,Exported at ZHR01
-202427:104:4,Exported at ZHR02
-202427:104:5,Exported at MIL01
-202427:104:6,Exported at DUS01
-202427:104:7,Exported at AMS01
-202427:104:8,Exported at OSL01
-202427:104:9,Exported at YVR01
-202427:104:10,Exported at YTO01
-202427:104:11,Exported at FMT01
+202427:105:1,Exported at NUE01
+202427:105:2,Exported at FRA01
+202427:105:3,Exported at ZHR01
+202427:105:4,Exported at ZHR02
+202427:105:5,Exported at MIL01
+202427:105:6,Exported at DUS01
+202427:105:7,Exported at AMS01
+202427:105:8,Exported at OSL01
+202427:105:9,Exported at YVR01
+202427:105:10,Exported at YTO01
+202427:105:11,Exported at FMT01
 # PoP - Originated
-202427:105:1,Originated at NUE01
-202427:105:2,Originated at FRA01
-202427:105:3,Originated at ZHR01
-202427:105:4,Originated at ZHR02
-202427:105:5,Originated at MIL01
-202427:105:6,Originated at DUS01
-202427:105:7,Originated at AMS01
-202427:105:8,Originated at OSL01
-202427:105:9,Originated at YVR01
-202427:105:10,Originated at YTO01
-202427:105:11,Originated at FMT01
-# Peer - Transit provider
-202427:106:835,Learned from Transit - GoCodeIT Inc
-202427:106:6939,Learned from Transit - Hurricane Electric LLC
-202427:106:34872,Learned from Transit - Servperso Systems
-202427:106:34927,Learned from Transit - iFog GmbH
-202427:106:41051,Learned from Transit - Freetransit Project (Openfactory GmbH)
-202427:106:62513,Learned from Transit - GoCodeIT Inc
-202427:106:212271,Learned from Transit - Cinzia Tocci trading as C1V
-202427:106:212895,Learned from Transit - Johannes Ernst
-# Peer - IX Routeserver
-202427:106:24381,Learned from Routeserver - BGP.Exchange
-202427:106:34307,Learned from Routeserver - NL-ix
-202427:106:35708,Learned from Routeserver - 4b42 Internet Exchange Point
-202427:106:42476,Learned from Routeserver - SwissIX
-202427:106:47422,Learned from Routeserver - SBIX ZRH
-202427:106:47498,Learned from Routeserver - FogIXP
-202427:106:49245,Learned from Routeserver - SIIX
-202427:106:56393,Learned from Routeserver - Frys-IX
-202427:106:56584,Learned from Routeserver - INTERIX
-202427:106:57369,Learned from Routeserver - FREMIX / ONIX
-202427:106:65513,Learned from Routeserver - UNM-Exch Canada-West
-202427:106:202409,Learned from Routeserver - LOCIX Frankfurt, LOCIX Dusseldorf
-202427:106:212100,Learned from Routeserver - CHIX-CH
-# Peer - Peering
-202427:106:112,Learned from Peer - AS112 Project
-202427:106:714,Learned from Peer - Apple Inc.
-202427:106:4775,Learned from Peer - Globe Telecom
-202427:106:8283,Learned from Peer - Netwerkvereniging Coloclue
-202427:106:13335,Learned from Peer - Cloudflare, Inc.
-202427:106:15169,Learned from Peer - Google LLC
-202427:106:24940,Learned from Peer - Hetzner Online
-202427:106:25091,Learned from Peer - IP-Max
-202427:106:30132,Learned from Peer - ISC F-ROOT AMS1
-202427:106:32934,Learned from Peer - Meta Platforms, Inc.
-202427:106:35297,Learned from Peer - Dataline Net
-202427:106:39614,Learned from Peer - Dawico
-202427:106:48200,Learned from Peer - Opteamax
-202427:106:48581,Learned from Peer - MythicalKitten
-202427:106:51019,Learned from Peer - KTT Iceland
-202427:106:58299,Learned from Peer - Openfactory
-202427:106:58511,Learned from Peer - Anycast Global Backbone
-202427:106:63949,Learned from Peer - Linode
-202427:106:200132,Learned from Peer - NetOne NL
-202427:106:203069,Learned from Peer - Thomas Riley Brown
-202427:106:212635,Learned from Peer - AS212635
-202427:106:212855,Learned from Peer - LUJE.net
-202427:106:393577,Learned from Peer - Tritan Development
+202427:106:1,Originated at NUE01
+202427:106:2,Originated at FRA01
+202427:106:3,Originated at ZHR01
+202427:106:4,Originated at ZHR02
+202427:106:5,Originated at MIL01
+202427:106:6,Originated at DUS01
+202427:106:7,Originated at AMS01
+202427:106:8,Originated at OSL01
+202427:106:9,Originated at YVR01
+202427:106:10,Originated at YTO01
+202427:106:11,Originated at FMT01
 # Peer
-202427:106:nnn,Learned from AS$0
+202427:107:112,Learned from DNS-OARC-112
+202427:107:714,Learned from Apple Inc.
+202427:107:835,Learned from GoCodeIT AS835
+202427:107:4775,Learned from Globe Telecom
+202427:107:6939,Learned from Hurricane Electric
+202427:107:8283,Learned from Netwerkvereniging Coloclue
+202427:107:13335,Learned from Cloudflare
+202427:107:15169,Learned from Google LLC
+202427:107:24381,Learned from BGP.Exchange
+202427:107:24940,Learned from Hetzner Online
+202427:107:25091,Learned from IP-Max SA
+202427:107:30132,Learned from ISC F-ROOT AMS1
+202427:107:32934,Learned from Meta
+202427:107:34307,Learned from NL-ix Route Servers
+202427:107:34872,Learned from Servperso Systems Transit ASN
+202427:107:34927,Learned from FogNet - iFog GmbH
+202427:107:35297,Learned from Dataline Net
+202427:107:35708,Learned from 4b42 Internet Exchange Point Route Servers
+202427:107:39614,Learned from Dawico
+202427:107:41051,Learned from FREETRANSIT
+202427:107:42476,Learned from SwissIX Route Servers
+202427:107:47498,Learned from FogIXP Route Servers
+202427:107:48200,Learned from Opteamax GmbH
+202427:107:48581,Learned from MythicalKitten
+202427:107:49245,Learned from SIIX Route Servers
+202427:107:51019,Learned from KTT Iceland
+202427:107:56393,Learned from Frys-IX Route Servers
+202427:107:56584,Learned from InterIX
+202427:107:57369,Learned from CLDY Route Servers
+202427:107:58299,Learned from Openfactory GmbH
+202427:107:58511,Learned from Anycast Global Backbone
+202427:107:62513,Learned from GoCodeIT Inc
+202427:107:63949,Learned from Linode AS63949
+202427:107:200132,Learned from NetOne NL
+202427:107:202409,Learned from LOCIX Route Servers
+202427:107:203069,Learned from Thomas Riley Brown
+202427:107:212100,Learned from CHIX-CH Route Servers
+202427:107:212271,Learned from C1V - AS212271
+202427:107:212635,Learned from AS212635
+202427:107:212855,Learned from LUJE.net
+202427:107:212895,Learned from ROUTE64.ORG
+202427:107:393577,Learned from Tritan Development
+202427:107:nnn,Learned from AS$0
 # IX
-202427:107:60,Learned at SwissIX
-202427:107:64,Learned at NL-ix
-202427:107:2084,Learned at LOCIX Frankfurt
-202427:107:2365,Learned at CHIX-CH
-202427:107:2447,Learned at 4b42 Internet Exchange Point
-202427:107:2452,Learned at UNM-Exch Canada-West
-202427:107:2571,Learned at SBIX ZRH
-202427:107:2730,Learned at LOCIX Dusseldorf
-202427:107:3512,Learned at Frys-IX
-202427:107:3528,Learned at SIIX
-202427:107:3685,Learned at FREMIX
-202427:107:3756,Learned at FogIXP
-202427:107:3829,Learned at BGP.Exchange - Frankfurt
-202427:107:3830,Learned at BGP.Exchange - Zurich
-202427:107:3844,Learned at BGP.Exchange - Dusseldorf
-202427:107:3990,Learned at INTERIX
-202427:107:4059,Learned at ONIX
+202427:108:60,Learned at SwissIX
+202427:108:64,Learned at NL-ix
+202427:108:2084,Learned at LOCIX Frankfurt
+202427:108:2365,Learned at CHIX-CH
+202427:108:2447,Learned at 4b42 Internet Exchange Point
+202427:108:2452,Learned at UNM-Exch Canada-West
+202427:108:2571,Learned at SBIX ZRH
+202427:108:2730,Learned at LOCIX Dusseldorf
+202427:108:3512,Learned at Frys-IX
+202427:108:3528,Learned at SIIX
+202427:108:3685,Learned at FREMIX
+202427:108:3756,Learned at FogIXP
+202427:108:3829,Learned at BGP.Exchange - Frankfurt
+202427:108:3830,Learned at BGP.Exchange - Zurich
+202427:108:3844,Learned at BGP.Exchange - Dusseldorf
+202427:108:3990,Learned at INTERIX
+202427:108:4059,Learned at ONIX
+# Action
+202427:110:nnn,Do not announce to AS$0
+# Action - Announce in [Region] only
+202427:111:1,Announce in Europe only
+202427:111:2,Announce in North America only
+# Action - Do not announce in [Region]
+202427:112:1,Do not announce in Europe
+202427:112:2,Do not announce in North America
+# Action - Announce in [Country] only
+202427:113:124,Announce in Canada only
+202427:113:276,Announce in Germany only
+202427:113:380,Announce in Italy only
+202427:113:528,Announce in Netherlands only
+202427:113:578,Announce in Norway only
+202427:113:756,Announce in Switzerland only
+202427:113:840,Announce in United States of America only
+# Action - Do not announce in [Country]
+202427:114:124,Do not announce in Canada
+202427:114:276,Do not announce in Germany
+202427:114:380,Do not announce in Italy
+202427:114:528,Do not announce in Netherlands
+202427:114:578,Do not announce in Norway
+202427:114:756,Do not announce in Switzerland
+202427:114:840,Do not announce in United States of America
+# Action - Announce at [PoP] only
+202427:115:1,Announce at NUE01 only
+202427:115:2,Announce at FRA01 only
+202427:115:3,Announce at ZHR01 only
+202427:115:4,Announce at ZHR02 only
+202427:115:5,Announce at MIL01 only
+202427:115:6,Announce at DUS01 only
+202427:115:7,Announce at AMS01 only
+202427:115:8,Announce at OSL01 only
+202427:115:9,Announce at YVR01 only
+202427:115:10,Announce at YTO01 only
+202427:115:11,Announce at FMT01 only
+# Action - Do not announce at [PoP]
+202427:116:1,Do not announce at NUE01
+202427:116:2,Do not announce at FRA01
+202427:116:3,Do not announce at ZHR01
+202427:116:4,Do not announce at ZHR02
+202427:116:5,Do not announce at MIL01
+202427:116:6,Do not announce at DUS01
+202427:116:7,Do not announce at AMS01
+202427:116:8,Do not announce at OSL01
+202427:116:9,Do not announce at YVR01
+202427:116:10,Do not announce at YTO01
+202427:116:11,Do not announce at FMT01
