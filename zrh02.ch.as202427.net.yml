@@ -1,4 +1,4 @@
-peeringdb-api-key: ${edge02-zhr-peeringdb-api-key}
+peeringdb-api-key: ${zrh02-ch-pop-peeringdb-api-key}
 log-file: /var/log/bird.log
 global-config: >
   define pop_region = 1;
@@ -23,14 +23,14 @@ global-config: >
     if ((202427, 115, 1) ~ bgp_large_community) then reject "Only at rma01.ch";
     if ((202427, 115, 2) ~ bgp_large_community) then reject "Only at fra01.de";
     if ((202427, 115, 3) ~ bgp_large_community) then reject "Only at Reserved";
-    #if ((202427, 115, 4) ~ bgp_large_community) then reject "Only at zhr02.ch";
+    #if ((202427, 115, 4) ~ bgp_large_community) then reject "Only at zrh02.ch";
     if ((202427, 115, 5) ~ bgp_large_community) then reject "Only at mil01.it";
     if ((202427, 115, 6) ~ bgp_large_community) then reject "Only at dus01.de";
     if ((202427, 115, 7) ~ bgp_large_community) then reject "Only at ams01.nl";
     if ((202427, 115, 8) ~ bgp_large_community) then reject "Only at Reserved";
-    if ((202427, 115, 9) ~ bgp_large_community) then reject "Only at yvr01.ca";
-    if ((202427, 115, 10) ~ bgp_large_community) then reject "Only at yto01.ca";
-    if ((202427, 115, 11) ~ bgp_large_community) then reject "Only at fmt01.us";
+    if ((202427, 115, 9) ~ bgp_large_community) then reject "Only at van01.ca";
+    if ((202427, 115, 10) ~ bgp_large_community) then reject "Only at tor01.ca";
+    if ((202427, 115, 11) ~ bgp_large_community) then reject "Only at fnc01.us";
     if ((202427, 115, 12) ~ bgp_large_community) then reject "Only at Reserved";
     if ((202427, 115, 13) ~ bgp_large_community) then reject "Only at Reserved";
     if ((202427, 115, 14) ~ bgp_large_community) then reject "Only at Reserved";
@@ -66,9 +66,9 @@ prefixes: # Location Specific
   - 2a0a:6040:27e0::/43 # EU-AS202427
   - 2a0e:97c0:5b0::/44  # EU-AS202427-Securebit
  #- 2a07:54c2:b00b::/48 # ::/b00b collective
-router-id: 193.148.250.168 # Location Specific (PoP)
+router-id: 193.148.250.168 # PoP
 irr-server: 128.241.192.40 # rr.ntt.net
-source6: 2a06:a005:28e4::1 # Location Specific (PoP)
+source6: 2a06:a005:28e4::1 # PoP
 default-route: false
 blackhole-bogon-asns: true
 
@@ -137,25 +137,7 @@ peers:
     multihop: true
     listen4: 193.148.250.168
 
-#  HE Realtime:
-#    template: lg
-#    description: Hurricane Electric Route Collector
-#    disabled: false
-#    asn: 393338
-#    neighbors:
-#      - 2001:470:0:441::20
-#    multihop: true
-#    listen6: 2a06:a005:28e4::1
-
   # ========= Internal =========
-#  Core01 NUE:
-#    template: core-wg
-#    description: Core01 Router - Nuremberg, Germany
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2ef1::1
-#    listen6: 2a06:a005:2ef4::1
-
   Edge01 FRA:
     template: core-l2
     description: Edge01 Router - Frankfurt, Germany
@@ -165,22 +147,6 @@ peers:
     local-pref: 190
     listen6: 2a06:a005:2904::1
 
-#  Edge01 MIL:
-#    template: core-wg
-#    description: Edge01 Router - Milan, Italy
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2ef5::1
-#    listen6: 2a06:a005:2ef4::1
-#
-#  Edge01 DUS:
-#    template: core-wg
-#    description: Edge01 Router - Dusseldorf, Germany
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2ef6::1
-#    listen6: 2a06:a005:2ef4::1
-
   Edge01 AMS:
     template: core-l2
     description: Edge01 Router - Amsterdam, Netherlands
@@ -189,39 +155,6 @@ peers:
       - 2a06:a005:2907::1
     local-pref: 190
     listen6: 2a06:a005:2904::1
-
-#  Edge01 OSL:
-#    template: core-wg
-#    description: Edge01 Router - Oslo, Norway
-#    disabled: true
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2ef8::1
-#    listen6: 2a06:a005:2ef4::1
-
-#  Edge01 YVR:
-#    template: core-wg
-#    description: Edge01 Router - Vancouver, Canada
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2ef9::1
-#    listen6: 2a06:a005:2ef4::1
-
-#  Edge01 YTO:
-#    template: core-wg
-#    description: Edge01 Router - Toronto, Canada
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2efa::1
-#    listen6: 2a06:a005:2ef4::1
-#
-#  Edge01 FMT:
-#    template: core-wg
-#    description: Edge01 Router - Fremont, US
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2efb::1
-#    listen6: 2a06:a005:2ef4::1
 
   # ========= Route Servers =========
   CHIX-CH Route Server:
@@ -314,188 +247,6 @@ peers:
     add-on-import:
       - "202427:108:2365" # IX
     as-set: RIPE::AS-TWOPEAKS
-
-#  SolNet CHIX-CH:
-#    template: peer
-#    passive: true
-#    description: SolNet via CHIX-CH
-#    asn: 9044
-#    neighbors:
-#      - 2001:7f8:cc:333::152
-#    local-pref: 320
-#    listen6: 2001:7f8:cc:333::182
-#    add-on-import:
-#      - "202427:108:2365" # IX
-#    as-set: AS-SOLNET
-
-#  Sandro Bolliger CHIX-CH:
-#    template: peer
-#    description: Sandro Bolliger via CHIX-CH
-#    asn: 12307
-#    neighbors:
-#      - 2001:7f8:cc:333::155
-#    local-pref: 320
-#    listen6: 2001:7f8:cc:333::182
-#    password: ${edge02-zhr-as12307-chix-password}
-#    add-on-import:
-#      - "202427:108:2365" # IX
-#    as-set: AS-RAVANA
-
-#  Init7 CHIX-CH:
-#    template: peer
-#    passive: true
-#    description: Init7 via CHIX-CH
-#    asn: 13030
-#    neighbors:
-#      - 2001:7f8:cc:333::177
-#    local-pref: 320
-#    listen6: 2001:7f8:cc:333::182
-#    add-on-import:
-#      - "202427:108:2365" # IX
-#    as-set: RIPE::AS-INIT7
-
-#  acdalis informatik CHIX-CH:
-#    template: peer
-#    passive: true
-#    description: acdalis informatik via CHIX-CH
-#    asn: 28859
-#    neighbors:
-#      - 2001:7f8:cc:333::144
-#    local-pref: 320
-#    listen6: 2001:7f8:cc:333::182
-#    add-on-import:
-#      - "202427:108:2365" # IX
-#    as-set: AS28859
-
-#  meerfarbig CHIX-CH:
-#    template: peer
-#    passive: true
-#    description: meerfarbig via CHIX-CH
-#    asn: 34549
-#    neighbors:
-#      - 2001:7f8:cc:333::146
-#    local-pref: 320
-#    listen6: 2001:7f8:cc:333::182
-#    add-on-import:
-#      - "202427:108:2365" # IX
-#    as-set: AS-MEER
-
-#  Sam Aschwanden CHIX-CH:
-#    template: peer
-#    passive: true
-#    description: Sam Aschwanden via CHIX-CH
-#    asn: 35202
-#    neighbors:
-#      - 2001:7f8:cc:333::143
-#    local-pref: 320
-#    listen6: 2001:7f8:cc:333::182
-#    add-on-import:
-#      - "202427:108:2365" # IX
-#    as-set: AS-OTG
-
-#  Stefan Dunkel CHIX-CH:
-#    template: peer
-#    passive: true
-#    description: Stefan Dunkel via CHIX-CH
-#    asn: 48646
-#    neighbors:
-#      - 2001:7f8:cc:333::140
-#    local-pref: 320
-#    listen6: 2001:7f8:cc:333::182
-#    add-on-import:
-#      - "202427:108:2365" # IX
-#    as-set: AS-STEFANDUNKEL
-
-#  DATAWIRE CHIX-CH:
-#    template: peer
-#    passive: true
-#    description: DATAWIRE via CHIX-CH
-#    asn: 48971
-#    neighbors:
-#      - 2001:7f8:cc:333::131
-#    local-pref: 320
-#    listen6: 2001:7f8:cc:333::182
-#    add-on-import:
-#      - "202427:108:2365" # IX
-#    as-set: AS-DATAWIRE
-
-#  Hats Network CHIX-CH:
-#    template: peer
-#    passive: true
-#    description: Hats Network via CHIX-CH
-#    asn: 203314
-#    neighbors:
-#      - 2001:7f8:cc:333::174
-#    local-pref: 320
-#    listen6: 2001:7f8:cc:333::182
-#    add-on-import:
-#      - "202427:108:2365" # IX
-#    as-set: AS203314:AS-HATS
-
-#  Raphael Peters CHIX-CH:
-#    template: peer
-#    passive: true
-#    description: Raphael Peters via CHIX-CH
-#    asn: 207968
-#    neighbors:
-#      - 2001:7f8:cc:333::157
-#    local-pref: 320
-#    listen6: 2001:7f8:cc:333::182
-#    add-on-import:
-#      - "202427:108:2365" # IX
-#    as-set: RIPE::AS-RAPPET
-
-#  Andreas Fries CHIX-CH:
-#    template: peer
-#    passive: true
-#    description: Andreas Fries via CHIX-CH
-#    asn: 213126
-#    neighbors:
-#      - 2001:7f8:cc:333::148
-#    local-pref: 320
-#    listen6: 2001:7f8:cc:333::182
-#    add-on-import:
-#      - "202427:108:2365" # IX
-#    as-set: AS213126
-
-#  level66.network CHIX-CH:
-#    template: peer
-#    passive: true
-#    description: level66.network via CHIX-CH
-#    asn: 56381
-#    neighbors:
-#      - 2001:7f8:cc:333::167
-#    local-pref: 320
-#    listen6: 2001:7f8:cc:333::182
-#    add-on-import:
-#      - "202427:108:2365" # IX
-#    as-set: AS56381:AS-ALL
-
-#  efero CHIX-CH:
-#    template: peer
-#    passive: true
-#    description: efero via CHIX-CH
-#    asn: 208431
-#    neighbors:
-#      - 2001:7f8:cc:333::184
-#    local-pref: 320
-#    listen6: 2001:7f8:cc:333::182
-#    add-on-import:
-#      - "202427:108:2365" # IX
-#    as-set: AS-EFERO
-
-#  Asympto Networks CHIX-CH:
-#    template: peer
-#    passive: true
-#    description: Asympto Networks via CHIX-CH
-#    asn: 39533
-#    neighbors:
-#      - 2001:7f8:cc:333::149
-#    local-pref: 320
-#    listen6: 2001:7f8:cc:333::182
-#    add-on-import:
-#      - "202427:108:2365" # IX
-#    as-set: AS39533:AS-ALL
 
   # ========= Peers - SwissIX =========
   Netwerkvereniging Coloclue SwissIX:
@@ -618,6 +369,8 @@ peers:
     as-set: AS-AKAMAI
     pre-export-final: >
      reject_out_of_region();
+
+
 
 templates:
   upstream:
