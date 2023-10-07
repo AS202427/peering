@@ -55,6 +55,7 @@ Octets in the function field are the numeric country identifier defined by ISO 3
 | `202427:104:5` | Learned at POM01, IT |
 | `202427:104:6` | Learned at DUS01, DE |
 | `202427:104:7` | Learned at AMS01, NL |
+| `202427:105:8` | Learned at RESERVED, EU |
 | `202427:104:9` | Learned at VAN01, CA |
 | `202427:104:10` | Learned at TOR01, CA |
 | `202427:104:11` | Learned at FNC01, US |
@@ -75,6 +76,7 @@ Octets in the function field are the numeric country identifier defined by ISO 3
 | `202427:105:5` | Exported at POM01, IT |
 | `202427:105:6` | Exported at DUS01, DE |
 | `202427:105:7` | Exported at AMS01, NL |
+| `202427:105:8` | Exported at RESERVED, EU |
 | `202427:105:9` | Exported at VAN01, CA |
 | `202427:105:10` | Exported at TOR01, CA |
 | `202427:105:11` | Exported at FNC01, US |
