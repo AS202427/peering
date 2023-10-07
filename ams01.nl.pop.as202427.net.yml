@@ -40,15 +40,17 @@ global-config: >
   function reject_out_of_region() {
     if ! ((202427, 103, pop_region) ~ bgp_large_community) then reject "Out of Region PoP";
   }
+  function add_on_import() {
+    bgp_large_community.add((202427, 102, pop_country));
+    bgp_large_community.add((202427, 103, pop_region));
+    bgp_large_community.add((202427, 104, pop_id));
+  }
+  function add_on_export() {
+    bgp_large_community.add((202427, 105, pop_id));
+  }
 local-communities:
   - "202427:101:1"
   - "202427:106:7" # PoP
-add-on-import:
-  - "202427:102:528" # Country
-  - "202427:103:1" # Region
-  - "202427:104:7" # PoP
-add-on-export:
-  - "202427:105:7" # PoP
 asn: 202427
 prefixes: # Location Specific
   - 2a0a:6040:2740::/43 # NL-AS202427
@@ -367,6 +369,7 @@ templates:
     add-path-tx: true
     add-path-rx: true
     pre-import-accept: >
+     add_on_import();
      bgp_large_community.add((202427,101,2));
      bgp_large_community.add((202427,107,<pathvector.asn>));
     pre-export: >
@@ -374,6 +377,7 @@ templates:
      reject_country_communitys();
      reject_pop_communitys();
      if ((202427, 110, <pathvector.asn>) ~ bgp_large_community) then reject;
+     add_on_export();
     announce:
       - "202427:101:1"
       - "202427:101:5"
@@ -387,6 +391,7 @@ templates:
     add-path-tx: true
     add-path-rx: true
     pre-import-accept: >
+     add_on_import();
      bgp_large_community.add((202427,101,3));
      bgp_large_community.add((202427,107,<pathvector.asn>));
     pre-export: >
@@ -394,6 +399,7 @@ templates:
      reject_country_communitys();
      reject_pop_communitys();
      if ((202427, 110, <pathvector.asn>) ~ bgp_large_community) then reject;
+     add_on_export();
     announce:
       - "202427:101:1"
       - "202427:101:5"
@@ -410,6 +416,7 @@ templates:
     add-path-tx: true
     add-path-rx: true
     pre-import-accept: >
+     add_on_import();
      bgp_large_community.add((202427,101,4));
      bgp_large_community.add((202427,107,<pathvector.asn>));
     pre-export: >
@@ -417,6 +424,7 @@ templates:
      reject_country_communitys();
      reject_pop_communitys();
      if ((202427, 110, <pathvector.asn>) ~ bgp_large_community) then reject;
+     add_on_export();
     announce:
       - "202427:101:1"
       - "202427:101:5"
@@ -425,7 +433,7 @@ templates:
     filter-irr: true
     strict-rpki: true
     filter-transit-asns: true
-    auto-import-limits: true
+    #auto-import-limits: true
     role: peer
 
   downstream:
@@ -433,6 +441,7 @@ templates:
     add-path-tx: true
     add-path-rx: true
     pre-import-accept: >
+     add_on_import();
      bgp_large_community.add((202427,101,5));
      bgp_large_community.add((202427,107,<pathvector.asn>));
     pre-export: >
@@ -440,6 +449,7 @@ templates:
      reject_country_communitys();
      reject_pop_communitys();
      if ((202427, 110, <pathvector.asn>) ~ bgp_large_community) then reject;
+     add_on_export();
     announce:
       - "202427:101:1"
       - "202427:101:2"
@@ -457,6 +467,10 @@ templates:
   lg:
     mp-unicast-46: true
     add-path-tx: true
+    pre-import-accept: >
+     add_on_import();
+    pre-export: >
+     add_on_export();
     announce:
       - "202427:101:1"
       - "202427:101:2"
@@ -473,6 +487,10 @@ templates:
     allow-local-as: true
     add-path-tx: true
     add-path-rx: true
+    pre-import-accept: >
+     add_on_import();
+    pre-export: >
+     add_on_export();
     announce:
       - "202427:101:3"
       - "202427:101:4"
@@ -501,6 +519,10 @@ templates:
     allow-local-as: true
     add-path-tx: true
     add-path-rx: true
+    pre-import-accept: >
+     add_on_import();
+    pre-export: >
+     add_on_export();
     announce:
       - "202427:101:3"
       - "202427:101:4"
