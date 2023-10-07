@@ -18,7 +18,7 @@ Informational BGP communities offer insight into AS202427's routing policies.
 | `202427:101:4` | Learned from peer |
 | `202427:101:5` | Learned from customer |
 
-#### Region
+#### Country
 
 Octets in the function field are the numeric country identifier defined by ISO 3166-1.
 
@@ -32,53 +32,72 @@ Octets in the function field are the numeric country identifier defined by ISO 3
 | `202427:102:756` | Learned in Switzerland |
 | `202427:102:840` | Learned in United States of America |
 
-#### Site - Import
+#### Region
 
 | Community | Description |
 | --------- | ----------- |
-| `202427:103:1` | Learned at Core01 Nuremberg, DE |
-| `202427:103:2` | Learned at Edge01 Frankfurt, DE |
-| `202427:103:3` | Learned at Edge01 Zurich, CH |
-| `202427:103:4` | Learned at Edge02 Zurich, CH |
-| `202427:103:5` | Learned at Edge01 Milan, IT |
-| `202427:103:6` | Learned at Edge01 Dusseldorf, DE |
-| `202427:103:7` | Learned at Edge01 Amsterdam, NL |
-| `202427:103:8` | Learned at Edge01 Oslo, NO |
-| `202427:103:9` | Learned at Edge01 Vancouver, CA |
-| `202427:103:10` | Learned at Edge01 Toronto, CA |
-| `202427:103:11` | Learned at Edge01 Fremont, US |
+| `202427:103:1` | Learned in Europe |
+| `202427:103:2` | Learned in North America |
 
-#### Site - Export
+#### PoP
+
+##### Import
 
 | Community | Description |
 | --------- | ----------- |
-| `202427:103:1` | Exported at Core01 Nuremberg, DE |
-| `202427:103:2` | Exported at Edge01 Frankfurt, DE |
-| `202427:103:3` | Exported at Edge01 Zurich, CH |
-| `202427:103:4` | Exported at Edge02 Zurich, CH |
-| `202427:103:5` | Exported at Edge01 Milan, IT |
-| `202427:103:6` | Exported at Edge01 Dusseldorf, DE |
-| `202427:103:7` | Exported at Edge01 Amsterdam, NL |
-| `202427:103:8` | Exported at Edge01 Oslo, NO |
-| `202427:103:9` | Exported at Edge01 Vancouver, CA |
-| `202427:103:10` | Exported at Edge01 Toronto, CA |
-| `202427:103:11` | Exported at Edge01 Fremont, US |
+| `202427:104:1` | Learned at RMA01, CH |
+| `202427:104:2` | Learned at FRA01, DE |
+| `202427:104:3` | Learned at RESERVED, EU |
+| `202427:104:4` | Learned at ZHR02, CH |
+| `202427:104:5` | Learned at MIL01, IT |
+| `202427:104:6` | Learned at DUS01, DE |
+| `202427:104:7` | Learned at AMS01, NL |
+| `202427:104:9` | Learned at YVR01, CA |
+| `202427:104:10` | Learned at YTO01, CA |
+| `202427:104:11` | Learned at FMT01, US |
+| `202427:104:12` | Learned at RESERVED, EU |
+| `202427:104:13` | Learned at RESERVED, EU |
+| `202427:104:14` | Learned at RESERVED, EU |
+| `202427:104:15` | Learned at RESERVED, EU |
 
-#### Site - Originated
+##### Export
 
 | Community | Description |
 | --------- | ----------- |
-| `202427:103:1` | Originated at Core01 Nuremberg, DE |
-| `202427:103:2` | Originated at Edge01 Frankfurt, DE |
-| `202427:103:3` | Originated at Edge01 Zurich, CH |
-| `202427:103:4` | Originated at Edge02 Zurich, CH |
-| `202427:103:5` | Originated at Edge01 Milan, IT |
-| `202427:103:6` | Originated at Edge01 Dusseldorf, DE |
-| `202427:103:7` | Originated at Edge01 Amsterdam, NL |
-| `202427:103:8` | Originated at Edge01 Oslo, NO |
-| `202427:103:9` | Originated at Edge01 Vancouver, CA |
-| `202427:103:10` | Originated at Edge01 Toronto, CA |
-| `202427:103:11` | Originated at Edge01 Fremont, US |
+| `202427:105:1` | Exported at RMA01, CH |
+| `202427:105:2` | Exported at FRA01, DE |
+| `202427:105:3` | Exported at RESERVED, EU |
+| `202427:105:4` | Exported at ZHR02, CH |
+| `202427:105:5` | Exported at MIL01, IT |
+| `202427:105:6` | Exported at DUS01, DE |
+| `202427:105:7` | Exported at AMS01, NL |
+| `202427:105:9` | Exported at YVR01, CA |
+| `202427:105:10` | Exported at YTO01, CA |
+| `202427:105:11` | Exported at FMT01, US |
+| `202427:105:12` | Exported at RESERVED, EU |
+| `202427:105:13` | Exported at RESERVED, EU |
+| `202427:105:14` | Exported at RESERVED, EU |
+| `202427:105:15` | Exported at RESERVED, EU |
+
+
+##### Originated
+
+| Community | Description |
+| --------- | ----------- |
+| `202427:106:1` | Originated at RMA01, CH |
+| `202427:106:2` | Originated at FRA01, DE |
+| `202427:106:3` | Originated at RESERVED, EU |
+| `202427:106:4` | Originated at ZHR02, CH |
+| `202427:106:5` | Originated at MIL01, IT |
+| `202427:106:6` | Originated at DUS01, DE |
+| `202427:106:7` | Originated at AMS01, NL |
+| `202427:106:9` | Originated at YVR01, CA |
+| `202427:106:10` | Originated at YTO01, CA |
+| `202427:106:11` | Originated at FMT01, US |
+| `202427:106:12` | Originated at RESERVED, EU |
+| `202427:106:13` | Originated at RESERVED, EU |
+| `202427:106:14` | Originated at RESERVED, EU |
+| `202427:106:15` | Originated at RESERVED, EU |
 
 #### Peer
 
