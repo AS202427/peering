@@ -30,7 +30,7 @@ global-config: >
     if ((202427, 115, 8) ~ bgp_large_community) then reject "Only at Reserved";
     if ((202427, 115, 9) ~ bgp_large_community) then reject "Only at van01.ca";
     #if ((202427, 115, 10) ~ bgp_large_community) then reject "Only at tor01.ca";
-    if ((202427, 115, 11) ~ bgp_large_community) then reject "Only at fmt01.us";
+    if ((202427, 115, 11) ~ bgp_large_community) then reject "Only at fnc01.us";
     if ((202427, 115, 12) ~ bgp_large_community) then reject "Only at Reserved";
     if ((202427, 115, 13) ~ bgp_large_community) then reject "Only at Reserved";
     if ((202427, 115, 14) ~ bgp_large_community) then reject "Only at Reserved";
