@@ -233,18 +233,25 @@ Octets in the function field are the peeringdb id.
 | `190` | PNI     |
 
 # Action 
+
 | Community | Description |
 | --------- | ----------- |
 | `202427:111:REGION_ID` | Announce Only in Region (REGION_ID) |
 | `202427:111:1` | Announce Only in Europe |
 | `202427:111:2` | Announce Only in North America |
 
+| Community | Description |
+| --------- | ----------- |
 | `202427:112:REGION_ID` | Announce not in Region (REGION_ID) |
 | `202427:112:1` | Announce not in Europe |
 | `202427:112:2` | Announce not in North America |
 
+| Community | Description |
+| --------- | ----------- |
 | `202427:113:COUNTRY_ID` | Announce Only in Country (COUNTRY_ID) |
 | `202427:114:COUNTRY_ID` | Announce not in Country (COUNTRY_ID) |
 
+| Community | Description |
+| --------- | ----------- |
 | `202427:115:POP_ID` | Announce Only at PoP (POP_ID) |
 | `202427:116:POP_ID` | Announce not at PoP (POP_ID) |
