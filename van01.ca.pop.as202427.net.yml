@@ -28,8 +28,8 @@ global-config: >
     if ((202427, 115, 6) ~ bgp_large_community) then reject "Only at dus01.de";
     if ((202427, 115, 7) ~ bgp_large_community) then reject "Only at ams01.nl";
     if ((202427, 115, 8) ~ bgp_large_community) then reject "Only at Reserved";
-    #if ((202427, 115, 9) ~ bgp_large_community) then reject "Only at yvr01.ca";
-    if ((202427, 115, 10) ~ bgp_large_community) then reject "Only at yto01.ca";
+    #if ((202427, 115, 9) ~ bgp_large_community) then reject "Only at van01.ca";
+    if ((202427, 115, 10) ~ bgp_large_community) then reject "Only at tor01.ca";
     if ((202427, 115, 11) ~ bgp_large_community) then reject "Only at fmt01.us";
     if ((202427, 115, 12) ~ bgp_large_community) then reject "Only at Reserved";
     if ((202427, 115, 13) ~ bgp_large_community) then reject "Only at Reserved";
@@ -42,22 +42,22 @@ global-config: >
   }
 local-communities:
   - "202427:101:1"
-  - "202427:106:9" # Location Specific (PoP)
+  - "202427:106:9" # PoP
 add-on-import:
-  - "202427:102:124" # Location Specific (Country)
-  - "202427:103:2" # Location Specific (Region)
-  - "202427:104:9" # Location Specific (PoP)
+  - "202427:102:124" # Country
+  - "202427:103:2" # Region
+  - "202427:104:9" # PoP
 add-on-export:
-  - "202427:105:9" # Location Specific (PoP)
+  - "202427:105:9" # PoP
 asn: 202427
 prefixes: # Location Specific
   - 2a06:a005:28e0::/48 # AS202427-BACKBONE-NETWORK
   - 2a06:a005:28e9::/48 # AS202427-BACKBONE-NETWORK
   - 2a0a:6040:27e0::/43 # EU-AS202427
  #- 2a07:54c2:b00b::/48 # ::/b00b collective
-router-id: 23.154.81.124 # Location Specific (PoP)
+router-id: 23.154.81.124 # PoP
 irr-server: 128.241.192.40 # rr.ntt.net
-source6: 2a06:a005:28e9::1 # Location Specific (PoP)
+source6: 2a06:a005:28e9::1 # PoP
 default-route: false
 blackhole-bogon-asns: true
 
@@ -116,90 +116,6 @@ peers:
     multihop: true
     listen4: 23.154.81.124
 
-#  HE Realtime:
-#    template: lg
-#    description: Hurricane Electric Route Collector
-#    disabled: true
-#    asn: 393338
-#    neighbors:
-#      - 2001:470:0:441::40
-#    multihop: false
-#    listen6: 2602:fed2:fb0:89::1
-
-  # ========= Internal =========
-#  Core01 NUE:
-#    template: core-wg
-#    description: Core01 Router - Nuremberg, Germany
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2ef1::1
-#    listen6: 2a06:a005:2ef9::1
-#
-#  Edge01 FRA:
-#    template: core-wg
-#    description: Edge01 Router - Frankfurt, Germany
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2ef2::1
-#    listen6: 2a06:a005:2ef9::1
-#
-#  Edge02 ZHR:
-#    template: core-wg
-#    description: Edge02 Router - Zurich, Switzerland
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2ef4::1
-#    listen6: 2a06:a005:2ef9::1
-#
-#  Edge01 MIL:
-#    template: core-wg
-#    description: Edge01 Router - Milan, Italy
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2ef5::1
-#    listen6: 2a06:a005:2ef9::1
-#
-#  Edge01 DUS:
-#    template: core-wg
-#    description: Edge01 Router - Dusseldorf, Germany
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2ef6::1
-#    listen6: 2a06:a005:2ef9::1
-#
-#  Edge01 AMS:
-#    template: core-wg
-#    description: Edge01 Router - Amsterdam, Netherlands
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2ef7::1
-#    listen6: 2a06:a005:2ef9::1
-
-#  Edge01 OSL:
-#    template: core-wg
-#    description: Edge01 Router - Oslo, Norway
-#    disabled: true
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2ef8::1
-#    listen6: 2a06:a005:2ef9::1
-
-#  Edge01 YTO:
-#    template: core-wg
-#    description: Edge01 Router - Toronto, Canada
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2efa::1
-#    listen6: 2a06:a005:2ef9::1
-#
-#  Edge01 FMT:
-#    template: core-wg
-#    description: Edge01 Router - Fremont, US
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2efb::1
-#    listen6: 2a06:a005:2ef9::1
-
   # ========= Route Servers =========
   UNMETERED Exchange Route Server:
     template: routeserver
@@ -216,18 +132,6 @@ peers:
     as-set: AS65513
 
   # ========= Peers - UNM-Exch Canada-West =========
-#  AS112 UNM-Exch Canada-West:
-#    template: peer
-#    description: AS112 via UNM-Exch Canada-West
-#    asn: 112
-#    neighbors:
-#      - 2602:ffb1:200:0:192:34:27:252
-#    local-pref: 320
-#    listen6: 2602:ffb1:200:0:192:34:27:97
-#    add-on-import:
-#      - "202427:108:2452"
-#    as-set: AS112
-
   KTT Iceland UNM-Exch Canada-West:
     template: peer
     description: KTT Iceland via UNM-Exch Canada-West
@@ -240,34 +144,7 @@ peers:
       - "202427:108:2452"
     as-set: AS51019:AS-ALL
 
-#========================
-
-#  Tech Futures Interactive UNM-Exch Canada-West:
-#    template: peer
-#    passive: true
-#    description: Tech Futures Interactive via UNM-Exch Canada-West
-#    asn: 394256
-#    neighbors:
-#      - 2602:ffb1:200:0:192:34:27:5
-#      - 2602:ffb1:200:0:192:34:27:107
-#    local-pref: 320
-#    listen6: 2602:ffb1:200:0:192:34:27:97
-#    add-on-import:
-#      - "202427:108:2452"
-#    as-set: AS-CLOUDSINGULARITY
-
-#  UNMETERED UNM-Exch Canada-West:
-#    template: peer
-#    passive: true
-#    description: UNMETERED via UNM-Exch Canada-West
-#    asn: 54133
-#    neighbors:
-#      - 2602:ffb1:200:0:192:34:27:1
-#    local-pref: 320
-#    listen6: 2602:ffb1:200:0:192:34:27:97
-#    add-on-import:
-#      - "202427:108:2452"
-#    as-set: AS-CLOUDSINGULARITY
+# ===========================================================
 
 templates:
   upstream:
