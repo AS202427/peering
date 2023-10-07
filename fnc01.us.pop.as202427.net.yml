@@ -28,9 +28,9 @@ global-config: >
     if ((202427, 115, 6) ~ bgp_large_community) then reject "Only at dus01.de";
     if ((202427, 115, 7) ~ bgp_large_community) then reject "Only at ams01.nl";
     if ((202427, 115, 8) ~ bgp_large_community) then reject "Only at Reserved";
-    if ((202427, 115, 9) ~ bgp_large_community) then reject "Only at yvr01.ca";
-    if ((202427, 115, 10) ~ bgp_large_community) then reject "Only at yto01.ca";
-    #if ((202427, 115, 11) ~ bgp_large_community) then reject "Only at fmt01.us";
+    if ((202427, 115, 9) ~ bgp_large_community) then reject "Only at van01.ca";
+    if ((202427, 115, 10) ~ bgp_large_community) then reject "Only at tor01.ca";
+    #if ((202427, 115, 11) ~ bgp_large_community) then reject "Only at fnc01.us";
     if ((202427, 115, 12) ~ bgp_large_community) then reject "Only at Reserved";
     if ((202427, 115, 13) ~ bgp_large_community) then reject "Only at Reserved";
     if ((202427, 115, 14) ~ bgp_large_community) then reject "Only at Reserved";
@@ -42,13 +42,13 @@ global-config: >
   }
 local-communities:
   - "202427:101:1"
-  - "202427:106:11" # Location Specific (PoP)
+  - "202427:106:11" # PoP
 add-on-import:
-  - "202427:102:840" # Location Specific (Country)
-  - "202427:103:2" # Location Specific (Region)
-  - "202427:104:11" # Location Specific (PoP)
+  - "202427:102:840" # Country
+  - "202427:103:2" # Region
+  - "202427:104:11" # PoP
 add-on-export:
-  - "202427:105:11" # Location Specific (PoP)
+  - "202427:105:11" # PoP
 asn: 202427
 prefixes: # Location Specific
   - 2a06:a005:28e0::/48 # AS202427-BACKBONE-NETWORK
@@ -56,9 +56,9 @@ prefixes: # Location Specific
   - 2a0a:6040:2780::/43 # US-AS202427
   - 2a0a:6040:27e0::/43 # EU-AS202427
  #- 2a07:54c2:b00b::/48 # ::/b00b collective
-router-id: 185.44.83.22 # Location Specific (PoP)
+router-id: 185.44.83.22 # PoP
 irr-server: 128.241.192.40 # rr.ntt.net
-source6: 2a06:a005:28eb::1 # Location Specific (PoP)
+source6: 2a06:a005:28eb::1 # PoP
 default-route: false
 blackhole-bogon-asns: true
 
@@ -102,90 +102,6 @@ peers:
       - 185.230.223.56
     multihop: true
     listen4: 185.44.83.22
-
-#  HE Realtime:
-#    template: lg
-#    description: Hurricane Electric Route Collector
-#    disabled: false
-#    asn: 393338
-#    neighbors:
-#      - 2001:470:0:441::40
-#    multihop: true
-#    listen6: 2a0c:9a40:1072::419
-
-  # ========= Internal =========
-#  Core01 NUE:
-#    template: core-wg
-#    description: Core01 Router - Nuremberg, Germany
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2ef1::1
-#    listen6: 2a06:a005:2efb::1
-
-#  Edge01 FRA:
-#    template: core-wg
-#    description: Edge01 Router - Frankfurt, Germany
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2ef2::1
-#    listen6: 2a06:a005:2efb::1
-#
-#  Edge02 ZHR:
-#    template: core-wg
-#    description: Edge02 Router - Zurich, Switzerland
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2ef4::1
-#    listen6: 2a06:a005:2efb::1
-
-#  Edge01 MIL:
-#    template: core-wg
-#    description: Edge01 Router - Milan, Italy
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2ef5::1
-#    listen6: 2a06:a005:2efb::1
-#
-#  Edge01 DUS:
-#    template: core-wg
-#    description: Edge01 Router - Dusseldorf, Germany
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2ef6::1
-#    listen6: 2a06:a005:2efb::1
-
-#  Edge01 AMS:
-#    template: core-wg
-#    description: Edge01 Router - Amsterdam, Netherlands
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2ef7::1
-#    listen6: 2a06:a005:2efb::1
-
-#  Edge01 OSL:
-#    template: core-wg
-#    description: Edge01 Router - Oslo, Norway
-#    disabled: true
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2ef8::1
-#    listen6: 2a06:a005:2efb::1
-
-#  Edge01 YVR:
-#    template: core-wg
-#    description: Edge01 Router - Vancouver, Canada
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2ef9::1
-#    listen6: 2a06:a005:2efb::1
-
-#  Edge01 YTO:
-#    template: core-wg
-#    description: Edge01 Router - Toronto, Canada
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2efa::1
-#    listen6: 2a06:a005:2efb::1
 
   # ========= Route Servers =========
   FREMIX Route Server:
@@ -238,20 +154,7 @@ peers:
       - "202427:108:3685"
     as-set: AS51019:AS-ALL
 
-#========================
-
-#  VNP FREMIX:
-#    template: peer
-#    passive: true
-#    description: VNP via FREMIX
-#    asn: 56328
-#    neighbors:
-#      - 2001:504:125:e0::5
-#    local-pref: 320
-#    listen6: 2001:504:125:e0::b
-#    add-on-import:
-#      - "202427:108:3685"
-#    as-set: AS-VNPNET
+# ===========================================================
 
 templates:
   upstream:
