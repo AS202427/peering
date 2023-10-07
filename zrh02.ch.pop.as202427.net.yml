@@ -24,7 +24,7 @@ global-config: >
     if ((202427, 115, 2) ~ bgp_large_community) then reject "Only at fra01.de";
     if ((202427, 115, 3) ~ bgp_large_community) then reject "Only at Reserved";
     #if ((202427, 115, 4) ~ bgp_large_community) then reject "Only at zrh02.ch";
-    if ((202427, 115, 5) ~ bgp_large_community) then reject "Only at mil01.it";
+    if ((202427, 115, 5) ~ bgp_large_community) then reject "Only at pom01.it";
     if ((202427, 115, 6) ~ bgp_large_community) then reject "Only at dus01.de";
     if ((202427, 115, 7) ~ bgp_large_community) then reject "Only at ams01.nl";
     if ((202427, 115, 8) ~ bgp_large_community) then reject "Only at Reserved";
