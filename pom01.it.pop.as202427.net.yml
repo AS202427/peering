@@ -42,13 +42,13 @@ global-config: >
   }
 local-communities:
   - "202427:101:1"
-  - "202427:106:5" # Location Specific (PoP)
+  - "202427:106:5" # PoP
 add-on-import:
-  - "202427:102:380" # Location Specific (Country)
-  - "202427:103:1" # Location Specific (Region)
-  - "202427:104:5" # Location Specific (PoP)
+  - "202427:102:380" # Country
+  - "202427:103:1" # Region
+  - "202427:104:5" # PoP
 add-on-export:
-  - "202427:105:5" # Location Specific (PoP)
+  - "202427:105:5" # PoP
 asn: 202427
 prefixes: # Location Specific
   - 2a06:a005:28e0::/48 # AS202427-BACKBONE-NETWORK
@@ -56,9 +56,9 @@ prefixes: # Location Specific
   - 2a0a:6040:27c0::/43 # IT-AS202427
   - 2a0a:6040:27e0::/43 # EU-AS202427
  #- 2a07:54c2:b00b::/48 # ::/b00b collective
-router-id: 152.89.170.81 # Location Specific (PoP)
+router-id: 152.89.170.81 # PoP
 irr-server: 128.241.192.40 # rr.ntt.net
-source6: 2a06:a005:28e5::1 # Location Specific (PoP)
+source6: 2a06:a005:28e5::1 # PoP
 default-route: false
 blackhole-bogon-asns: true
 
@@ -104,90 +104,6 @@ peers:
     multihop: true
     listen4: 152.89.170.81
 
-#  HE Realtime:
-#    template: lg
-#    description: Hurricane Electric Route Collector
-#    disabled: false
-#    asn: 393338
-#    neighbors:
-#      - 2001:470:0:441::40
-#    multihop: true
-#    listen6: 2a05:4140:3::744
-
-  # ========= Internal =========
-#  Core01 NUE:
-#    template: core-wg
-#    description: Core01 Router - Nuremberg, Germany
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2ef1::1
-#    listen6: 2a06:a005:2ef5::1
-#
-#  Edge01 FRA:
-#    template: core-wg
-#    description: Edge01 Router - Frankfurt, Germany
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2ef2::1
-#    listen6: 2a06:a005:2ef5::1
-#
-#  Edge02 ZHR:
-#    template: core-wg
-#    description: Edge02 Router - Zurich, Switzerland
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2ef4::1
-#    listen6: 2a06:a005:2ef5::1
-#
-#  Edge01 DUS:
-#    template: core-wg
-#    description: Edge01 Router - Dusseldorf, Germany
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2ef6::1
-#    listen6: 2a06:a005:2ef5::1
-#
-#  Edge01 AMS:
-#    template: core-wg
-#    description: Edge01 Router - Amsterdam, Netherlands
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2ef7::1
-#    listen6: 2a06:a005:2ef5::1
-
-#  Edge01 OSL:
-#    template: core-wg
-#    description: Edge01 Router - Oslo, Norway
-#    disabled: true
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2ef8::1
-#    listen6: 2a06:a005:2ef5::1
-
-#  Edge01 YVR:
-#    template: core-wg
-#    description: Edge01 Router - Vancouver, Canada
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2ef9::1
-#    listen6: 2a06:a005:2ef5::1
-#
-#  Edge01 YTO:
-#    template: core-wg
-#    description: Edge01 Router - Toronto, Canada
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2efa::1
-#    listen6: 2a06:a005:2ef5::1
-#
-#  Edge01 FMT:
-#    template: core-wg
-#    description: Edge01 Router - Fremont, US
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2efb::1
-#    listen6: 2a06:a005:2ef5::1
-
   # ========= Route Servers =========
   SIIX Route Server:
     template: routeserver
@@ -214,6 +130,8 @@ peers:
     add-on-import:
       - "202427:108:3528"
     as-set: RIPE::AS-TWOPEAKS
+
+# ===========================================================
 
 templates:
   upstream:
