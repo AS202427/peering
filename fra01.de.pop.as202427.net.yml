@@ -1,0 +1,785 @@
+peeringdb-api-key: ${fra01-de-pop-peeringdb-api-key}
+log-file: /var/log/bird.log
+global-config: >
+  define pop_region = 1;
+  define pop_country = 276;
+  define pop_id = 2;
+  function reject_region_communitys() {
+    #if ((202427, 111, 1) ~ bgp_large_community) then reject "Only in Europe";
+    if ((202427, 111, 2) ~ bgp_large_community) then reject "Only in North America";
+    if ((202427, 112, pop_region) ~ bgp_large_community) then reject "Not in PoP Region";
+  }
+  function reject_country_communitys() {
+    if ((202427, 113, 124) ~ bgp_large_community) then reject "Only in Canada";
+    #if ((202427, 113, 276) ~ bgp_large_community) then reject "Only in Germany";
+    if ((202427, 113, 380) ~ bgp_large_community) then reject "Only in Italy";
+    if ((202427, 113, 528) ~ bgp_large_community) then reject "Only in Netherlands";
+    if ((202427, 113, 578) ~ bgp_large_community) then reject "Only in Norway";
+    if ((202427, 113, 756) ~ bgp_large_community) then reject "Only in Switzerland";
+    if ((202427, 113, 840) ~ bgp_large_community) then reject "Only in United States of America";
+    if ((202427, 114, pop_country) ~ bgp_large_community) then reject "Not in PoP Country";
+  }
+  function reject_pop_communitys() {
+    if ((202427, 115, 1) ~ bgp_large_community) then reject "Only at rma01.ch";
+    #if ((202427, 115, 2) ~ bgp_large_community) then reject "Only at fra01.de";
+    if ((202427, 115, 3) ~ bgp_large_community) then reject "Only at Reserved";
+    if ((202427, 115, 4) ~ bgp_large_community) then reject "Only at Reserved";
+    if ((202427, 115, 5) ~ bgp_large_community) then reject "Only at Reserved";
+    if ((202427, 115, 6) ~ bgp_large_community) then reject "Only at dus01.de";
+    if ((202427, 115, 7) ~ bgp_large_community) then reject "Only at ams01.nl";
+    if ((202427, 115, 8) ~ bgp_large_community) then reject "Only at Reserved";
+    if ((202427, 115, 9) ~ bgp_large_community) then reject "Only at Reserved";
+    if ((202427, 115, 10) ~ bgp_large_community) then reject "Only at Reserved";
+    if ((202427, 115, 11) ~ bgp_large_community) then reject "Only at Reserved";
+    if ((202427, 115, 12) ~ bgp_large_community) then reject "Only at Reserved";
+    if ((202427, 115, 13) ~ bgp_large_community) then reject "Only at Reserved";
+    if ((202427, 115, 14) ~ bgp_large_community) then reject "Only at Reserved";
+    if ((202427, 115, 15) ~ bgp_large_community) then reject "Only at Reserved";
+    if ((202427, 116, pop_id) ~ bgp_large_community) then reject "Not at PoP";
+  }
+  function reject_out_of_region() {
+    if ! ((202427, 103, pop_region) ~ bgp_large_community) then reject "Out of Region PoP";
+  }
+local-communities:
+  - "202427:101:1"
+  - "202427:106:2" # PoP
+add-on-import:
+  - "202427:102:276" # Country
+  - "202427:103:1" # Region
+  - "202427:104:2" # PoP
+add-on-export:
+  - "202427:105:2" # PoP
+asn: 202427
+prefixes:
+  - 2a0a:6040:2720::/43 # DE-AS202427
+# Backbone
+  - 2a06:a005:28e2::/48 # AS202427-ROUTING-NETWORK
+# Anycasted
+  - 2a06:a005:28e0::/48 # AS202427-ROUTING-NETWORK
+  - 2a0a:6040:27e0::/43 # EU-AS202427-ANYCASTED
+ #- 2a07:54c2:b00b::/48 # ::/b00b collective
+router-id: 193.148.249.102 # PoP
+irr-server: 128.241.192.40 # rr.ntt.net
+source6: 2a06:a005:28e2::1 # PoP
+default-route: false
+blackhole-bogon-asns: true
+
+peers:
+  # ========= Upstreams =========
+  iFog:
+    template: upstream
+    description: iFog GmbH Upstream
+    asn: 34927
+    neighbors:
+      - 2a0c:9a40:1::1
+    local-pref: 120
+    listen6: 2a0c:9a40:1::237
+    as-set: RIPE::AS-IFOG
+
+  Freetransit Project FogIXP:
+    template: upstream
+    description: Freetransit Project Upstream via FogIXP
+    asn: 41051
+    neighbors:
+      - 2001:7f8:ca:1::22
+    local-pref: 130
+    listen6: 2001:7f8:ca:1::168
+    add-on-import:
+      - "202427:108:3756" # IX
+    only-announce:
+      - 2a0a:6040:2720::/43 # DE-AS202427
+    # Backbone
+      - 2a06:a005:28e2::/48 # AS202427-ROUTING-NETWORK
+    # Anycasted
+      - 2a06:a005:28e0::/48 # AS202427-ROUTING-NETWORK
+      - 2a0a:6040:27e0::/43 # EU-AS202427-ANYCASTED
+    as-set: AS41051:AS-ALL
+
+  Hurricane Electric LocIX:
+    template: upstream
+    description: Hurricane Electric LLC Upstream via LocIX
+    asn: 6939
+    neighbors:
+      - 2001:7f8:f2:e1::6939:1
+    local-pref: 130
+    listen6: 2001:7f8:f2:e1:0:20:2427:1
+    add-on-import:
+      - "202427:108:2084" # IX
+    as-set: RADB::AS-HURRICANEV6
+
+  Johannes Ernst LocIX:
+    template: upstream
+    description: Johannes Ernst Upstream via LocIX
+    asn: 212895
+    neighbors:
+      - 2001:7f8:f2:e1:0:a521:2895:1
+    local-pref: 130
+    listen6: 2001:7f8:f2:e1:0:20:2427:1
+    add-on-import:
+      - "202427:108:2084" # IX
+    as-set: RIPE::AS-ROUTE64
+
+  Hurricane Electric NL-ix:
+    template: upstream
+    description: Hurricane Electric LLC Upstream via NL-ix
+    asn: 6939
+    neighbors:
+      - 2001:7f8:13::a500:6939:1
+    local-pref: 130
+    listen6: 2001:7f8:13::a520:2427:1
+    add-on-import:
+      - "202427:108:64" # IX
+    as-set: RADB::AS-HURRICANEV6
+
+  # ========= Looking Glasses =========
+  pmacctd:
+    template: lg
+    description: pmacctd
+    asn: 202427
+    listen6: 127.0.0.1
+    neighbors:
+      - 127.0.0.2
+    neighbor-port: 180
+
+  qrator:
+    template: lg
+    description: Radar by Qrator
+    asn: 197068
+    neighbors:
+      - 178.248.237.29
+    multihop: true
+    listen4: 193.148.249.102
+    password: qrator
+
+  bgpTools:
+    template: lg
+    description: BGP.Tools Route Collector
+    asn: 212232
+    neighbors:
+      - 185.230.223.56
+    multihop: true
+    listen4: 193.148.249.102
+
+  # ========= Internal =========
+  RMA01 CH POP L2:
+    template: core-l2
+    description: rma01.ch pop via L2
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2901::1
+    local-pref: 190
+    listen6: 2a06:a005:2902::1
+
+  ZHR02 CH POP L2:
+    template: core-l2
+    description: zhr02.ch pop via L2
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2904::1
+    local-pref: 190
+    listen6: 2a06:a005:2902::1
+
+  AMS01 NL POP L2:
+    template: core-l2
+    description: ams01.nl pop via L2
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2907::1
+    local-pref: 190
+    listen6: 2a06:a005:2902::1
+
+  # ========= Route Servers =========
+  FogIXP Route Server:
+    template: routeserver
+    description: FogIXP Route Server
+    asn: 47498
+    neighbors:
+      - 2001:7f8:ca:1::111
+      - 2001:7f8:ca:1::222
+    local-pref: 220
+    listen6: 2001:7f8:ca:1::168
+    add-on-import:
+      - "202427:108:3756" # IX
+    as-set: AS-FOGIXP
+
+  LocIX Route Server:
+    template: routeserver
+    description: LocIX Route Server
+    asn: 202409
+    neighbors:
+      - 2001:7f8:f2:e1::babe:1
+      - 2001:7f8:f2:e1::dead:1
+      - 2001:7f8:f2:e1::be5a
+    local-pref: 220
+    listen6: 2001:7f8:f2:e1:0:20:2427:1
+    add-on-import:
+      - "202427:108:2084" # IX
+    as-set: AS-LOCIX
+
+  NL-ix Route Server:
+    template: routeserver
+    description: NL-ix Route Server
+    asn: 34307
+    neighbors:
+      - 2001:7f8:13::a503:4307:1
+      - 2001:7f8:13::a503:4307:2
+    local-pref: 220
+    listen6: 2001:7f8:13::a520:2427:1
+    add-on-import:
+      - "202427:108:64" # IX
+    as-set: AS-NL-IX-RS
+
+  BGP.Exchange Route Server:
+    template: routeserver
+    description: BGP.Exchange Frankfurt Route Server
+    asn: 24381
+    neighbors:
+      - 2a0e:8f01:1000:24::1
+    local-pref: 220
+    listen6: 2a0e:8f01:1000:24::100
+    add-on-import:
+      - "202427:108:3829" # IX
+    as-set: AS-BGPEXCHANGE
+
+  # ========= Peers - FogIXP =========
+  KTT Iceland FogIXP:
+    template: peer
+    description: KTT Iceland via FogIXP
+    asn: 51019
+    neighbors:
+      - 2001:7f8:ca:1::182
+    local-pref: 320
+    listen6: 2001:7f8:ca:1::168
+    add-on-import:
+      - "202427:108:3756" # IX
+    as-set: AS51019:AS-ALL
+
+  Openfactory FogIXP:
+    template: peer
+    description: Openfactory via FogIXP
+    asn: 58299
+    neighbors:
+      - 2001:7f8:ca:1::130
+    local-pref: 320
+    listen6: 2001:7f8:ca:1::168
+    add-on-import:
+      - "202427:108:3756" # IX
+    as-set: AS58299:AS-ALL
+
+  AS212635 FogIXP:
+    template: peer
+    description: AS212635 via FogIXP
+    asn: 212635
+    neighbors:
+      - 2001:7f8:ca:1::34
+    local-pref: 320
+    listen6: 2001:7f8:ca:1::168
+    add-on-import:
+      - "202427:108:3756" # IX
+    as-set: RIPE::AS212635:AS-212635
+
+  LUJE.net FogIXP:
+    template: peer
+    description: LUJE.net via FogIXP
+    asn: 212855
+    neighbors:
+      - 2001:7f8:ca:1::42
+    local-pref: 320
+    listen6: 2001:7f8:ca:1::168
+    add-on-import:
+      - "202427:108:3756" # IX
+    as-set: RIPE::AS212855:AS-LUJE
+
+  Tritan Development FogIXP:
+    template: peer
+    description: Tritan Development via FogIXP
+    asn: 393577
+    neighbors:
+      - 2001:7f8:ca:1:0:39:3577:1
+    local-pref: 320
+    listen6: 2001:7f8:ca:1::168
+    add-on-import:
+      - "202427:108:3756" # IX
+    as-set: AS-TRITAN-ASNS
+
+  #========================
+  twopeaks digital e.U. FogIXP:
+    template: peer
+    passive: true
+    description: twopeaks digital e.U. via FogIXP
+    asn: 212828
+    neighbors:
+      - 2001:7f8:ca:1::169
+    local-pref: 320
+    listen6: 2001:7f8:ca:1::168
+    add-on-import:
+      - "202427:108:3756" # IX
+    as-set: RIPE::AS-TWOPEAKS
+
+  # ========= Peers - LocIX =========
+  AS112 LocIX:
+    template: peer
+    description: AS112 via LocIX
+    asn: 112
+    neighbors:
+      - 2001:7f8:f2:e1::112
+    local-pref: 320
+    listen6: 2001:7f8:f2:e1:0:20:2427:1
+    add-on-import:
+      - "202427:108:2084" # IX
+    as-set: AS112
+
+  IP-Max LocIX:
+    template: peer
+    description: IP-Max via LocIX
+    asn: 25091
+    neighbors:
+      - 2001:7f8:f2:e1:0:2:5091:1
+    local-pref: 320
+    listen6: 2001:7f8:f2:e1:0:20:2427:1
+    add-on-import:
+      - "202427:108:2084" # IX
+    as-set: RIPE::AS-IP-MAX-V6
+
+  KTT Iceland LocIX:
+    template: peer
+    description: KTT Iceland via LocIX
+    asn: 51019
+    neighbors:
+      - 2001:7f8:f2:e1:0:5:1019:1
+    local-pref: 320
+    listen6: 2001:7f8:f2:e1:0:20:2427:1
+    add-on-import:
+      - "202427:108:2084" # IX
+    as-set: AS51019:AS-ALL
+
+  Openfactory LocIX:
+    template: peer
+    description: Openfactory via LocIX
+    asn: 58299
+    neighbors:
+      - 2001:7f8:f2:e1:0:a005:8299:1
+    local-pref: 320
+    listen6: 2001:7f8:f2:e1:0:20:2427:1
+    add-on-import:
+      - "202427:108:2084" # IX
+    as-set: AS58299:AS-ALL
+
+  AS212635 LocIX:
+    template: peer
+    description: AS212635 via LocIX
+    asn: 212635
+    neighbors:
+      - 2001:7f8:f2:e1:0:21:2635:1
+    local-pref: 320
+    listen6: 2001:7f8:f2:e1:0:20:2427:1
+    add-on-import:
+      - "202427:108:2084" # IX
+    as-set: RIPE::AS212635:AS-212635
+
+  # ========= Peers - NL-ix =========
+  Apple NL-ix:
+    template: peer
+    description: Apple via NL-ix
+    asn: 714
+    neighbors:
+      - 2001:7f8:13::a500:714:1
+      - 2001:7f8:13::a500:714:2
+    local-pref: 320
+    listen6: 2001:7f8:13::a520:2427:1
+    add-on-import:
+      - "202427:108:64" # IX
+    as-set: AS-APPLE
+
+  Globe Telecom NL-ix:
+    template: peer
+    description: Globe Telecom via NL-ix
+    asn: 4775
+    neighbors:
+      - 2001:7f8:13::a500:4775:1
+    local-pref: 320
+    listen6: 2001:7f8:13::a520:2427:1
+    add-on-import:
+      - "202427:108:64" # IX
+    as-set: AS-TRANSIT-GLOBE
+
+  Netwerkvereniging Coloclue NL-ix:
+    template: peer
+    description: Netwerkvereniging Coloclue via NL-ix
+    asn: 8283
+    neighbors:
+      - 2001:7f8:13::a500:8283:1
+      - 2001:7f8:13::a500:8283:2
+    local-pref: 320
+    listen6: 2001:7f8:13::a520:2427:1
+    add-on-import:
+      - "202427:108:64" # IX
+    as-set: AS8283:AS-COLOCLUE
+
+  Cloudflare NL-ix:
+    template: peer
+    description: Cloudflare viaNL-ix
+    asn: 13335
+    neighbors:
+      - 2001:7f8:13::a501:3335:1
+      - 2001:7f8:13::a501:3335:2
+      - 2001:7f8:13::a501:3335:3
+    local-pref: 320
+    listen6: 2001:7f8:13::a520:2427:1
+    add-on-import:
+      - "202427:108:64" # IX
+    as-set: ARIN::AS13335:AS-CLOUDFLARE
+
+  Google NL-ix:
+    template: peer
+    description: Google via NL-ix
+    asn: 15169
+    neighbors:
+      - 2001:7f8:13::a501:5169:1
+    local-pref: 320
+    listen6: 2001:7f8:13::a520:2427:1
+    password: ${edge01-fra-as15169-nlix-password}
+    add-on-import:
+      - "202427:108:64" # IX
+    as-set: AS-GOOGLE
+
+  Akamai Technologies NL-ix:
+    template: peer
+    description: Akamai Technologies via NL-ix
+    asn: 20940
+    neighbors:
+      - 2001:7f8:13::a502:940:1
+      - 2001:7f8:13::a502:940:3
+    local-pref: 320
+    listen6: 2001:7f8:13::a520:2427:1
+    add-on-import:
+      - "202427:108:64" # IX
+      - "202427:111:1" # Announce in Europe only
+    as-set: AS-AKAMAI
+    pre-export-final: >
+     reject_out_of_region();
+
+  Hetzner NL-ix:
+    template: peer
+    description: Hetzner via NL-ix
+    asn: 24940
+    neighbors:
+      - 2001:7f8:13::a502:4940:1
+    local-pref: 320
+    listen6: 2001:7f8:13::a520:2427:1
+    add-on-import:
+      - "202427:108:64" # IX
+    as-set: AS-HETZNER
+
+  IP-Max NL-ix:
+    template: peer
+    description: IP-Max via NL-ix
+    asn: 25091
+    neighbors:
+      - 2001:7f8:13::a502:5091:1
+    local-pref: 320
+    listen6: 2001:7f8:13::a520:2427:1
+    add-on-import:
+      - "202427:108:64" # IX
+    as-set: RIPE::AS-IP-MAX-V6
+
+  Meta NL-ix:
+    template: peer
+    description: Meta via NL-ix
+    asn: 32934
+    neighbors:
+      - 2001:7f8:13::a503:2934:1
+      - 2001:7f8:13::a503:2934:2
+    local-pref: 320
+    listen6: 2001:7f8:13::a520:2427:1
+    add-on-import:
+      - "202427:108:64" # IX
+    as-set: AS-FACEBOOK
+
+  Dataline Net NL-ix:
+    template: peer
+    description: Dataline Net via NL-ix
+    asn: 35297
+    neighbors:
+      - 2001:7f8:13::a503:5297:1
+    local-pref: 320
+    listen6: 2001:7f8:13::a520:2427:1
+    add-on-import:
+      - "202427:108:64" # IX
+    as-set: RIPE::AS-DL-WORLD
+
+  Dawico NL-ix:
+    template: peer
+    description: Dawico via NL-ix
+    asn: 39614
+    neighbors:
+      - 2001:7f8:13::a503:9614:1
+    local-pref: 320
+    listen6: 2001:7f8:13::a520:2427:1
+    add-on-import:
+      - "202427:108:64" # IX
+    as-set: RIPE::AS-DAWICO
+
+  Opteamax NL-ix:
+    template: peer
+    description: Opteamax via NL-ix
+    asn: 48200
+    neighbors:
+      - 2001:7f8:13::a504:8200:1
+    local-pref: 320
+    listen6: 2001:7f8:13::a520:2427:1
+    add-on-import:
+      - "202427:108:64" # IX
+    as-set: AS48200:AS-OPTEAMAX
+
+  KTT Iceland NL-ix:
+    template: peer
+    description: KTT Iceland via NL-ix
+    asn: 51019
+    neighbors:
+      - 2001:7f8:13::a505:1019:1
+    local-pref: 320
+    listen6: 2001:7f8:13::a520:2427:1
+    add-on-import:
+      - "202427:108:64" # IX
+    as-set: AS51019:AS-ALL
+
+  Openfactory NL-ix:
+    template: peer
+    description: Openfactory via NL-ix
+    asn: 58299
+    neighbors:
+      - 2001:7f8:13::a505:8299:1
+    local-pref: 320
+    listen6: 2001:7f8:13::a520:2427:1
+    add-on-import:
+      - "202427:108:64" # IX
+    as-set: AS58299:AS-ALL
+
+  Anycast Global Backbone NL-ix:
+    template: peer
+    description: Anycast Global Backbone via NL-ix
+    asn: 58511
+    neighbors:
+      - 2001:7f8:13::a505:8511:1
+    local-pref: 320
+    listen6: 2001:7f8:13::a520:2427:1
+    add-on-import:
+      - "202427:108:64" # IX
+    as-set: AS-CIT
+
+  AS212635 NL-ix:
+    template: peer
+    description: AS212635 via NL-ix
+    asn: 212635
+    neighbors:
+      - 2001:7f8:13::a521:2635:1
+    local-pref: 320
+    listen6: 2001:7f8:13::a520:2427:1
+    add-on-import:
+      - "202427:108:64" # IX
+    as-set: RIPE::AS212635:AS-212635
+
+  LUJE.net NL-ix:
+    template: peer
+    description: LUJE.net via NL-ix
+    asn: 212855
+    neighbors:
+      - 2001:7f8:13::a521:2855:1
+    local-pref: 320
+    listen6: 2001:7f8:13::a520:2427:1
+    add-on-import:
+      - "202427:108:64" # IX
+    as-set: RIPE::AS212855:AS-LUJE
+
+  Tritan Development NL-ix:
+    template: peer
+    description: Tritan Development via NL-ix
+    asn: 393577
+    neighbors:
+      - 2001:7f8:13::a539:3577:1
+    local-pref: 320
+    listen6: 2001:7f8:13::a520:2427:1
+    add-on-import:
+      - "202427:108:64" # IX
+    as-set: AS-TRITAN-ASNS
+
+  #========================
+  twopeaks digital e.U. NL-ix:
+    template: peer
+    passive: true
+    description: twopeaks digital e.U. via NL-ix
+    asn: 212828
+    neighbors:
+      - 2001:7f8:13::a521:2828:1
+    local-pref: 320
+    listen6: 2001:7f8:13::a520:2427:1
+    add-on-import:
+      - "202427:108:64" # IX
+    as-set: RIPE::AS-TWOPEAKS
+
+# ===========================================================
+
+templates:
+  upstream:
+    local-pref: 100
+    add-path-tx: true
+    add-path-rx: true
+    pre-import-accept: >
+     bgp_large_community.add((202427,101,2));
+     bgp_large_community.add((202427,107,<pathvector.asn>));
+    pre-export: >
+     reject_region_communitys();
+     reject_country_communitys();
+     reject_pop_communitys();
+     if ((202427, 110, <pathvector.asn>) ~ bgp_large_community) then reject;
+    announce:
+      - "202427:101:1"
+      - "202427:101:5"
+    remove-all-communities: 202427
+    allow-blackhole-community: true
+    filter-max-prefix: false
+    role: customer
+
+  routeserver:
+    local-pref: 200
+    add-path-tx: true
+    add-path-rx: true
+    pre-import-accept: >
+     bgp_large_community.add((202427,101,3));
+     bgp_large_community.add((202427,107,<pathvector.asn>));
+    pre-export: >
+     reject_region_communitys();
+     reject_country_communitys();
+     reject_pop_communitys();
+     if ((202427, 110, <pathvector.asn>) ~ bgp_large_community) then reject;
+    announce:
+      - "202427:101:1"
+      - "202427:101:5"
+    remove-all-communities: 202427
+    allow-blackhole-community: true
+    enforce-first-as: false
+    enforce-peer-nexthop: false
+    filter-max-prefix: false
+    filter-transit-asns: true
+#    filter-never-via-route-servers: true
+
+  peer:
+    local-pref: 300
+    add-path-tx: true
+    add-path-rx: true
+    pre-import-accept: >
+     bgp_large_community.add((202427,101,4));
+     bgp_large_community.add((202427,107,<pathvector.asn>));
+    pre-export: >
+     reject_region_communitys();
+     reject_country_communitys();
+     reject_pop_communitys();
+     if ((202427, 110, <pathvector.asn>) ~ bgp_large_community) then reject;
+    announce:
+      - "202427:101:1"
+      - "202427:101:5"
+    remove-all-communities: 202427
+    allow-blackhole-community: true
+    filter-irr: true
+    strict-rpki: true
+    filter-transit-asns: true
+    #auto-import-limits: true
+    role: peer
+
+  downstream:
+    local-pref: 400
+    add-path-tx: true
+    add-path-rx: true
+    pre-import-accept: >
+     bgp_large_community.add((202427,101,5));
+     bgp_large_community.add((202427,107,<pathvector.asn>));
+    pre-export: >
+     reject_region_communitys();
+     reject_country_communitys();
+     reject_pop_communitys();
+     if ((202427, 110, <pathvector.asn>) ~ bgp_large_community) then reject;
+    announce:
+      - "202427:101:1"
+      - "202427:101:2"
+      - "202427:101:3"
+      - "202427:101:4"
+      - "202427:101:5"
+    remove-all-communities: 202427
+    allow-blackhole-community: true
+    filter-irr: true
+    strict-rpki: true
+    filter-transit-asns: true
+    auto-import-limits: true
+    role: provider
+
+  lg:
+    mp-unicast-46: true
+    add-path-tx: true
+    announce:
+      - "202427:101:1"
+      - "202427:101:2"
+      - "202427:101:3"
+      - "202427:101:4"
+      - "202427:101:5"
+    receive-limit4: 0
+    receive-limit6: 0
+
+  core-wg:
+    prepends: 1
+    local-pref: 180
+    next-hop-self: true
+    allow-local-as: true
+    add-path-tx: true
+    add-path-rx: true
+    announce:
+      - "202427:101:3"
+      - "202427:101:4"
+      - "202427:101:5"
+    remove-communities:
+      - "202427:105:1"
+      - "202427:105:2"
+      - "202427:105:3"
+      - "202427:105:4"
+      - "202427:105:5"
+      - "202427:105:6"
+      - "202427:105:7"
+      - "202427:105:8"
+      - "202427:105:9"
+      - "202427:105:10"
+      - "202427:105:11"
+      - "202427:105:12"
+      - "202427:105:13"
+      - "202427:105:14"
+      - "202427:105:15"
+    allow-blackhole-community: true
+
+  core-l2:
+    local-pref: 190
+    next-hop-self: true
+    allow-local-as: true
+    add-path-tx: true
+    add-path-rx: true
+    announce:
+      - "202427:101:3"
+      - "202427:101:4"
+      - "202427:101:5"
+    remove-communities:
+      - "202427:105:1"
+      - "202427:105:2"
+      - "202427:105:3"
+      - "202427:105:4"
+      - "202427:105:5"
+      - "202427:105:6"
+      - "202427:105:7"
+      - "202427:105:8"
+      - "202427:105:9"
+      - "202427:105:10"
+      - "202427:105:11"
+      - "202427:105:12"
+      - "202427:105:13"
+      - "202427:105:14"
+      - "202427:105:15"
+    enforce-first-as: false
+    allow-blackhole-community: true
+    filter-rpki: false
