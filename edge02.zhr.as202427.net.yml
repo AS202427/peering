@@ -1,48 +1,54 @@
 peeringdb-api-key: ${edge02-zhr-peeringdb-api-key}
 log-file: /var/log/bird.log
 global-config: >
- function reject_region_communitys() {
-   if ((202427, 112, 1) ~ bgp_large_community) then reject; # Not in Europe
-   if ((202427, 111, 2) ~ bgp_large_community) then reject; # Only in North America
- }
- function reject_country_communitys() {
-   if ((202427, 114, 756) ~ bgp_large_community) then reject; # Not in Switzerland
-   if ((202427, 113, 124) ~ bgp_large_community) then reject; # Only in Canada
-   if ((202427, 113, 276) ~ bgp_large_community) then reject; # Only in Germany
-   if ((202427, 113, 380) ~ bgp_large_community) then reject; # Only in Italy
-   if ((202427, 113, 528) ~ bgp_large_community) then reject; # Only in Netherlands
-   if ((202427, 113, 578) ~ bgp_large_community) then reject; # Only in Norway
-   if ((202427, 113, 840) ~ bgp_large_community) then reject; # Only in United States of America
- }
- function reject_pop_communitys() {
-   if ((202427, 116, 4) ~ bgp_large_community) then reject; # Not at ZHR02
-   if ((202427, 115, 1) ~ bgp_large_community) then reject; # Only at NUE01
-   if ((202427, 115, 2) ~ bgp_large_community) then reject; # Only at FRA01
-   if ((202427, 115, 3) ~ bgp_large_community) then reject; # Only at ZHR01
-   if ((202427, 115, 5) ~ bgp_large_community) then reject; # Only at MIL01
-   if ((202427, 115, 6) ~ bgp_large_community) then reject; # Only at DUS01
-   if ((202427, 115, 7) ~ bgp_large_community) then reject; # Only at AMS01
-   if ((202427, 115, 8) ~ bgp_large_community) then reject; # Only at OSL01
-   if ((202427, 115, 9) ~ bgp_large_community) then reject; # Only at YVR01
-   if ((202427, 115, 10) ~ bgp_large_community) then reject; # Only at YTO01
-   if ((202427, 115, 11) ~ bgp_large_community) then reject; # Only at FMT01
-   if ((202427, 115, 12) ~ bgp_large_community) then reject; # Only at Reserved
-   if ((202427, 115, 13) ~ bgp_large_community) then reject; # Only at Reserved
-   if ((202427, 115, 14) ~ bgp_large_community) then reject; # Only at Reserved
-   if ((202427, 115, 15) ~ bgp_large_community) then reject; # Only at Reserved
- }
- function reject_out_of_region() {
-   if ((202427, 103, 2) ~ bgp_large_community) then reject; # North America
- }
+  define pop_region = 1;
+  define pop_country = 756;
+  define pop_id = 4;
+  function reject_region_communitys() {
+    #if ((202427, 111, 1) ~ bgp_large_community) then reject "Only in Europe";
+    if ((202427, 111, 2) ~ bgp_large_community) then reject "Only in North America";
+    if ((202427, 112, pop_region) ~ bgp_large_community) then reject "Not in PoP Region";
+  }
+  function reject_country_communitys() {
+    if ((202427, 113, 124) ~ bgp_large_community) then reject "Only in Canada";
+    if ((202427, 113, 276) ~ bgp_large_community) then reject "Only in Germany";
+    if ((202427, 113, 380) ~ bgp_large_community) then reject "Only in Italy";
+    if ((202427, 113, 528) ~ bgp_large_community) then reject "Only in Netherlands";
+    if ((202427, 113, 578) ~ bgp_large_community) then reject "Only in Norway";
+    #if ((202427, 113, 756) ~ bgp_large_community) then reject "Only in Switzerland";
+    if ((202427, 113, 840) ~ bgp_large_community) then reject "Only in United States of America";
+    if ((202427, 114, pop_country) ~ bgp_large_community) then reject "Not in PoP Country";
+  }
+  function reject_pop_communitys() {
+    if ((202427, 115, 1) ~ bgp_large_community) then reject "Only at rma01.ch";
+    if ((202427, 115, 2) ~ bgp_large_community) then reject "Only at fra01.de";
+    if ((202427, 115, 3) ~ bgp_large_community) then reject "Only at Reserved";
+    #if ((202427, 115, 4) ~ bgp_large_community) then reject "Only at zhr02.ch";
+    if ((202427, 115, 5) ~ bgp_large_community) then reject "Only at mil01.it";
+    if ((202427, 115, 6) ~ bgp_large_community) then reject "Only at dus01.de";
+    if ((202427, 115, 7) ~ bgp_large_community) then reject "Only at ams01.nl";
+    if ((202427, 115, 8) ~ bgp_large_community) then reject "Only at Reserved";
+    if ((202427, 115, 9) ~ bgp_large_community) then reject "Only at yvr01.ca";
+    if ((202427, 115, 10) ~ bgp_large_community) then reject "Only at yto01.ca";
+    if ((202427, 115, 11) ~ bgp_large_community) then reject "Only at fmt01.us";
+    if ((202427, 115, 12) ~ bgp_large_community) then reject "Only at Reserved";
+    if ((202427, 115, 13) ~ bgp_large_community) then reject "Only at Reserved";
+    if ((202427, 115, 14) ~ bgp_large_community) then reject "Only at Reserved";
+    if ((202427, 115, 15) ~ bgp_large_community) then reject "Only at Reserved";
+    if ((202427, 116, pop_id) ~ bgp_large_community) then reject "Not at PoP";
+  }
+  function reject_out_of_region() {
+    if ! ((202427, 103, pop_region) ~ bgp_large_community) then reject "Out of Region PoP";
+  }
 local-communities:
   - "202427:101:1"
-  - "202427:106:4" # Location Specific (PoP)
+  - "202427:106:4" # PoP
 add-on-import:
-  - "202427:102:756" # Location Specific (Country)
-  - "202427:103:1" # Location Specific (Region)
-  - "202427:104:4" # Location Specific (PoP)
+  - "202427:102:756" # Country
+  - "202427:103:1" # Region
+  - "202427:104:4" # PoP
 add-on-export:
-  - "202427:105:4" # Location Specific (PoP)
+  - "202427:105:4" # PoP
 asn: 202427
 prefixes: # Location Specific
   - 2a05:dfc1:620::/43  # AQ-AS202427

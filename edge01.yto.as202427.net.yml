@@ -1,22 +1,45 @@
 peeringdb-api-key: ${edge01-yto-peeringdb-api-key}
 log-file: /var/log/bird.log
 global-config: >
- function reject_region_communitys() {
-   if ((202427, 112, 2) ~ bgp_large_community) then reject; # Not in North America
-   if ((202427, 111, 1) ~ bgp_large_community) then reject; # Only in Europe
- }
- function reject_country_communitys() {
-   if ((202427, 114, 124) ~ bgp_large_community) then reject; # Not in Canada
-   if ((202427, 113, 276) ~ bgp_large_community) then reject; # Only in Germany
-   if ((202427, 113, 380) ~ bgp_large_community) then reject; # Only in Italy
-   if ((202427, 113, 528) ~ bgp_large_community) then reject; # Only in Netherlands
-   if ((202427, 113, 578) ~ bgp_large_community) then reject; # Only in Norway
-   if ((202427, 113, 756) ~ bgp_large_community) then reject; # Only in Switzerland
-   if ((202427, 113, 840) ~ bgp_large_community) then reject; # Only in United States of America
- }
- function reject_out_of_region() {
-   if ((202427, 103, 1) ~ bgp_large_community) then reject; # Europe
- }
+  define pop_region = 2;
+  define pop_country = 124;
+  define pop_id = 10;
+  function reject_region_communitys() {
+    #if ((202427, 111, 1) ~ bgp_large_community) then reject "Only in Europe";
+    if ((202427, 111, 2) ~ bgp_large_community) then reject "Only in North America";
+    if ((202427, 112, pop_region) ~ bgp_large_community) then reject "Not in PoP Region";
+  }
+  function reject_country_communitys() {
+    #if ((202427, 113, 124) ~ bgp_large_community) then reject "Only in Canada";
+    if ((202427, 113, 276) ~ bgp_large_community) then reject "Only in Germany";
+    if ((202427, 113, 380) ~ bgp_large_community) then reject "Only in Italy";
+    if ((202427, 113, 528) ~ bgp_large_community) then reject "Only in Netherlands";
+    if ((202427, 113, 578) ~ bgp_large_community) then reject "Only in Norway";
+    if ((202427, 113, 756) ~ bgp_large_community) then reject "Only in Switzerland";
+    if ((202427, 113, 840) ~ bgp_large_community) then reject "Only in United States of America";
+    if ((202427, 114, pop_country) ~ bgp_large_community) then reject "Not in PoP Country";
+  }
+  function reject_pop_communitys() {
+    if ((202427, 115, 1) ~ bgp_large_community) then reject "Only at rma01.ch";
+    if ((202427, 115, 2) ~ bgp_large_community) then reject "Only at fra01.de";
+    if ((202427, 115, 3) ~ bgp_large_community) then reject "Only at Reserved";
+    if ((202427, 115, 4) ~ bgp_large_community) then reject "Only at zhr02.ch";
+    if ((202427, 115, 5) ~ bgp_large_community) then reject "Only at mil01.it";
+    if ((202427, 115, 6) ~ bgp_large_community) then reject "Only at dus01.de";
+    if ((202427, 115, 7) ~ bgp_large_community) then reject "Only at ams01.nl";
+    if ((202427, 115, 8) ~ bgp_large_community) then reject "Only at Reserved";
+    if ((202427, 115, 9) ~ bgp_large_community) then reject "Only at yvr01.ca";
+    #if ((202427, 115, 10) ~ bgp_large_community) then reject "Only at yto01.ca";
+    if ((202427, 115, 11) ~ bgp_large_community) then reject "Only at fmt01.us";
+    if ((202427, 115, 12) ~ bgp_large_community) then reject "Only at Reserved";
+    if ((202427, 115, 13) ~ bgp_large_community) then reject "Only at Reserved";
+    if ((202427, 115, 14) ~ bgp_large_community) then reject "Only at Reserved";
+    if ((202427, 115, 15) ~ bgp_large_community) then reject "Only at Reserved";
+    if ((202427, 116, pop_id) ~ bgp_large_community) then reject "Not at PoP";
+  }
+  function reject_out_of_region() {
+    if ! ((202427, 103, pop_region) ~ bgp_large_community) then reject "Out of Region PoP";
+  }
 local-communities:
   - "202427:101:1"
   - "202427:106:10" # Location Specific (PoP)
@@ -188,13 +211,8 @@ peers:
     local-pref: 220
     listen6: 2001:504:125:e1::c
     add-on-import:
-      - "202427:108:4059"
+      - "202427:108:4059" # IX
     as-set: AS57369:AS-ONIX
-    only-announce:
-      - 2a06:a005:28e0::/48 # AS202427-BACKBONE-NETWORK
-      - 2a06:a005:28ea::/48 # AS202427-BACKBONE-NETWORK
-      - 2a0a:6040:27a0::/43 # CA-AS202427
-      - 2a0a:6040:27e0::/43 # EU-AS202427
 
   # ========= Peers - ONIX =========
   AS112 ONIX:
@@ -206,12 +224,7 @@ peers:
     local-pref: 320
     listen6: 2001:504:125:e1::c
     add-on-import:
-      - "202427:108:4059"
-    only-announce:
-      - 2a06:a005:28e0::/48 # AS202427-BACKBONE-NETWORK
-      - 2a06:a005:28ea::/48 # AS202427-BACKBONE-NETWORK
-      - 2a0a:6040:27a0::/43 # CA-AS202427
-      - 2a0a:6040:27e0::/43 # EU-AS202427
+      - "202427:108:4059" # IX
     as-set: AS112
 
   KTT Iceland ONIX:
@@ -223,7 +236,7 @@ peers:
     local-pref: 320
     listen6: 2001:504:125:e1::c
     add-on-import:
-      - "202427:108:4059"
+      - "202427:108:4059" # IX
     as-set: AS51019:AS-ALL
 
   Linode ONIX:
@@ -235,7 +248,7 @@ peers:
     local-pref: 320
     listen6: 2001:504:125:e1::c
     add-on-import:
-      - "202427:108:4059"
+      - "202427:108:4059" # IX
     as-set: AS-LINODE
 
   MythicalKitten ONIX:
@@ -247,7 +260,7 @@ peers:
     local-pref: 320
     listen6: 2001:504:125:e1::c
     add-on-import:
-      - "202427:108:4059"
+      - "202427:108:4059" # IX
     as-set: RIPE::AS-MYTHICALKITTEN
 
   Thomas Riley Brown ONIX:
@@ -260,8 +273,21 @@ peers:
     local-pref: 320
     listen6: 2001:504:125:e1::c
     add-on-import:
-      - "202427:108:4059"
+      - "202427:108:4059" # IX
     as-set: AS-XZR
+
+  AS212635 ONIX:
+    template: peer
+    passive: true
+    description: AS212635 via ONIX
+    asn: 212635
+    neighbors:
+      - 2001:504:125:e1::67
+    local-pref: 320
+    listen6: 2001:504:125:e1::c
+    add-on-import:
+      - "202427:108:4059" # IX
+    as-set: RIPE::AS212635:AS-212635
 
 #========================
 

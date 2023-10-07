@@ -24,6 +24,7 @@ Octets in the function field are the numeric country identifier defined by ISO 3
 
 | Community | Description |
 | --------- | ----------- |
+| `202427:102:COUNTRY_ID` | Learned in Country (COUNTRY_ID) |
 | `202427:102:124` | Learned in Canada |
 | `202427:102:276` | Learned in Germany |
 | `202427:102:380` | Learned in Italy |
@@ -36,6 +37,7 @@ Octets in the function field are the numeric country identifier defined by ISO 3
 
 | Community | Description |
 | --------- | ----------- |
+| `202427:103:REGION_ID` | Learned in Region (REGION_ID) |
 | `202427:103:1` | Learned in Europe |
 | `202427:103:2` | Learned in North America |
 
@@ -45,6 +47,7 @@ Octets in the function field are the numeric country identifier defined by ISO 3
 
 | Community | Description |
 | --------- | ----------- |
+| `202427:104:POP_ID` | Learned at PoP (POP_ID) |
 | `202427:104:1` | Learned at RMA01, CH |
 | `202427:104:2` | Learned at FRA01, DE |
 | `202427:104:3` | Learned at RESERVED, EU |
@@ -64,6 +67,7 @@ Octets in the function field are the numeric country identifier defined by ISO 3
 
 | Community | Description |
 | --------- | ----------- |
+| `202427:105:POP_ID` | Exported at PoP (POP_ID) |
 | `202427:105:1` | Exported at RMA01, CH |
 | `202427:105:2` | Exported at FRA01, DE |
 | `202427:105:3` | Exported at RESERVED, EU |
@@ -84,6 +88,7 @@ Octets in the function field are the numeric country identifier defined by ISO 3
 
 | Community | Description |
 | --------- | ----------- |
+| `202427:106:POP_ID` | Originated at PoP (POP_ID) |
 | `202427:106:1` | Originated at RMA01, CH |
 | `202427:106:2` | Originated at FRA01, DE |
 | `202427:106:3` | Originated at RESERVED, EU |
@@ -165,6 +170,7 @@ Octets in the function field are the peeringdb id.
 
 | Community | Description |
 | --------- | ----------- |
+| `202427:107:IX_ID` | Learned at IX (IX_ID) |
 | `202427:107:60` | Learned at SwissIX |
 | `202427:107:64` | Learned at NL-ix |
 | `202427:107:2084` | Learned at LOCIX Frankfurt |
@@ -225,3 +231,20 @@ Octets in the function field are the peeringdb id.
 | ---- | ----------- |
 | `180` | Default |
 | `190` | PNI     |
+
+# Action 
+| Community | Description |
+| --------- | ----------- |
+| `202427:111:REGION_ID` | Announce Only in Region (REGION_ID) |
+| `202427:111:1` | Announce Only in Europe |
+| `202427:111:2` | Announce Only in North America |
+
+| `202427:112:REGION_ID` | Announce not in Region (REGION_ID) |
+| `202427:112:1` | Announce not in Europe |
+| `202427:112:2` | Announce not in North America |
+
+| `202427:113:COUNTRY_ID` | Announce Only in Country (COUNTRY_ID) |
+| `202427:114:COUNTRY_ID` | Announce not in Country (COUNTRY_ID) |
+
+| `202427:115:POP_ID` | Announce Only at PoP (POP_ID) |
+| `202427:116:POP_ID` | Announce not at PoP (POP_ID) |
