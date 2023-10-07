@@ -1,4 +1,4 @@
-peeringdb-api-key: ${edge01-yto-peeringdb-api-key}
+peeringdb-api-key: ${tor01-ca-pop-peeringdb-api-key}
 log-file: /var/log/bird.log
 global-config: >
   define pop_region = 2;
@@ -28,8 +28,8 @@ global-config: >
     if ((202427, 115, 6) ~ bgp_large_community) then reject "Only at dus01.de";
     if ((202427, 115, 7) ~ bgp_large_community) then reject "Only at ams01.nl";
     if ((202427, 115, 8) ~ bgp_large_community) then reject "Only at Reserved";
-    if ((202427, 115, 9) ~ bgp_large_community) then reject "Only at yvr01.ca";
-    #if ((202427, 115, 10) ~ bgp_large_community) then reject "Only at yto01.ca";
+    if ((202427, 115, 9) ~ bgp_large_community) then reject "Only at van01.ca";
+    #if ((202427, 115, 10) ~ bgp_large_community) then reject "Only at tor01.ca";
     if ((202427, 115, 11) ~ bgp_large_community) then reject "Only at fmt01.us";
     if ((202427, 115, 12) ~ bgp_large_community) then reject "Only at Reserved";
     if ((202427, 115, 13) ~ bgp_large_community) then reject "Only at Reserved";
@@ -42,13 +42,13 @@ global-config: >
   }
 local-communities:
   - "202427:101:1"
-  - "202427:106:10" # Location Specific (PoP)
+  - "202427:106:10" # PoP
 add-on-import:
-  - "202427:102:124" # Location Specific (Country)
-  - "202427:103:2" # Location Specific (Region)
-  - "202427:104:10" # Location Specific (PoP)
+  - "202427:102:124" # Country
+  - "202427:103:2" # Region
+  - "202427:104:10" # PoP
 add-on-export:
-  - "202427:105:10" # Location Specific (PoP)
+  - "202427:105:10" # PoP
 asn: 202427
 prefixes: # Location Specific
   - 2a06:a005:28e0::/48 # AS202427-BACKBONE-NETWORK
@@ -56,9 +56,9 @@ prefixes: # Location Specific
   - 2a0a:6040:27a0::/43 # CA-AS202427
   - 2a0a:6040:27e0::/43 # EU-AS202427
  #- 2a07:54c2:b00b::/48 # ::/b00b collective
-router-id: 104.167.228.27 # Location Specific (PoP)
+router-id: 104.167.228.27 # PoP
 irr-server: 128.241.192.40 # rr.ntt.net
-source6: 2a06:a005:28ea::1 # Location Specific (PoP)
+source6: 2a06:a005:28ea::1 # PoP
 default-route: false
 blackhole-bogon-asns: true
 
@@ -115,90 +115,6 @@ peers:
       - 185.230.223.56
     multihop: true
     listen4: 104.167.228.27
-
-#  HE Realtime:
-#    template: lg
-#    description: Hurricane Electric Route Collector
-#    disabled: true
-#    asn: 393338
-#    neighbors:
-#      - 2001:470:0:441::40
-#    multihop: false
-#    listen6: 2a0c:9a40:1072::419
-
-  # ========= Internal =========
-#  Core01 NUE:
-#    template: core-wg
-#    description: Core01 Router - Nuremberg, Germany
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2ef1::1
-#    listen6: 2a06:a005:2efa::1
-
-#  Edge01 FRA:
-#    template: core-wg
-#    description: Edge01 Router - Frankfurt, Germany
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2ef2::1
-#    listen6: 2a06:a005:2efa::1
-#
-#  Edge02 ZHR:
-#    template: core-wg
-#    description: Edge02 Router - Zurich, Switzerland
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2ef4::1
-#    listen6: 2a06:a005:2efa::1
-
-#  Edge01 MIL:
-#    template: core-wg
-#    description: Edge01 Router - Milan, Italy
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2ef5::1
-#    listen6: 2a06:a005:2efa::1
-#
-#  Edge01 DUS:
-#    template: core-wg
-#    description: Edge01 Router - Dusseldorf, Germany
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2ef6::1
-#    listen6: 2a06:a005:2efa::1
-
-#  Edge01 AMS:
-#    template: core-wg
-#    description: Edge01 Router - Amsterdam, Netherlands
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2ef7::1
-#    listen6: 2a06:a005:2efa::1
-
-#  Edge01 OSL:
-#    template: core-wg
-#    description: Edge01 Router - Oslo, Norway
-#    disabled: true
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2ef8::1
-#    listen6: 2a06:a005:2efa::1
-
-#  Edge01 YVR:
-#    template: core-wg
-#    description: Edge01 Router - Vancouver, Canada
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2ef9::1
-#    listen6: 2a06:a005:2efa::1
-
-#  Edge01 FMT:
-#    template: core-wg
-#    description: Edge01 Router - Fremont, US
-#    asn: 202427
-#    neighbors:
-#      - 2a06:a005:2efb::1
-#    listen6: 2a06:a005:2efa::1
 
   # ========= Route Servers =========
   ONIX Route Server:
@@ -289,94 +205,7 @@ peers:
       - "202427:108:4059" # IX
     as-set: RIPE::AS212635:AS-212635
 
-#========================
-
-#  Dominik Pohl ONIX:
-#    template: peer
-#    description: Dominik Pohl via ONIX
-#    asn: 205848
-#    neighbors:
-#      - 2001:504:125:e1::aa
-#    local-pref: 320
-#    listen6: 2001:504:125:e1::c
-#    add-on-import:
-#      - "202427:108:4059"
-
-#  Adam Goodenough ONIX:
-#    template: peer
-#    description: Adam Goodenough via ONIX
-#    asn: 210667
-#    neighbors:
-#      - 2001:504:125:e1::8
-#    local-pref: 320
-#    listen6: 2001:504:125:e1::c
-#    add-on-import:
-#      - "202427:108:4059"
-
-#  Svens Jansons ONIX:
-#    template: peer
-#    passive: true
-#    description: Svens Jansons via ONIX
-#    asn: 50755
-#    neighbors:
-#      - 2001:504:125:e1::cf
-#    local-pref: 320
-#    listen6: 2001:504:125:e1::c
-#    add-on-import:
-#      - "202427:108:4059"
-#    as-set: AS50755:AS-SJOHNSON
-
-#  Rifqi Arief Pamungkas ONIX:
-#    template: peer
-#    passive: true
-#    description: Rifqi Arief Pamungkas via ONIX
-#    asn: 199514
-#    neighbors:
-#      - 2001:504:125:e1::cd
-#    local-pref: 320
-#    listen6: 2001:504:125:e1::c
-#    add-on-import:
-#      - "202427:108:4059"
-#    as-set: RIPE::AS-RAPDODGE
-
-#  andrewnet ONIX:
-#    template: peer
-#    passive: true
-#    description: andrewnet via ONIX
-#    asn: 1003
-#    neighbors:
-#      - 2001:504:125:e1::21
-#    local-pref: 320
-#    listen6: 2001:504:125:e1::c
-#    add-on-import:
-#      - "202427:108:4059"
-#    as-set: AS-ANDREWNET
-
-#  Lachlan Roche ONIX:
-#    template: peer
-#    passive: true
-#    description: Lachlan Roche via ONIX
-#    asn: 212276
-#    neighbors:
-#      - 2001:504:125:e1::33
-#    local-pref: 320
-#    listen6: 2001:504:125:e1::c
-#    add-on-import:
-#      - "202427:108:4059"
-#    as-set: AS-SLOTHNET
-
-#  EasyVM ONIX:
-#    template: peer
-#    passive: true
-#    description: EasyVM via ONIX
-#    asn: 26930
-#    neighbors:
-#      - 2001:504:125:e1::50
-#    local-pref: 320
-#    listen6: 2001:504:125:e1::c
-#    add-on-import:
-#      - "202427:108:4059"
-#    as-set: AS-EASYVM
+# ===========================================================
 
 templates:
   upstream:
