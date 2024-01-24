@@ -6,63 +6,65 @@
 202427:101:5,Learned from customer
 # Country
 202427:102:124,Learned in Canada
+202427:102:208,Learned in Denmark
 202427:102:276,Learned in Germany
 202427:102:380,Learned in Italy
 202427:102:528,Learned in Netherlands
 202427:102:578,Learned in Norway
+202427:102:756,Learned in Spain
 202427:102:756,Learned in Switzerland
 202427:102:840,Learned in United States of America
 # Region
 202427:103:1,Learned in Europe
 202427:103:2,Learned in North America
 # PoP - Import
-202427:104:1,Learned at RMA01-CH
-202427:104:2,Learned at FRA01-DE
-202427:104:3,Learned at RESERVED-EU
-202427:104:4,Learned at ZRH02-CH
-202427:104:5,Learned at POM01-IT
-202427:104:6,Learned at DUS01-DE
-202427:104:7,Learned at AMS01-NL
-202427:104:8,Learned at RESERVED-EU
-202427:104:9,Learned at VAN01-CA
-202427:104:10,Learned at TOR01-CA
-202427:104:11,Learned at FNC01-US
-202427:104:12,Learned at RESERVED-EU
-202427:104:13,Learned at RESERVED-EU
-202427:104:14,Learned at RESERVED-EU
-202427:104:15,Learned at RESERVED-EU
+202427:104:1,Learned at RMA01.CH
+202427:104:2,Learned at FRA01.DE
+202427:104:3,Learned at AMS01.NL
+202427:104:4,Learned at TOR01.CA
+202427:104:5,Learned at MKC01.US
+202427:104:6,Learned at BCN01.ES
+202427:104:7,Learned at OTT01.CA
+202427:104:8,Learned at FNC01.US
+202427:104:9,Learned at RESERVED EU
+202427:104:10,Learned at RESERVED EU
+202427:104:11,Learned at RESERVED EU
+202427:104:12,Learned at VAN01.CA
+202427:104:13,Learned at DUS01.DE
+202427:104:14,Learned at ZRH02.CH
+202427:104:15,Learned at POM01.IT
 # PoP - Export
-202427:105:1,Exported at RMA01-CH
-202427:105:2,Exported at FRA01-DE
-202427:105:3,Exported at RESERVED-EU
-202427:105:4,Exported at ZRH02-CH
-202427:105:5,Exported at POM01-IT
-202427:105:6,Exported at DUS01-DE
-202427:105:7,Exported at AMS01-NL
-202427:105:8,Exported at RESERVED-EU
-202427:105:9,Exported at VAN01-CA
-202427:105:10,Exported at TOR01-CA
-202427:105:11,Exported at FNC01-US
-202427:105:12,Exported at RESERVED-EU
-202427:105:13,Exported at RESERVED-EU
-202427:105:14,Exported at RESERVED-EU
-202427:105:15,Exported at RESERVED-EU
+202427:105:1,Exported at RMA01.CH
+202427:105:2,Exported at FRA01.DE
+202427:105:3,Exported at AMS01.NL
+202427:105:4,Exported at TOR01.CA
+202427:105:5,Exported at MKC01.US
+202427:105:6,Exported at BCN01.ES
+202427:105:7,Exported at OTT01.CA
+202427:105:8,Exported at FNC01.US
+202427:105:9,Exported at RESERVED.EU
+202427:105:10,Exported at RESERVED.EU
+202427:105:11,Exported at RESERVED.EU
+202427:105:12,Exported at VAN01.CA
+202427:105:13,Exported at DUS01.DE
+202427:105:14,Exported at ZRH02.CH
+202427:105:15,Exported at POM01.IT
 # PoP - Originated
-202427:106:1,Originated at RMA01-CH
-202427:106:2,Originated at FRA01-DE
-202427:106:3,Originated at RESERVED-EU
-202427:106:4,Originated at ZRH02-CH
-202427:106:5,Originated at POM01-IT
-202427:106:6,Originated at DUS01-DE
-202427:106:7,Originated at AMS01-NL
-202427:106:8,Originated at RESERVED-EU
-202427:106:9,Originated at VAN01-CA
-202427:106:10,Originated at TOR01-CA
-202427:106:11,Originated at FNC01-US
-202427:106:12,Originated at RESERVED-EU
-202427:106:13,Originated at RESERVED-EU
-202427:106:14,Originated at RESERVED-EU
-202427:106:15,Originated at RESERVED-EU
+202427:106:1,Originated at RMA01.CH
+202427:106:2,Originated at FRA01.DE
+202427:106:3,Originated at AMS01.NL
+202427:106:4,Originated at TOR01.CA
+202427:106:5,Originated at MKC01.US
+202427:106:6,Originated at BCN01.ES
+202427:106:7,Originated at OTT01.CA
+202427:106:8,Originated at FNC01.US
+202427:106:9,Originated at RESERVED.EU
+202427:106:10,Originated at RESERVED.EU
+202427:106:11,Originated at RESERVED.EU
+202427:106:12,Originated at VAN01.CA
+202427:106:13,Originated at DUS01.DE
+202427:106:14,Originated at ZRH02.CH
+202427:106:15,Originated at POM01.IT
 # Peer
 202427:107:112,Learned from DNS-OARC-112
 202427:107:714,Learned from Apple Inc.
@@ -78,12 +80,13 @@
 202427:107:30132,Learned from ISC F-ROOT AMS1
 202427:107:32934,Learned from Meta
 202427:107:34307,Learned from NL-ix Route Servers
-202427:107:34872,Learned from Servperso Systems Transit ASN
-202427:107:34927,Learned from FogNet - iFog GmbH
+202427:107:34872,Learned from Servperso Systems
+202427:107:34927,Learned from iFog GmbH
 202427:107:35297,Learned from Dataline Net
 202427:107:35708,Learned from 4b42 Internet Exchange Point Route Servers
 202427:107:39614,Learned from Dawico
 202427:107:41051,Learned from FREETRANSIT
+202427:107:47422,Learned from SBIX RS Zurich
 202427:107:42476,Learned from SwissIX Route Servers
 202427:107:47498,Learned from FogIXP Route Servers
 202427:107:48200,Learned from Opteamax GmbH
@@ -135,49 +138,53 @@
 202427:112:2,Do not announce in North America
 # Action - Announce in [Country] only
 202427:113:124,Announce in Canada only
+202427:113:124,Announce in Denmark only
 202427:113:276,Announce in Germany only
 202427:113:380,Announce in Italy only
 202427:113:528,Announce in Netherlands only
 202427:113:578,Announce in Norway only
+202427:113:756,Announce in Spain only
 202427:113:756,Announce in Switzerland only
 202427:113:840,Announce in United States of America only
 # Action - Do not announce in [Country]
 202427:114:124,Do not announce in Canada
+202427:114:124,Do not announce in Denmark
 202427:114:276,Do not announce in Germany
 202427:114:380,Do not announce in Italy
 202427:114:528,Do not announce in Netherlands
 202427:114:578,Do not announce in Norway
+202427:114:578,Do not announce in Spain
 202427:114:756,Do not announce in Switzerland
 202427:114:840,Do not announce in United States of America
 # Action - Announce at [PoP] only
-202427:115:1,Announce at RMA01-CH only
-202427:115:2,Announce at FRA01-DE only
-202427:115:3,Announce at RESERVED-EU only
-202427:115:4,Announce at ZRH02-CH only
-202427:115:5,Announce at POM01-IT only
-202427:115:6,Announce at DUS01-DE only
-202427:115:7,Announce at AMS01-NL only
-202427:115:8,Announce at RESERVED-EU only
-202427:115:9,Announce at VAN01-CA only
-202427:115:10,Announce at TOR01-CA only
-202427:115:11,Announce at FNC01-US only
-202427:115:12,Announce at RESERVED-EU only
-202427:115:13,Announce at RESERVED-EU only
-202427:115:14,Announce at RESERVED-EU only
-202427:115:15,Announce at RESERVED-EU only
+202427:115:1,Announce at RMA01.CH only
+202427:115:2,Announce at FRA01.DE only
+202427:115:3,Announce at AMS01.NL only
+202427:115:4,Announce at TOR01.CA only
+202427:115:5,Announce at MKC01.US only
+202427:115:6,Announce at BCN01.ES only
+202427:115:7,Announce at OTT01.CA only
+202427:115:8,Announce at FNC01.US only
+202427:115:9,Announce at RESERVED.EU only
+202427:115:10,Announce at RESERVED.EU only
+202427:115:11,Announce at RESERVED.EU only
+202427:115:12,Announce at VAN01.CA only
+202427:115:13,Announce at DUS01 DE only
+202427:115:14,Announce at ZRH02.CH CH only
+202427:115:15,Announce at POM01.IT only
 # Action - Do not announce at [PoP]
-202427:116:1,Do not announce at RMA01-CH
-202427:116:2,Do not announce at FRA01-DE
-202427:116:3,Do not announce at RESERVED-EU
-202427:116:4,Do not announce at ZRH02-CH
-202427:116:5,Do not announce at POM01-IT
-202427:116:6,Do not announce at DUS01-DE
-202427:116:7,Do not announce at AMS01-NL
-202427:116:8,Do not announce at RESERVED-EU
-202427:116:9,Do not announce at VAN01-CA
-202427:116:10,Do not announce at TOR01-CA
-202427:116:11,Do not announce at FNC01-US
-202427:116:12,Do not announce at RESERVED-EU
-202427:116:13,Do not announce at RESERVED-EU
-202427:116:14,Do not announce at RESERVED-EU
-202427:116:15,Do not announce at RESERVED-EU
+202427:116:1,Do not announce at RMA01 CH
+202427:116:2,Do not announce at FRA01 DE
+202427:116:3,Do not announce at AMS01 NL
+202427:116:4,Do not announce at TOR01.CA
+202427:116:5,Do not announce at MKC01.US
+202427:116:6,Do not announce at BCN01.ES
+202427:116:7,Do not announce at OTT01.CA
+202427:116:8,Do not announce at FNC01.US
+202427:116:9,Do not announce at RESERVED.EU
+202427:116:10,Do not announce at RESERVED.EU
+202427:116:11,Do not announce at RESERVED.EU
+202427:116:12,Do not announce at VAN01.CA
+202427:116:13,Do not announce at DUS01.DE
+202427:116:14,Do not announce at ZRH02.CH
+202427:116:15,Do not announce at POM01.IT

@@ -1,9 +1,9 @@
-peeringdb-api-key: ${tor01-ca-pop-peeringdb-api-key}
+peeringdb-api-key: ${bcn01-es-pop-peeringdb-api-key}
 #log-file: /var/log/bird.log
 global-config: >
-  define pop_region = 2;
-  define pop_country = 124;
-  define pop_id = 4;
+  define pop_region = 1;
+  define pop_country = 724;
+  define pop_id = 6;
   function reject_region_communitys() {
     if ((202427, 111, 1) ~ bgp_large_community) && ((202427, 111, pop_region) !~ bgp_large_community) then reject "Only in Europe";
     if ((202427, 111, 2) ~ bgp_large_community) && ((202427, 111, pop_region) !~ bgp_large_community) then reject "Only in North America";
@@ -51,51 +51,37 @@ global-config: >
   }
 local-communities:
   - "202427:101:1"
-  - "202427:106:4" # PoP
+  - "202427:106:6" # PoP
 asn: 202427
 prefixes:
 # PoP
-  - 2a06:a005:28e4::/48 # AS202427-ROUTING-NETWORK
+  - 2a06:a005:28e5::/48 # AS202427-ROUTING-NETWORK
 # Anycasted
   - 2a06:a005:28e0::/48 # AS202427-ROUTING-NETWORK
   - 2a0a:6040:27e0::/43 # EU-AS202427-ANYCASTED
  #- 2a07:54c2:b00b::/48 # ::/b00b collective
   - 2a0e:97c0:5b0::/44  # EU-AS202427-Securebit
 # Location
-  - 2a0a:6040:27a0::/43 # CA-AS202427
-# Virt Locations
-  - 2a05:dfc1:620::/43  # AQ-AS202427
-router-id: 104.167.228.27 # PoP
+  - 2a05:dfc1:53a0::/43 # ES-AS202427
+router-id: 45.134.91.154 # PoP
 irr-server: 128.241.192.40 # rr.ntt.net
-source6: 2a06:a005:28e4::1 # PoP
+source6: 2a06:a005:28e6::1 # PoP
 default-route: false
 blackhole-bogon-asns: true
 
 peers:
 # ========= Upstreams - PNI =========
-  Xenyth:
+  iFog:
     template: upstream
-    description: Xenyth Cloud Upstream
-    asn: 835
+    description: iFog GmbH Upstream
+    asn: 34927
     neighbors:
-      - 2602:fd50:100::5
-    local-pref: 130
-    multihop: true
-    listen6: 2602:fd50:0100:006d:5dac:5bd6:bc85:e12e
-    as-set: ARIN::AS-GOCODEIT-ALL
+      - 2a0c:9a40:1080::1
+    local-pref: 120
+    listen6: 2a0c:9a40:1080::421
+    as-set: RIPE::AS-IFOG
 
 # ========= Upstreams - IXP =========
-  Hurricane Electric ONIX:
-    template: upstream
-    description: Hurricane Electric LLC Upstream via ONIX
-    asn: 6939
-    neighbors:
-      - 2001:504:125:e1::3
-    local-pref: 120
-    listen6: 2001:504:125:e1::c
-    add-on-import:
-      - "202427:108:4059"
-    as-set: RADB::AS-HURRICANEV6
 
 # ========= Looking Glasses =========
   qrator:
@@ -105,106 +91,23 @@ peers:
     neighbors:
       - 178.248.237.29
     multihop: true
-    listen4: 104.167.228.27
+    listen4: 45.134.91.154
+    password: qrator
 
-  bgp.tools ONIX:
+  bgpTools:
     template: lg
-    description: BGP.Tools Route Collector via ONIX
+    description: BGP.Tools Route Collector
     asn: 212232
     neighbors:
-      - 2001:504:125:e1::61
-    listen6: 2001:504:125:e1::c
+      - 185.230.223.73
+    multihop: true
+    listen4: 45.134.91.154
 
 # ========= Internal =========
 
 # ========= Route Servers =========
-  ONIX Route Server:
-    template: routeserver
-    description: ONIX Route Server
-    asn: 57369
-    neighbors:
-      - 2001:504:125:e1::1
-      - 2001:504:125:e1::2
-    local-pref: 220
-    listen6: 2001:504:125:e1::c
-    add-on-import:
-      - "202427:108:4059" # IX
-    as-set: AS57369:AS-ONIX
 
-# ========= Peers - ONIX =========
-  AS112 ONIX:
-    template: peer
-    description: AS112 via ONIX
-    asn: 112
-    neighbors:
-      - 2001:504:125:e1::112
-    local-pref: 320
-    listen6: 2001:504:125:e1::c
-    add-on-import:
-      - "202427:108:4059" # IX
-    as-set: AS112
-
-  KTT Iceland ONIX:
-    template: peer
-    description: KTT Iceland via ONIX
-    asn: 51019
-    neighbors:
-      - 2001:504:125:e1::17
-    local-pref: 320
-    listen6: 2001:504:125:e1::c
-    add-on-import:
-      - "202427:108:4059" # IX
-    as-set: AS51019:AS-ALL
-
-  Linode ONIX:
-    template: peer
-    description: Linode via ONIX
-    asn: 63949
-    neighbors:
-      - 2001:504:125:e1::31
-    local-pref: 320
-    listen6: 2001:504:125:e1::c
-    add-on-import:
-      - "202427:108:4059" # IX
-    as-set: AS-LINODE
-
-  MythicalKitten ONIX:
-    template: peer
-    description: MythicalKitten via ONIX
-    asn: 48581
-    neighbors:
-      - 2001:504:125:e1::16
-    local-pref: 320
-    listen6: 2001:504:125:e1::c
-    add-on-import:
-      - "202427:108:4059" # IX
-    as-set: RIPE::AS-MYTHICALKITTEN
-
-  Thomas Riley Brown ONIX:
-    template: peer
-    passive: true
-    description: Thomas Riley Brown via ONIX
-    asn: 203069
-    neighbors:
-      - 2001:504:125:e1::ad
-    local-pref: 320
-    listen6: 2001:504:125:e1::c
-    add-on-import:
-      - "202427:108:4059" # IX
-    as-set: AS-XZR
-
-  AS212635 ONIX:
-    template: peer
-    passive: true
-    description: AS212635 via ONIX
-    asn: 212635
-    neighbors:
-      - 2001:504:125:e1::67
-    local-pref: 320
-    listen6: 2001:504:125:e1::c
-    add-on-import:
-      - "202427:108:4059" # IX
-    as-set: RIPE::AS212635:AS-212635
+# ========= Peers =========
 
 # ===========================================================
 templates:

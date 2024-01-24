@@ -1,40 +1,41 @@
 peeringdb-api-key: ${rma01-ch-pop-peeringdb-api-key}
-log-file: /var/log/bird.log
+#log-file: /var/log/bird.log
 global-config: >
   define pop_region = 1;
   define pop_country = 756;
   define pop_id = 1;
   function reject_region_communitys() {
-    #if ((202427, 111, 1) ~ bgp_large_community) then reject "Only in Europe";
-    if ((202427, 111, 2) ~ bgp_large_community) then reject "Only in North America";
+    if ((202427, 111, 1) ~ bgp_large_community) && ((202427, 111, pop_region) !~ bgp_large_community) then reject "Only in Europe";
+    if ((202427, 111, 2) ~ bgp_large_community) && ((202427, 111, pop_region) !~ bgp_large_community) then reject "Only in North America";
     if ((202427, 112, pop_region) ~ bgp_large_community) then reject "Not in PoP Region";
   }
   function reject_country_communitys() {
-    if ((202427, 113, 124) ~ bgp_large_community) then reject "Only in Canada";
-    if ((202427, 113, 276) ~ bgp_large_community) then reject "Only in Germany";
-    if ((202427, 113, 380) ~ bgp_large_community) then reject "Only in Italy";
-    if ((202427, 113, 528) ~ bgp_large_community) then reject "Only in Netherlands";
-    if ((202427, 113, 578) ~ bgp_large_community) then reject "Only in Norway";
-    #if ((202427, 113, 756) ~ bgp_large_community) then reject "Only in Switzerland";
-    if ((202427, 113, 840) ~ bgp_large_community) then reject "Only in United States of America";
+    if ((202427, 113, 124) ~ bgp_large_community) && ((202427, 113, pop_country) !~ bgp_large_community) then reject "Only in Canada";
+    if ((202427, 113, 276) ~ bgp_large_community) && ((202427, 113, pop_country) !~ bgp_large_community) then reject "Only in Germany";
+    if ((202427, 113, 380) ~ bgp_large_community) && ((202427, 113, pop_country) !~ bgp_large_community) then reject "Only in Italy";
+    if ((202427, 113, 528) ~ bgp_large_community) && ((202427, 113, pop_country) !~ bgp_large_community) then reject "Only in Netherlands";
+    if ((202427, 113, 578) ~ bgp_large_community) && ((202427, 113, pop_country) !~ bgp_large_community) then reject "Only in Norway";
+    if ((202427, 113, 724) ~ bgp_large_community) && ((202427, 113, pop_country) !~ bgp_large_community) then reject "Only in Spain";
+    if ((202427, 113, 756) ~ bgp_large_community) && ((202427, 113, pop_country) !~ bgp_large_community) then reject "Only in Switzerland";
+    if ((202427, 113, 840) ~ bgp_large_community) && ((202427, 113, pop_country) !~ bgp_large_community) then reject "Only in United States of America";
     if ((202427, 114, pop_country) ~ bgp_large_community) then reject "Not in PoP Country";
   }
   function reject_pop_communitys() {
-    #if ((202427, 115, 1) ~ bgp_large_community) then reject "Only at rma01.ch";
-    if ((202427, 115, 2) ~ bgp_large_community) then reject "Only at fra01.de";
-    if ((202427, 115, 3) ~ bgp_large_community) then reject "Only at Reserved";
-    if ((202427, 115, 4) ~ bgp_large_community) then reject "Only at zrh02.ch";
-    if ((202427, 115, 5) ~ bgp_large_community) then reject "Only at pom01.it";
-    if ((202427, 115, 6) ~ bgp_large_community) then reject "Only at dus01.de";
-    if ((202427, 115, 7) ~ bgp_large_community) then reject "Only at ams01.nl";
-    if ((202427, 115, 8) ~ bgp_large_community) then reject "Only at Reserved";
-    if ((202427, 115, 9) ~ bgp_large_community) then reject "Only at van01.ca";
-    if ((202427, 115, 10) ~ bgp_large_community) then reject "Only at tor01.ca";
-    if ((202427, 115, 11) ~ bgp_large_community) then reject "Only at fnc01.us";
-    if ((202427, 115, 12) ~ bgp_large_community) then reject "Only at Reserved";
-    if ((202427, 115, 13) ~ bgp_large_community) then reject "Only at Reserved";
-    if ((202427, 115, 14) ~ bgp_large_community) then reject "Only at Reserved";
-    if ((202427, 115, 15) ~ bgp_large_community) then reject "Only at Reserved";
+    if ((202427, 115, 1) ~ bgp_large_community) && ((202427, 115, pop_id) !~ bgp_large_community) then reject "Only at rma01.ch";
+    if ((202427, 115, 2) ~ bgp_large_community) && ((202427, 115, pop_id) !~ bgp_large_community) then reject "Only at fra01.de";
+    if ((202427, 115, 3) ~ bgp_large_community) && ((202427, 115, pop_id) !~ bgp_large_community) then reject "Only at ams01.nl";
+    if ((202427, 115, 4) ~ bgp_large_community) && ((202427, 115, pop_id) !~ bgp_large_community) then reject "Only at dus01.de";
+    if ((202427, 115, 5) ~ bgp_large_community) && ((202427, 115, pop_id) !~ bgp_large_community) then reject "Only at bcn01.es";
+    if ((202427, 115, 6) ~ bgp_large_community) && ((202427, 115, pop_id) !~ bgp_large_community) then reject "Only at van01.ca";
+    if ((202427, 115, 7) ~ bgp_large_community) && ((202427, 115, pop_id) !~ bgp_large_community) then reject "Only at tor01.ca";
+    if ((202427, 115, 8) ~ bgp_large_community) && ((202427, 115, pop_id) !~ bgp_large_community) then reject "Only at fnc01.us";
+    if ((202427, 115, 9) ~ bgp_large_community) && ((202427, 115, pop_id) !~ bgp_large_community) then reject "Only at ott01.ca";
+    if ((202427, 115, 10) ~ bgp_large_community) && ((202427, 115, pop_id) !~ bgp_large_community) then reject "Only at cph01.dk";
+    if ((202427, 115, 11) ~ bgp_large_community) && ((202427, 115, pop_id) !~ bgp_large_community) then reject "Only at Reserved";
+    if ((202427, 115, 12) ~ bgp_large_community) && ((202427, 115, pop_id) !~ bgp_large_community) then reject "Only at Reserved";
+    if ((202427, 115, 13) ~ bgp_large_community) && ((202427, 115, pop_id) !~ bgp_large_community) then reject "Only at Reserved";
+    if ((202427, 115, 14) ~ bgp_large_community) && ((202427, 115, pop_id) !~ bgp_large_community) then reject "Only at pom01.it";
+    if ((202427, 115, 15) ~ bgp_large_community) && ((202427, 115, pop_id) !~ bgp_large_community) then reject "Only at zrh02.ch";
     if ((202427, 116, pop_id) ~ bgp_large_community) then reject "Not at PoP";
   }
   function reject_out_of_region() {
@@ -53,24 +54,22 @@ local-communities:
   - "202427:106:1" # PoP
 asn: 202427
 prefixes:
-  - 2a0a:6040:2700::/43 # CH-AS202427
-  - 2a0e:97c0:5b0::/44  # EU-AS202427-Securebit
-# Backbone
+# PoP
   - 2a06:a005:28e1::/48 # AS202427-ROUTING-NETWORK
-# Virt Locations
-  - 2a05:dfc1:620::/43  # AQ-AS202427
-  - 2a05:dfc1:640::/43  # NZ-AS202427
-  - 2a05:dfc1:5320::/43 # AT-AS202427
-  - 2a05:dfc1:5340::/43 # FR-AS202427
-  - 2a05:dfc1:5360::/43 # MX-AS202427
-  - 2a05:dfc1:5380::/43 # JP-AS202427
-  - 2a05:dfc1:53a0::/43 # ES-AS202427
-  - 2a05:dfc1:53c0::/43 # LI-AS202427 
-  - 2a05:dfc1:53e0::/43 # SE-AS202427
 # Anycasted
   - 2a06:a005:28e0::/48 # AS202427-ROUTING-NETWORK
   - 2a0a:6040:27e0::/43 # EU-AS202427-ANYCASTED
  #- 2a07:54c2:b00b::/48 # ::/b00b collective
+  - 2a0e:97c0:5b0::/44  # EU-AS202427-Securebit
+# Location
+  - 2a0a:6040:2700::/43 # CH-AS202427
+  - 2a05:dfc1:680::/42 # CH-AS202427-SERVERS-NTT
+# Virt Locations
+  - 2a05:dfc1:53c0::/43 # LI-AS202427
+  - 2a05:dfc1:5320::/43 # AT-AS202427
+  - 2a05:dfc1:5340::/43 # FR-AS202427
+  - 2a05:dfc1:640::/43  # NZ-AS202427
+  - 2a05:dfc1:5380::/43 # JP-AS202427
 router-id: 193.148.250.229 # PoP
 irr-server: 128.241.192.40 # rr.ntt.net
 source6: 2a06:a005:28e1::1 # PoP
@@ -78,19 +77,29 @@ default-route: false
 blackhole-bogon-asns: true
 
 peers:
-  # ========= Upstreams =========
-# ===========================================================
-
-  # ========= Upstreams =========
+# ========= Upstreams - PNI =========
   iFog:
     template: upstream
     description: iFog GmbH Upstream
     asn: 34927
     neighbors:
       - 2a0c:9a40:1050::1
-    local-pref: 120
+    local-pref: 130
     listen6: 2a0c:9a40:1050::418
     as-set: RIPE::AS-IFOG
+
+# ========= Upstreams - IXP =========
+  Hurricane Electric SwissIX:
+    template: upstream
+    description: Hurricane Electric LLC Upstream via SwissIX
+    asn: 6939
+    neighbors:
+      - 2001:7f8:24::aa
+    local-pref: 120
+    listen6: 2001:7f8:24:0:3:16bb:0:1
+    add-on-import:
+      - "202427:108:60" # IX
+    as-set: RADB::AS-HURRICANEV6
 
   Hurricane Electric CHIX-CH:
     template: upstream
@@ -98,34 +107,13 @@ peers:
     asn: 6939
     neighbors:
       - 2001:7f8:cc:333::137
-    local-pref: 130
+    local-pref: 120
     listen6: 2001:7f8:cc:333::182
     add-on-import:
       - "202427:108:2365" # IX
     as-set: RADB::AS-HURRICANEV6
 
-  Hurricane Electric SwissIX:
-    template: upstream
-    description: Hurricane Electric LLC Upstream via SwissIX
-    asn: 6939
-    neighbors:
-      - 2001:7f8:24::aa
-    local-pref: 130
-    listen6: 2001:7f8:24:0:3:16bb:0:1
-    add-on-import:
-      - "202427:108:60" # IX
-    as-set: RADB::AS-HURRICANEV6
-
-  # ========= Looking Glasses =========
-  pmacctd:
-    template: lg
-    description: pmacctd
-    asn: 202427
-    listen6: 127.0.0.1
-    neighbors:
-      - 127.0.0.2
-    neighbor-port: 180
-
+# ========= Looking Glasses =========
   qrator:
     template: lg
     description: Radar by Qrator
@@ -133,7 +121,7 @@ peers:
     neighbors:
       - 178.248.237.29
     multihop: true
-    listen4: 193.148.250.168
+    listen4: 193.148.250.229
     password: qrator
 
   bgpTools:
@@ -141,30 +129,43 @@ peers:
     description: BGP.Tools Route Collector
     asn: 212232
     neighbors:
-      - 185.230.223.55
+      - 185.230.223.51
     multihop: true
-    listen4: 193.148.250.168
+    listen4: 193.148.250.229
 
-  # ========= Internal =========
-  FRA01 DE POP L2:
-    template: core-l2
-    description: fra01.de pop via L2
-    asn: 202427
+# ========= Internal =========
+#  fra01.de pop L2:
+#    template: core-l2
+#    description: fra01.de pop via L2
+#    asn: 202427
+#    neighbors:
+#      - 2a06:a005:2902::1
+#    local-pref: 190
+#    listen6: 2a06:a005:2901::1
+#
+#  ams01.nl pop L2:
+#    template: core-l2
+#    description: ams01.nl pop via L2
+#    asn: 202427
+#    neighbors:
+#      - 2a06:a005:2907::1
+#    local-pref: 190
+#    listen6: 2a06:a005:2901::1
+
+# ========= Route Servers =========
+  SwissIX Route Server:
+    template: routeserver
+    description: SwissIX Route Server
+    asn: 42476
     neighbors:
-      - 2a06:a005:2902::1
-    local-pref: 190
-    listen6: 2a06:a005:2901::1
-
-  AMS01 NL POP L2:
-    template: core-l2
-    description: ams01.nl pop via L2
-    asn: 202427
-    neighbors:
-      - 2a06:a005:2907::1
-    local-pref: 190
-    listen6: 2a06:a005:2901::1
-
-  # ========= Route Servers =========
+      - 2001:7f8:24::a5ec:a:1
+      - 2001:7f8:24::a5ec:a:2
+    local-pref: 220
+    listen6: 2001:7f8:24:0:3:16bb:0:1
+    add-on-import:
+      - "202427:108:60" # IX
+    as-set: AS42476:AS-SWISSIX-CONNECTED
+  
   CHIX-CH Route Server:
     template: routeserver
     description: CHIX-CH Route Server
@@ -180,7 +181,7 @@ peers:
 
   BGP.Exchange Route Server:
     template: routeserver
-    description: BGP.Exchange Zurich Route Server
+    description: BGP.Exchange - Zurich Route Server
     asn: 24381
     neighbors:
       -  2a0e:8f01:1000:25::1
@@ -190,72 +191,7 @@ peers:
       - "202427:108:3830" # IX
     as-set: AS-BGPEXCHANGE
 
-  SwissIX Route Server:
-    template: routeserver
-    description: SwissIX Route Server
-    asn: 42476
-    neighbors:
-      - 2001:7f8:24::a5ec:a:1
-      - 2001:7f8:24::a5ec:a:2
-    local-pref: 220
-    listen6: 2001:7f8:24:0:3:16bb:0:1
-    add-on-import:
-      - "202427:108:60" # IX
-    as-set: AS42476:AS-SWISSIX-CONNECTED
-
-  # ========= Peers - CHIX-CH =========
-  Google CHIX-CH:
-    template: peer
-    description: Google via CHIX-CH
-    asn: 15169
-    neighbors:
-      - 2001:7f8:cc:333::169
-    local-pref: 320
-    listen6: 2001:7f8:cc:333::182
-    password: ${edge02-zhr-as15169-chix-password}
-    add-on-import:
-      - "202427:108:2365" # IX
-    as-set: RADB::AS-GOOGLE
-
-  KTT Iceland CHIX-CH:
-    template: peer
-    description: KTT Iceland via CHIX-CH
-    asn: 51019
-    neighbors:
-      - 2001:7f8:cc:333::190
-    local-pref: 320
-    listen6: 2001:7f8:cc:333::182
-    add-on-import:
-      - "202427:108:2365" # IX
-    as-set: AS51019:AS-ALL
-
-  Openfactory CHIX-CH:
-    template: peer
-    description: Openfactory via CHIX-CH
-    asn: 58299
-    neighbors:
-      - 2001:7f8:cc:333::130
-    local-pref: 320
-    listen6: 2001:7f8:cc:333::182
-    add-on-import:
-      - "202427:108:2365" # IX
-    as-set: AS58299:AS-ALL
-
-  #========================
-  twopeaks digital e.U. CHIX-CH:
-    template: peer
-    passive: true
-    description: twopeaks digital e.U. via CHIX-CH
-    asn: 212828
-    neighbors:
-      - 2001:7f8:cc:333::189
-    local-pref: 320
-    listen6: 2001:7f8:cc:333::182
-    add-on-import:
-      - "202427:108:2365" # IX
-    as-set: RIPE::AS-TWOPEAKS
-
-  # ========= Peers - SwissIX =========
+# ========= Peers - SwissIX =========
   Netwerkvereniging Coloclue SwissIX:
     template: peer
     description: Netwerkvereniging Coloclue via SwissIX
@@ -319,66 +255,45 @@ peers:
       - "202427:108:60" # IX
     as-set: AS-OVH
 
-  #========================
-  Nine Internet Solutions AG SwissIX:
+# ========= Peers - CHIX-CH =========
+  Google CHIX-CH:
     template: peer
-    passive: true
-    description: Nine Internet Solutions AG via SwissIX
-    asn: 29691
+    description: Google via CHIX-CH
+    asn: 15169
     neighbors:
-      - 2001:7f8:24::9
-      - 2001:7f8:24::d5
+      - 2001:7f8:cc:333::169
     local-pref: 320
-    listen6: 2001:7f8:24:0:3:16bb:0:1
+    listen6: 2001:7f8:cc:333::182
+    password: ${edge02-zhr-as15169-chix-password}
     add-on-import:
-      - "202427:108:60" # IX
-    as-set: AS-NINE
+      - "202427:108:2365" # IX
+    as-set: RADB::AS-GOOGLE
 
-  Netcetera AG SwissIX:
+  KTT Iceland CHIX-CH:
     template: peer
-    passive: true
-    description: Netcetera AG via SwissIX
-    asn: 34960
+    description: KTT Iceland via CHIX-CH
+    asn: 51019
     neighbors:
-      - 2001:7f8:24::59
+      - 2001:7f8:cc:333::190
     local-pref: 320
-    listen6: 2001:7f8:24:0:3:16bb:0:1
+    listen6: 2001:7f8:cc:333::182
     add-on-import:
-      - "202427:108:60" # IX
-    as-set: AS34960
+      - "202427:108:2365" # IX
+    as-set: AS51019:AS-ALL
 
-  Netrics Zuerich AG SwissIX:
+  Openfactory CHIX-CH:
     template: peer
-    passive: true
-    description: Netrics Zuerich AG via SwissIX
-    asn: 31424
+    description: Openfactory via CHIX-CH
+    asn: 58299
     neighbors:
-      - 2001:7f8:24::11
-      - 2001:7f8:24::31
+      - 2001:7f8:cc:333::130
     local-pref: 320
-    listen6: 2001:7f8:24:0:3:16bb:0:1
+    listen6: 2001:7f8:cc:333::182
     add-on-import:
-      - "202427:108:60" # IX
-    as-set: AS-NEXELLENT
-
-  Akamai Technologies SwissIX:
-    template: peer
-    passive: true
-    description: Akamai Technologies via SwissIX
-    asn: 20940
-    neighbors:
-      - 2001:7f8:24::38
-    local-pref: 320
-    listen6: 2001:7f8:24:0:3:16bb:0:1
-    add-on-import:
-      - "202427:108:60" # IX
-      - "202427:111:1" # Announce in Europe only
-    as-set: AS-AKAMAI
-    pre-export-final: >
-     reject_out_of_region();
+      - "202427:108:2365" # IX
+    as-set: AS58299:AS-ALL
 
 # ===========================================================
-
 templates:
   upstream:
     local-pref: 100

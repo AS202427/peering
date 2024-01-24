@@ -2,6 +2,49 @@
 
 Pathvector peering config
 
+## Region
+
+| Region | Description |
+| ------ | ----------- |
+| `1` | Europe |
+| `2` | North America |
+
+## Country
+
+Numeric country identifier defined by ISO 3166-1
+
+| Country | Description |
+| ------- | ----------- |
+| `124` | Canada |
+| `208` | Denmark |
+| `276` | Germany |
+| `380` | Italy |
+| `528` | Netherlands |
+| `578` | Norway |
+| `724` | Spain |
+| `756` | Switzerland |
+| `840` | United States of America |
+
+## POP
+
+| POP ID | Description |
+| ------ | ----------- |
+| `1` | Learned at RMA01, CH |
+| `2` | Learned at FRA01, DE |
+| `3` | Learned at AMS01, NL |
+| `4` | Learned at TOR01, CA |
+| `5` | Learned at MKC01, US |
+| `6` | Learned at BCN01, ES |
+| `7` | Learned at OTT01, CA |
+| `8` | Learned at FNC01, US |
+| `9` | Learned at RESERVED, EU |
+| `10` | Learned at RESERVED, EU |
+| `11` | Learned at RESERVED, EU |
+| `12` | Learned at VAN01, CA |
+| `13` | Learned at DUS01, DE|
+| `14` | Learned at ZRH02, CH |
+| `15` | Learned at POM01, IT |
+
 ## BGP Community Support
 
 ### Informational
@@ -24,87 +67,21 @@ Octets in the function field are the numeric country identifier defined by ISO 3
 
 | Community | Description |
 | --------- | ----------- |
-| `202427:102:COUNTRY_ID` | Learned in Country (COUNTRY_ID) |
-| `202427:102:124` | Learned in Canada |
-| `202427:102:276` | Learned in Germany |
-| `202427:102:380` | Learned in Italy |
-| `202427:102:528` | Learned in Netherlands |
-| `202427:102:578` | Learned in Norway |
-| `202427:102:756` | Learned in Switzerland |
-| `202427:102:840` | Learned in United States of America |
+| `202427:102:COUNTRY_ID` | Learned in [Country (COUNTRY_ID)] |
 
 #### Region
 
 | Community | Description |
 | --------- | ----------- |
-| `202427:103:REGION_ID` | Learned in Region (REGION_ID) |
-| `202427:103:1` | Learned in Europe |
-| `202427:103:2` | Learned in North America |
+| `202427:103:REGION_ID` | Learned in [Region (REGION_ID)] |
 
 #### PoP
 
-##### Import
-
 | Community | Description |
 | --------- | ----------- |
-| `202427:104:POP_ID` | Learned at PoP (POP_ID) |
-| `202427:104:1` | Learned at RMA01, CH |
-| `202427:104:2` | Learned at FRA01, DE |
-| `202427:104:3` | Learned at RESERVED, EU |
-| `202427:104:4` | Learned at ZRH02, CH |
-| `202427:104:5` | Learned at POM01, IT |
-| `202427:104:6` | Learned at DUS01, DE |
-| `202427:104:7` | Learned at AMS01, NL |
-| `202427:105:8` | Learned at RESERVED, EU |
-| `202427:104:9` | Learned at VAN01, CA |
-| `202427:104:10` | Learned at TOR01, CA |
-| `202427:104:11` | Learned at FNC01, US |
-| `202427:104:12` | Learned at RESERVED, EU |
-| `202427:104:13` | Learned at RESERVED, EU |
-| `202427:104:14` | Learned at RESERVED, EU |
-| `202427:104:15` | Learned at RESERVED, EU |
-
-##### Export
-
-| Community | Description |
-| --------- | ----------- |
-| `202427:105:POP_ID` | Exported at PoP (POP_ID) |
-| `202427:105:1` | Exported at RMA01, CH |
-| `202427:105:2` | Exported at FRA01, DE |
-| `202427:105:3` | Exported at RESERVED, EU |
-| `202427:105:4` | Exported at ZRH02, CH |
-| `202427:105:5` | Exported at POM01, IT |
-| `202427:105:6` | Exported at DUS01, DE |
-| `202427:105:7` | Exported at AMS01, NL |
-| `202427:105:8` | Exported at RESERVED, EU |
-| `202427:105:9` | Exported at VAN01, CA |
-| `202427:105:10` | Exported at TOR01, CA |
-| `202427:105:11` | Exported at FNC01, US |
-| `202427:105:12` | Exported at RESERVED, EU |
-| `202427:105:13` | Exported at RESERVED, EU |
-| `202427:105:14` | Exported at RESERVED, EU |
-| `202427:105:15` | Exported at RESERVED, EU |
-
-
-##### Originated
-
-| Community | Description |
-| --------- | ----------- |
-| `202427:106:POP_ID` | Originated at PoP (POP_ID) |
-| `202427:106:1` | Originated at RMA01, CH |
-| `202427:106:2` | Originated at FRA01, DE |
-| `202427:106:3` | Originated at RESERVED, EU |
-| `202427:106:4` | Originated at ZRH02, CH |
-| `202427:106:5` | Originated at POM01, IT |
-| `202427:106:6` | Originated at DUS01, DE |
-| `202427:106:7` | Originated at AMS01, NL |
-| `202427:106:9` | Originated at VAN01, CA |
-| `202427:106:10` | Originated at TOR01, CA |
-| `202427:106:11` | Originated at FNC01, US |
-| `202427:106:12` | Originated at RESERVED, EU |
-| `202427:106:13` | Originated at RESERVED, EU |
-| `202427:106:14` | Originated at RESERVED, EU |
-| `202427:106:15` | Originated at RESERVED, EU |
+| `202427:104:POP_ID` | Learned at [PoP (POP_ID)] |
+| `202427:105:POP_ID` | Exported at [PoP (POP_ID)] |
+| `202427:106:POP_ID` | Originated at [PoP (POP_ID)] |
 
 #### Peer
 
@@ -112,84 +89,84 @@ Octets in the function field are the numeric country identifier defined by ISO 3
 
 | Community | Description |
 | --------- | ----------- |
-| `202427:106:835` | Learned from Transit - GoCodeIT Inc |
-| `202427:106:6939` | Learned from Transit - Hurricane Electric LLC |
-| `202427:106:34872` | Learned from Transit - Servperso Systems |
-| `202427:106:34927` | Learned from Transit - iFog GmbH |
-| `202427:106:41051` | Learned from Transit - Freetransit Project (Openfactory GmbH) |
-| `202427:106:62513` | Learned from Transit - GoCodeIT Inc |
-| `202427:106:212271` | Learned from Transit - Cinzia Tocci trading as C1V |
-| `202427:106:212895` | Learned from Transit - Johannes Ernst |
+| `202427:107:835` | Learned from GoCodeIT AS835 |
+| `202427:107:6939` | Learned from Hurricane Electric LLC |
+| `202427:107:34872` | Learned from Servperso Systems |
+| `202427:107:34927` | Learned from iFog GmbH |
+| `202427:107:41051` | Learned from Freetransit Project (Openfactory GmbH) |
+| `202427:107:62513` | Learned from GoCodeIT Inc |
+| `202427:107:212271` | Learned from C1V - AS212271 |
+| `202427:107:212895` | Learned from ROUTE64.ORG |
 
 ##### IX Routeserver
 
 | Community | Description |
 | --------- | ----------- |
-| `202427:106:24381` | Learned from Routeserver - BGP.Exchange |
-| `202427:106:34307` | Learned from Routeserver - NL-ix |
-| `202427:106:35708` | Learned from Routeserver - 4b42 Internet Exchange Point |
-| `202427:106:42476` | Learned from Routeserver - SwissIX |
-| `202427:106:47422` | Learned from Routeserver - SBIX ZRH |
-| `202427:106:47498` | Learned from Routeserver - FogIXP |
-| `202427:106:49245` | Learned from Routeserver - SIIX |
-| `202427:106:56393` | Learned from Routeserver - Frys-IX |
-| `202427:106:56584` | Learned from Routeserver - INTERIX |
-| `202427:106:57369` | Learned from Routeserver - FREMIX / ONIX |
-| `202427:106:65513` | Learned from Routeserver - UNM-Exch Canada-West |
-| `202427:106:202409` | Learned from Routeserver - LOCIX Frankfurt, LOCIX Dusseldorf |
-| `202427:106:212100` | Learned from Routeserver - CHIX-CH |
+| `202427:107:24381` | Learned from BGP.Exchange |
+| `202427:107:34307` | Learned from NL-ix Route Servers |
+| `202427:107:35708` | Learned from 4b42 Internet Exchange Point Route Servers |
+| `202427:107:42476` | Learned from SwissIX Route Servers |
+| `202427:107:47422` | Learned from SBIX RS Zurich |
+| `202427:107:47498` | Learned from FogIXP Route Servers |
+| `202427:107:49245` | Learned from SIIX Route Servers |
+| `202427:107:56393` | Learned from Frys-IX Route Servers |
+| `202427:107:56584` | Learned from INTERIX |
+| `202427:107:57369` | Learned from CLDY Route Servers |
+| `202427:107:65513` | Learned from UNM-Exch Canada-West |
+| `202427:107:202409` | Learned from LOCIX Route Servers |
+| `202427:107:212100` | Learned from CHIX-CH Route Servers |
 
 ##### Peering
 
 | Community | Description |
 | --------- | ----------- |
-| `202427:106:112` | Learned from Peer - AS112 Project |
-| `202427:106:714` | Learned from Peer - Apple Inc. |
-| `202427:106:4775` | Learned from Peer - Globe Telecom |
-| `202427:106:8283` | Learned from Peer - Netwerkvereniging Coloclue |
-| `202427:106:13335` | Learned from Peer - Cloudflare, Inc. |
-| `202427:106:15169` | Learned from Peer - Google LLC |
-| `202427:106:24940` | Learned from Peer - Hetzner Online |
-| `202427:106:25091` | Learned from Peer - IP-Max |
-| `202427:106:30132` | Learned from Peer - ISC F-ROOT AMS1 |
-| `202427:106:32934` | Learned from Peer - Meta Platforms, Inc. |
-| `202427:106:35297` | Learned from Peer - Dataline Net	|
-| `202427:106:39614` | Learned from Peer - Dawico |
-| `202427:106:48200` | Learned from Peer - Opteamax	|
-| `202427:106:48581` | Learned from Peer - MythicalKitten |
-| `202427:106:51019` | Learned from Peer - KTT Iceland |
-| `202427:106:58299` | Learned from Peer - Openfactory |
-| `202427:106:58511` | Learned from Peer - Anycast Global Backbone |
-| `202427:106:63949` | Learned from Peer - Linode |
-| `202427:106:200132` | Learned from Peer - NetOne NL |
-| `202427:106:203069` | Learned from Peer - Thomas Riley Brown |
-| `202427:106:212635` | Learned from Peer - AS212635 |
-| `202427:106:212855` | Learned from Peer - LUJE.net |
-| `202427:106:393577` | Learned from Peer - Tritan Development |
+| `202427:107:112` | Learned from AS112 Project |
+| `202427:107:714` | Learned from Apple Inc. |
+| `202427:107:4775` | Learned from Globe Telecom |
+| `202427:107:8283` | Learned from Netwerkvereniging Coloclue |
+| `202427:107:13335` | Learned from Cloudflare, Inc. |
+| `202427:107:15169` | Learned from Google LLC |
+| `202427:107:24940` | Learned from Hetzner Online |
+| `202427:107:25091` | Learned from IP-Max |
+| `202427:107:30132` | Learned from ISC F-ROOT AMS1 |
+| `202427:107:32934` | Learned from Meta Platforms, Inc. |
+| `202427:107:35297` | Learned from Dataline Net |
+| `202427:107:39614` | Learned from Dawico |
+| `202427:107:48200` | Learned from Opteamax |
+| `202427:107:48581` | Learned from MythicalKitten |
+| `202427:107:51019` | Learned from KTT Iceland |
+| `202427:107:58299` | Learned from Openfactory |
+| `202427:107:58511` | Learned from Anycast Global Backbone |
+| `202427:107:63949` | Learned from Linode |
+| `202427:107:200132` | Learned from NetOne NL |
+| `202427:107:203069` | Learned from Thomas Riley Brown |
+| `202427:107:212635` | Learned from AS212635 |
+| `202427:107:212855` | Learned from LUJE.net |
+| `202427:107:393577` | Learned from Tritan Development |
 
 #### IX
 Octets in the function field are the peeringdb id.
 
 | Community | Description |
 | --------- | ----------- |
-| `202427:107:IX_ID` | Learned at IX (IX_ID) |
-| `202427:107:60` | Learned at SwissIX |
-| `202427:107:64` | Learned at NL-ix |
-| `202427:107:2084` | Learned at LOCIX Frankfurt |
-| `202427:107:2365` | Learned at CHIX-CH |
-| `202427:107:2447` | Learned at 4b42 Internet Exchange Point |
-| `202427:107:2452` | Learned at UNM-Exch Canada-West |
-| `202427:107:2730` | Learned at LOCIX Dusseldorf |
-| `202427:107:3512` | Learned at Frys-IX |
-| `202427:107:3528` | Learned at SIIX |
-| `202427:107:3685` | Learned at FREMIX |
-| `202427:107:3756` | Learned at FogIXP |
-| `202427:107:3829` | Learned at BGP.Exchange - Frankfurt |
-| `202427:107:3830` | Learned at BGP.Exchange - Zurich |
-| `202427:107:3836` | Learned at BGP.Exchange - Toronto |
-| `202427:107:3844` | Learned at BGP.Exchange - Dusseldorf |
-| `202427:107:3990` | Learned at INTERIX |
-| `202427:107:4059` | Learned at ONIX |
+| `202427:108:IX_ID` | Learned at IX (IX_ID) |
+| `202427:108:60` | Learned at SwissIX |
+| `202427:108:64` | Learned at NL-ix |
+| `202427:108:2084` | Learned at LOCIX Frankfurt |
+| `202427:108:2365` | Learned at CHIX-CH |
+| `202427:108:2447` | Learned at 4b42 Internet Exchange Point |
+| `202427:108:2452` | Learned at UNM-Exch Canada-West |
+| `202427:108:2730` | Learned at LOCIX Dusseldorf |
+| `202427:108:3512` | Learned at Frys-IX |
+| `202427:108:3528` | Learned at SIIX |
+| `202427:108:3685` | Learned at FREMIX |
+| `202427:108:3756` | Learned at FogIXP |
+| `202427:108:3829` | Learned at BGP.Exchange - Frankfurt |
+| `202427:108:3830` | Learned at BGP.Exchange - Zurich |
+| `202427:108:3836` | Learned at BGP.Exchange - Toronto |
+| `202427:108:3844` | Learned at BGP.Exchange - Dusseldorf |
+| `202427:108:3990` | Learned at INTERIX |
+| `202427:108:4059` | Learned at ONIX |
 
 ## Pref
 
@@ -199,8 +176,8 @@ Octets in the function field are the peeringdb id.
 | ---- | ----------- |
 | `100` | Default |
 | `110` | Tunnel  |
-| `120` | Paid    |
-| `130` | Free    |
+| `120` | IXP    |
+| `130` | PNI    |
 
 ### Routeserver
 
@@ -239,14 +216,7 @@ Octets in the function field are the peeringdb id.
 | Community | Description |
 | --------- | ----------- |
 | `202427:111:REGION_ID` | Announce Only in Region (REGION_ID) |
-| `202427:111:1` | Announce Only in Europe |
-| `202427:111:2` | Announce Only in North America |
-
-| Community | Description |
-| --------- | ----------- |
 | `202427:112:REGION_ID` | Announce not in Region (REGION_ID) |
-| `202427:112:1` | Announce not in Europe |
-| `202427:112:2` | Announce not in North America |
 
 | Community | Description |
 | --------- | ----------- |

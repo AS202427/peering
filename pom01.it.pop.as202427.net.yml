@@ -1,40 +1,41 @@
 peeringdb-api-key: ${pom01-it-pop-peeringdb-api-key}
-log-file: /var/log/bird.log
+#log-file: /var/log/bird.log
 global-config: >
   define pop_region = 1;
   define pop_country = 380;
-  define pop_id = 5;
+  define pop_id = 15;
   function reject_region_communitys() {
-    #if ((202427, 111, 1) ~ bgp_large_community) then reject "Only in Europe";
-    if ((202427, 111, 2) ~ bgp_large_community) then reject "Only in North America";
+    if ((202427, 111, 1) ~ bgp_large_community) && ((202427, 111, pop_region) !~ bgp_large_community) then reject "Only in Europe";
+    if ((202427, 111, 2) ~ bgp_large_community) && ((202427, 111, pop_region) !~ bgp_large_community) then reject "Only in North America";
     if ((202427, 112, pop_region) ~ bgp_large_community) then reject "Not in PoP Region";
   }
   function reject_country_communitys() {
-    if ((202427, 113, 124) ~ bgp_large_community) then reject "Only in Canada";
-    if ((202427, 113, 276) ~ bgp_large_community) then reject "Only in Germany";
-    #if ((202427, 113, 380) ~ bgp_large_community) then reject "Only in Italy";
-    if ((202427, 113, 528) ~ bgp_large_community) then reject "Only in Netherlands";
-    if ((202427, 113, 578) ~ bgp_large_community) then reject "Only in Norway";
-    if ((202427, 113, 756) ~ bgp_large_community) then reject "Only in Switzerland";
-    if ((202427, 113, 840) ~ bgp_large_community) then reject "Only in United States of America";
+    if ((202427, 113, 124) ~ bgp_large_community) && ((202427, 113, pop_country) !~ bgp_large_community) then reject "Only in Canada";
+    if ((202427, 113, 276) ~ bgp_large_community) && ((202427, 113, pop_country) !~ bgp_large_community) then reject "Only in Germany";
+    if ((202427, 113, 380) ~ bgp_large_community) && ((202427, 113, pop_country) !~ bgp_large_community) then reject "Only in Italy";
+    if ((202427, 113, 528) ~ bgp_large_community) && ((202427, 113, pop_country) !~ bgp_large_community) then reject "Only in Netherlands";
+    if ((202427, 113, 578) ~ bgp_large_community) && ((202427, 113, pop_country) !~ bgp_large_community) then reject "Only in Norway";
+    if ((202427, 113, 724) ~ bgp_large_community) && ((202427, 113, pop_country) !~ bgp_large_community) then reject "Only in Spain";
+    if ((202427, 113, 756) ~ bgp_large_community) && ((202427, 113, pop_country) !~ bgp_large_community) then reject "Only in Switzerland";
+    if ((202427, 113, 840) ~ bgp_large_community) && ((202427, 113, pop_country) !~ bgp_large_community) then reject "Only in United States of America";
     if ((202427, 114, pop_country) ~ bgp_large_community) then reject "Not in PoP Country";
   }
   function reject_pop_communitys() {
-    if ((202427, 115, 1) ~ bgp_large_community) then reject "Only at rma01.ch";
-    if ((202427, 115, 2) ~ bgp_large_community) then reject "Only at fra01.de";
-    if ((202427, 115, 3) ~ bgp_large_community) then reject "Only at Reserved";
-    if ((202427, 115, 4) ~ bgp_large_community) then reject "Only at zrh02.ch";
-    #if ((202427, 115, 5) ~ bgp_large_community) then reject "Only at pom01.it";
-    if ((202427, 115, 6) ~ bgp_large_community) then reject "Only at dus01.de";
-    if ((202427, 115, 7) ~ bgp_large_community) then reject "Only at ams01.nl";
-    if ((202427, 115, 8) ~ bgp_large_community) then reject "Only at Reserved";
-    if ((202427, 115, 9) ~ bgp_large_community) then reject "Only at van01.ca";
-    if ((202427, 115, 10) ~ bgp_large_community) then reject "Only at tor01.ca";
-    if ((202427, 115, 11) ~ bgp_large_community) then reject "Only at fnc01.us";
-    if ((202427, 115, 12) ~ bgp_large_community) then reject "Only at Reserved";
-    if ((202427, 115, 13) ~ bgp_large_community) then reject "Only at Reserved";
-    if ((202427, 115, 14) ~ bgp_large_community) then reject "Only at Reserved";
-    if ((202427, 115, 15) ~ bgp_large_community) then reject "Only at Reserved";
+    if ((202427, 115, 1) ~ bgp_large_community) && ((202427, 115, pop_id) !~ bgp_large_community) then reject "Only at rma01.ch";
+    if ((202427, 115, 2) ~ bgp_large_community) && ((202427, 115, pop_id) !~ bgp_large_community) then reject "Only at fra01.de";
+    if ((202427, 115, 3) ~ bgp_large_community) && ((202427, 115, pop_id) !~ bgp_large_community) then reject "Only at ams01.nl";
+    if ((202427, 115, 4) ~ bgp_large_community) && ((202427, 115, pop_id) !~ bgp_large_community) then reject "Only at dus01.de";
+    if ((202427, 115, 5) ~ bgp_large_community) && ((202427, 115, pop_id) !~ bgp_large_community) then reject "Only at bcn01.es";
+    if ((202427, 115, 6) ~ bgp_large_community) && ((202427, 115, pop_id) !~ bgp_large_community) then reject "Only at van01.ca";
+    if ((202427, 115, 7) ~ bgp_large_community) && ((202427, 115, pop_id) !~ bgp_large_community) then reject "Only at tor01.ca";
+    if ((202427, 115, 8) ~ bgp_large_community) && ((202427, 115, pop_id) !~ bgp_large_community) then reject "Only at fnc01.us";
+    if ((202427, 115, 9) ~ bgp_large_community) && ((202427, 115, pop_id) !~ bgp_large_community) then reject "Only at ott01.ca";
+    if ((202427, 115, 10) ~ bgp_large_community) && ((202427, 115, pop_id) !~ bgp_large_community) then reject "Only at cph01.dk";
+    if ((202427, 115, 11) ~ bgp_large_community) && ((202427, 115, pop_id) !~ bgp_large_community) then reject "Only at Reserved";
+    if ((202427, 115, 12) ~ bgp_large_community) && ((202427, 115, pop_id) !~ bgp_large_community) then reject "Only at Reserved";
+    if ((202427, 115, 13) ~ bgp_large_community) && ((202427, 115, pop_id) !~ bgp_large_community) then reject "Only at Reserved";
+    if ((202427, 115, 14) ~ bgp_large_community) && ((202427, 115, pop_id) !~ bgp_large_community) then reject "Only at pom01.it";
+    if ((202427, 115, 15) ~ bgp_large_community) && ((202427, 115, pop_id) !~ bgp_large_community) then reject "Only at zrh02.ch";
     if ((202427, 116, pop_id) ~ bgp_large_community) then reject "Not at PoP";
   }
   function reject_out_of_region() {
@@ -50,22 +51,27 @@ global-config: >
   }
 local-communities:
   - "202427:101:1"
-  - "202427:106:5" # PoP
+  - "202427:106:15" # PoP
 asn: 202427
-prefixes: # Location Specific
-  - 2a06:a005:28e0::/48 # AS202427-BACKBONE-NETWORK
-  - 2a06:a005:28e5::/48 # AS202427-BACKBONE-NETWORK
-  - 2a0a:6040:27c0::/43 # IT-AS202427
-  - 2a0a:6040:27e0::/43 # EU-AS202427
+prefixes:
+# PoP
+  - 2a06:a005:28ee::/48 # AS202427-ROUTING-NETWORK
+# Anycasted
+  - 2a06:a005:28e0::/48 # AS202427-ROUTING-NETWORK
+  - 2a0a:6040:27e0::/43 # EU-AS202427-ANYCASTED
  #- 2a07:54c2:b00b::/48 # ::/b00b collective
+  - 2a0e:97c0:5b0::/44  # EU-AS202427-Securebit
+# Location
+  - 2a0a:6040:27c0::/43 # IT-AS202427
+# Virt Locations
 router-id: 152.89.170.81 # PoP
 irr-server: 128.241.192.40 # rr.ntt.net
-source6: 2a06:a005:28e5::1 # PoP
+source6: 2a06:a005:28ef::1 # PoP
 default-route: false
 blackhole-bogon-asns: true
 
 peers:
-  # ========= Upstreams =========
+# ========= Upstreams - PNI =========
   C1V:
     template: upstream
     description: C1V Upstream
@@ -77,16 +83,9 @@ peers:
     multihop: true
     as-set: RIPE::AS-C1VHOSTING
 
-  # ========= Looking Glasses =========
-  pmacctd:
-    template: lg
-    description: pmacctd
-    asn: 202427
-    listen6: 127.0.0.1
-    neighbors:
-      - 127.0.0.2
-    neighbor-port: 180
+# ========= Upstreams - IXP =========
 
+# ========= Looking Glasses =========
   qrator:
     template: lg
     description: Radar by Qrator
@@ -106,7 +105,9 @@ peers:
     multihop: true
     listen4: 152.89.170.81
 
-  # ========= Route Servers =========
+# ========= Internal =========
+
+# ========= Route Servers =========
   SIIX Route Server:
     template: routeserver
     description: SIIX Route Server
@@ -119,7 +120,7 @@ peers:
       - "202427:108:3528"
     as-set: AS49245
 
-  # ========= Peers - SIIX =========
+# ========= Peers - SIIX =========
   twopeaks digital e.U. SIIX:
     template: peer
     passive: true
@@ -134,7 +135,6 @@ peers:
     as-set: RIPE::AS-TWOPEAKS
 
 # ===========================================================
-
 templates:
   upstream:
     local-pref: 100
