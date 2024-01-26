@@ -1,5 +1,5 @@
 peeringdb-api-key: ${ams01-nl-pop-peeringdb-api-key}
-#log-file: /var/log/bird.log
+log-file: /var/log/bird.log
 global-config: >
   define pop_region = 1;
   define pop_country = 528;
@@ -60,7 +60,7 @@ prefixes: # Location Specific
   - 2a06:a005:28e0::/48 # AS202427-ROUTING-NETWORK
   - 2a0a:6040:27e0::/43 # EU-AS202427-ANYCASTED
  #- 2a07:54c2:b00b::/48 # ::/b00b collective
-  - 2a0e:97c0:5b0::/44  # EU-AS202427-Securebit
+ #- 2a0e:97c0:5b0::/44  # EU-AS202427-Securebit
 # Location
   - 2a0a:6040:2740::/43 # NL-AS202427
 # Virt Locations

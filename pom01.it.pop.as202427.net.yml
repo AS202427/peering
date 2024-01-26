@@ -1,5 +1,5 @@
 peeringdb-api-key: ${pom01-it-pop-peeringdb-api-key}
-#log-file: /var/log/bird.log
+log-file: /var/log/bird.log
 global-config: >
   define pop_region = 1;
   define pop_country = 380;
@@ -60,7 +60,7 @@ prefixes:
   - 2a06:a005:28e0::/48 # AS202427-ROUTING-NETWORK
   - 2a0a:6040:27e0::/43 # EU-AS202427-ANYCASTED
  #- 2a07:54c2:b00b::/48 # ::/b00b collective
-  - 2a0e:97c0:5b0::/44  # EU-AS202427-Securebit
+ #- 2a0e:97c0:5b0::/44  # EU-AS202427-Securebit
 # Location
   - 2a0a:6040:27c0::/43 # IT-AS202427
 # Virt Locations
@@ -101,7 +101,7 @@ peers:
     description: BGP.Tools Route Collector
     asn: 212232
     neighbors:
-      - 185.230.223.73
+      - 185.230.223.76
     multihop: true
     listen4: 152.89.170.81
 
