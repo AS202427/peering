@@ -5,41 +5,41 @@ global-config: >
   define pop_country = 840;
   define pop_id = 5;
   function reject_region_communitys() {
-    if ((202427, 111, 1) ~ bgp_large_community) && ((202427, 111, pop_region) !~ bgp_large_community) then reject "Only in Europe";
-    if ((202427, 111, 2) ~ bgp_large_community) && ((202427, 111, pop_region) !~ bgp_large_community) then reject "Only in North America";
-    if ((202427, 112, pop_region) ~ bgp_large_community) then reject "Not in PoP Region";
+    if ((202427, 121, 1) ~ bgp_large_community) && ((202427, 121, pop_region) !~ bgp_large_community) then _reject("Announce only in Europe");
+    if ((202427, 121, 2) ~ bgp_large_community) && ((202427, 121, pop_region) !~ bgp_large_community) then _reject("Announce only in North America");
+    if ((202427, 111, pop_region) ~ bgp_large_community) then _reject("Do not announce in PoP Region");
   }
   function reject_country_communitys() {
-    if ((202427, 113, 124) ~ bgp_large_community) && ((202427, 113, pop_country) !~ bgp_large_community) then reject "Only in Canada";
-    if ((202427, 113, 276) ~ bgp_large_community) && ((202427, 113, pop_country) !~ bgp_large_community) then reject "Only in Germany";
-    if ((202427, 113, 380) ~ bgp_large_community) && ((202427, 113, pop_country) !~ bgp_large_community) then reject "Only in Italy";
-    if ((202427, 113, 528) ~ bgp_large_community) && ((202427, 113, pop_country) !~ bgp_large_community) then reject "Only in Netherlands";
-    if ((202427, 113, 578) ~ bgp_large_community) && ((202427, 113, pop_country) !~ bgp_large_community) then reject "Only in Norway";
-    if ((202427, 113, 724) ~ bgp_large_community) && ((202427, 113, pop_country) !~ bgp_large_community) then reject "Only in Spain";
-    if ((202427, 113, 756) ~ bgp_large_community) && ((202427, 113, pop_country) !~ bgp_large_community) then reject "Only in Switzerland";
-    if ((202427, 113, 840) ~ bgp_large_community) && ((202427, 113, pop_country) !~ bgp_large_community) then reject "Only in United States of America";
-    if ((202427, 114, pop_country) ~ bgp_large_community) then reject "Not in PoP Country";
+    if ((202427, 122, 124) ~ bgp_large_community) && ((202427, 122, pop_country) !~ bgp_large_community) then _reject("Announce only in Canada");
+    if ((202427, 122, 276) ~ bgp_large_community) && ((202427, 122, pop_country) !~ bgp_large_community) then _reject("Announce only in Germany");
+    if ((202427, 122, 380) ~ bgp_large_community) && ((202427, 122, pop_country) !~ bgp_large_community) then _reject("Announce only in Italy");
+    if ((202427, 122, 528) ~ bgp_large_community) && ((202427, 122, pop_country) !~ bgp_large_community) then _reject("Announce only in Netherlands");
+    if ((202427, 122, 578) ~ bgp_large_community) && ((202427, 122, pop_country) !~ bgp_large_community) then _reject("Announce only in Norway");
+    if ((202427, 122, 724) ~ bgp_large_community) && ((202427, 122, pop_country) !~ bgp_large_community) then _reject("Announce only in Spain");
+    if ((202427, 122, 756) ~ bgp_large_community) && ((202427, 122, pop_country) !~ bgp_large_community) then _reject("Announce only in Switzerland");
+    if ((202427, 122, 840) ~ bgp_large_community) && ((202427, 122, pop_country) !~ bgp_large_community) then _reject("Announce only in United States of America");
+    if ((202427, 112, pop_country) ~ bgp_large_community) then _reject("Do not announce in PoP Country");
   }
   function reject_pop_communitys() {
-    if ((202427, 115, 1) ~ bgp_large_community) && ((202427, 115, pop_id) !~ bgp_large_community) then reject "Only at rma01.ch";
-    if ((202427, 115, 2) ~ bgp_large_community) && ((202427, 115, pop_id) !~ bgp_large_community) then reject "Only at fra01.de";
-    if ((202427, 115, 3) ~ bgp_large_community) && ((202427, 115, pop_id) !~ bgp_large_community) then reject "Only at ams01.nl";
-    if ((202427, 115, 4) ~ bgp_large_community) && ((202427, 115, pop_id) !~ bgp_large_community) then reject "Only at dus01.de";
-    if ((202427, 115, 5) ~ bgp_large_community) && ((202427, 115, pop_id) !~ bgp_large_community) then reject "Only at bcn01.es";
-    if ((202427, 115, 6) ~ bgp_large_community) && ((202427, 115, pop_id) !~ bgp_large_community) then reject "Only at van01.ca";
-    if ((202427, 115, 7) ~ bgp_large_community) && ((202427, 115, pop_id) !~ bgp_large_community) then reject "Only at tor01.ca";
-    if ((202427, 115, 8) ~ bgp_large_community) && ((202427, 115, pop_id) !~ bgp_large_community) then reject "Only at fnc01.us";
-    if ((202427, 115, 9) ~ bgp_large_community) && ((202427, 115, pop_id) !~ bgp_large_community) then reject "Only at ott01.ca";
-    if ((202427, 115, 10) ~ bgp_large_community) && ((202427, 115, pop_id) !~ bgp_large_community) then reject "Only at cph01.dk";
-    if ((202427, 115, 11) ~ bgp_large_community) && ((202427, 115, pop_id) !~ bgp_large_community) then reject "Only at Reserved";
-    if ((202427, 115, 12) ~ bgp_large_community) && ((202427, 115, pop_id) !~ bgp_large_community) then reject "Only at Reserved";
-    if ((202427, 115, 13) ~ bgp_large_community) && ((202427, 115, pop_id) !~ bgp_large_community) then reject "Only at Reserved";
-    if ((202427, 115, 14) ~ bgp_large_community) && ((202427, 115, pop_id) !~ bgp_large_community) then reject "Only at pom01.it";
-    if ((202427, 115, 15) ~ bgp_large_community) && ((202427, 115, pop_id) !~ bgp_large_community) then reject "Only at zrh02.ch";
-    if ((202427, 116, pop_id) ~ bgp_large_community) then reject "Not at PoP";
+    if ((202427, 123, 1) ~ bgp_large_community) && ((202427, 123, pop_id) !~ bgp_large_community) then _reject("Announce only at RMA01 CH");
+    if ((202427, 123, 2) ~ bgp_large_community) && ((202427, 123, pop_id) !~ bgp_large_community) then _reject("Announce only at FRA01 DE");
+    if ((202427, 123, 3) ~ bgp_large_community) && ((202427, 123, pop_id) !~ bgp_large_community) then _reject("Announce only at AMS01 NL");
+    if ((202427, 123, 4) ~ bgp_large_community) && ((202427, 123, pop_id) !~ bgp_large_community) then _reject("Announce only at TOR01 CA");
+    if ((202427, 123, 5) ~ bgp_large_community) && ((202427, 123, pop_id) !~ bgp_large_community) then _reject("Announce only at MKC01 US");
+    if ((202427, 123, 6) ~ bgp_large_community) && ((202427, 123, pop_id) !~ bgp_large_community) then _reject("Announce only at BCN01 ES");
+    if ((202427, 123, 7) ~ bgp_large_community) && ((202427, 123, pop_id) !~ bgp_large_community) then _reject("Announce only at OTT01 CA");
+    if ((202427, 123, 8) ~ bgp_large_community) && ((202427, 123, pop_id) !~ bgp_large_community) then _reject("Announce only at FNC01 US");
+    if ((202427, 123, 9) ~ bgp_large_community) && ((202427, 123, pop_id) !~ bgp_large_community) then _reject("Announce only at RESERVED EU");
+    if ((202427, 123, 10) ~ bgp_large_community) && ((202427, 123, pop_id) !~ bgp_large_community) then _reject("Announce only at RESERVED EU");
+    if ((202427, 123, 11) ~ bgp_large_community) && ((202427, 123, pop_id) !~ bgp_large_community) then _reject("Announce only at RESERVED EU");
+    if ((202427, 123, 12) ~ bgp_large_community) && ((202427, 123, pop_id) !~ bgp_large_community) then _reject("Announce only at RESERVED EU");
+    if ((202427, 123, 13) ~ bgp_large_community) && ((202427, 123, pop_id) !~ bgp_large_community) then _reject("Announce only at DUS01 DE");
+    if ((202427, 123, 14) ~ bgp_large_community) && ((202427, 123, pop_id) !~ bgp_large_community) then _reject("Announce only at ZRH02 CH");
+    if ((202427, 123, 15) ~ bgp_large_community) && ((202427, 123, pop_id) !~ bgp_large_community) then _reject("Announce only at POM01 IT");
+    if ((202427, 113, pop_id) ~ bgp_large_community) then _reject("Do not announce at PoP");
   }
   function reject_out_of_region() {
-    if ! ((202427, 103, pop_region) ~ bgp_large_community) then reject "Out of Region PoP";
+    if ! ((202427, 103, pop_region) ~ bgp_large_community) then _reject("Out of Region PoP");
   }
   function add_on_import() {
     bgp_large_community.add((202427, 102, pop_country));
@@ -47,11 +47,11 @@ global-config: >
     bgp_large_community.add((202427, 104, pop_id));
   }
   function add_on_export() {
-    bgp_large_community.add((202427, 105, pop_id));
+    bgp_large_community.add((202427, 109, pop_id));
   }
 local-communities:
   - "202427:101:1"
-  - "202427:106:5" # PoP
+  - "202427:107:5" # PoP
 asn: 202427
 prefixes:
 # PoP
@@ -107,7 +107,7 @@ peers:
 
 # ========= Internal =========
   tor01.ca pop:
-    template: core-wg
+    template: core-tunnel
     description: tor01.us pop via WG
     asn: 202427
     neighbors:
@@ -126,7 +126,7 @@ peers:
     local-pref: 220
     listen6: 2001:504:1b:1::231
     add-on-import:
-      - "202427:108:249" # IX
+      - "202427:105:249" # IX
     as-set: AS40542
 
   HOUIX Route Server:
@@ -138,7 +138,7 @@ peers:
     local-pref: 220
     listen6: 2001:504:9e::54
     add-on-import:
-      - "202427:108:2835" # IX
+      - "202427:105:2835" # IX
     as-set: AS35920
 
   STLIX Route Server:
@@ -150,7 +150,7 @@ peers:
     local-pref: 220
     listen6: 2001:504:98::84
     add-on-import:
-      - "202427:108:2585" # IX
+      - "202427:105:2585" # IX
     as-set: AS46389
 
 # ========= Peers =========
@@ -164,7 +164,7 @@ templates:
     pre-import-accept: >
      add_on_import();
      bgp_large_community.add((202427,101,2));
-     bgp_large_community.add((202427,107,<pathvector.asn>));
+     bgp_large_community.add((202427,106,<pathvector.asn>));
     pre-export: >
      reject_region_communitys();
      reject_country_communitys();
@@ -186,7 +186,7 @@ templates:
     pre-import-accept: >
      add_on_import();
      bgp_large_community.add((202427,101,3));
-     bgp_large_community.add((202427,107,<pathvector.asn>));
+     bgp_large_community.add((202427,106,<pathvector.asn>));
     pre-export: >
      reject_region_communitys();
      reject_country_communitys();
@@ -211,7 +211,7 @@ templates:
     pre-import-accept: >
      add_on_import();
      bgp_large_community.add((202427,101,4));
-     bgp_large_community.add((202427,107,<pathvector.asn>));
+     bgp_large_community.add((202427,106,<pathvector.asn>));
     pre-export: >
      reject_region_communitys();
      reject_country_communitys();
@@ -236,7 +236,7 @@ templates:
     pre-import-accept: >
      add_on_import();
      bgp_large_community.add((202427,101,5));
-     bgp_large_community.add((202427,107,<pathvector.asn>));
+     bgp_large_community.add((202427,106,<pathvector.asn>));
     pre-export: >
      reject_region_communitys();
      reject_country_communitys();
@@ -273,7 +273,7 @@ templates:
     receive-limit4: 0
     receive-limit6: 0
 
-  core-wg:
+  core-tunnel:
     prepends: 1
     local-pref: 180
     next-hop-self: true
@@ -336,6 +336,4 @@ templates:
       - "202427:105:13"
       - "202427:105:14"
       - "202427:105:15"
-    enforce-first-as: false
     allow-blackhole-community: true
-    filter-rpki: false
