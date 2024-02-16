@@ -4,70 +4,6 @@ global-config: >
   define pop_region = 1;
   define pop_country = 380;
   define pop_id = 15;
-  function reject_region_communitys() {
-    if ((202427, 121, 1) ~ bgp_large_community) && ((202427, 121, pop_region) !~ bgp_large_community) then _reject("Announce only in Europe");
-    if ((202427, 121, 2) ~ bgp_large_community) && ((202427, 121, pop_region) !~ bgp_large_community) then _reject("Announce only in North America");
-    if ((202427, 111, pop_region) ~ bgp_large_community) then _reject("Do not announce in PoP Region");
-  }
-  function reject_country_communitys() {
-    if ((202427, 122, 124) ~ bgp_large_community) && ((202427, 122, pop_country) !~ bgp_large_community) then _reject("Announce only in Canada");
-    if ((202427, 122, 276) ~ bgp_large_community) && ((202427, 122, pop_country) !~ bgp_large_community) then _reject("Announce only in Germany");
-    if ((202427, 122, 380) ~ bgp_large_community) && ((202427, 122, pop_country) !~ bgp_large_community) then _reject("Announce only in Italy");
-    if ((202427, 122, 528) ~ bgp_large_community) && ((202427, 122, pop_country) !~ bgp_large_community) then _reject("Announce only in Netherlands");
-    if ((202427, 122, 578) ~ bgp_large_community) && ((202427, 122, pop_country) !~ bgp_large_community) then _reject("Announce only in Norway");
-    if ((202427, 122, 724) ~ bgp_large_community) && ((202427, 122, pop_country) !~ bgp_large_community) then _reject("Announce only in Spain");
-    if ((202427, 122, 756) ~ bgp_large_community) && ((202427, 122, pop_country) !~ bgp_large_community) then _reject("Announce only in Switzerland");
-    if ((202427, 122, 840) ~ bgp_large_community) && ((202427, 122, pop_country) !~ bgp_large_community) then _reject("Announce only in United States of America");
-    if ((202427, 112, pop_country) ~ bgp_large_community) then _reject("Do not announce in PoP Country");
-  }
-  function reject_pop_communitys() {
-    if ((202427, 123, 1) ~ bgp_large_community) && ((202427, 123, pop_id) !~ bgp_large_community) then _reject("Announce only at RMA01 CH");
-    if ((202427, 123, 2) ~ bgp_large_community) && ((202427, 123, pop_id) !~ bgp_large_community) then _reject("Announce only at FRA01 DE");
-    if ((202427, 123, 3) ~ bgp_large_community) && ((202427, 123, pop_id) !~ bgp_large_community) then _reject("Announce only at AMS01 NL");
-    if ((202427, 123, 4) ~ bgp_large_community) && ((202427, 123, pop_id) !~ bgp_large_community) then _reject("Announce only at TOR01 CA");
-    if ((202427, 123, 5) ~ bgp_large_community) && ((202427, 123, pop_id) !~ bgp_large_community) then _reject("Announce only at MKC01 US");
-    if ((202427, 123, 6) ~ bgp_large_community) && ((202427, 123, pop_id) !~ bgp_large_community) then _reject("Announce only at BCN01 ES");
-    if ((202427, 123, 7) ~ bgp_large_community) && ((202427, 123, pop_id) !~ bgp_large_community) then _reject("Announce only at OTT01 CA");
-    if ((202427, 123, 8) ~ bgp_large_community) && ((202427, 123, pop_id) !~ bgp_large_community) then _reject("Announce only at FNC01 US");
-    if ((202427, 123, 9) ~ bgp_large_community) && ((202427, 123, pop_id) !~ bgp_large_community) then _reject("Announce only at RESERVED EU");
-    if ((202427, 123, 10) ~ bgp_large_community) && ((202427, 123, pop_id) !~ bgp_large_community) then _reject("Announce only at RESERVED EU");
-    if ((202427, 123, 11) ~ bgp_large_community) && ((202427, 123, pop_id) !~ bgp_large_community) then _reject("Announce only at RESERVED EU");
-    if ((202427, 123, 12) ~ bgp_large_community) && ((202427, 123, pop_id) !~ bgp_large_community) then _reject("Announce only at RESERVED EU");
-    if ((202427, 123, 13) ~ bgp_large_community) && ((202427, 123, pop_id) !~ bgp_large_community) then _reject("Announce only at DUS01 DE");
-    if ((202427, 123, 14) ~ bgp_large_community) && ((202427, 123, pop_id) !~ bgp_large_community) then _reject("Announce only at ZRH02 CH");
-    if ((202427, 123, 15) ~ bgp_large_community) && ((202427, 123, pop_id) !~ bgp_large_community) then _reject("Announce only at POM01 IT");
-    if ((202427, 113, pop_id) ~ bgp_large_community) then _reject("Do not announce at PoP");
-  }
-  function reject_communitys() {
-    reject_region_communitys();
-    reject_country_communitys();
-    reject_pop_communitys();
-  }
-  function prepand_communitys () {
-    if ((202427, 130, 1) ~ bgp_large_community) then { bgp_path.prepend(202427); }
-    if ((202427, 130, 2) ~ bgp_large_community) then { bgp_path.prepend(202427); bgp_path.prepend(202427); }
-    if ((202427, 130, 3) ~ bgp_large_community) then { bgp_path.prepend(202427); bgp_path.prepend(202427); bgp_path.prepend(202427); }
-    if ((202427, 141, pop_region) ~ bgp_large_community) then { bgp_path.prepend(202427); }
-    if ((202427, 142, pop_region) ~ bgp_large_community) then { bgp_path.prepend(202427); bgp_path.prepend(202427); }
-    if ((202427, 143, pop_region) ~ bgp_large_community) then { bgp_path.prepend(202427); bgp_path.prepend(202427); bgp_path.prepend(202427); }
-    if ((202427, 151, pop_country) ~ bgp_large_community) then { bgp_path.prepend(202427); }
-    if ((202427, 152, pop_country) ~ bgp_large_community) then { bgp_path.prepend(202427); bgp_path.prepend(202427); }
-    if ((202427, 153, pop_country) ~ bgp_large_community) then { bgp_path.prepend(202427); bgp_path.prepend(202427); bgp_path.prepend(202427); }
-    if ((202427, 161, pop_id) ~ bgp_large_community) then { bgp_path.prepend(202427); }
-    if ((202427, 162, pop_id) ~ bgp_large_community) then { bgp_path.prepend(202427); bgp_path.prepend(202427); }
-    if ((202427, 163, pop_id) ~ bgp_large_community) then { bgp_path.prepend(202427); bgp_path.prepend(202427); bgp_path.prepend(202427); }
-  }
-  function reject_out_of_region() {
-    if ! ((202427, 103, pop_region) ~ bgp_large_community) then _reject("Out of Region PoP");
-  }
-  function add_on_import() {
-    bgp_large_community.add((202427, 102, pop_country));
-    bgp_large_community.add((202427, 103, pop_region));
-    bgp_large_community.add((202427, 104, pop_id));
-  }
-  function add_on_export() {
-    bgp_large_community.add((202427, 109, pop_id));
-  }
 local-communities:
   - "202427:101:1"
   - "202427:107:15" # PoP
@@ -144,7 +80,7 @@ peers:
 
 # ========= Peers - SIIX =========
   twopeaks digital e.U. SIIX:
-    template: peer
+    template: peer-siix
     passive: true
     description: twopeaks digital e.U. via SIIX
     asn: 212828
@@ -152,8 +88,6 @@ peers:
       - 2001:7f8:112::13 
     local-pref: 320
     listen6: 2001:7f8:112::16
-    add-on-import:
-      - "202427:105:3528"
     as-set: RIPE::AS-TWOPEAKS
 
 # ===========================================================
@@ -163,18 +97,12 @@ templates:
     add-path-tx: true
     add-path-rx: true
     pre-import-accept: >
-     add_on_import();
-     bgp_large_community.add((202427, 106, <pathvector.asn>));
-     bgp_large_community.add((202427, 101, 2));
+     import_communitys(<pathvector.asn>, 2);
     pre-export: >
-     reject_communitys();
-     if ((202427, 110, <pathvector.asn>) ~ bgp_large_community) then _reject("Do not announce to AS");
-     prepand_communitys();
-     add_on_export();
+     export_communitys(<pathvector.asn>);
     announce:
       - "202427:101:1"
       - "202427:101:5"
-    remove-all-communities: 202427
     allow-blackhole-community: true
     filter-max-prefix: false
     role: customer
@@ -184,18 +112,12 @@ templates:
     add-path-tx: true
     add-path-rx: true
     pre-import-accept: >
-     add_on_import();
-     bgp_large_community.add((202427, 106, <pathvector.asn>));
-     bgp_large_community.add((202427, 101, 3));
+     import_communitys(<pathvector.asn>, 3);
     pre-export: >
-     reject_communitys();
-     if ((202427, 110, <pathvector.asn>) ~ bgp_large_community) then _reject("Do not announce to AS");
-     prepand_communitys();
-     add_on_export();
+     export_communitys(<pathvector.asn>);
     announce:
       - "202427:101:1"
       - "202427:101:5"
-    remove-all-communities: 202427
     allow-blackhole-community: true
     enforce-first-as: false
     enforce-peer-nexthop: false
@@ -208,18 +130,12 @@ templates:
     add-path-tx: true
     add-path-rx: true
     pre-import-accept: >
-     add_on_import();
-     bgp_large_community.add((202427, 106, <pathvector.asn>));
-     bgp_large_community.add((202427, 101, 4));
+     import_communitys(<pathvector.asn>, 4);
     pre-export: >
-     reject_communitys();
-     if ((202427, 110, <pathvector.asn>) ~ bgp_large_community) then _reject("Do not announce to AS");
-     prepand_communitys();
-     add_on_export();
+     export_communitys(<pathvector.asn>);
     announce:
       - "202427:101:1"
       - "202427:101:5"
-    remove-all-communities: 202427
     allow-blackhole-community: true
     filter-irr: true
     strict-rpki: true
@@ -232,21 +148,9 @@ templates:
     add-path-tx: true
     add-path-rx: true
     pre-import-accept: >
-     add_on_import();
-     bgp_large_community.add((202427, 106, <pathvector.asn>));
-     bgp_large_community.add((202427, 101, 5));
+     import_communitys(<pathvector.asn>, 5);
     pre-export: >
-     reject_communitys();
-     if ((202427, 110, <pathvector.asn>) ~ bgp_large_community) then _reject("Do not announce to AS");
-     prepand_communitys();
-     add_on_export();
-    announce:
-      - "202427:101:1"
-      - "202427:101:2"
-      - "202427:101:3"
-      - "202427:101:4"
-      - "202427:101:5"
-    remove-all-communities: 202427
+     export_communitys(<pathvector.asn>);
     allow-blackhole-community: true
     filter-irr: true
     strict-rpki: true
@@ -258,7 +162,6 @@ templates:
     mp-unicast-46: true
     add-path-tx: true
     pre-export: >
-     prepand_communitys();
      add_on_export();
     announce:
       - "202427:101:1"
@@ -278,7 +181,6 @@ templates:
     add-path-tx: true
     add-path-rx: true
     pre-export: >
-     prepand_communitys();
      add_on_export();
     announce:
       - "202427:101:3"
@@ -294,7 +196,6 @@ templates:
     add-path-tx: true
     add-path-rx: true
     pre-export: >
-     prepand_communitys();
      add_on_export();
     announce:
       - "202427:101:3"
@@ -303,3 +204,23 @@ templates:
     allow-blackhole-community: true
 
 # ===========================================================
+
+# IX: 3528
+  peer-siix:
+    local-pref: 320
+    add-path-tx: true
+    add-path-rx: true
+    pre-import-accept: >
+     import_communitys(<pathvector.asn>, 4);
+     bgp_large_community.add((202427, 105, 3528));
+    pre-export: >
+     export_communitys(<pathvector.asn>);
+    announce:
+      - "202427:101:1"
+      - "202427:101:5"
+    allow-blackhole-community: true
+    filter-irr: true
+    strict-rpki: true
+    filter-transit-asns: true
+    auto-import-limits: true
+    role: peer
