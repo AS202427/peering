@@ -36,10 +36,13 @@
 # IX
 202427:105:60,Learned at SwissIX
 202427:105:64,Learned at NL-ix
+202427:105:249,Learned at KCIX
 202427:105:2084,Learned at LOCIX Frankfurt
 202427:105:2365,Learned at CHIX-CH
 202427:105:2571,Learned at SBIX ZRH
+202427:105:2585,Learned at STLIX
 202427:105:2730,Learned at LOCIX Dusseldorf
+202427:105:2835,Learned at HOUIX
 202427:105:3512,Learned at Frys-IX
 202427:105:3528,Learned at SIIX
 202427:105:3685,Learned at FREMIX
@@ -80,12 +83,14 @@
 202427:106:8283,Learned from Netwerkvereniging Coloclue
 202427:106:13335,Learned from Cloudflare, Inc.
 202427:106:15169,Learned from Google LLC
+202427:106:20940,Learned from Akamai Technologies
 202427:106:24940,Learned from Hetzner Online
 202427:106:25091,Learned from IP-Max
 202427:106:30132,Learned from ISC F-ROOT AMS1
 202427:106:32934,Learned from Meta Platforms, Inc.
 202427:106:35297,Learned from Dataline Net
 202427:106:39614,Learned from Dawico
+202427:106:47272,Learned from HYEHOST LTD
 202427:106:48200,Learned from Opteamax
 202427:106:48581,Learned from MythicalKitten
 202427:106:51019,Learned from KTT Iceland
@@ -95,6 +100,7 @@
 202427:106:200132,Learned from NetOne NL
 202427:106:203069,Learned from Thomas Riley Brown
 202427:106:212635,Learned from AS212635
+202427:106:215642,Learned from AS202427 Lab
 202427:106:212855,Learned from LUJE.net
 202427:106:393577,Learned from Tritan Development
 202427:106:nnn,Learned from AS$0
@@ -263,3 +269,19 @@
 202427:161:15,Prepand 1x at POM01 IT
 202427:162:15,Prepand 2x at POM01 IT
 202427:163:15,Prepand 3x at POM01 IT
+# Temp Debug
+202427:109:1,exp at RMA01 CH
+202427:109:2,exp at FRA01 DE
+202427:109:3,exp at AMS01 NL
+202427:109:4,exp at TOR01 CA
+202427:109:5,exp at MKC01 US
+202427:109:6,exp at BCN01 ES
+202427:109:7,exp at OTT01 CA
+202427:109:8,exp at FNC01 US
+202427:109:9,exp at unknown
+202427:109:10,exp at unknown
+202427:109:11,exp at unknown
+202427:109:12,exp at unknown
+202427:109:13,exp at DUS01 DE
+202427:109:14,exp at ZRH02 CH
+202427:109:15,exp at POM01 IT
