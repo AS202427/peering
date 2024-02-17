@@ -211,6 +211,7 @@ templates:
     add-path-tx: true
     add-path-rx: true
     pre-export: >
+     prepand_communitys();
      add_on_export();
     announce:
       - "202427:101:3"
@@ -226,6 +227,7 @@ templates:
     add-path-tx: true
     add-path-rx: true
     pre-export: >
+     prepand_communitys();
      add_on_export();
     announce:
       - "202427:101:3"
