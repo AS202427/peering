@@ -6,11 +6,11 @@
 202427:101:5,Learned from Downstream
 # Country
 202427:102:124,Learned in Canada
-202427:102:208,Learned in Denmark
+#202427:102:208,Learned in Denmark
 202427:102:276,Learned in Germany
 202427:102:380,Learned in Italy
 202427:102:528,Learned in Netherlands
-202427:102:578,Learned in Norway
+#202427:102:578,Learned in Norway
 202427:102:724,Learned in Spain
 202427:102:756,Learned in Switzerland
 202427:102:840,Learned in United States of America
@@ -26,10 +26,6 @@
 202427:104:6,Learned at BCN01 ES
 202427:104:7,Learned at OTT01 CA
 202427:104:8,Learned at FNC01 US
-202427:104:9,Learned at RESERVED EU
-202427:104:10,Learned at RESERVED EU
-202427:104:11,Learned at RESERVED EU
-202427:104:12,Learned at RESERVED EU
 202427:104:13,Learned at DUS01 DE
 202427:104:14,Learned at ZRH02 CH
 202427:104:15,Learned at POM01 IT
@@ -52,57 +48,7 @@
 202427:105:3844,Learned at BGP.Exchange - Dusseldorf
 202427:105:3990,Learned at INTERIX
 202427:105:4059,Learned at ONIX
-# Peer - Transit
-202427:106:835,Learned from GoCodeIT Inc
-202427:106:6939,Learned from Hurricane Electric LLC
-202427:106:21738,Learned from Rozint Ltd Co
-202427:106:34872,Learned from Servperso Systems
-202427:106:34927,Learned from iFog GmbH
-202427:106:41051,Learned from Freetransit Project (Openfactory GmbH)
-202427:106:212271,Learned from Cinzia Tocci trading as C1V
-202427:106:212895,Learned from ROUTE64.ORG
-# Peer - IX
-202427:106:24381,Learned from BGP.Exchange
-202427:106:34307,Learned from NL-ix Route Servers
-202427:106:35920,Learned from HOUIX Route Servers
-202427:106:40542,Learned from KCiX Route Servers
-202427:106:42476,Learned from SwissIX Route Servers
-202427:106:46389,Learned from STLIX Route Servers
-202427:106:47498,Learned from FogIXP Route Servers
-202427:106:49245,Learned from SIIX Route Servers
-202427:106:56393,Learned from Frys-IX Route Servers
-202427:106:56584,Learned from INTERIX
-202427:106:57369,Learned from ONIX Route Servers
-202427:106:60438,Learned from FREMIX Route Servers
-202427:106:202409,Learned from LOCIX Route Servers
-202427:106:212100,Learned from CHIX-CH Route Servers
-# Peer - Peering
-202427:106:112,Learned from AS112 Project
-202427:106:714,Learned from Apple Inc.
-202427:106:4775,Learned from Globe Telecom
-202427:106:8283,Learned from Netwerkvereniging Coloclue
-202427:106:13335,Learned from Cloudflare, Inc.
-202427:106:15169,Learned from Google LLC
-202427:106:20940,Learned from Akamai Technologies
-202427:106:24940,Learned from Hetzner Online
-202427:106:25091,Learned from IP-Max
-202427:106:30132,Learned from ISC F-ROOT AMS1
-202427:106:32934,Learned from Meta Platforms, Inc.
-202427:106:35297,Learned from Dataline Net
-202427:106:39614,Learned from Dawico
-202427:106:47272,Learned from HYEHOST LTD
-202427:106:48200,Learned from Opteamax
-202427:106:48581,Learned from MythicalKitten
-202427:106:51019,Learned from KTT Iceland
-202427:106:58299,Learned from Openfactory
-202427:106:58511,Learned from Anycast Global Backbone
-202427:106:63949,Learned from Linode
-202427:106:200132,Learned from NetOne NL
-202427:106:203069,Learned from Thomas Riley Brown
-202427:106:212635,Learned from AS212635
-202427:106:215642,Learned from AS202427 Lab
-202427:106:212855,Learned from LUJE.net
-202427:106:393577,Learned from Tritan Development
+# Peer
 202427:106:nnn,Learned from AS$0
 # PoP - Originated
 202427:107:1,Originated at RMA01 CH
@@ -113,10 +59,6 @@
 202427:107:6,Originated at BCN01 ES
 202427:107:7,Originated at OTT01 CA
 202427:107:8,Originated at FNC01 US
-202427:107:9,Originated at RESERVED EU
-202427:107:10,Originated at RESERVED EU
-202427:107:11,Originated at RESERVED EU
-202427:107:12,Originated at RESERVED EU
 202427:107:13,Originated at DUS01 DE
 202427:107:14,Originated at ZRH02 CH
 202427:107:15,Originated at POM01 IT
@@ -127,11 +69,11 @@
 202427:111:2,Do not announce in North America
 # Action - Do not announce in [Country]
 202427:112:124,Do not announce in Canada
-202427:112:208,Do not announce in Denmark
+#202427:112:208,Do not announce in Denmark
 202427:112:276,Do not announce in Germany
 202427:112:380,Do not announce in Italy
 202427:112:528,Do not announce in Netherlands
-202427:112:578,Do not announce in Norway
+#202427:112:578,Do not announce in Norway
 202427:112:724,Do not announce in Spain
 202427:112:756,Do not announce in Switzerland
 202427:112:840,Do not announce in United States of America
@@ -144,10 +86,6 @@
 202427:113:6,Do not announce at BCN01 ES
 202427:113:7,Do not announce at OTT01 CA
 202427:113:8,Do not announce at FNC01 US
-202427:113:9,Do not announce at RESERVED EU
-202427:113:10,Do not announce at RESERVED EU
-202427:113:11,Do not announce at RESERVED EU
-202427:113:12,Do not announce at RESERVED EU
 202427:113:13,Do not announce at DUS01 DE
 202427:113:14,Do not announce at ZRH02 CH
 202427:113:15,Do not announce at POM01 IT
@@ -156,11 +94,11 @@
 202427:121:2,Announce only in North America
 # Action - Announce only in [Country]
 202427:122:124,Announce only in Canada
-202427:122:208,Announce only in Denmark
+#202427:122:208,Announce only in Denmark
 202427:122:276,Announce only in Germany
 202427:122:380,Announce only in Italy
 202427:122:528,Announce only in Netherlands
-202427:122:578,Announce only in Norway
+#202427:122:578,Announce only in Norway
 202427:122:724,Announce only in Spain
 202427:122:756,Announce only in Switzerland
 202427:122:840,Announce only in United States of America
@@ -173,102 +111,37 @@
 202427:123:6,Announce only at BCN01 ES
 202427:123:7,Announce only at OTT01 CA
 202427:123:8,Announce only at FNC01 US
-202427:123:9,Announce only at RESERVED EU
-202427:123:10,Announce only at RESERVED EU
-202427:123:11,Announce only at RESERVED EU
-202427:123:12,Announce only at RESERVED EU
 202427:123:13,Announce only at DUS01 DE
 202427:123:14,Announce only at ZRH02 CH
 202427:123:15,Announce only at POM01 IT
 # Action - Prepand
-202427:130:1,Prepand 1x
-202427:130:2,Prepand 2x
-202427:130:3,Prepand 3x
-# Action - Prepand to Peer
-202427:131:nnn,Prepand 1x to AS$0
-202427:132:nnn,Prepand 2x to AS$0
-202427:133:nnn,Prepand 3x to AS$0
+202427:130:x,Prepand $0x
+202427:13x:nnn,Prepand $0x to AS$1
 # Action - Prepand in [Region]
-202427:141:1,Prepand 1x in Europe
-202427:142:1,Prepand 2x in Europe
-202427:143:1,Prepand 3x in Europe
-202427:141:2,Prepand 1x in North America
-202427:142:2,Prepand 2x in North America
-202427:143:2,Prepand 3x in North America
-# Action - Prepand in [Country]
-202427:151:124,Prepand 1x in Canada
-202427:152:124,Prepand 2x in Canada
-202427:153:124,Prepand 3x in Canada
-202427:151:208,Prepand 1x in Denmark
-202427:152:208,Prepand 2x in Denmark
-202427:153:208,Prepand 3x in Denmark
-202427:151:276,Prepand 1x in Germany
-202427:152:276,Prepand 2x in Germany
-202427:153:276,Prepand 3x in Germany
-202427:151:380,Prepand 1x in Italy
-202427:152:380,Prepand 2x in Italy
-202427:153:380,Prepand 3x in Italy
-202427:151:528,Prepand 1x in Netherlands
-202427:152:528,Prepand 2x in Netherlands
-202427:153:528,Prepand 3x in Netherlands
-202427:151:578,Prepand 1x in Norway
-202427:152:578,Prepand 2x in Norway
-202427:153:578,Prepand 3x in Norway
-202427:151:724,Prepand 1x in Spain
-202427:152:724,Prepand 2x in Spain
-202427:153:724,Prepand 3x in Spain
-202427:151:756,Prepand 1x in Switzerland
-202427:152:756,Prepand 2x in Switzerland
-202427:153:756,Prepand 3x in Switzerland
-202427:151:840,Prepand 1x in United States of America
-202427:152:840,Prepand 2x in United States of America
-202427:153:840,Prepand 3x in United States of America
-# Action - Prepand at [PoP]
-202427:161:1,Prepand 1x at RMA01 CH
-202427:162:1,Prepand 2x at RMA01 CH
-202427:163:1,Prepand 3x at RMA01 CH
-202427:161:2,Prepand 1x at FRA01 DE
-202427:162:2,Prepand 2x at FRA01 DE
-202427:163:2,Prepand 3x at FRA01 DE
-202427:161:3,Prepand 1x at AMS01 NL
-202427:162:3,Prepand 2x at AMS01 NL
-202427:163:3,Prepand 3x at AMS01 NL
-202427:161:4,Prepand 1x at TOR01 CA
-202427:162:4,Prepand 2x at TOR01 CA
-202427:163:4,Prepand 3x at TOR01 CA
-202427:161:5,Prepand 1x at MKC01 US
-202427:162:5,Prepand 2x at MKC01 US
-202427:163:5,Prepand 3x at MKC01 US
-202427:161:6,Prepand 1x at BCN01 ES
-202427:162:6,Prepand 2x at BCN01 ES
-202427:163:6,Prepand 3x at BCN01 ES
-202427:161:7,Prepand 1x at OTT01 CA
-202427:162:7,Prepand 2x at OTT01 CA
-202427:163:7,Prepand 3x at OTT01 CA
-202427:161:8,Prepand 1x at FNC01 US
-202427:162:8,Prepand 2x at FNC01 US
-202427:163:8,Prepand 3x at FNC01 US
-202427:161:9,Prepand 1x at RESERVED EU
-202427:162:9,Prepand 2x at RESERVED EU
-202427:163:9,Prepand 3x at RESERVED EU
-202427:161:10,Prepand 1x at RESERVED EU
-202427:162:10,Prepand 2x at RESERVED EU
-202427:163:10,Prepand 3x at RESERVED EU
-202427:161:11,Prepand 1x at RESERVED EU
-202427:162:11,Prepand 2x at RESERVED EU
-202427:163:11,Prepand 3x at RESERVED EU
-202427:161:12,Prepand 1x at RESERVED EU
-202427:162:12,Prepand 2x at RESERVED EU
-202427:163:12,Prepand 3x at RESERVED EU
-202427:161:13,Prepand 1x at DUS01 DE
-202427:162:13,Prepand 2x at DUS01 DE
-202427:163:13,Prepand 3x at DUS01 DE
-202427:161:14,Prepand 1x at ZRH02 CH
-202427:162:14,Prepand 2x at ZRH02 CH
-202427:163:14,Prepand 3x at ZRH02 CH
-202427:161:15,Prepand 1x at POM01 IT
-202427:162:15,Prepand 2x at POM01 IT
-202427:163:15,Prepand 3x at POM01 IT
+202427:14x:1,Prepand $0x in Europe
+202427:14x:2,Prepand $0x in North America
+# Action - Prepand $0x in [Country]
+202427:15x:124,Prepand $0x in Canada
+#202427:15x:208,Prepand $0x in Denmark
+202427:15x:276,Prepand $0x in Germany
+202427:15x:380,Prepand $0x in Italy
+202427:15x:528,Prepand $0x in Netherlands
+#202427:15x:578,Prepand $0x in Norway
+202427:15x:724,Prepand $0x in Spain
+202427:15x:756,Prepand $0x in Switzerland
+202427:15x:840,Prepand $0x in United States of America
+# Action - Prepand $0x at [PoP]
+202427:16x:1,Prepand $0x at RMA01 CH
+202427:16x:2,Prepand $0x at FRA01 DE
+202427:16x:3,Prepand $0x at AMS01 NL
+202427:16x:4,Prepand $0x at TOR01 CA
+202427:16x:5,Prepand $0x at MKC01 US
+202427:16x:6,Prepand $0x at BCN01 ES
+202427:16x:7,Prepand $0x at OTT01 CA
+202427:16x:8,Prepand $0x at FNC01 US
+202427:16x:13,Prepand $0x at DUS01 DE
+202427:16x:14,Prepand $0x at ZRH02 CH
+202427:16x:15,Prepand $0x at POM01 IT
 # Temp Debug
 202427:109:1,exp at RMA01 CH
 202427:109:2,exp at FRA01 DE
@@ -278,10 +151,35 @@
 202427:109:6,exp at BCN01 ES
 202427:109:7,exp at OTT01 CA
 202427:109:8,exp at FNC01 US
-202427:109:9,exp at unknown
-202427:109:10,exp at unknown
-202427:109:11,exp at unknown
-202427:109:12,exp at unknown
 202427:109:13,exp at DUS01 DE
 202427:109:14,exp at ZRH02 CH
 202427:109:15,exp at POM01 IT
+# BGP.Tools
+202427:101:2365, bug
+202427:106:13335,Learned from AS13335
+202427:106:15169,Learned from AS15169
+202427:106:200132,Learned from AS200132
+202427:106:202409,Learned from AS202409
+202427:106:203069,Learned from AS203069
+202427:106:212100,Learned from AS212100
+202427:106:212635,Learned from AS212635
+202427:106:215642,Learned from AS21738
+202427:106:21738,Learned from AS21738
+202427:106:25091,Learned from AS25091
+202427:106:34872,Learned from AS34872
+202427:106:34927,Learned from AS34927
+202427:106:35920,Learned from AS35920
+202427:106:40542,Learned from AS40542
+202427:106:46389,Learned from AS46389
+202427:106:47272,Learned from AS47272
+202427:106:48581,Learned from AS48581
+202427:106:49245,Learned from AS49245
+202427:106:51019,Learned from AS51019
+202427:106:56393,Learned from AS56393
+202427:106:56584,Learned from AS56584
+202427:106:57369,Learned from AS57369
+202427:106:58299,Learned from AS58299
+202427:106:63949,Learned from AS63949
+202427:106:6939,Learned from AS6939
+202427:106:8283,Learned from AS8283
+202427:130:2,Prepand 2x

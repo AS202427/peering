@@ -84,67 +84,9 @@ Octets in the function field are the numeric country identifier defined by ISO 3
 
 #### Peer
 
-##### Transit provider
-
 | Community | Description |
 | --------- | ----------- |
-| `202427:106:835` | Learned from GoCodeIT Inc |
-| `202427:106:6939` | Learned from Hurricane Electric LLC |
-| `202427:106:21738` | Learned from Rozint Ltd Co |
-| `202427:106:34872` | Learned from Servperso Systems |
-| `202427:106:34927` | Learned from iFog GmbH |
-| `202427:106:41051` | Learned from Freetransit Project (Openfactory GmbH) |
-| `202427:106:212271` | Learned from Cinzia Tocci trading as C1V |
-| `202427:106:212895` | Learned from ROUTE64.ORG |
-
-##### IX Routeserver
-
-| Community | Description |
-| --------- | ----------- |
-| `202427:106:24381` | Learned from BGP.Exchange |
-| `202427:106:34307` | Learned from NL-ix Route Servers |
-| `202427:106:35920` | Learned from HOUIX Route Servers |
-| `202427:106:40542` | Learned from KCiX Route Servers |
-| `202427:106:42476` | Learned from SwissIX Route Servers |
-| `202427:106:46389` | Learned from STLIX Route Servers |
-| `202427:106:47498` | Learned from FogIXP Route Servers |
-| `202427:106:49245` | Learned from SIIX Route Servers |
-| `202427:106:56393` | Learned from Frys-IX Route Servers |
-| `202427:106:56584` | Learned from INTERIX |
-| `202427:106:57369` | Learned from ONIX Route Servers |
-| `202427:106:60438` | Learned from FREMIX Route Servers |
-| `202427:106:202409` | Learned from LOCIX Route Servers |
-| `202427:106:212100` | Learned from CHIX-CH Route Servers |
-
-##### Peering
-
-| Community | Description |
-| --------- | ----------- |
-| `202427:106:112` | Learned from AS112 Project |
-| `202427:106:714` | Learned from Apple Inc. |
-| `202427:106:4775` | Learned from Globe Telecom |
-| `202427:106:8283` | Learned from Netwerkvereniging Coloclue |
-| `202427:106:13335` | Learned from Cloudflare, Inc. |
-| `202427:106:15169` | Learned from Google LLC |
-| `202427:106:24940` | Learned from Hetzner Online |
-| `202427:106:25091` | Learned from IP-Max |
-| `202427:106:30132` | Learned from ISC F-ROOT AMS1 |
-| `202427:106:32934` | Learned from Meta Platforms, Inc. |
-| `202427:106:35297` | Learned from Dataline Net |
-| `202427:106:39614` | Learned from Dawico |
-| `202427:106:48200` | Learned from Opteamax |
-| `202427:106:48581` | Learned from MythicalKitten |
-| `202427:106:51019` | Learned from KTT Iceland |
-| `202427:106:58299` | Learned from Openfactory |
-| `202427:106:58511` | Learned from Anycast Global Backbone |
-| `202427:106:63949` | Learned from Linode |
-| `202427:106:200132` | Learned from NetOne NL |
-| `202427:106:203069` | Learned from Thomas Riley Brown |
-| `202427:106:212635` | Learned from AS212635 |
-| `202427:106:212855` | Learned from LUJE.net |
-| `202427:106:393577` | Learned from Tritan Development |
 | `202427:106:nnn` | Learned from AS$0 |
-
 #### IX
 Octets in the function field are the peeringdb id.
 
