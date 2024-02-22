@@ -43,13 +43,10 @@
 202427:104:3844,Learned at BGP.Exchange - Dusseldorf
 202427:104:3990,Learned at INTERIX
 202427:104:4059,Learned at ONIX
-# IRR & RPKI
-202427:105:101, IRR Valid
-202427:105:101, IRR Missing
-202427:105:102, IRR Invalid
-202427:105:200, RPKI Valid
-202427:105:201, RPKI Missing
-202427:105:202, RPKI Invalid
+# RPKI
+202427:105:100, RPKI Valid
+202427:105:101, RPKI Missing
+202427:105:101, RPKI Invalid
 # Peer
 202427:106:nnn,Learned from AS$0
 # PoP - Originated

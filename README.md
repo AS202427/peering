@@ -2,28 +2,23 @@
 
 Pathvector peering config
 
-## Region
+## Region / Country
 
-| Region | Description |
-| ------ | ----------- |
-| `1` | Europe |
-| `2` | North America |
+Numeric region / country identifier defined by UN M.49
 
-## Country
-
-Numeric country identifier defined by ISO 3166-1
-
-| Country | Description |
-| ------- | ----------- |
-| `124` | Canada |
-| `208` | Denmark |
-| `276` | Germany |
-| `380` | Italy |
-| `528` | Netherlands |
-| `578` | Norway |
-| `724` | Spain |
-| `756` | Switzerland |
-| `840` | United States of America |
+| Region/Country ID | Description | Type |
+| ----------------- | ----------- | ---- |
+| `3` | North America | Region |
+| `124` | Canada | Country |
+| `150` | Europe | Region |
+| `208` | Denmark | Country |
+| `276` | Germany | Country |
+| `380` | Italy | Country |
+| `528` | Netherlands | Country |
+| `578` | Norway | Country |
+| `724` | Spain | Country |
+| `756` | Switzerland | Country |
+| `840` | United States of America | Country |
 
 ## POP
 
@@ -41,7 +36,7 @@ Numeric country identifier defined by ISO 3166-1
 | `10` | Learned at RESERVED, EU |
 | `11` | Learned at RESERVED, EU |
 | `12` | Learned at RESERVED, EU |
-| `13` | Learned at DUS01, DE|
+| `13` | Learned at RESERVED, EU |
 | `14` | Learned at ZRH02, CH |
 | `15` | Learned at POM01, IT |
 
@@ -61,25 +56,19 @@ Informational BGP communities offer insight into AS202427's routing policies.
 | `202427:101:4` | Learned from Peer |
 | `202427:101:5` | Learned from Downstream |
 
-#### Country
+#### Region & Country
 
-Octets in the function field are the numeric country identifier defined by ISO 3166-1.
-
-| Community | Description |
-| --------- | ----------- |
-| `202427:102:COUNTRY_ID` | Learned in [Country (COUNTRY_ID)] |
-
-#### Region
+Octets in the function field are the numeric region / country identifier defined by UN M.49.
 
 | Community | Description |
 | --------- | ----------- |
-| `202427:103:REGION_ID` | Learned in [Region (REGION_ID)] |
+| `202427:102:REGION/COUNTRY_ID` | Learned in [Region/Country (REGION/COUNTRY_ID)] |
 
 #### PoP
 
 | Community | Description |
 | --------- | ----------- |
-| `202427:104:POP_ID` | Learned at [PoP (POP_ID)] |
+| `202427:103:POP_ID` | Learned at [PoP (POP_ID)] |
 | `202427:107:POP_ID` | Originated at [PoP (POP_ID)] |
 
 #### Peer
@@ -87,29 +76,37 @@ Octets in the function field are the numeric country identifier defined by ISO 3
 | Community | Description |
 | --------- | ----------- |
 | `202427:106:nnn` | Learned from AS$0 |
+
 #### IX
 Octets in the function field are the peeringdb id.
 
 | Community | Description |
 | --------- | ----------- |
-| `202427:105:IX_ID` | Learned at IX (IX_ID) |
-| `202427:105:60` | Learned at SwissIX |
-| `202427:105:64` | Learned at NL-ix |
-| `202427:105:249` | Learned at KCIX |
-| `202427:105:2084` | Learned at LOCIX Frankfurt |
-| `202427:105:2365` | Learned at CHIX-CH |
-| `202427:105:2585` | Learned at STLIX |
-| `202427:105:2730` | Learned at LOCIX Dusseldorf |
-| `202427:105:2835` | Learned at HOUIX |
-| `202427:105:3512` | Learned at Frys-IX |
-| `202427:105:3528` | Learned at SIIX |
-| `202427:105:3685` | Learned at FREMIX |
-| `202427:105:3756` | Learned at FogIXP |
-| `202427:105:3829` | Learned at BGP.Exchange - Frankfurt |
-| `202427:105:3830` | Learned at BGP.Exchange - Zurich |
-| `202427:105:3844` | Learned at BGP.Exchange - Dusseldorf |
-| `202427:105:3990` | Learned at INTERIX |
-| `202427:105:4059` | Learned at ONIX |
+| `202427:104:IX_ID` | Learned at IX (IX_ID) |
+| `202427:104:60` | Learned at SwissIX |
+| `202427:104:64` | Learned at NL-ix |
+| `202427:104:249` | Learned at KCIX |
+| `202427:104:2084` | Learned at LOCIX Frankfurt |
+| `202427:104:2365` | Learned at CHIX-CH |
+| `202427:104:2585` | Learned at STLIX |
+| `202427:104:2730` | Learned at LOCIX Dusseldorf |
+| `202427:104:2835` | Learned at HOUIX |
+| `202427:104:3512` | Learned at Frys-IX |
+| `202427:104:3528` | Learned at SIIX |
+| `202427:104:3685` | Learned at FREMIX |
+| `202427:104:3756` | Learned at FogIXP |
+| `202427:104:3829` | Learned at BGP.Exchange - Frankfurt |
+| `202427:104:3830` | Learned at BGP.Exchange - Zurich |
+| `202427:104:3844` | Learned at BGP.Exchange - Dusseldorf |
+| `202427:104:3990` | Learned at INTERIX |
+| `202427:104:4059` | Learned at ONIX |
+
+#### RPKI
+| Community | Description |
+| --------- | ----------- |
+| `202427:105:100` | RPKI Valid |
+| `202427:105:101` | RPKI Missing |
+| `202427:105:102` | RPKI Invalid |
 
 ### Action
 
