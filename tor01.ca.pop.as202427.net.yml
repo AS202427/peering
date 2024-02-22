@@ -1,12 +1,12 @@
 peeringdb-api-key: ${tor01-ca-pop-peeringdb-api-key}
 log-file: /var/log/bird.log
 global-config: >
-  define pop_region = 2;
+  define pop_region = 3;
   define pop_country = 124;
   define pop_id = 4;
 local-communities:
-  - "202427:101:1"
-  - "202427:107:4" # PoP
+  - "202427:101:1" # Origin
+  - "202427:107:4" # PoP - Originated
 asn: 202427
 prefixes:
 # PoP
@@ -102,8 +102,10 @@ peers:
       - 2001:504:125:e1::2
     local-pref: 220
     listen6: 2001:504:125:e1::c
-    add-on-import:
-      - "202427:105:4059" # IX
+    post-import-filter: >
+     add_ix_community(4059);
+    pre-export-final: >
+     export_ix_communitys(4059);
     as-set: AS57369:AS-ONIX
 
 # ========= Peers - ONIX =========
@@ -113,8 +115,6 @@ peers:
     asn: 112
     neighbors:
       - 2001:504:125:e1::112
-    local-pref: 320
-    listen6: 2001:504:125:e1::c
     as-set: AS112
 
   KTT Iceland ONIX:
@@ -123,8 +123,6 @@ peers:
     asn: 51019
     neighbors:
       - 2001:504:125:e1::17
-    local-pref: 320
-    listen6: 2001:504:125:e1::c
     as-set: AS51019:AS-ALL
 
   Linode ONIX:
@@ -133,8 +131,6 @@ peers:
     asn: 63949
     neighbors:
       - 2001:504:125:e1::31
-    local-pref: 320
-    listen6: 2001:504:125:e1::c
     as-set: AS-LINODE
 
   MythicalKitten ONIX:
@@ -143,8 +139,6 @@ peers:
     asn: 48581
     neighbors:
       - 2001:504:125:e1::16
-    local-pref: 320
-    listen6: 2001:504:125:e1::c
     as-set: RIPE::AS-MYTHICALKITTEN
 
   Thomas Riley Brown ONIX:
@@ -154,8 +148,6 @@ peers:
     asn: 203069
     neighbors:
       - 2001:504:125:e1::ad
-    local-pref: 320
-    listen6: 2001:504:125:e1::c
     as-set: AS-XZR
 
   AS212635 ONIX:
@@ -165,8 +157,6 @@ peers:
     asn: 212635
     neighbors:
       - 2001:504:125:e1::67
-    local-pref: 320
-    listen6: 2001:504:125:e1::c
     as-set: RIPE::AS212635:AS-212635
 
 # ===========================================================
@@ -198,6 +188,7 @@ templates:
       - "202427:101:1"
       - "202427:101:5"
     allow-blackhole-community: true
+    strict-rpki: true
     enforce-first-as: false
     enforce-peer-nexthop: false
     filter-max-prefix: false
@@ -260,7 +251,7 @@ templates:
     add-path-tx: true
     add-path-rx: true
     pre-export: >
-     prepand_communitys();
+     process_prepand_general();
      add_on_export();
     announce:
       - "202427:101:3"
@@ -276,7 +267,7 @@ templates:
     add-path-tx: true
     add-path-rx: true
     pre-export: >
-     prepand_communitys();
+     process_prepand_general();
      add_on_export();
     announce:
       - "202427:101:3"
@@ -293,8 +284,9 @@ templates:
     add-path-rx: true
     pre-import-accept: >
      import_communitys(<pathvector.asn>, 4);
-     bgp_large_community.add((202427, 105, 4059));
+     add_ix_community(4059);
     pre-export: >
+     export_ix_communitys(4059);
      export_communitys(<pathvector.asn>);
     announce:
       - "202427:101:1"
@@ -305,3 +297,4 @@ templates:
     filter-transit-asns: true
     auto-import-limits: true
     role: peer
+    listen6: 2001:504:125:e1::c

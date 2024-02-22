@@ -1,12 +1,12 @@
 peeringdb-api-key: ${zrh02-ch-pop-peeringdb-api-key}
 log-file: /var/log/bird.log
 global-config: >
-  define pop_region = 1;
+  define pop_region = 150;
   define pop_country = 756;
   define pop_id = 14;
 local-communities:
-  - "202427:101:1"
-  - "202427:107:14" # PoP
+  - "202427:101:1" # Origin
+  - "202427:107:14" # PoP - Originated
 asn: 202427
 prefixes:
 # PoP
@@ -54,8 +54,8 @@ peers:
       - 2001:7f8:cc:333::137
     local-pref: 130
     listen6: 2001:7f8:cc:333::182
-    add-on-import:
-      - "202427:105:2365" # IX
+    post-import-filter: >
+     add_ix_community(2365);
     as-set: RADB::AS-HURRICANEV6
 
 # ========= Looking Glasses =========
@@ -106,8 +106,10 @@ peers:
       - 2001:7f8:cc:333::253
     local-pref: 220
     listen6: 2001:7f8:cc:333::182
-    add-on-import:
-      - "202427:105:2365" # IX
+    post-import-filter: >
+     add_ix_community(2365);
+    pre-export-final: >
+     export_ix_communitys(2365);
     as-set: AS-CHIX-RS
 
   BGP.Exchange Route Server:
@@ -118,8 +120,10 @@ peers:
       -  2a0e:8f01:1000:25::1
     local-pref: 220
     listen6: 2a0e:8f01:1000:25::109
-    add-on-import:
-      - "202427:105:3830" # IX
+    post-import-filter: >
+     add_ix_community(3830);
+    pre-export-final: >
+     export_ix_communitys(3830);
     as-set: AS-BGPEXCHANGE
 
 # ========= Peers - CHIX-CH =========
@@ -129,7 +133,6 @@ peers:
     asn: 15169
     neighbors:
       - 2001:7f8:cc:333::169
-    listen6: 2001:7f8:cc:333::182
     password: ${edge02-zhr-as15169-chix-password}
     as-set: RADB::AS-GOOGLE
 
@@ -139,7 +142,6 @@ peers:
     asn: 51019
     neighbors:
       - 2001:7f8:cc:333::190
-    listen6: 2001:7f8:cc:333::182
     as-set: AS51019:AS-ALL
 
   Openfactory CHIX-CH:
@@ -148,7 +150,6 @@ peers:
     asn: 58299
     neighbors:
       - 2001:7f8:cc:333::130
-    listen6: 2001:7f8:cc:333::182
     as-set: AS58299:AS-ALL
 
 # ===========================================================
@@ -180,6 +181,7 @@ templates:
       - "202427:101:1"
       - "202427:101:5"
     allow-blackhole-community: true
+    strict-rpki: true
     enforce-first-as: false
     enforce-peer-nexthop: false
     filter-max-prefix: false
@@ -242,7 +244,7 @@ templates:
     add-path-tx: true
     add-path-rx: true
     pre-export: >
-     prepand_communitys();
+     process_prepand_general();
      add_on_export();
     announce:
       - "202427:101:3"
@@ -258,7 +260,7 @@ templates:
     add-path-tx: true
     add-path-rx: true
     pre-export: >
-     prepand_communitys();
+     process_prepand_general();
      add_on_export();
     announce:
       - "202427:101:3"
@@ -275,8 +277,9 @@ templates:
     add-path-rx: true
     pre-import-accept: >
      import_communitys(<pathvector.asn>, 4);
-     bgp_large_community.add((202427, 105, 2365));
+     add_ix_community(2365);
     pre-export: >
+     export_ix_communitys(2365);
      export_communitys(<pathvector.asn>);
     announce:
       - "202427:101:1"
@@ -287,3 +290,4 @@ templates:
     filter-transit-asns: true
     auto-import-limits: true
     role: peer
+    listen6: 2001:7f8:cc:333::182

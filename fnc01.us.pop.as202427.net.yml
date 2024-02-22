@@ -1,12 +1,12 @@
 peeringdb-api-key: ${fnc01-us-pop-peeringdb-api-key}
 log-file: /var/log/bird.log
 global-config: >
-  define pop_region = 2;
+  define pop_region = 3;
   define pop_country = 840;
   define pop_id = 8;
 local-communities:
-  - "202427:101:1"
-  - "202427:107:8" # PoP
+  - "202427:101:1" # Origin
+  - "202427:107:8" # PoP - Originated
 asn: 202427
 prefixes: # Location Specific
 # PoP
@@ -75,8 +75,10 @@ peers:
       - 2001:504:125:e0::2
     local-pref: 220
     listen6: 2001:504:125:e0::b
-    add-on-import:
-      - "202427:105:3685"
+    post-import-filter: >
+     add_ix_community(3685);
+    pre-export-final: >
+     export_ix_communitys(3685);
     as-set: AS57369:AS-FREMIX
 
 # ========= Peers - FREMIX =========
@@ -139,6 +141,7 @@ templates:
       - "202427:101:1"
       - "202427:101:5"
     allow-blackhole-community: true
+    strict-rpki: true
     enforce-first-as: false
     enforce-peer-nexthop: false
     filter-max-prefix: false
@@ -201,7 +204,7 @@ templates:
     add-path-tx: true
     add-path-rx: true
     pre-export: >
-     prepand_communitys();
+     process_prepand_general();
      add_on_export();
     announce:
       - "202427:101:3"
@@ -217,7 +220,7 @@ templates:
     add-path-tx: true
     add-path-rx: true
     pre-export: >
-     prepand_communitys();
+     process_prepand_general();
      add_on_export();
     announce:
       - "202427:101:3"
@@ -234,8 +237,9 @@ templates:
     add-path-rx: true
     pre-import-accept: >
      import_communitys(<pathvector.asn>, 4);
-     bgp_large_community.add((202427, 105, 3685));
+     add_ix_community(3685);
     pre-export: >
+     export_ix_communitys(3685);
      export_communitys(<pathvector.asn>);
     announce:
       - "202427:101:1"

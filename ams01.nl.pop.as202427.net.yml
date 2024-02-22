@@ -1,12 +1,12 @@
 peeringdb-api-key: ${ams01-nl-pop-peeringdb-api-key}
 log-file: /var/log/bird.log
 global-config: >
-  define pop_region = 1;
+  define pop_region = 150;
   define pop_country = 528;
   define pop_id = 3;
 local-communities:
-  - "202427:101:1"
-  - "202427:107:3" # PoP
+  - "202427:101:1" # Origin
+  - "202427:107:3" # PoP - Originated
 asn: 202427
 prefixes: # Location Specific
 # PoP
@@ -120,8 +120,10 @@ peers:
       - 2001:7f8:10f::dc49:254
     local-pref: 220
     listen6: 2001:7f8:10f::3:16bb:205
-    add-on-import:
-      - "202427:105:3512" # IX
+    post-import-filter: >
+     add_ix_community(3512);
+    pre-export-final: >
+     export_ix_communitys(3512);
     as-set: AS-FRYS-IX-CONNECTED
 
   InterIX Route Server:
@@ -134,8 +136,10 @@ peers:
       - 2001:7f8:134::251
     local-pref: 220
     listen6: 2001:7f8:134::43
-    add-on-import:
-      - "202427:105:3990" # IX
+    post-import-filter: >
+     add_ix_community(3990);
+    pre-export-final: >
+     export_ix_communitys(3990);
     as-set: AS56584:AS-INTERIX
 
 # ========= Peers - Frys-IX =========
@@ -310,6 +314,7 @@ templates:
       - "202427:101:1"
       - "202427:101:5"
     allow-blackhole-community: true
+    strict-rpki: true
     enforce-first-as: false
     enforce-peer-nexthop: false
     filter-max-prefix: false
@@ -372,7 +377,7 @@ templates:
     add-path-tx: true
     add-path-rx: true
     pre-export: >
-     prepand_communitys();
+     process_prepand_general();
      add_on_export();
     announce:
       - "202427:101:3"
@@ -388,7 +393,7 @@ templates:
     add-path-tx: true
     add-path-rx: true
     pre-export: >
-     prepand_communitys();
+     process_prepand_general();
      add_on_export();
     announce:
       - "202427:101:3"
@@ -405,8 +410,9 @@ templates:
     add-path-rx: true
     pre-import-accept: >
      import_communitys(<pathvector.asn>, 4);
-     bgp_large_community.add((202427, 105, 3512));
+     add_ix_community(3512);
     pre-export: >
+     export_ix_communitys(3512);
      export_communitys(<pathvector.asn>);
     announce:
       - "202427:101:1"
@@ -425,8 +431,9 @@ templates:
     add-path-rx: true
     pre-import-accept: >
      import_communitys(<pathvector.asn>, 4);
-     bgp_large_community.add((202427, 105, 3990));
+     add_ix_community(3990);
     pre-export: >
+     export_ix_communitys(3990);
      export_communitys(<pathvector.asn>);
     announce:
       - "202427:101:1"

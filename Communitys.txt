@@ -4,50 +4,52 @@
 202427:101:3,Learned from IX Routeserver
 202427:101:4,Learned from Peer
 202427:101:5,Learned from Downstream
-# Country
+# Region / Country (UN M.49)
+202427:102:3,Learned in North America
 202427:102:124,Learned in Canada
-#202427:102:208,Learned in Denmark
+202427:102:150,Learned in Europe
 202427:102:276,Learned in Germany
 202427:102:380,Learned in Italy
 202427:102:528,Learned in Netherlands
-#202427:102:578,Learned in Norway
 202427:102:724,Learned in Spain
 202427:102:756,Learned in Switzerland
 202427:102:840,Learned in United States of America
-# Region
-202427:103:1,Learned in Europe
-202427:103:2,Learned in North America
 # PoP - Import
-202427:104:1,Learned at RMA01 CH
-202427:104:2,Learned at FRA01 DE
-202427:104:3,Learned at AMS01 NL
-202427:104:4,Learned at TOR01 CA
-202427:104:5,Learned at MKC01 US
-202427:104:6,Learned at BCN01 ES
-202427:104:7,Learned at OTT01 CA
-202427:104:8,Learned at FNC01 US
-202427:104:13,Learned at DUS01 DE
-202427:104:14,Learned at ZRH02 CH
-202427:104:15,Learned at POM01 IT
+202427:103:1,Learned at RMA01 CH
+202427:103:2,Learned at FRA01 DE
+202427:103:3,Learned at AMS01 NL
+202427:103:4,Learned at TOR01 CA
+202427:103:5,Learned at MKC01 US
+202427:103:6,Learned at BCN01 ES
+202427:103:7,Learned at OTT01 CA
+202427:103:8,Learned at FNC01 US
+202427:103:14,Learned at ZRH02 CH
+202427:103:15,Learned at POM01 IT
 # IX
-202427:105:60,Learned at SwissIX
-202427:105:64,Learned at NL-ix
-202427:105:249,Learned at KCIX
-202427:105:2084,Learned at LOCIX Frankfurt
-202427:105:2365,Learned at CHIX-CH
-202427:105:2571,Learned at SBIX ZRH
-202427:105:2585,Learned at STLIX
-202427:105:2730,Learned at LOCIX Dusseldorf
-202427:105:2835,Learned at HOUIX
-202427:105:3512,Learned at Frys-IX
-202427:105:3528,Learned at SIIX
-202427:105:3685,Learned at FREMIX
-202427:105:3756,Learned at FogIXP
-202427:105:3829,Learned at BGP.Exchange - Frankfurt
-202427:105:3830,Learned at BGP.Exchange - Zurich
-202427:105:3844,Learned at BGP.Exchange - Dusseldorf
-202427:105:3990,Learned at INTERIX
-202427:105:4059,Learned at ONIX
+202427:104:60,Learned at SwissIX
+202427:104:64,Learned at NL-ix
+202427:104:249,Learned at KCIX
+202427:104:2084,Learned at LOCIX Frankfurt
+202427:104:2365,Learned at CHIX-CH
+202427:104:2585,Learned at STLIX
+202427:104:2730,Learned at LOCIX Dusseldorf
+202427:104:2835,Learned at HOUIX
+202427:104:3512,Learned at Frys-IX
+202427:104:3528,Learned at SIIX
+202427:104:3685,Learned at FREMIX
+202427:104:3756,Learned at FogIXP
+202427:104:3829,Learned at BGP.Exchange - Frankfurt
+202427:104:3830,Learned at BGP.Exchange - Zurich
+202427:104:3844,Learned at BGP.Exchange - Dusseldorf
+202427:104:3990,Learned at INTERIX
+202427:104:4059,Learned at ONIX
+# IRR & RPKI
+202427:105:101, IRR Valid
+202427:105:101, IRR Missing
+202427:105:102, IRR Invalid
+202427:105:200, RPKI Valid
+202427:105:201, RPKI Missing
+202427:105:202, RPKI Invalid
 # Peer
 202427:106:nnn,Learned from AS$0
 # PoP - Originated
@@ -59,89 +61,69 @@
 202427:107:6,Originated at BCN01 ES
 202427:107:7,Originated at OTT01 CA
 202427:107:8,Originated at FNC01 US
-202427:107:13,Originated at DUS01 DE
 202427:107:14,Originated at ZRH02 CH
 202427:107:15,Originated at POM01 IT
 # Action
 202427:110:nnn,Do not announce to AS$0
-# Action - Do not announce in [Region]
-202427:111:1,Do not announce in Europe
-202427:111:2,Do not announce in North America
-# Action - Do not announce in [Country]
-202427:112:124,Do not announce in Canada
-#202427:112:208,Do not announce in Denmark
-202427:112:276,Do not announce in Germany
-202427:112:380,Do not announce in Italy
-202427:112:528,Do not announce in Netherlands
-#202427:112:578,Do not announce in Norway
-202427:112:724,Do not announce in Spain
-202427:112:756,Do not announce in Switzerland
-202427:112:840,Do not announce in United States of America
-# Action - Do not announce at [PoP]
-202427:113:1,Do not announce at RMA01 CH
-202427:113:2,Do not announce at FRA01 DE
-202427:113:3,Do not announce at AMS01 NL
-202427:113:4,Do not announce at TOR01 CA
-202427:113:5,Do not announce at MKC01 US
-202427:113:6,Do not announce at BCN01 ES
-202427:113:7,Do not announce at OTT01 CA
-202427:113:8,Do not announce at FNC01 US
-202427:113:13,Do not announce at DUS01 DE
-202427:113:14,Do not announce at ZRH02 CH
-202427:113:15,Do not announce at POM01 IT
-# Action - Announce only in [Region] 
-202427:121:1,Announce only in Europe
-202427:121:2,Announce only in North America
-# Action - Announce only in [Country]
-202427:122:124,Announce only in Canada
-#202427:122:208,Announce only in Denmark
-202427:122:276,Announce only in Germany
-202427:122:380,Announce only in Italy
-202427:122:528,Announce only in Netherlands
-#202427:122:578,Announce only in Norway
-202427:122:724,Announce only in Spain
-202427:122:756,Announce only in Switzerland
-202427:122:840,Announce only in United States of America
-# Action - Announce only at [PoP]
-202427:123:1,Announce only at RMA01 CH
-202427:123:2,Announce only at FRA01 DE
-202427:123:3,Announce only at AMS01 NL
-202427:123:4,Announce only at TOR01 CA
-202427:123:5,Announce only at MKC01 US
-202427:123:6,Announce only at BCN01 ES
-202427:123:7,Announce only at OTT01 CA
-202427:123:8,Announce only at FNC01 US
-202427:123:13,Announce only at DUS01 DE
-202427:123:14,Announce only at ZRH02 CH
-202427:123:15,Announce only at POM01 IT
+# Action - Do not announce in [Region / Country]
+202427:111:3,Do not announce in North America
+202427:111:124,Do not announce in Canada
+202427:111:150,Do not announce in Europe
+202427:111:276,Do not announce in Germany
+202427:111:380,Do not announce in Italy
+202427:111:528,Do not announce in Netherlands
+202427:111:724,Do not announce in Spain
+202427:111:756,Do not announce in Switzerland
+202427:111:840,Do not announce in United States of America
+# Action - Do not announce at [IX]
+202427:112:60,Do not announce at SwissIX
+202427:112:64,Do not announce at NL-ix
+202427:112:249,Do not announce at KCIX
+202427:112:2084,Do not announce at LOCIX Frankfurt
+202427:112:2365,Do not announce at CHIX-CH
+202427:112:2585,Do not announce at STLIX
+202427:112:2730,Do not announce at LOCIX Dusseldorf
+202427:112:2835,Do not announce at HOUIX
+202427:112:3512,Do not announce at Frys-IX
+202427:112:3528,Do not announce at SIIX
+202427:112:3685,Do not announce at FREMIX
+202427:112:3756,Do not announce at FogIXP
+202427:112:3829,Do not announce at BGP.Exchange - Frankfurt
+202427:112:3830,Do not announce at BGP.Exchange - Zurich
+202427:112:3844,Do not announce at BGP.Exchange - Dusseldorf
+202427:112:3990,Do not announce at INTERIX
+202427:112:4059,Do not announce at ONIX
 # Action - Prepand
-202427:130:x,Prepand $0x
-202427:13x:nnn,Prepand $0x to AS$1
-# Action - Prepand in [Region]
-202427:14x:1,Prepand $0x in Europe
-202427:14x:2,Prepand $0x in North America
-# Action - Prepand $0x in [Country]
-202427:15x:124,Prepand $0x in Canada
-#202427:15x:208,Prepand $0x in Denmark
-202427:15x:276,Prepand $0x in Germany
-202427:15x:380,Prepand $0x in Italy
-202427:15x:528,Prepand $0x in Netherlands
-#202427:15x:578,Prepand $0x in Norway
-202427:15x:724,Prepand $0x in Spain
-202427:15x:756,Prepand $0x in Switzerland
-202427:15x:840,Prepand $0x in United States of America
-# Action - Prepand $0x at [PoP]
-202427:16x:1,Prepand $0x at RMA01 CH
-202427:16x:2,Prepand $0x at FRA01 DE
-202427:16x:3,Prepand $0x at AMS01 NL
-202427:16x:4,Prepand $0x at TOR01 CA
-202427:16x:5,Prepand $0x at MKC01 US
-202427:16x:6,Prepand $0x at BCN01 ES
-202427:16x:7,Prepand $0x at OTT01 CA
-202427:16x:8,Prepand $0x at FNC01 US
-202427:16x:13,Prepand $0x at DUS01 DE
-202427:16x:14,Prepand $0x at ZRH02 CH
-202427:16x:15,Prepand $0x at POM01 IT
+202427:120:x,Prepand $0x
+202427:12x:nnn,Prepand $0x to AS$1
+# Action - Prepand $0x in [Region / Country]
+202427:13x:3,Prepand $0x in North America
+202427:13x:124,Prepand $0x in Canada
+202427:13x:150,Prepand $0x in Europe
+202427:13x:276,Prepand $0x in Germany
+202427:13x:380,Prepand $0x in Italy
+202427:13x:528,Prepand $0x in Netherlands
+202427:13x:724,Prepand $0x in Spain
+202427:13x:756,Prepand $0x in Switzerland
+202427:13x:840,Prepand $0x in United States of America
+# Action - Prepand $0x at [IX]
+202427:14x:60,Prepand $0x at SwissIX
+202427:14x:64,Prepand $0x at NL-ix
+202427:14x:249,Prepand $0x at KCIX
+202427:14x:2084,Prepand $0x at LOCIX Frankfurt
+202427:14x:2365,Prepand $0x at CHIX-CH
+202427:14x:2585,Prepand $0x at STLIX
+202427:14x:2730,Prepand $0x at LOCIX Dusseldorf
+202427:14x:2835,Prepand $0x at HOUIX
+202427:14x:3512,Prepand $0x at Frys-IX
+202427:14x:3528,Prepand $0x at SIIX
+202427:14x:3685,Prepand $0x at FREMIX
+202427:14x:3756,Prepand $0x at FogIXP
+202427:14x:3829,Prepand $0x at BGP.Exchange - Frankfurt
+202427:14x:3830,Prepand $0x at BGP.Exchange - Zurich
+202427:14x:3844,Prepand $0x at BGP.Exchange - Dusseldorf
+202427:14x:3990,Prepand $0x at INTERIX
+202427:14x:4059,Prepand $0x at ONIX
 # Temp Debug
 202427:109:1,exp at RMA01 CH
 202427:109:2,exp at FRA01 DE
@@ -151,11 +133,9 @@
 202427:109:6,exp at BCN01 ES
 202427:109:7,exp at OTT01 CA
 202427:109:8,exp at FNC01 US
-202427:109:13,exp at DUS01 DE
 202427:109:14,exp at ZRH02 CH
 202427:109:15,exp at POM01 IT
 # BGP.Tools
-202427:101:2365, bug
 202427:106:13335,Learned from AS13335
 202427:106:15169,Learned from AS15169
 202427:106:200132,Learned from AS200132
@@ -182,4 +162,38 @@
 202427:106:63949,Learned from AS63949
 202427:106:6939,Learned from AS6939
 202427:106:8283,Learned from AS8283
-202427:130:2,Prepand 2x
+202427:106:20940,Learned from AS20940
+202427:106:212855,Learned from AS212855
+202427:106:24940,Learned from AS24940
+202427:106:32934,Learned from AS32934
+202427:106:34307,Learned from AS34307
+202427:106:35297,Learned from AS35297
+202427:106:39614,Learned from AS39614
+202427:106:41051,Learned from AS41051
+202427:106:47498,Learned from AS47498
+202427:106:4775,Learned from AS4775
+202427:106:48200,Learned from AS48200
+202427:106:58511,Learned from AS58511
+202427:104:13, old
+202427:104:14, old
+202427:104:15, old
+202427:104:2, old
+202427:104:3, old
+202427:104:4, old
+202427:104:5, old
+202427:104:6, old
+202427:104:8, old
+202427:105:2084, old
+202427:105:3512, old
+202427:105:3685, old
+202427:105:3756, old
+202427:105:3990, old
+202427:105:4059, old
+202427:105:64, old
+202427:107:13, old
+202427:109:13, old
+202427:110:6939, old
+202427:121:1, old
+202427:122:528, old
+202427:153:276, old
+202427:162:5, old

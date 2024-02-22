@@ -1,12 +1,12 @@
 peeringdb-api-key: ${bcn01-es-pop-peeringdb-api-key}
 log-file: /var/log/bird.log
 global-config: >
-  define pop_region = 1;
+  define pop_region = 150;
   define pop_country = 724;
   define pop_id = 6;
 local-communities:
-  - "202427:101:1"
-  - "202427:107:6" # PoP
+  - "202427:101:1" # Origin
+  - "202427:107:6" # PoP - Originated
 asn: 202427
 prefixes:
 # PoP
@@ -96,6 +96,7 @@ templates:
       - "202427:101:1"
       - "202427:101:5"
     allow-blackhole-community: true
+    strict-rpki: true
     enforce-first-as: false
     enforce-peer-nexthop: false
     filter-max-prefix: false
@@ -158,7 +159,7 @@ templates:
     add-path-tx: true
     add-path-rx: true
     pre-export: >
-     prepand_communitys();
+     process_prepand_general();
      add_on_export();
     announce:
       - "202427:101:3"
@@ -174,7 +175,7 @@ templates:
     add-path-tx: true
     add-path-rx: true
     pre-export: >
-     prepand_communitys();
+     process_prepand_general();
      add_on_export();
     announce:
       - "202427:101:3"
