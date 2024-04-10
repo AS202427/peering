@@ -161,7 +161,6 @@ peers:
 
   John Carlo Olideles ONIX:
     template: peer-onix
-    passive: true
     description: John Carlo Olideles via ONIX
     asn: 200879
     neighbors:
