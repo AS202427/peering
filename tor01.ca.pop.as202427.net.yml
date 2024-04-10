@@ -159,6 +159,15 @@ peers:
       - 2001:504:125:e1::67
     as-set: RIPE::AS212635:AS-212635
 
+  John Carlo Olideles ONIX:
+    template: peer-onix
+    passive: true
+    description: John Carlo Olideles via ONIX
+    asn: 200879
+    neighbors:
+      - 001:504:125:e1::aae
+    as-set: RIPE::AS200879:AS-JCOLIDELES
+
 # ===========================================================
 templates:
   upstream:

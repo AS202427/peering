@@ -250,6 +250,14 @@ peers:
       - 2001:7f8:ca:1:0:20:132:1
     as-set: AS200132:AS-NETONE-NL
 
+  John Carlo Olideles FogIXP:
+    template: peer-fogixp
+    description: John Carlo Olideles via FogIXP
+    asn: 200879
+    neighbors:
+      - 2001:7f8:ca:1:0:20:879:1
+    as-set: RIPE::AS200879:AS-JCOLIDELES
+
 # ========= Peers - LocIX =========
   AS112 LocIX:
     template: peer-locix
