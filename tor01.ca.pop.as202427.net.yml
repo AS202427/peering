@@ -164,7 +164,7 @@ peers:
     description: John Carlo Olideles via ONIX
     asn: 200879
     neighbors:
-      - 001:504:125:e1::aae
+      - 2001:504:125:e1::aae
     as-set: RIPE::AS200879:AS-JCOLIDELES
 
 # ===========================================================
