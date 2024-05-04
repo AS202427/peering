@@ -299,6 +299,13 @@ peers:
       - 2001:7f8:f2:e1:0:21:2635:1
     as-set: RIPE::AS212635:AS-212635
 
+  Route Views Project LocIX:
+    template: peer-locix
+    description: Route Views Project via LocIX
+    asn: 6447
+    neighbors:
+      - 2001:7f8:f2:e1::6447:1
+
 # ========= Peers - NL-ix =========
   Apple NL-ix:
     template: peer-nlix
