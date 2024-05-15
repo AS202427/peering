@@ -37,6 +37,8 @@ peers:
     asn: 21738
     neighbors:
       - 2602:2b7:d11:4713::1
+      - 2602:2b7:40:1::3
+      - 2602:2b7:40:1::4
     local-pref: 120
     listen6: 2602:2b7:d11:4713::247
     as-set: AS-ROZINT
