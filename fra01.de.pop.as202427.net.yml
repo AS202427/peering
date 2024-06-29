@@ -371,6 +371,14 @@ peers:
       - 2001:7f8:ca:1:0:20:879:1
     as-set: RIPE::AS200879:AS-JCOLIDELES
 
+   Goncalo Alves Polido FogIXP:
+    template: peer-fogixp
+    description: Goncalo Alves Polido via FogIXP
+    asn: 214936
+    neighbors:
+      - 2001:7f8:ca:1:0:21:4936:1
+    as-set: RIPE::AS214936:AS-POLIDO
+
 # ========= Peers - LocIX =========
   AS112 LocIX:
     template: peer-locix
