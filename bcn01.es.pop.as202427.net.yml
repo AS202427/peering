@@ -10,7 +10,7 @@ local-communities:
 asn: 202427
 prefixes:
 # PoP
-  - 2a06:a005:28e5::/48 # AS202427-ROUTING-NETWORK
+  - 2a06:a005:28e6::/48 # AS202427-ROUTING-NETWORK
 # Anycasted
   - 2a06:a005:28e0::/48 # AS202427-ROUTING-NETWORK
   - 2a0a:6040:27e0::/43 # EU-AS202427-ANYCASTED
@@ -62,6 +62,135 @@ peers:
     listen4: 45.134.91.154
 
 # ========= Internal =========
+  rma01.ch.1:
+    template: downstream
+    description: rma01.ch pop via GRE
+    asn: 215642
+    neighbors:
+      - 2a06:a005:2900:6:1::1
+    listen6: 2a06:a005:2900:6:1::0
+    as-set: AS215642
+
+  rma01.ch.2:
+    template: downstream
+    description: rma01.ch pop via GRE
+    asn: 215642
+    neighbors:
+      - 2a06:a005:2900:1:6::0
+    listen6: 2a06:a005:2900:1:6::1
+    as-set: AS215642
+
+  fra01.de.1:
+    template: core-gre
+    description: fra01.de pop via GRE
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2900:6:2::1
+    listen6: 2a06:a005:2900:6:2::0
+
+  fra01.de.2:
+    template: core-gre
+    description: fra01.de pop via GRE
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2900:2:6::0
+    listen6: 2a06:a005:2900:2:6::1
+
+  ams01.nl.1:
+    template: core-gre
+    description: ams01.nl pop via GRE
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2900:6:3::1
+    listen6: 2a06:a005:2900:6:3::0
+
+  ams01.nl.2:
+    template: core-gre
+    description: ams01.nl pop via GRE
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2900:3:6::0
+    listen6: 2a06:a005:2900:3:6::1
+
+  tor01.ca.1:
+    template: core-gre
+    description: tor01.ca pop via GRE
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2900:6:4::1
+    listen6: 2a06:a005:2900:6:4::0
+
+  tor01.ca.2:
+    template: core-gre
+    description: tor01.ca pop via GRE
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2900:4:6::0
+    listen6: 2a06:a005:2900:4:6::1
+
+  mkc01.us.1:
+    template: core-gre
+    description: mkc01.us pop via GRE
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2900:6:5::1
+    listen6: 2a06:a005:2900:6:5::0
+
+  mkc01.us.2:
+    template: core-gre
+    description: mkc01.us pop via GRE
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2900:5:6::0
+    listen6: 2a06:a005:2900:5:6::1
+
+  ott01.ca.1:
+    template: core-gre
+    description: ott01.ca pop via GRE
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2900:6:7::1
+    listen6: 2a06:a005:2900:6:7::0
+
+  ott01.ca.2:
+    template: core-gre
+    description: ott01.ca pop via GRE
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2900:7:6::0
+    listen6: 2a06:a005:2900:7:6::1
+
+  fnc01.us.1:
+    template: core-gre
+    description: fnc01.us pop via GRE
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2900:6:8::1
+    listen6: 2a06:a005:2900:6:8::0
+
+  fnc01.us.2:
+    template: core-gre
+    description: fnc01.us pop via GRE
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2900:8:6::0
+    listen6: 2a06:a005:2900:8:6::1
+
+  zrh02.ch.1:
+    template: core-gre
+    description: zrh02.ch pop via GRE
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2900:6:14::1
+    listen6: 2a06:a005:2900:6:14::0
+
+  zrh02.ch.2:
+    template: core-gre
+    description: zrh02.ch pop via GRE
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2900:14:6::0
+    listen6: 2a06:a005:2900:14:6::1
 
 # ========= Route Servers =========
 
@@ -81,6 +210,7 @@ templates:
       - "202427:101:1"
       - "202427:101:5"
     allow-blackhole-community: true
+    strict-rpki: true
     filter-max-prefix: false
     role: customer
 
@@ -129,6 +259,12 @@ templates:
      import_communitys(<pathvector.asn>, 5);
     pre-export: >
      export_communitys(<pathvector.asn>);
+    announce:
+      - "202427:101:1"
+      - "202427:101:2"
+      - "202427:101:3"
+      - "202427:101:4"
+      - "202427:101:5"
     allow-blackhole-community: true
     filter-irr: true
     strict-rpki: true
@@ -150,7 +286,7 @@ templates:
     receive-limit4: 0
     receive-limit6: 0
 
-  core-tunnel:
+  core-gre:
     prepends: 1
     local-pref: 180
     next-hop-self: true

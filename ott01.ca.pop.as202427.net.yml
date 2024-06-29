@@ -1,4 +1,4 @@
-peeringdb-api-key: ${cph01-dk-pop-peeringdb-api-key}
+peeringdb-api-key: ${ott01-ca-pop-peeringdb-api-key}
 log-file: /var/log/bird.log
 global-config: >
   define pop_region = 150;
@@ -63,14 +63,135 @@ peers:
     listen4: 23.130.136.60
 
 # ========= Internal =========
-  ott01.ca pop:
-    template: core-tunnel
-    description: ott01.ca pop via WG
+  rma01.ch.1:
+    template: downstream
+    description: rma01.ch pop via GRE
+    asn: 215642
+    neighbors:
+      - 2a06:a005:2900:7:1::1
+    listen6: 2a06:a005:2900:7:1::0
+    as-set: AS215642
+
+  rma01.ch.2:
+    template: downstream
+    description: rma01.ch pop via GRE
+    asn: 215642
+    neighbors:
+      - 2a06:a005:2900:1:7::0
+    listen6: 2a06:a005:2900:1:7::1
+    as-set: AS215642
+
+  fra01.de.1:
+    template: core-gre
+    description: fra01.de pop via GRE
     asn: 202427
     neighbors:
-      - 2a06:a005:2ef4::1
-    local-pref: 190
-    listen6: 2a06:a005:2ef7::1
+      - 2a06:a005:2900:7:2::1
+    listen6: 2a06:a005:2900:7:2::0
+
+  fra01.de.2:
+    template: core-gre
+    description: fra01.de pop via GRE
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2900:2:7::0
+    listen6: 2a06:a005:2900:2:7::1
+
+  ams01.nl.1:
+    template: core-gre
+    description: ams01.nl pop via GRE
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2900:7:3::1
+    listen6: 2a06:a005:2900:7:3::0
+
+  ams01.nl.2:
+    template: core-gre
+    description: ams01.nl pop via GRE
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2900:3:7::0
+    listen6: 2a06:a005:2900:3:7::1
+
+  tor01.ca.1:
+    template: core-gre
+    description: tor01.ca pop via GRE
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2900:7:4::1
+    listen6: 2a06:a005:2900:7:4::0
+
+  tor01.ca.2:
+    template: core-gre
+    description: tor01.ca pop via GRE
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2900:4:7::0
+    listen6: 2a06:a005:2900:4:7::1
+
+  mkc01.us.1:
+    template: core-gre
+    description: mkc01.us pop via GRE
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2900:7:5::1
+    listen6: 2a06:a005:2900:7:5::0
+
+  mkc01.us.2:
+    template: core-gre
+    description: mkc01.us pop via GRE
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2900:5:7::0
+    listen6: 2a06:a005:2900:5:7::1
+
+  bcn01.es.1:
+    template: core-gre
+    description: bcn01.es pop via GRE
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2900:7:6::1
+    listen6: 2a06:a005:2900:7:6::0
+
+  bcn01.es.2:
+    template: core-gre
+    description: bcn01.es pop via GRE
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2900:6:7::0
+    listen6: 2a06:a005:2900:6:7::1
+
+  fnc01.us.1:
+    template: core-gre
+    description: fnc01.us pop via GRE
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2900:7:8::1
+    listen6: 2a06:a005:2900:7:8::0
+
+  fnc01.us.2:
+    template: core-gre
+    description: fnc01.us pop via GRE
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2900:8:7::0
+    listen6: 2a06:a005:2900:8:7::1
+
+  zrh02.ch.1:
+    template: core-gre
+    description: zrh02.ch pop via GRE
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2900:7:14::1
+    listen6: 2a06:a005:2900:7:14::0
+
+  zrh02.ch.2:
+    template: core-gre
+    description: zrh02.ch pop via GRE
+    asn: 202427
+    neighbors:
+      - 2a06:a005:2900:14:7::0
+    listen6: 2a06:a005:2900:14:7::1
 
 # ========= Route Servers =========
 
@@ -90,6 +211,7 @@ templates:
       - "202427:101:1"
       - "202427:101:5"
     allow-blackhole-community: true
+    strict-rpki: true
     filter-max-prefix: false
     role: customer
 
@@ -138,6 +260,12 @@ templates:
      import_communitys(<pathvector.asn>, 5);
     pre-export: >
      export_communitys(<pathvector.asn>);
+    announce:
+      - "202427:101:1"
+      - "202427:101:2"
+      - "202427:101:3"
+      - "202427:101:4"
+      - "202427:101:5"
     allow-blackhole-community: true
     filter-irr: true
     strict-rpki: true
@@ -159,7 +287,7 @@ templates:
     receive-limit4: 0
     receive-limit6: 0
 
-  core-tunnel:
+  core-gre:
     prepends: 1
     local-pref: 180
     next-hop-self: true

@@ -106,6 +106,7 @@ templates:
       - "202427:101:1"
       - "202427:101:5"
     allow-blackhole-community: true
+    strict-rpki: true
     filter-max-prefix: false
     role: customer
 
@@ -154,6 +155,12 @@ templates:
      import_communitys(<pathvector.asn>, 5);
     pre-export: >
      export_communitys(<pathvector.asn>);
+    announce:
+      - "202427:101:1"
+      - "202427:101:2"
+      - "202427:101:3"
+      - "202427:101:4"
+      - "202427:101:5"
     allow-blackhole-community: true
     filter-irr: true
     strict-rpki: true
@@ -175,7 +182,7 @@ templates:
     receive-limit4: 0
     receive-limit6: 0
 
-  core-tunnel:
+  core-gre:
     prepends: 1
     local-pref: 180
     next-hop-self: true
